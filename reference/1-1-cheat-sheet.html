@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference · The 1:1 Cheat Sheet</title>
+<style>
+  :root{ --ink:#1a1a1a; --soft:#5b5b5b; --rule:#d8d4cc; --bg:#fdfcf9; --accent:#7a3b2e; }
+  *{box-sizing:border-box}
+  body{ background:var(--bg); color:var(--ink); margin:0;
+    font-family:Georgia,"Iowan Old Style",Palatino,serif; line-height:1.5; }
+  .page{ max-width:760px; margin:0 auto; padding:3rem 1.5rem 5rem; }
+  .kicker{ font-family:ui-sans-serif,system-ui,sans-serif; font-size:.72rem;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--accent); }
+  h1{ font-size:2rem; line-height:1.15; margin:.25rem 0 1.4rem; }
+  h2{ font-size:1.15rem; margin:2.2rem 0 .6rem; border-bottom:1px solid var(--rule); padding-bottom:.3rem; }
+  p,li{ font-size:1.02rem; }
+  .soft{ color:var(--soft); }
+  ul{ padding-left:1.1rem; }
+  table{ border-collapse:collapse; width:100%; margin:.6rem 0; font-size:.96rem; }
+  th,td{ text-align:left; vertical-align:top; padding:.5rem .6rem; border-bottom:1px solid var(--rule); }
+  th{ font-family:ui-sans-serif,system-ui,sans-serif; font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--soft); }
+  .q{ background:#fff; border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; margin:.5rem 0; }
+  a{ color:var(--accent); }
+  footer{ margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); font-size:.85rem; color:var(--soft); }
+  @media print{ body{background:#fff} .page{padding:1rem} }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="kicker">Reference · Reusable</div>
+  <h1>The 1:1 Cheat Sheet</h1>
+  <p class="soft">A quick-reference companion to your lessons. Keep it open before each
+  1:1. Compressed from the resources in <a href="../RESOURCES.md">RESOURCES.md</a>.</p>
+
+  <h2>What a 1:1 is for</h2>
+  <p>It is <em>their</em> meeting, not your status update. Status can go async; the 1:1 is for
+  the things that don't fit a ticket: growth, blockers, relationship, and the quiet signals
+  you'd otherwise miss.</p>
+
+  <h2>The three hats (Lara Hogan)</h2>
+  <p>Most 1:1 misfires come from wearing the wrong hat. Match the hat to what the person needs.</p>
+  <table>
+    <tr><th>Hat</th><th>You provide</th><th>Reach for it when…</th></tr>
+    <tr><td><strong>Mentor</strong></td><td>Advice from your own experience</td><td>They lack context you have</td></tr>
+    <tr><td><strong>Coach</strong></td><td>Questions that unlock their thinking</td><td>They have the answer in them</td></tr>
+    <tr><td><strong>Sponsor</strong></td><td>Visibility, opportunity, air cover</td><td>They're ready for more reach</td></tr>
+  </table>
+
+  <h2>Reading the conversation (Rands)</h2>
+  <ul>
+    <li><strong>The Update</strong> — surface status. Useful, but don't let it eat the hour.</li>
+    <li><strong>The Vent</strong> — emotion on the surface, a real problem underneath. Listen for the problem.</li>
+    <li><strong>The Disaster</strong> — the rare, important one. Drop your agenda and dig in.</li>
+  </ul>
+
+  <h2>Go-to questions</h2>
+  <div class="q">"What's on your mind this week?" — let them set the agenda first.</div>
+  <div class="q">"What's slowing you down right now?" — surfaces blockers and frustration.</div>
+  <div class="q">"What would make next week feel like a win?" — orients toward outcomes.</div>
+  <div class="q">"Where do you want to grow, and are we making room for it?" — growth signal.</div>
+  <div class="q">"Is there anything I should be doing differently?" — invites upward feedback.</div>
+
+  <h2>Hygiene</h2>
+  <ul>
+    <li>Weekly to start; protect the slot, don't be the one who cancels.</li>
+    <li>Keep a shared running doc; both of you add items between meetings.</li>
+    <li>Take notes, especially on growth goals — refer back to them later.</li>
+    <li>Default to listening. If you're talking more than half the time, adjust.</li>
+  </ul>
+
+  <footer>
+    Sources: <a href="https://larahogan.me/resources/one-on-ones/">Lara Hogan — One-on-Ones</a> ·
+    <a href="https://randsinrepose.com/archives/the-update-the-vent-and-the-disaster/">Rands — The Update, the Vent, and the Disaster</a> ·
+    <a href="https://www.oreilly.com/library/view/the-managers-path/9781491973882/">Fournier — The Manager's Path</a>.
+    <br>Part of your <a href="../MISSION.md">engineering-management mission</a>.
+  </footer>
+</div>
+</body>
+</html>
