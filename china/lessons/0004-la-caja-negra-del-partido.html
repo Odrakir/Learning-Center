@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 4 · La caja negra del Partido: cómo se decide quién manda</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+:root {
+  --ink:#2b2722; --ink-soft:#5c554c; --paper:#fdfbf6; --rule:#e3ddd2;
+  --accent:#a4232b; --accent-2:#c8961e; --good:#2f7d55; --bad:#b23b3b;
+  --note-bg:#f3eee3; --maxw:42rem;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  line-height:1.62; -webkit-font-smoothing:antialiased; }
+main,.wrap { max-width:var(--maxw); margin:0 auto; padding:3.5rem 1.4rem 6rem; }
+h1,h2,h3 { line-height:1.18; font-weight:600; letter-spacing:-0.01em; }
+h1 { font-size:2.25rem; margin:0 0 0.3rem; }
+h2 { font-size:1.45rem; margin:2.8rem 0 0.6rem; }
+h3 { font-size:1.12rem; margin:1.8rem 0 0.4rem; color:var(--ink-soft); }
+.eyebrow { font-family:ui-sans-serif,system-ui,sans-serif; text-transform:uppercase;
+  letter-spacing:0.16em; font-size:0.72rem; font-weight:700; color:var(--accent); margin:0 0 0.6rem; }
+.subtitle { color:var(--ink-soft); font-style:italic; font-size:1.1rem; margin:0.2rem 0 0; }
+p { margin:0 0 1.1rem; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); }
+a:hover { border-bottom-color:var(--accent); }
+strong { font-weight:700; }
+em.zh { font-style:normal; font-weight:600; color:var(--accent); }
+hr { border:none; border-top:1px solid var(--rule); margin:2.6rem 0; }
+.cite { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; vertical-align:super;
+  color:var(--accent); text-decoration:none; border:none; padding:0 0.1em; }
+blockquote { margin:1.4rem 0; padding:0.2rem 0 0.2rem 1.2rem; border-left:3px solid var(--accent-2);
+  color:var(--ink-soft); font-style:italic; }
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule);
+  border-radius:8px; overflow:hidden; margin:1.6rem 0; font-size:0.95rem; }
+.compare > div { padding:1rem 1.1rem; }
+.compare > div:first-child { background:var(--note-bg); border-right:1px solid var(--rule); }
+.compare h4 { margin:0 0 0.5rem; font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase;
+  font-family:ui-sans-serif,system-ui,sans-serif; }
+.compare ul { margin:0; padding-left:1.1rem; }
+.compare li { margin:0.25rem 0; }
+.note,.keyfact { background:var(--note-bg); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; font-size:0.96rem; }
+.keyfact { border-left:4px solid var(--accent); }
+.keyfact .label,.note .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--accent); display:block; margin-bottom:0.3rem; }
+.timeline { list-style:none; padding:0; margin:1.6rem 0; border-left:2px solid var(--rule); }
+.timeline li { position:relative; padding:0 0 1.3rem 1.5rem; }
+.timeline li::before { content:""; position:absolute; left:-7px; top:0.45rem; width:12px; height:12px;
+  border-radius:50%; background:var(--paper); border:3px solid var(--accent); }
+.timeline .year { font-weight:700; font-family:ui-sans-serif,system-ui,sans-serif; color:var(--accent); }
+.quiz { margin:2rem 0; padding:1.4rem 1.4rem 1.1rem; border:1px solid var(--rule); border-radius:10px; background:#fff; }
+.quiz .q { font-weight:600; margin:0 0 0.9rem; }
+.quiz .opts { display:flex; flex-direction:column; gap:0.5rem; }
+.quiz button.opt { text-align:left; font:inherit; font-size:0.95rem; background:var(--paper);
+  border:1px solid var(--rule); border-radius:7px; padding:0.6rem 0.85rem; cursor:pointer; color:var(--ink);
+  transition:border-color .12s, background .12s; }
+.quiz button.opt:hover { border-color:var(--accent-2); }
+.quiz button.opt:disabled { cursor:default; opacity:0.95; }
+.quiz button.opt.correct { background:#e9f4ee; border-color:var(--good); color:var(--good); font-weight:600; }
+.quiz button.opt.wrong { background:#f8ebeb; border-color:var(--bad); color:var(--bad); }
+.quiz .fb { margin:0.9rem 0 0; font-size:0.92rem; color:var(--ink-soft); min-height:1.2rem; }
+.quiz .fb.show { animation:fade .25s ease; }
+@keyframes fade { from { opacity:0; transform:translateY(3px); } to { opacity:1; } }
+.lesson-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:3rem; padding-top:1.4rem;
+  border-top:1px solid var(--rule); font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; }
+.ask-teacher { margin-top:2.4rem; padding:1rem 1.2rem; border:1px dashed var(--accent-2); border-radius:8px;
+  background:var(--note-bg); font-size:0.92rem; }
+.ask-teacher .label { color:var(--accent-2); }
+.primary-source { margin:2rem 0; padding:1.1rem 1.3rem; border-radius:8px; background:#fff;
+  border:1px solid var(--rule); border-top:4px solid var(--accent-2); }
+.primary-source .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; text-transform:uppercase;
+  letter-spacing:0.12em; font-weight:700; color:var(--accent-2); display:block; margin-bottom:0.3rem; }
+table { border-collapse:collapse; width:100%; margin:1.4rem 0; font-size:0.93rem; }
+th,td { text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid var(--rule); vertical-align:top; }
+th { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.72rem; text-transform:uppercase;
+  letter-spacing:0.08em; color:var(--ink-soft); }
+/* --- pirámide del poder (específico de esta lección, reutilizable) --- */
+.pyramid { list-style:none; margin:1.6rem auto; padding:0; max-width:34rem; }
+.pyramid li { margin:0 auto 0.4rem; padding:0.7rem 1rem; border:1px solid var(--rule);
+  border-radius:8px; background:#fff; text-align:center; }
+.pyramid li .tier { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-soft); display:block; }
+.pyramid li .num { font-weight:700; color:var(--accent); }
+.pyramid li.l5 { width:100%; }
+.pyramid li.l4 { width:82%; }
+.pyramid li.l3 { width:64%; }
+.pyramid li.l2 { width:46%; }
+.pyramid li.l1 { width:30%; background:var(--note-bg); border-color:var(--accent); border-width:2px; }
+@media print { :root { --paper:#fff; } body { font-size:11pt; } .quiz button.opt { border-color:#ccc; }
+  .ask-teacher,.lesson-nav { display:none; } a { color:var(--ink); border:none; } .cite { color:var(--ink-soft); } }
+@media (max-width:540px) { html { font-size:17px; } .compare { grid-template-columns:1fr; }
+  .compare > div:first-child { border-right:none; border-bottom:1px solid var(--rule); }
+  .pyramid li { width:100% !important; } }
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Lección 4 · Entender China</p>
+  <h1>La caja negra del Partido: cómo se decide quién manda</h1>
+  <p class="subtitle">La Lección 3 dejó una pregunta abierta: si Deng blindó el sistema,
+  ¿cómo "eligió" China a Xi y por qué nadie lo frenó? Para responderla hay que abrir el
+  Partido y ver su esqueleto.</p>
+
+  <div class="keyfact">
+    <span class="label">La victoria de hoy</span>
+    Al terminar sabrás dibujar de memoria la <strong>pirámide del poder chino</strong>
+    —de ~99 millones de militantes a 7 hombres— y entenderás el truco que lo explica
+    todo: la pirámide <strong>parece</strong> elegir de abajo arriba, pero el poder fluye
+    de arriba abajo. Eso tiene nombre: <strong>centralismo democrático</strong>.
+  </div>
+
+  <h2>Antes de empezar: rescata esto de memoria</h2>
+  <p>Sin mirar atrás. En la <a href="0003-de-mao-a-xi.html">Lección 3</a> vimos que el
+  cargo de "presidente" es decorativo. <strong>¿Cuál es entonces el cargo que de verdad
+  manda en China?</strong> Piénsalo un segundo… es el <strong><a href="../reference/glosario.html#lider-supremo">Secretario
+  General del PCCh</a></strong>. Toda esta lección explica de dónde sale ese cargo.</p>
+
+  <h2>El número que pone la escala</h2>
+  <p>El <a href="../reference/glosario.html#pcc">Partido Comunista de China</a> tiene
+  <strong>unos 99 millones de militantes</strong><a class="cite" href="#f1">1</a> — más
+  que la población entera de Alemania. Pero ser militante <em>no</em> es tener poder: es
+  el filtro de entrada a la élite, como un club enorme del que sólo unos pocos suben.
+  Para entender quién manda, hay que ver cómo esos 99 millones se concentran, escalón a
+  escalón, en un puñado de personas.</p>
+
+  <h2>La pirámide, de la base a la cúspide</h2>
+  <p>Lee de abajo (mucha gente) hacia arriba (poder real). Cada escalón "elige" al
+  siguiente:<a class="cite" href="#f1">1</a><a class="cite" href="#f2">2</a></p>
+
+  <ul class="pyramid">
+    <li class="l1"><span class="tier">Líder supremo</span><span class="num">1</span> · Secretario General (Xi)</li>
+    <li class="l2"><span class="tier">Comité Permanente del Politburó</span><span class="num">7</span> miembros</li>
+    <li class="l3"><span class="tier">Politburó</span><span class="num">24</span> miembros</li>
+    <li class="l4"><span class="tier">Comité Central</span><span class="num">205</span> miembros plenos</li>
+    <li class="l5"><span class="tier">Congreso Nacional</span><span class="num">~2.300</span> delegados · cada 5 años</li>
+  </ul>
+
+  <p>Quédate con los cuatro nombres y sus tamaños, que es lo que se cita en cualquier
+  análisis de China:</p>
+
+  <table>
+    <thead><tr><th>Órgano</th><th>Tamaño</th><th>Qué es, en una frase</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Congreso Nacional</strong><br><em>(National Congress)</em></td><td>~2.300 delegados</td><td>La gran asamblea ceremonial. Se reúne <strong>una semana cada 5 años</strong> y ratifica lo ya decidido.<a class="cite" href="#f2">2</a></td></tr>
+      <tr><td><strong>Comité Central</strong><br><em>(Central Committee)</em></td><td>205 plenos<br>(+171 suplentes)</td><td>El "consejo de administración" ampliado. Se reúne en <em>plenos</em> ~una vez al año.<a class="cite" href="#f3">3</a></td></tr>
+      <tr><td><strong>Politburó</strong><br><em>(Politburo)</em></td><td>24 miembros</td><td>El núcleo dirigente. Aquí ya estás en la cima de la política china.</td></tr>
+      <tr><td><strong>Comité Permanente</strong><br><em>(Standing Committee, PSC)</em></td><td>7 miembros</td><td>El verdadero gabinete que gobierna el país. Lo preside el Secretario General.<a class="cite" href="#f4">4</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>El truco: parece de abajo arriba, manda de arriba abajo</h2>
+  <p>Sobre el papel, los 2.300 delegados eligen al Comité Central, este al Politburó, y
+  este al Comité Permanente. Parece una escalera democrática. <strong>En la práctica
+  funciona al revés.</strong> Las candidaturas se preparan arriba y los escalones de
+  abajo las <em>ratifican</em>. Por eso votaciones como la de 2018 salen
+  <strong>2.958 a favor, 2 en contra</strong> (la viste en la Lección 3): no es debate,
+  es sello.</p>
+
+  <p>Ese principio tiene nombre oficial: <strong><a href="../reference/glosario.html#centralismo-democratico">centralismo
+  democrático</a></strong>.<a class="cite" href="#f1">1</a> La regla es: <em>se puede
+  discutir antes de decidir; una vez decidido arriba, todos obedecen abajo, sin
+  fisuras.</em> "Democrático" en el debate interno; "centralista" —y eso es lo que pesa—
+  en la obediencia.</p>
+
+  <blockquote>La pirámide no reparte el poder hacia arriba: lo concentra. Cada escalón
+  es más pequeño, más selecto y más obediente al de encima.</blockquote>
+
+  <div class="keyfact">
+    <span class="label">Respuesta a la pregunta de la Lección 3</span>
+    ¿Por qué nadie frenó a Xi? Porque <strong>no existe un escalón con poder real para
+    frenar a la cúspide</strong>. Quien controla el Comité Permanente y el ascenso de
+    cuadros controla toda la cadena hacia abajo. La <a href="#">campaña anticorrupción</a>
+    de Xi, además, apartó a posibles rivales. El sistema de Deng dependía de que la élite
+    <em>quisiera</em> respetarlo; nada lo obligaba.
+  </div>
+
+  <h2>Tu ancla: EEUU vs. China, ¿quién "elige" al jefe?</h2>
+  <div class="compare">
+    <div>
+      <h4>EEUU · de abajo arriba, de verdad</h4>
+      <ul>
+        <li>~340 millones de ciudadanos votan.</li>
+        <li>El voto popular decide quién gobierna.</li>
+        <li>Poderes que se vigilan entre sí (Congreso, Tribunal Supremo).</li>
+        <li>El resultado puede sorprender al poder.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>China · de arriba abajo, en realidad</h4>
+      <ul>
+        <li>~99 millones de militantes, no toda la población.</li>
+        <li>La cúspide elige y la base ratifica.</li>
+        <li>Un solo partido; no hay contrapeso externo.</li>
+        <li>El resultado se conoce antes de "votar".</li>
+      </ul>
+    </div>
+  </div>
+  <p>La idea de fondo que enlaza con la Lección 3: en EEUU las instituciones limitan a
+  quien manda; en China, la pirámide <strong>amplifica</strong> a quien ya está arriba.
+  Por eso un solo hombre puede, como Xi, recentralizar el poder sin romper formalmente
+  ninguna regla.</p>
+
+  <!-- ====================== RETRIEVAL PRACTICE ====================== -->
+  <h2>Compruébalo (sin mirar arriba)</h2>
+  <p>De memoria. Como siempre, cuelo una pregunta de lecciones anteriores: recordar lo
+  viejo mientras fijas lo nuevo es lo que construye memoria duradera.</p>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">1. ¿Cuántos miembros tiene el órgano que de verdad gobierna, el Comité Permanente?</p>
+    <div class="opts">
+      <button class="opt">Veinticuatro miembros del país</button>
+      <button class="opt">Siete miembros del país</button>
+      <button class="opt">Dos mil delegados del país</button>
+      <button class="opt">Noventa millones del país</button>
+    </div>
+    <p class="fb"
+       data-ok="Eso es: 7 personas en el Comité Permanente, presididas por el Secretario General."
+       data-no="Son 7. El Politburó tiene 24; el Comité Permanente, su núcleo, sólo 7."></p>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <p class="q">2. ¿Cuál es el orden correcto, de la base a la cúspide?</p>
+    <div class="opts">
+      <button class="opt">Politburó, Congreso, Comité Central, Permanente</button>
+      <button class="opt">Comité Permanente, Politburó, Congreso, Central</button>
+      <button class="opt">Comité Central, Congreso, Permanente, Politburó</button>
+      <button class="opt">Congreso, Comité Central, Politburó, Permanente</button>
+    </div>
+    <p class="fb"
+       data-ok="Perfecto: Congreso (~2.300) → Comité Central (205) → Politburó (24) → Permanente (7)."
+       data-no="De base a cima: Congreso → Comité Central → Politburó → Comité Permanente."></p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <p class="q">3. El "centralismo democrático" significa, en la práctica, que...</p>
+    <div class="opts">
+      <button class="opt">La cúspide decide y la base obedece</button>
+      <button class="opt">La base decide y la cúspide obedece</button>
+      <button class="opt">Varios partidos compiten por votos</button>
+      <button class="opt">Los jueces revisan cada decisión</button>
+    </div>
+    <p class="fb"
+       data-ok="Correcto: se debate antes, pero una vez decidido arriba, todos obedecen abajo."
+       data-no="Es de arriba abajo: la cúspide decide y la base ratifica y obedece sin fisuras."></p>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">4. Repaso L3: ¿cuál es el cargo que de verdad otorga el poder máximo?</p>
+    <div class="opts">
+      <button class="opt">El de presidente de la nación</button>
+      <button class="opt">El de jefe del Parlamento</button>
+      <button class="opt">El de Secretario General</button>
+      <button class="opt">El de alcalde de Pekín</button>
+    </div>
+    <p class="fb"
+       data-ok="¡Memoria fina! Secretario General del PCCh (+ la Comisión Militar Central). La presidencia es ceremonial."
+       data-no="Recuerda L3: manda el Secretario General del Partido, no el 'presidente', que es ceremonial."></p>
+  </div>
+
+  <!-- ====================== FUENTE PRIMARIA ====================== -->
+  <div class="primary-source">
+    <span class="label">Fuente primaria recomendada</span>
+    <p style="margin:0 0 .4rem"><strong>"How China is ruled: The Communist Party"</strong> y los
+    diagramas de estructura del PCCh — <em>BBC / ChinaPower (CSIS)</em>.</p>
+    <p style="margin:0; font-size:0.9rem; color:var(--ink-soft)">Explicaciones visuales y
+    fiables de la pirámide del poder: ideales para fijar de un vistazo los cuatro órganos
+    y sus tamaños.
+    <a href="https://chinapower.csis.org/chinese-communist-party-ccp/">Ver ChinaPower →</a></p>
+  </div>
+
+  <!-- ====================== PREGUNTAR AL PROFE ====================== -->
+  <div class="ask-teacher">
+    <span class="label">Soy tu profesor — pregúntame</span>
+    ¿Qué fue exactamente la campaña anticorrupción y cómo sirvió a Xi para apartar
+    rivales? ¿Cómo se asciende dentro del Partido (los "cuadros")? ¿Qué diferencia hay
+    entre el Partido y el Estado (el gobierno)? Pregúntame lo que quieras antes de pasar
+    a la próxima lección: el milagro económico por dentro.
+  </div>
+
+  <!-- ====================== NOTAS / CITAS ====================== -->
+  <hr>
+  <h3>Notas y fuentes</h3>
+  <ol style="font-size:0.82rem; color:var(--ink-soft); line-height:1.5">
+    <li id="f1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Chinese_Communist_Party">"Chinese Communist Party"</a> — más de ~99–100 millones de militantes (2024); estructura por centralismo democrático (discusión interna, unidad obligatoria al ejecutar).</li>
+    <li id="f2">Wikipedia, <a href="https://en.wikipedia.org/wiki/20th_National_Congress_of_the_Chinese_Communist_Party">"20th National Congress of the CCP"</a> — 2.296 delegados elegidos (2022), en representación de 96,7 millones de militantes; el Congreso se reúne cada cinco años.</li>
+    <li id="f3">Wikipedia, <a href="https://en.wikipedia.org/wiki/20th_Central_Committee_of_the_Chinese_Communist_Party">"20th Central Committee of the CCP"</a> — 205 miembros plenos y 171 suplentes.</li>
+    <li id="f4">Wikipedia, <a href="https://en.wikipedia.org/wiki/20th_Politburo_Standing_Committee_of_the_Chinese_Communist_Party">"20th Politburo Standing Committee"</a> — Politburó de 24 miembros con un Comité Permanente de 7, encabezado por Xi Jinping como Secretario General (elegido el 23 de octubre de 2022).</li>
+  </ol>
+
+  <nav class="lesson-nav">
+    <span><a href="0003-de-mao-a-xi.html">← Lección 3: De Mao a Xi</a></span>
+    <span><a href="../reference/glosario.html">Glosario del curso →</a></span>
+  </nav>
+
+</main>
+
+<script>
+/* === Incrustado desde assets/quiz.js === */
+(function () {
+  function initQuiz(quiz) {
+    var correct = parseInt(quiz.getAttribute("data-correct"), 10);
+    var opts = Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    var fb = quiz.querySelector(".fb");
+    var answered = false;
+    opts.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (answered) return;
+        answered = true;
+        opts.forEach(function (b, j) { b.disabled = true; if (j === correct) b.classList.add("correct"); });
+        if (i !== correct) btn.classList.add("wrong");
+        if (fb) {
+          var msg = i === correct ? (fb.getAttribute("data-ok") || "Correcto.")
+                                  : (fb.getAttribute("data-no") || "Repasa la respuesta correcta marcada arriba.");
+          fb.textContent = msg; fb.classList.add("show");
+        }
+      });
+    });
+  }
+  function ready(fn){ if (document.readyState !== "loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
+  ready(function(){ Array.prototype.slice.call(document.querySelectorAll(".quiz")).forEach(initQuiz); });
+})();
+</script>
+</body>
+</html>

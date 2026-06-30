@@ -1,0 +1,191 @@
+/* =========================================================================
+   Curso: Entender China — hoja de estilo compartida
+   Inspiración: Tufte. Tipografía legible, márgenes generosos, imprimible.
+   Cargada por todas las lecciones y documentos de referencia.
+   ========================================================================= */
+
+:root {
+  --ink:        #2b2722;   /* texto principal, casi negro cálido */
+  --ink-soft:   #5c554c;   /* texto secundario */
+  --paper:      #fdfbf6;   /* fondo crema (papel) */
+  --rule:       #e3ddd2;   /* líneas y bordes */
+  --accent:     #a4232b;   /* rojo chino, para acentos */
+  --accent-2:   #c8961e;   /* dorado, secundario */
+  --good:       #2f7d55;   /* feedback correcto */
+  --bad:        #b23b3b;   /* feedback incorrecto */
+  --note-bg:    #f3eee3;   /* fondo de cajas / notas */
+  --maxw:       42rem;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 19px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+main, .wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 3.5rem 1.4rem 6rem;
+}
+
+/* ---- Encabezados ---- */
+h1, h2, h3 { line-height: 1.18; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: 2.25rem; margin: 0 0 0.3rem; }
+h2 { font-size: 1.45rem; margin: 2.8rem 0 0.6rem; }
+h3 { font-size: 1.12rem; margin: 1.8rem 0 0.4rem; color: var(--ink-soft); }
+
+.eyebrow {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+.subtitle { color: var(--ink-soft); font-style: italic; font-size: 1.1rem; margin: 0.2rem 0 0; }
+
+/* ---- Texto ---- */
+p { margin: 0 0 1.1rem; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-bottom-color: var(--accent); }
+strong { font-weight: 700; }
+em.zh { font-style: normal; font-weight: 600; color: var(--accent); }  /* chino / pinyin */
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.6rem 0; }
+
+/* ---- Citas y notas al margen ---- */
+.cite {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.7rem;
+  vertical-align: super;
+  color: var(--accent);
+  text-decoration: none;
+  border: none;
+  padding: 0 0.1em;
+}
+blockquote {
+  margin: 1.4rem 0;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  border-left: 3px solid var(--accent-2);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---- Caja de comparación EEUU vs China (firma del curso) ---- */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.6rem 0;
+  font-size: 0.95rem;
+}
+.compare > div { padding: 1rem 1.1rem; }
+.compare > div:first-child { background: var(--note-bg); border-right: 1px solid var(--rule); }
+.compare h4 {
+  margin: 0 0 0.5rem; font-size: 0.74rem; letter-spacing: 0.12em;
+  text-transform: uppercase; font-family: ui-sans-serif, system-ui, sans-serif;
+}
+.compare ul { margin: 0; padding-left: 1.1rem; }
+.compare li { margin: 0.25rem 0; }
+
+/* ---- Caja de nota / dato clave ---- */
+.note, .keyfact {
+  background: var(--note-bg);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.keyfact { border-left: 4px solid var(--accent); }
+.keyfact .label, .note .label {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+  font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.3rem;
+}
+
+/* ---- Línea temporal ---- */
+.timeline { list-style: none; padding: 0; margin: 1.6rem 0; border-left: 2px solid var(--rule); }
+.timeline li { position: relative; padding: 0 0 1.3rem 1.5rem; }
+.timeline li::before {
+  content: ""; position: absolute; left: -7px; top: 0.45rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--paper); border: 3px solid var(--accent);
+}
+.timeline .year { font-weight: 700; font-family: ui-sans-serif, system-ui, sans-serif; color: var(--accent); }
+
+/* ---- Quiz (componente interactivo) ---- */
+/* Estilos consumidos por assets/quiz.js */
+.quiz { margin: 2rem 0; padding: 1.4rem 1.4rem 1.1rem; border: 1px solid var(--rule); border-radius: 10px; background: #fff; }
+.quiz .q { font-weight: 600; margin: 0 0 0.9rem; }
+.quiz .opts { display: flex; flex-direction: column; gap: 0.5rem; }
+.quiz button.opt {
+  text-align: left; font: inherit; font-size: 0.95rem;
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 7px;
+  padding: 0.6rem 0.85rem; cursor: pointer; color: var(--ink); transition: border-color .12s, background .12s;
+}
+.quiz button.opt:hover { border-color: var(--accent-2); }
+.quiz button.opt:disabled { cursor: default; opacity: 0.95; }
+.quiz button.opt.correct { background: #e9f4ee; border-color: var(--good); color: var(--good); font-weight: 600; }
+.quiz button.opt.wrong   { background: #f8ebeb; border-color: var(--bad);  color: var(--bad); }
+.quiz .fb { margin: 0.9rem 0 0; font-size: 0.92rem; color: var(--ink-soft); min-height: 1.2rem; }
+.quiz .fb.show { animation: fade .25s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; } }
+
+/* ---- Navegación entre lecciones ---- */
+.lesson-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);
+  font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.85rem;
+}
+
+/* ---- Pie / recordatorio de preguntar al profesor ---- */
+.ask-teacher {
+  margin-top: 2.4rem; padding: 1rem 1.2rem; border: 1px dashed var(--accent-2);
+  border-radius: 8px; background: var(--note-bg); font-size: 0.92rem;
+}
+.ask-teacher .label { color: var(--accent-2); }
+
+/* ---- Fuente primaria recomendada ---- */
+.primary-source {
+  margin: 2rem 0; padding: 1.1rem 1.3rem; border-radius: 8px;
+  background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--accent-2);
+}
+.primary-source .label {
+  font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
+  color: var(--accent-2); display: block; margin-bottom: 0.3rem;
+}
+
+/* ---- Tabla simple ---- */
+table { border-collapse: collapse; width: 100%; margin: 1.4rem 0; font-size: 0.93rem; }
+th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--rule); }
+th { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+
+/* ---- Impresión ---- */
+@media print {
+  :root { --paper: #fff; }
+  body { font-size: 11pt; }
+  .quiz button.opt { border-color: #ccc; }
+  .ask-teacher, .lesson-nav { display: none; }
+  a { color: var(--ink); border: none; }
+  .cite { color: var(--ink-soft); }
+}
+
+@media (max-width: 540px) {
+  html { font-size: 17px; }
+  .compare { grid-template-columns: 1fr; }
+  .compare > div:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+}

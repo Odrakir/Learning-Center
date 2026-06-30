@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glosario — Entender China</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+/* =========================================================================
+   Curso: Entender China — hoja de estilo compartida
+   Inspiración: Tufte. Tipografía legible, márgenes generosos, imprimible.
+   Cargada por todas las lecciones y documentos de referencia.
+   ========================================================================= */
+
+:root {
+  --ink:        #2b2722;   /* texto principal, casi negro cálido */
+  --ink-soft:   #5c554c;   /* texto secundario */
+  --paper:      #fdfbf6;   /* fondo crema (papel) */
+  --rule:       #e3ddd2;   /* líneas y bordes */
+  --accent:     #a4232b;   /* rojo chino, para acentos */
+  --accent-2:   #c8961e;   /* dorado, secundario */
+  --good:       #2f7d55;   /* feedback correcto */
+  --bad:        #b23b3b;   /* feedback incorrecto */
+  --note-bg:    #f3eee3;   /* fondo de cajas / notas */
+  --maxw:       42rem;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 19px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+main, .wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 3.5rem 1.4rem 6rem;
+}
+
+/* ---- Encabezados ---- */
+h1, h2, h3 { line-height: 1.18; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: 2.25rem; margin: 0 0 0.3rem; }
+h2 { font-size: 1.45rem; margin: 2.8rem 0 0.6rem; }
+h3 { font-size: 1.12rem; margin: 1.8rem 0 0.4rem; color: var(--ink-soft); }
+
+.eyebrow {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+.subtitle { color: var(--ink-soft); font-style: italic; font-size: 1.1rem; margin: 0.2rem 0 0; }
+
+/* ---- Texto ---- */
+p { margin: 0 0 1.1rem; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-bottom-color: var(--accent); }
+strong { font-weight: 700; }
+em.zh { font-style: normal; font-weight: 600; color: var(--accent); }  /* chino / pinyin */
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.6rem 0; }
+
+/* ---- Citas y notas al margen ---- */
+.cite {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.7rem;
+  vertical-align: super;
+  color: var(--accent);
+  text-decoration: none;
+  border: none;
+  padding: 0 0.1em;
+}
+blockquote {
+  margin: 1.4rem 0;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  border-left: 3px solid var(--accent-2);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---- Caja de comparación EEUU vs China (firma del curso) ---- */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.6rem 0;
+  font-size: 0.95rem;
+}
+.compare > div { padding: 1rem 1.1rem; }
+.compare > div:first-child { background: var(--note-bg); border-right: 1px solid var(--rule); }
+.compare h4 {
+  margin: 0 0 0.5rem; font-size: 0.74rem; letter-spacing: 0.12em;
+  text-transform: uppercase; font-family: ui-sans-serif, system-ui, sans-serif;
+}
+.compare ul { margin: 0; padding-left: 1.1rem; }
+.compare li { margin: 0.25rem 0; }
+
+/* ---- Caja de nota / dato clave ---- */
+.note, .keyfact {
+  background: var(--note-bg);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.keyfact { border-left: 4px solid var(--accent); }
+.keyfact .label, .note .label {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+  font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.3rem;
+}
+
+/* ---- Línea temporal ---- */
+.timeline { list-style: none; padding: 0; margin: 1.6rem 0; border-left: 2px solid var(--rule); }
+.timeline li { position: relative; padding: 0 0 1.3rem 1.5rem; }
+.timeline li::before {
+  content: ""; position: absolute; left: -7px; top: 0.45rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--paper); border: 3px solid var(--accent);
+}
+.timeline .year { font-weight: 700; font-family: ui-sans-serif, system-ui, sans-serif; color: var(--accent); }
+
+/* ---- Quiz (componente interactivo) ---- */
+/* Estilos consumidos por assets/quiz.js */
+.quiz { margin: 2rem 0; padding: 1.4rem 1.4rem 1.1rem; border: 1px solid var(--rule); border-radius: 10px; background: #fff; }
+.quiz .q { font-weight: 600; margin: 0 0 0.9rem; }
+.quiz .opts { display: flex; flex-direction: column; gap: 0.5rem; }
+.quiz button.opt {
+  text-align: left; font: inherit; font-size: 0.95rem;
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 7px;
+  padding: 0.6rem 0.85rem; cursor: pointer; color: var(--ink); transition: border-color .12s, background .12s;
+}
+.quiz button.opt:hover { border-color: var(--accent-2); }
+.quiz button.opt:disabled { cursor: default; opacity: 0.95; }
+.quiz button.opt.correct { background: #e9f4ee; border-color: var(--good); color: var(--good); font-weight: 600; }
+.quiz button.opt.wrong   { background: #f8ebeb; border-color: var(--bad);  color: var(--bad); }
+.quiz .fb { margin: 0.9rem 0 0; font-size: 0.92rem; color: var(--ink-soft); min-height: 1.2rem; }
+.quiz .fb.show { animation: fade .25s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; } }
+
+/* ---- Navegación entre lecciones ---- */
+.lesson-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);
+  font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.85rem;
+}
+
+/* ---- Pie / recordatorio de preguntar al profesor ---- */
+.ask-teacher {
+  margin-top: 2.4rem; padding: 1rem 1.2rem; border: 1px dashed var(--accent-2);
+  border-radius: 8px; background: var(--note-bg); font-size: 0.92rem;
+}
+.ask-teacher .label { color: var(--accent-2); }
+
+/* ---- Fuente primaria recomendada ---- */
+.primary-source {
+  margin: 2rem 0; padding: 1.1rem 1.3rem; border-radius: 8px;
+  background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--accent-2);
+}
+.primary-source .label {
+  font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
+  color: var(--accent-2); display: block; margin-bottom: 0.3rem;
+}
+
+/* ---- Tabla simple ---- */
+table { border-collapse: collapse; width: 100%; margin: 1.4rem 0; font-size: 0.93rem; }
+th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--rule); }
+th { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+
+/* ---- Impresión ---- */
+@media print {
+  :root { --paper: #fff; }
+  body { font-size: 11pt; }
+  .quiz button.opt { border-color: #ccc; }
+  .ask-teacher, .lesson-nav { display: none; }
+  a { color: var(--ink); border: none; }
+  .cite { color: var(--ink-soft); }
+}
+
+@media (max-width: 540px) {
+  html { font-size: 17px; }
+  .compare { grid-template-columns: 1fr; }
+  .compare > div:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+
+</style>
+<style>
+  .term { margin: 1.4rem 0; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule); }
+  .term h3 { margin: 0 0 0.2rem; color: var(--ink); }
+  .term .pinyin { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.85rem; color: var(--accent); }
+  .term .hanzi { font-size: 1.1rem; color: var(--ink-soft); margin-left: 0.4rem; }
+  .toc { columns: 2; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.9rem; }
+  @media (max-width: 540px){ .toc { columns: 1; } }
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Referencia · Curso Entender China</p>
+  <h1>Glosario</h1>
+  <p class="subtitle">El vocabulario base del curso. Términos en español, con su forma
+  original en pinyin y caracteres (汉字) cuando aplique. Vuelve aquí siempre que un
+  término te suene a medias.</p>
+
+  <hr>
+
+  <div class="term" id="rpc">
+    <h3>RPC — República Popular China <span class="pinyin">(People's Republic of China, PRC)</span></h3>
+    <p>El Estado fundado el <strong>1 de octubre de 1949</strong> por el Partido
+    Comunista tras ganar la guerra civil. Es "la China" de la que hablamos hoy. No
+    confundir con la <a href="#roc">República de China (Taiwán)</a>.</p>
+  </div>
+
+  <div class="term" id="roc">
+    <h3>República de China <span class="pinyin">(ROC) — Taiwán</span></h3>
+    <p>El Estado que gobernaba China antes de 1949. Tras perder la guerra civil, su
+    gobierno (el Kuomintang) se refugió en la isla de <strong>Taiwán</strong>, donde
+    sigue. Origen de la disputa sobre "qué es China".</p>
+  </div>
+
+  <div class="term" id="pcc">
+    <h3>PCCh — Partido Comunista de China <span class="pinyin">(CCP)</span> <span class="hanzi">中国共产党</span></h3>
+    <p>El partido único que gobierna la RPC desde 1949. Fundado en 1921. No es un
+    partido al estilo occidental: es la columna vertebral del Estado. ~99 millones de
+    miembros. Lo veremos en detalle en una lección futura.</p>
+  </div>
+
+  <div class="term" id="mao">
+    <h3>Mao Zedong <span class="pinyin">(Máo Zédōng)</span> <span class="hanzi">毛泽东</span></h3>
+    <p>Líder fundador de la RPC (1949–1976). Unificó el país pero sus campañas —el
+    <a href="#gran-salto">Gran Salto Adelante</a> y la
+    <a href="#revolucion-cultural">Revolución Cultural</a>— causaron decenas de
+    millones de muertes y dejaron a China empobrecida.</p>
+  </div>
+
+  <div class="term" id="deng">
+    <h3>Deng Xiaoping <span class="pinyin">(Dèng Xiǎopíng)</span> <span class="hanzi">邓小平</span></h3>
+    <p>Líder de facto desde 1978. Arquitecto de la <a href="#gaige">Reforma y
+    Apertura</a>. Pragmático: «no importa si el gato es blanco o negro, mientras cace
+    ratones». Inició la transformación de China en potencia económica.</p>
+  </div>
+
+  <div class="term" id="lider-supremo">
+    <h3>Líder supremo <span class="pinyin">(paramount leader)</span></h3>
+    <p>El que de verdad manda en China. No es un cargo formal único, sino la suma de
+    poder real: <strong>Secretario General del PCCh</strong> (jefe del Partido) +
+    <strong>Presidente de la Comisión Militar Central</strong> (mando del ejército),
+    más la presidencia del Estado (ceremonial). El "presidente" sin los otros dos
+    sombreros pinta poco. Generaciones: Mao → Deng → Jiang → Hu → Xi.</p>
+  </div>
+
+  <div class="term" id="liderazgo-colectivo">
+    <h3>Liderazgo colectivo <span class="pinyin">(collective leadership)</span></h3>
+    <p>Principio que Deng instauró tras Mao: las grandes decisiones las toma un comité
+    (el Comité Permanente del Politburó), no un solo hombre. Junto a los límites de
+    mandato y la jubilación obligatoria, era el cortafuegos contra un "nuevo Mao". Xi
+    lo ha erosionado al concentrar el poder en su persona.</p>
+  </div>
+
+  <div class="term" id="centralismo-democratico">
+    <h3>Centralismo democrático <span class="pinyin">(democratic centralism)</span></h3>
+    <p>Principio organizativo del <a href="#pcc">PCCh</a>: se puede discutir antes de
+    tomar una decisión, pero una vez decidida arriba, todos los niveles la acatan sin
+    fisuras. Explica por qué la pirámide del Partido —Congreso → Comité Central →
+    Politburó → Comité Permanente— <strong>parece</strong> elegir de abajo arriba pero
+    en realidad el poder fluye de arriba abajo.</p>
+  </div>
+
+  <div class="term" id="pensamiento-xi">
+    <h3>Pensamiento Xi Jinping <span class="hanzi">习近平思想</span></h3>
+    <p>"Pensamiento Xi Jinping sobre el socialismo con características chinas para una
+    nueva era". Inscrito en la Constitución del Partido en 2017 — un honor en vida que
+    no se concedía desde Mao. Señal del regreso al poder personalista.</p>
+  </div>
+
+  <div class="term" id="gaige">
+    <h3>Reforma y Apertura <span class="pinyin">(Gǎigé Kāifàng)</span> <span class="hanzi">改革开放</span></h3>
+    <p>El giro de política lanzado en <strong>diciembre de 1978</strong> que abrió
+    China al mercado y al exterior: descolectivizó el campo, permitió empresas
+    privadas y atrajo inversión extranjera vía <a href="#sez">Zonas Económicas
+    Especiales</a>. Es el acontecimiento que explica el ascenso de China.</p>
+  </div>
+
+  <div class="term" id="sez">
+    <h3>Zona Económica Especial <span class="pinyin">(SEZ)</span></h3>
+    <p>Regiones —empezando por <strong>Shenzhen</strong> en 1980— donde se
+    experimentó con reglas de mercado, incentivos fiscales e inversión extranjera.
+    Laboratorios del capitalismo dentro de un Estado comunista. Shenzhen pasó de
+    pueblo pesquero a megaciudad tecnológica.</p>
+  </div>
+
+  <div class="term" id="fabrica-del-mundo">
+    <h3>La fábrica del mundo <span class="pinyin">(world's factory)</span></h3>
+    <p>Apodo de China por su dominio manufacturero: produce <strong>~30% de la
+    manufactura mundial</strong> (era ~5% en 1980), más que EEUU, Japón y Alemania
+    juntos. Raíz de su músculo exportador y de la dependencia global de sus fábricas.</p>
+  </div>
+
+  <div class="term" id="crisis-inmobiliaria">
+    <h3>Crisis inmobiliaria <span class="pinyin">(property crisis)</span></h3>
+    <p>La resaca del modelo de crecimiento por construcción: el inmobiliario llegó a
+    pesar <strong>25-30% del PIB</strong>. Las promotoras se endeudaron en exceso;
+    <strong>Evergrande</strong> (~300.000 M$ de deuda) fue liquidada en enero de 2024.
+    Hoy lastra el crecimiento chino.</p>
+  </div>
+
+  <div class="term" id="siglo-humillacion">
+    <h3>Siglo de la humillación <span class="pinyin">(~1839-1949)</span></h3>
+    <p>El período en que China, antes civilización líder, fue derrotada (Guerras del
+    Opio), troceada por potencias europeas y Japón y humillada en su suelo. El relato
+    histórico que el <a href="#pcc">Partido</a> dice haber cerrado. Clave para entender
+    qué quiere China.</p>
+  </div>
+
+  <div class="term" id="rejuvenecimiento">
+    <h3>Rejuvenecimiento nacional / Sueño Chino <span class="hanzi">中国梦</span></h3>
+    <p>El gran objetivo que ordena la política exterior china: borrar el
+    <a href="#siglo-humillacion">siglo de la humillación</a> y devolver a China a su
+    lugar central, con meta simbólica en <strong>2049</strong> (centenario de la RPC).
+    Eslogan asociado a Xi.</p>
+  </div>
+
+  <div class="term" id="una-china">
+    <h3>Política de "Una sola China" <span class="pinyin">(One China policy)</span></h3>
+    <p>Condición diplomática de Pekín: para tener relaciones con la RPC hay que aceptar
+    que solo existe una China y que <a href="#roc">Taiwán</a> forma parte de ella. Por
+    eso Taiwán está casi aislado pese a funcionar como país de facto.</p>
+  </div>
+
+  <div class="term" id="bri">
+    <h3>Nueva Ruta de la Seda <span class="pinyin">(Belt and Road Initiative, BRI)</span></h3>
+    <p>Plan lanzado por Xi en <strong>2013</strong> para financiar infraestructura
+    (puertos, ferrocarriles, centrales) en <strong>+150 países</strong> (~1 billón $ en
+    su primera década). Proyecta el músculo de <a href="#fabrica-del-mundo">la fábrica
+    del mundo</a> al exterior. Críticos: "trampa de la deuda".</p>
+  </div>
+
+  <div class="term" id="mic2025">
+    <h3>Made in China 2025 <span class="pinyin">(2015)</span></h3>
+    <p>Plan para fabricar en casa la alta tecnología —sobre todo
+    <strong>semiconductores</strong>— y no depender de Occidente. Meta del 70% de
+    autosuficiencia en chips incumplida (~50%) por los controles de exportación de EEUU.
+    Frente central de la rivalidad EEUU-China.</p>
+  </div>
+
+  <div class="term" id="hukou">
+    <h3>Hukou <span class="pinyin">(户口)</span></h3>
+    <p>El <strong>registro de hogar</strong> implantado en los años 50. Asigna a cada
+    persona un lugar y una categoría (<strong>rural</strong> o <strong>urbano</strong>)
+    y ata a ellos sus derechos: escuela, sanidad, pensión, vivienda. Como un pasaporte
+    interno: puedes trabajar en cualquier ciudad, pero solo eres ciudadano de pleno
+    derecho donde tienes el hukou. Crea las "dos Chinas".</p>
+  </div>
+
+  <div class="term" id="mingong">
+    <h3>Trabajador migrante <span class="pinyin">(nóngmíngōng, 农民工)</span></h3>
+    <p>Campesino con <a href="#hukou">hukou</a> rural que emigra a las ciudades a
+    fabricar, construir y servir. Son ~<strong>300 millones</strong> (más de un tercio de
+    la mano de obra). Levantaron <a href="#fabrica-del-mundo">la fábrica del mundo</a>,
+    pero en la ciudad son ciudadanos de segunda: sin pleno acceso a servicios.</p>
+  </div>
+
+  <div class="term" id="gran-salto">
+    <h3>Gran Salto Adelante <span class="pinyin">(1958–1962)</span></h3>
+    <p>Campaña de Mao para industrializar a marchas forzadas. Provocó la mayor
+    hambruna de la historia: se estiman entre 15 y 45 millones de muertos. Símbolo del
+    fracaso de la planificación central radical.</p>
+  </div>
+
+  <div class="term" id="revolucion-cultural">
+    <h3>Revolución Cultural <span class="pinyin">(1966–1976)</span></h3>
+    <p>Campaña de Mao para purgar a "enemigos de clase" y rivales. Una década de caos,
+    persecución y colapso educativo. Terminó con su muerte en 1976 y dejó el terreno
+    listo para las reformas de Deng.</p>
+  </div>
+
+  <div class="term" id="linea-hu">
+    <h3>Línea de Hu <span class="pinyin">(Heihe–Tengchong Line)</span></h3>
+    <p>Línea diagonal imaginaria (de Heihe, NE, a Tengchong, SO) trazada por el
+    geógrafo <strong>Hu Huanyong</strong> en 1935. Divide China: el <strong>43% del
+    territorio al este concentra el 94% de la población</strong>; el 57% al oeste, solo
+    el 6%. La proporción apenas cambia en casi un siglo.</p>
+  </div>
+
+  <div class="term" id="region-autonoma">
+    <h3>Región autónoma <span class="pinyin">(autonomous region)</span></h3>
+    <p>Una de las 5 grandes divisiones con población de mayoría étnica no-han, como
+    <strong>Tíbet</strong> y <strong>Xinjiang</strong>. En teoría tienen autogobierno;
+    en la práctica, Pekín las controla de cerca por su valor estratégico y sus
+    tensiones étnicas. Frente a las 22 provincias y 4 municipios directos (Pekín,
+    Shanghái, Tianjin, Chongqing).</p>
+  </div>
+
+  <div class="term" id="rios">
+    <h3>Yangtsé y Río Amarillo <span class="pinyin">(Cháng Jiāng / Huáng Hé)</span></h3>
+    <p>Los dos grandes ríos de China, ambos del este habitado. El <strong>Yangtsé</strong>
+    (~6.300 km) es el más largo de Asia. El <strong>Río Amarillo</strong> es la cuna de
+    la civilización china. Riegan las llanuras donde vive la mayoría.</p>
+  </div>
+
+  <div class="term" id="pib">
+    <h3>PIB / GDP — escala</h3>
+    <p>Referencia útil: el PIB chino pasó de <strong>~150.000 millones $ en 1978</strong>
+    a <strong>~18,7 billones $ en 2024</strong>. Hoy es la <strong>2ª economía</strong>
+    del mundo (1ª por paridad de poder adquisitivo). EEUU sigue 1ª en PIB nominal.</p>
+  </div>
+
+  <div class="ask-teacher">
+    <span class="label">¿Falta un término?</span>
+    Pídeme que lo añada. Este glosario crece contigo: cada vez que una lección
+    introduzca vocabulario nuevo importante, lo verás aquí.
+  </div>
+
+</main>
+</body>
+</html>

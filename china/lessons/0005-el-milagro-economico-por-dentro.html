@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 5 · El milagro económico por dentro: del arroz a la fábrica del mundo (y la resaca)</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+:root {
+  --ink:#2b2722; --ink-soft:#5c554c; --paper:#fdfbf6; --rule:#e3ddd2;
+  --accent:#a4232b; --accent-2:#c8961e; --good:#2f7d55; --bad:#b23b3b;
+  --note-bg:#f3eee3; --maxw:42rem;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  line-height:1.62; -webkit-font-smoothing:antialiased; }
+main,.wrap { max-width:var(--maxw); margin:0 auto; padding:3.5rem 1.4rem 6rem; }
+h1,h2,h3 { line-height:1.18; font-weight:600; letter-spacing:-0.01em; }
+h1 { font-size:2.25rem; margin:0 0 0.3rem; }
+h2 { font-size:1.45rem; margin:2.8rem 0 0.6rem; }
+h3 { font-size:1.12rem; margin:1.8rem 0 0.4rem; color:var(--ink-soft); }
+.eyebrow { font-family:ui-sans-serif,system-ui,sans-serif; text-transform:uppercase;
+  letter-spacing:0.16em; font-size:0.72rem; font-weight:700; color:var(--accent); margin:0 0 0.6rem; }
+.subtitle { color:var(--ink-soft); font-style:italic; font-size:1.1rem; margin:0.2rem 0 0; }
+p { margin:0 0 1.1rem; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); }
+a:hover { border-bottom-color:var(--accent); }
+strong { font-weight:700; }
+em.zh { font-style:normal; font-weight:600; color:var(--accent); }
+hr { border:none; border-top:1px solid var(--rule); margin:2.6rem 0; }
+.cite { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; vertical-align:super;
+  color:var(--accent); text-decoration:none; border:none; padding:0 0.1em; }
+blockquote { margin:1.4rem 0; padding:0.2rem 0 0.2rem 1.2rem; border-left:3px solid var(--accent-2);
+  color:var(--ink-soft); font-style:italic; }
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule);
+  border-radius:8px; overflow:hidden; margin:1.6rem 0; font-size:0.95rem; }
+.compare > div { padding:1rem 1.1rem; }
+.compare > div:first-child { background:var(--note-bg); border-right:1px solid var(--rule); }
+.compare h4 { margin:0 0 0.5rem; font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase;
+  font-family:ui-sans-serif,system-ui,sans-serif; }
+.compare ul { margin:0; padding-left:1.1rem; }
+.compare li { margin:0.25rem 0; }
+.note,.keyfact { background:var(--note-bg); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; font-size:0.96rem; }
+.keyfact { border-left:4px solid var(--accent); }
+.keyfact .label,.note .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--accent); display:block; margin-bottom:0.3rem; }
+.timeline { list-style:none; padding:0; margin:1.6rem 0; border-left:2px solid var(--rule); }
+.timeline li { position:relative; padding:0 0 1.3rem 1.5rem; }
+.timeline li::before { content:""; position:absolute; left:-7px; top:0.45rem; width:12px; height:12px;
+  border-radius:50%; background:var(--paper); border:3px solid var(--accent); }
+.timeline .year { font-weight:700; font-family:ui-sans-serif,system-ui,sans-serif; color:var(--accent); }
+.quiz { margin:2rem 0; padding:1.4rem 1.4rem 1.1rem; border:1px solid var(--rule); border-radius:10px; background:#fff; }
+.quiz .q { font-weight:600; margin:0 0 0.9rem; }
+.quiz .opts { display:flex; flex-direction:column; gap:0.5rem; }
+.quiz button.opt { text-align:left; font:inherit; font-size:0.95rem; background:var(--paper);
+  border:1px solid var(--rule); border-radius:7px; padding:0.6rem 0.85rem; cursor:pointer; color:var(--ink);
+  transition:border-color .12s, background .12s; }
+.quiz button.opt:hover { border-color:var(--accent-2); }
+.quiz button.opt:disabled { cursor:default; opacity:0.95; }
+.quiz button.opt.correct { background:#e9f4ee; border-color:var(--good); color:var(--good); font-weight:600; }
+.quiz button.opt.wrong { background:#f8ebeb; border-color:var(--bad); color:var(--bad); }
+.quiz .fb { margin:0.9rem 0 0; font-size:0.92rem; color:var(--ink-soft); min-height:1.2rem; }
+.quiz .fb.show { animation:fade .25s ease; }
+@keyframes fade { from { opacity:0; transform:translateY(3px); } to { opacity:1; } }
+.lesson-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:3rem; padding-top:1.4rem;
+  border-top:1px solid var(--rule); font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; }
+.ask-teacher { margin-top:2.4rem; padding:1rem 1.2rem; border:1px dashed var(--accent-2); border-radius:8px;
+  background:var(--note-bg); font-size:0.92rem; }
+.ask-teacher .label { color:var(--accent-2); }
+.primary-source { margin:2rem 0; padding:1.1rem 1.3rem; border-radius:8px; background:#fff;
+  border:1px solid var(--rule); border-top:4px solid var(--accent-2); }
+.primary-source .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; text-transform:uppercase;
+  letter-spacing:0.12em; font-weight:700; color:var(--accent-2); display:block; margin-bottom:0.3rem; }
+table { border-collapse:collapse; width:100%; margin:1.4rem 0; font-size:0.93rem; }
+th,td { text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid var(--rule); vertical-align:top; }
+th { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.72rem; text-transform:uppercase;
+  letter-spacing:0.08em; color:var(--ink-soft); }
+/* --- "tres actos" (específico de esta lección, reutilizable) --- */
+.acts { display:grid; grid-template-columns:repeat(3,1fr); gap:0.8rem; margin:1.6rem 0; }
+.acts > div { border:1px solid var(--rule); border-radius:8px; padding:0.9rem 0.9rem; background:#fff; }
+.acts .act-n { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.68rem; text-transform:uppercase;
+  letter-spacing:0.1em; font-weight:700; color:var(--accent); display:block; margin-bottom:0.25rem; }
+.acts h4 { margin:0 0 0.35rem; font-size:0.98rem; }
+.acts p { margin:0; font-size:0.84rem; color:var(--ink-soft); }
+@media print { :root { --paper:#fff; } body { font-size:11pt; } .quiz button.opt { border-color:#ccc; }
+  .ask-teacher,.lesson-nav { display:none; } a { color:var(--ink); border:none; } .cite { color:var(--ink-soft); } }
+@media (max-width:540px) { html { font-size:17px; } .compare { grid-template-columns:1fr; }
+  .compare > div:first-child { border-right:none; border-bottom:1px solid var(--rule); }
+  .acts { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Lección 5 · Entender China</p>
+  <h1>El milagro económico por dentro</h1>
+  <p class="subtitle">En la Lección 1 vimos <em>que</em> China despegó en 1978. Esta
+  lección abre el motor: <em>cómo</em> lo hizo, por qué se la llama "la fábrica del
+  mundo"… y la resaca de ladrillo que arrastra hoy.</p>
+
+  <div class="keyfact">
+    <span class="label">La victoria de hoy</span>
+    Podrás contar el milagro chino en <strong>tres actos</strong>: el experimento que lo
+    encendió (<strong>las Zonas Económicas Especiales</strong>), el motor que lo sostuvo
+    (<strong>la fábrica del mundo</strong>) y la deuda que amenaza con frenarlo
+    (<strong>la burbuja inmobiliaria</strong>). Tres palabras, toda la historia.
+  </div>
+
+  <h2>Antes de empezar: rescata esto de memoria</h2>
+  <p>Sin mirar atrás (<a href="0001-el-ascenso-de-china.html">Lección 1</a>):
+  <strong>¿en qué año y con qué política arrancó el despegue económico de China?</strong>
+  Piénsalo… <strong>1978</strong>, la <a href="../reference/glosario.html#gaige">Reforma
+  y Apertura</a> de Deng. Hoy abrimos esa caja: ¿qué hizo Deng, exactamente?</p>
+
+  <div class="acts">
+    <div><span class="act-n">Acto 1 · La chispa</span><h4>Las SEZ</h4><p>Capitalismo en una probeta: Shenzhen, 1980.</p></div>
+    <div><span class="act-n">Acto 2 · El motor</span><h4>La fábrica del mundo</h4><p>~30% de la manufactura global.</p></div>
+    <div><span class="act-n">Acto 3 · La resaca</span><h4>El ladrillo</h4><p>~25-30% del PIB en una burbuja.</p></div>
+  </div>
+
+  <h2>Acto 1 — La chispa: capitalismo en una probeta</h2>
+  <p>Deng no liberalizó todo el país de golpe (eso fue lo que hundió a la URSS más
+  tarde). Hizo algo más astuto: creó <strong><a href="../reference/glosario.html#sez">Zonas
+  Económicas Especiales (SEZ)</a></strong> — pequeños recintos donde se permitía la
+  inversión extranjera, la propiedad privada y los precios de mercado, mientras el resto
+  de China seguía siendo socialista.<a class="cite" href="#f1">1</a> Un experimento
+  acotado: si funciona, se copia; si fracasa, queda contenido.</p>
+
+  <p>El experimento estrella fue <strong>Shenzhen</strong>, junto a Hong Kong. En 1980
+  era un grupo de aldeas de pescadores de unos <strong>30.000 habitantes</strong>; hoy
+  es una megaciudad tecnológica de <strong>~17,5 millones</strong>, sede de Huawei y
+  Tencent.<a class="cite" href="#f2">2</a> Esa foto —del arrozal al rascacielos en una
+  generación— es el milagro chino en una sola imagen.</p>
+
+  <blockquote>"Cruzar el río tanteando las piedras." La frase atribuida a la época de
+  Deng resume el método: reforma gradual y por prueba, no terapia de choque.</blockquote>
+
+  <h2>Acto 2 — El motor: la fábrica del mundo</h2>
+  <p>Lo que las SEZ encendieron, la mano de obra barata y disciplinada lo convirtió en
+  un motor exportador. China se especializó en <strong>fabricar para el resto del
+  planeta</strong>: juguetes y textil primero, electrónica y maquinaria después.</p>
+
+  <div class="keyfact">
+    <span class="label">El dato que lo dice todo</span>
+    China produce hoy alrededor del <strong>30% de toda la manufactura del mundo</strong>
+    — más que EEUU, Japón y Alemania juntos. En 1980 era ~5%.<a class="cite" href="#f3">3</a>
+    De ahí el apodo: <a href="../reference/glosario.html#fabrica-del-mundo">"la fábrica
+    del mundo"</a>.
+  </div>
+
+  <p>Esto explica una asimetría que notas a diario: medio mundo depende de las fábricas
+  chinas, lo que da a Pekín una palanca geopolítica enorme (la veremos en una lección
+  futura). El crecimiento vino de <strong>exportar e invertir</strong> —fábricas,
+  carreteras, ciudades— mucho más que del consumo interno. Y ahí empieza el problema del
+  Acto 3.</p>
+
+  <h2>Acto 3 — La resaca: la montaña de ladrillo</h2>
+  <p>Cuando un país crece "construyendo", el ladrillo se vuelve adicción. El sector
+  <strong>inmobiliario llegó a pesar entre el 25% y el 30% del PIB</strong> chino — una
+  proporción altísima frente a cualquier economía avanzada.<a class="cite" href="#f4">4</a>
+  Las familias metieron sus ahorros en pisos y las promotoras se endeudaron sin freno
+  para construir más.</p>
+
+  <p>El símbolo del exceso es <strong>Evergrande</strong>: la mayor promotora del país
+  acumuló unos <strong>300.000 millones de dólares en deuda</strong>, no pudo pagar y un
+  tribunal de Hong Kong <strong>ordenó su liquidación en enero de 2024</strong>.<a class="cite" href="#f5">5</a>
+  Dejó tras de sí miles de pisos a medio construir ya pagados por compradores. Es la
+  <a href="../reference/glosario.html#crisis-inmobiliaria">crisis inmobiliaria</a> que
+  hoy lastra el crecimiento chino.</p>
+
+  <div class="keyfact">
+    <span class="label">La frase llave</span>
+    El milagro chino fue un motor de <strong>fábricas y ladrillo</strong>. Las fábricas
+    aún rugen (~30% mundial), pero el ladrillo se pasó de frenada: una <strong>burbuja
+    inmobiliaria</strong> que, al pinchar (Evergrande, 2024), amenaza con frenar el
+    crecimiento que durante 40 años pareció imparable.
+  </div>
+
+  <h2>Tu ancla: cómo creció China vs. EEUU</h2>
+  <div class="compare">
+    <div>
+      <h4>EEUU · consumo y servicios</h4>
+      <ul>
+        <li>Crece sobre todo por <strong>consumo interno</strong> (~70% del PIB).</li>
+        <li>Economía de servicios y marcas, no de fábricas.</li>
+        <li>Liberalizó hace siglos; mercado primero.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>China · fábricas e inversión</h4>
+      <ul>
+        <li>Creció por <strong>exportar e invertir</strong> (fábricas, obra, vivienda).</li>
+        <li>"Fábrica del mundo"; el consumo interno aún pesa poco.</li>
+        <li>Liberalizó por probetas (SEZ) desde 1978; Estado al volante.</li>
+      </ul>
+    </div>
+  </div>
+  <p>La idea de fondo: EEUU es una economía que <strong>compra</strong>; China, una que
+  <strong>fabrica y construye</strong>. Su gran reto pendiente —del que oirás hablar—
+  es pasar de "fábrica del mundo" a economía de consumo, antes de que la deuda del
+  ladrillo pese demasiado.</p>
+
+  <!-- ====================== RETRIEVAL PRACTICE ====================== -->
+  <h2>Compruébalo (sin mirar arriba)</h2>
+  <p>De memoria. Como siempre, cuelo una pregunta de lecciones anteriores: recordar lo
+  viejo mientras fijas lo nuevo es lo que construye memoria duradera.</p>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">1. ¿Qué fueron las Zonas Económicas Especiales (SEZ)?</p>
+    <div class="opts">
+      <button class="opt">Bases militares cerradas al exterior</button>
+      <button class="opt">Granjas colectivas de tipo maoísta</button>
+      <button class="opt">Recintos abiertos al mercado y la inversión</button>
+      <button class="opt">Barrios reservados a altos cargos</button>
+    </div>
+    <p class="fb"
+       data-ok="Eso es: probetas de capitalismo (Shenzhen, 1980) mientras el resto seguía socialista."
+       data-no="Eran recintos donde se permitía el mercado y la inversión extranjera; el experimento clave fue Shenzhen."></p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <p class="q">2. ¿Por qué se llama a China "la fábrica del mundo"?</p>
+    <div class="opts">
+      <button class="opt">Produce cerca del tercio manufacturero global</button>
+      <button class="opt">Importa casi todos sus bienes acabados</button>
+      <button class="opt">Prohíbe por ley toda industria privada</button>
+      <button class="opt">Solo fabrica para su mercado interno</button>
+    </div>
+    <p class="fb"
+       data-ok="Correcto: ~30% de toda la manufactura mundial, más que EEUU, Japón y Alemania juntos."
+       data-no="Porque produce ~30% de la manufactura global: fabrica para el resto del planeta, no solo para sí."></p>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <p class="q">3. ¿Qué representa Evergrande en la economía china?</p>
+    <div class="opts">
+      <button class="opt">El mayor banco estatal del país</button>
+      <button class="opt">La empresa líder de coches eléctricos</button>
+      <button class="opt">La bolsa principal de Shanghái hoy</button>
+      <button class="opt">El símbolo de la burbuja inmobiliaria</button>
+    </div>
+    <p class="fb"
+       data-ok="Eso es: promotora con ~300.000 M$ de deuda, liquidada en 2024. La resaca del ladrillo."
+       data-no="Es la promotora símbolo de la burbuja: ~300.000 M$ de deuda y liquidación ordenada en 2024."></p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">4. Repaso L4: el órgano que de verdad gobierna China tiene...</p>
+    <div class="opts">
+      <button class="opt">Veinticuatro miembros en total</button>
+      <button class="opt">Siete miembros en total</button>
+      <button class="opt">Doscientos miembros en total</button>
+      <button class="opt">Dos mil miembros en total</button>
+    </div>
+    <p class="fb"
+       data-ok="¡Memoria fina! El Comité Permanente: 7 personas, presididas por el Secretario General."
+       data-no="Recuerda L4: el Comité Permanente lo forman 7. El Politburó tiene 24; el Comité Central, 205."></p>
+  </div>
+
+  <!-- ====================== FUENTE PRIMARIA ====================== -->
+  <div class="primary-source">
+    <span class="label">Fuente primaria recomendada</span>
+    <p style="margin:0 0 .4rem"><strong>"China's Economy: What Everyone Needs to Know"</strong>
+    — Arthur R. Kroeber.</p>
+    <p style="margin:0; font-size:0.9rem; color:var(--ink-soft)">La introducción de
+    referencia, accesible y sin panfleto, a cómo funciona de verdad la economía china:
+    SEZ, modelo exportador-inversor y los riesgos de la deuda. Si solo lees un libro
+    sobre el tema, este.
+    <a href="https://global.oup.com/academic/product/chinas-economy-9780190946470">Ver →</a></p>
+  </div>
+
+  <!-- ====================== PREGUNTAR AL PROFE ====================== -->
+  <div class="ask-teacher">
+    <span class="label">Soy tu profesor — pregúntame</span>
+    ¿Por qué las familias chinas invierten tanto en vivienda y no en bolsa? ¿Qué son las
+    "ciudades fantasma"? ¿Puede China pasar de fábrica a economía de consumo — y por qué
+    le cuesta tanto? Pregúntame lo que quieras antes de saltar a la próxima lección:
+    <strong>qué quiere China</strong> (geopolítica: Taiwán, Ruta de la Seda, tecnología).
+  </div>
+
+  <!-- ====================== NOTAS / CITAS ====================== -->
+  <hr>
+  <h3>Notas y fuentes</h3>
+  <ol style="font-size:0.82rem; color:var(--ink-soft); line-height:1.5">
+    <li id="f1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Reform_and_opening_up">"Reform and opening up"</a> y <a href="https://en.wikipedia.org/wiki/Special_economic_zones_of_China">"Special economic zones of China"</a> — reforma gradual por zonas en vez de terapia de choque.</li>
+    <li id="f2">CGTN / Wikipedia, <a href="https://en.wikipedia.org/wiki/Shenzhen">"Shenzhen"</a> — aldea de pescadores (~30.000 hab. a finales de los 70) convertida en megaciudad de ~17,5 millones; primera SEZ en 1980.</li>
+    <li id="f3">Statista / CEPR, <a href="https://www.statista.com/chart/20859/chinese-and-us-share-of-global-manufacturing-output/">"China's Rise to Manufacturing Dominance"</a> — la cuota china de la manufactura mundial pasó de ~5% (1980) a ~28-30% hoy.</li>
+    <li id="f4">China Banking News / Bloomberg Economics, <a href="https://en.wikipedia.org/wiki/Real_estate_in_China">"Real estate in China"</a> — el inmobiliario y sus sectores asociados han pesado históricamente entre el 25% y el 30% del PIB.</li>
+    <li id="f5">NPR, <a href="https://www.npr.org/2024/01/29/1227522487/hong-kong-court-orders-chinas-evergrande-which-owes-300-billion-to-liquidate">"Hong Kong court orders China's Evergrande to liquidate"</a> — promotora con ~300.000 M$ de deuda; liquidación ordenada en enero de 2024.</li>
+  </ol>
+
+  <nav class="lesson-nav">
+    <span><a href="0004-la-caja-negra-del-partido.html">← Lección 4: El Partido por dentro</a></span>
+    <span><a href="../reference/glosario.html">Glosario del curso →</a></span>
+  </nav>
+
+</main>
+
+<script>
+/* === Incrustado desde assets/quiz.js === */
+(function () {
+  function initQuiz(quiz) {
+    var correct = parseInt(quiz.getAttribute("data-correct"), 10);
+    var opts = Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    var fb = quiz.querySelector(".fb");
+    var answered = false;
+    opts.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (answered) return;
+        answered = true;
+        opts.forEach(function (b, j) { b.disabled = true; if (j === correct) b.classList.add("correct"); });
+        if (i !== correct) btn.classList.add("wrong");
+        if (fb) {
+          var msg = i === correct ? (fb.getAttribute("data-ok") || "Correcto.")
+                                  : (fb.getAttribute("data-no") || "Repasa la respuesta correcta marcada arriba.");
+          fb.textContent = msg; fb.classList.add("show");
+        }
+      });
+    });
+  }
+  function ready(fn){ if (document.readyState !== "loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
+  ready(function(){ Array.prototype.slice.call(document.querySelectorAll(".quiz")).forEach(initQuiz); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 3 · De Mao a Xi: la sucesión que Deng diseñó (y Xi rompió)</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+:root {
+  --ink:#2b2722; --ink-soft:#5c554c; --paper:#fdfbf6; --rule:#e3ddd2;
+  --accent:#a4232b; --accent-2:#c8961e; --good:#2f7d55; --bad:#b23b3b;
+  --note-bg:#f3eee3; --maxw:42rem;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  line-height:1.62; -webkit-font-smoothing:antialiased; }
+main,.wrap { max-width:var(--maxw); margin:0 auto; padding:3.5rem 1.4rem 6rem; }
+h1,h2,h3 { line-height:1.18; font-weight:600; letter-spacing:-0.01em; }
+h1 { font-size:2.25rem; margin:0 0 0.3rem; }
+h2 { font-size:1.45rem; margin:2.8rem 0 0.6rem; }
+h3 { font-size:1.12rem; margin:1.8rem 0 0.4rem; color:var(--ink-soft); }
+.eyebrow { font-family:ui-sans-serif,system-ui,sans-serif; text-transform:uppercase;
+  letter-spacing:0.16em; font-size:0.72rem; font-weight:700; color:var(--accent); margin:0 0 0.6rem; }
+.subtitle { color:var(--ink-soft); font-style:italic; font-size:1.1rem; margin:0.2rem 0 0; }
+p { margin:0 0 1.1rem; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); }
+a:hover { border-bottom-color:var(--accent); }
+strong { font-weight:700; }
+em.zh { font-style:normal; font-weight:600; color:var(--accent); }
+hr { border:none; border-top:1px solid var(--rule); margin:2.6rem 0; }
+.cite { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; vertical-align:super;
+  color:var(--accent); text-decoration:none; border:none; padding:0 0.1em; }
+blockquote { margin:1.4rem 0; padding:0.2rem 0 0.2rem 1.2rem; border-left:3px solid var(--accent-2);
+  color:var(--ink-soft); font-style:italic; }
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule);
+  border-radius:8px; overflow:hidden; margin:1.6rem 0; font-size:0.95rem; }
+.compare > div { padding:1rem 1.1rem; }
+.compare > div:first-child { background:var(--note-bg); border-right:1px solid var(--rule); }
+.compare h4 { margin:0 0 0.5rem; font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase;
+  font-family:ui-sans-serif,system-ui,sans-serif; }
+.compare ul { margin:0; padding-left:1.1rem; }
+.compare li { margin:0.25rem 0; }
+.note,.keyfact { background:var(--note-bg); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; font-size:0.96rem; }
+.keyfact { border-left:4px solid var(--accent); }
+.keyfact .label,.note .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--accent); display:block; margin-bottom:0.3rem; }
+.timeline { list-style:none; padding:0; margin:1.6rem 0; border-left:2px solid var(--rule); }
+.timeline li { position:relative; padding:0 0 1.3rem 1.5rem; }
+.timeline li::before { content:""; position:absolute; left:-7px; top:0.45rem; width:12px; height:12px;
+  border-radius:50%; background:var(--paper); border:3px solid var(--accent); }
+.timeline .year { font-weight:700; font-family:ui-sans-serif,system-ui,sans-serif; color:var(--accent); }
+.quiz { margin:2rem 0; padding:1.4rem 1.4rem 1.1rem; border:1px solid var(--rule); border-radius:10px; background:#fff; }
+.quiz .q { font-weight:600; margin:0 0 0.9rem; }
+.quiz .opts { display:flex; flex-direction:column; gap:0.5rem; }
+.quiz button.opt { text-align:left; font:inherit; font-size:0.95rem; background:var(--paper);
+  border:1px solid var(--rule); border-radius:7px; padding:0.6rem 0.85rem; cursor:pointer; color:var(--ink);
+  transition:border-color .12s, background .12s; }
+.quiz button.opt:hover { border-color:var(--accent-2); }
+.quiz button.opt:disabled { cursor:default; opacity:0.95; }
+.quiz button.opt.correct { background:#e9f4ee; border-color:var(--good); color:var(--good); font-weight:600; }
+.quiz button.opt.wrong { background:#f8ebeb; border-color:var(--bad); color:var(--bad); }
+.quiz .fb { margin:0.9rem 0 0; font-size:0.92rem; color:var(--ink-soft); min-height:1.2rem; }
+.quiz .fb.show { animation:fade .25s ease; }
+@keyframes fade { from { opacity:0; transform:translateY(3px); } to { opacity:1; } }
+.lesson-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:3rem; padding-top:1.4rem;
+  border-top:1px solid var(--rule); font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; }
+.ask-teacher { margin-top:2.4rem; padding:1rem 1.2rem; border:1px dashed var(--accent-2); border-radius:8px;
+  background:var(--note-bg); font-size:0.92rem; }
+.ask-teacher .label { color:var(--accent-2); }
+.primary-source { margin:2rem 0; padding:1.1rem 1.3rem; border-radius:8px; background:#fff;
+  border:1px solid var(--rule); border-top:4px solid var(--accent-2); }
+.primary-source .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; text-transform:uppercase;
+  letter-spacing:0.12em; font-weight:700; color:var(--accent-2); display:block; margin-bottom:0.3rem; }
+table { border-collapse:collapse; width:100%; margin:1.4rem 0; font-size:0.93rem; }
+th,td { text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid var(--rule); vertical-align:top; }
+th { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.72rem; text-transform:uppercase;
+  letter-spacing:0.08em; color:var(--ink-soft); }
+@media print { :root { --paper:#fff; } body { font-size:11pt; } .quiz button.opt { border-color:#ccc; }
+  .ask-teacher,.lesson-nav { display:none; } a { color:var(--ink); border:none; } .cite { color:var(--ink-soft); } }
+@media (max-width:540px) { html { font-size:17px; } .compare { grid-template-columns:1fr; }
+  .compare > div:first-child { border-right:none; border-bottom:1px solid var(--rule); } }
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Lección 3 · Entender China</p>
+  <h1>De Mao a Xi: la sucesión que Deng diseñó (y Xi rompió)</h1>
+  <p class="subtitle">Cinco líderes en 75 años. Pero la historia no es la lista de
+  nombres: es cómo China inventó un modo de cambiar de líder sin caos… y cómo, en
+  2018, dio marcha atrás.</p>
+
+  <div class="keyfact">
+    <span class="label">La victoria de hoy</span>
+    Al terminar podrás recitar los <strong>cinco líderes</strong> en orden y explicar
+    el <strong>mayor cambio político de la última década</strong>: Xi desmontó el
+    sistema de sucesión ordenada que Deng había construido para que nunca volviera a
+    haber un "nuevo Mao".
+  </div>
+
+  <h2>Primero, ¿dónde está el poder?</h2>
+  <p>Truco que evita el error nº1 de los occidentales: en China, <strong>el cargo de
+  "presidente" es casi decorativo</strong>. El poder real está en dos sombreros del
+  Partido y el ejército:</p>
+  <ul>
+    <li><strong>Secretario General del PCCh</strong> — jefe del <a href="../reference/glosario.html#pcc">Partido</a>. El cargo que de verdad manda.</li>
+    <li><strong>Presidente de la Comisión Militar Central</strong> — mando del ejército.</li>
+  </ul>
+  <p>Quien acumula los dos (más la presidencia, ceremonial) es el <strong><a href="../reference/glosario.html#lider-supremo">líder supremo</a></strong>
+  (<em>paramount leader</em>).<a class="cite" href="#f1">1</a> Por eso un líder puede
+  retirarse de "presidente" y seguir mandando: lo que cuenta es el Partido.</p>
+
+  <h2>Los cinco, de un vistazo</h2>
+  <p>China habla de "generaciones" de liderazgo.<a class="cite" href="#f1">1</a> Esta es
+  la lista que quiero que te quede grabada:</p>
+
+  <ul class="timeline">
+    <li><span class="year">1ª · Mao Zedong (1949–1976)</span> — fundador. Poder
+    personal y absoluto. Resultado: <a href="../reference/glosario.html#gran-salto">Gran
+    Salto</a> y <a href="../reference/glosario.html#revolucion-cultural">Revolución
+    Cultural</a>. El trauma que lo explica todo lo que viene.</li>
+    <li><span class="year">2ª · Deng Xiaoping (1978–~1992)</span> — el reformador de la
+    <a href="0001-el-ascenso-de-china.html">Lección 1</a>. Su otra gran obra: rediseñar
+    cómo se hereda el poder.</li>
+    <li><span class="year">3ª · Jiang Zemin (1989/93–2003)</span> — primer relevo
+    pacífico y programado. El sistema de Deng funciona.</li>
+    <li><span class="year">4ª · Hu Jintao (2003–2013)</span> — segundo relevo en hora.
+    Diez años y entrega del poder. Excepcional para una autocracia.</li>
+    <li><span class="year">5ª · Xi Jinping (2012/13–hoy)</span> — y aquí el sistema se
+    rompe.</li>
+  </ul>
+
+  <h2>La gran idea de Deng: "nunca más un Mao"</h2>
+  <p>Tras el caos personalista de Mao, Deng y su equipo diseñaron un cortafuegos contra
+  el poder de un solo hombre.<a class="cite" href="#f2">2</a> Cuatro piezas:</p>
+  <ol>
+    <li><strong>Liderazgo colectivo:</strong> decide un comité, no un individuo. "La
+    sabiduría colectiva" frente a la arbitrariedad de uno solo.<a class="cite" href="#f2">2</a></li>
+    <li><strong>Límites de mandato:</strong> en 1982 se fija que el presidente no puede
+    servir más de <strong>dos mandatos</strong> (10 años).<a class="cite" href="#f3">3</a></li>
+    <li><strong>Edad de jubilación obligatoria</strong> para los altos cargos.</li>
+    <li><strong>Sucesión programada:</strong> cada ~10 años, relevo ordenado, con el
+    sucesor formándose a la vista de todos.</li>
+  </ol>
+  <p>Jiang y Hu fueron la prueba de que funcionaba: dos traspasos de poder pacíficos y
+  puntuales. En un régimen de partido único, eso es rarísimo y fue el mayor logro
+  institucional de China.<a class="cite" href="#f2">2</a></p>
+
+  <h2>2018: Xi da marcha atrás</h2>
+  <p>Xi Jinping revirtió, una a una, las piezas de Deng:</p>
+  <ul>
+    <li>En <strong>marzo de 2018</strong>, el Parlamento abolió el límite de dos
+    mandatos por <strong>2.958 votos contra 2</strong>: Xi puede gobernar
+    indefinidamente.<a class="cite" href="#f3">3</a></li>
+    <li>Se le declaró <strong>"núcleo"</strong> (<em>core</em>) del Partido.</li>
+    <li>Se inscribió el <a href="../reference/glosario.html#pensamiento-xi">"Pensamiento
+    Xi Jinping"</a> en la Constitución del Partido — un honor que nadie tenía desde
+    Mao.<a class="cite" href="#f2">2</a></li>
+    <li>Rompió la norma y <strong>no nombró sucesor</strong> en formación.<a class="cite" href="#f2">2</a></li>
+  </ul>
+  <p>El efecto, en palabras de los analistas: un regreso al <strong>poder personalista</strong>
+  no visto desde Mao.<a class="cite" href="#f2">2</a> De ahí que entender a Xi sea
+  entender que el péndulo volvió del "comité" al "hombre fuerte".</p>
+
+  <div class="keyfact">
+    <span class="label">La frase llave</span>
+    Deng construyó un sistema para que el poder se heredara en orden y nadie volviera a
+    ser Mao. Funcionó dos veces (Jiang, Hu). En <strong>2018, Xi lo desmontó</strong> y
+    devolvió a China al gobierno de un solo hombre.
+  </div>
+
+  <h2>Tu ancla: EEUU y el relevo de poder</h2>
+  <div class="compare">
+    <div>
+      <h4>EEUU · regla escrita y vieja</h4>
+      <ul>
+        <li>Límite de 2 mandatos desde 1951 (22ª Enmienda).</li>
+        <li>Traspaso pacífico por elecciones.</li>
+        <li>La norma está por encima del líder.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>China · regla joven y reversible</h4>
+      <ul>
+        <li>Límite de 2 mandatos 1982–2018 (lo creó Deng).</li>
+        <li>Traspaso pactado dentro del Partido.</li>
+        <li>Xi demostró que el líder puede cambiar la norma.</li>
+      </ul>
+    </div>
+  </div>
+  <p>La lección de fondo: en EEUU la regla limita al líder; en China, fue el líder quien
+  limitó (Deng) y otro líder quien la quitó (Xi). Las instituciones chinas dependen de
+  la voluntad del que manda mucho más que las occidentales.</p>
+
+  <!-- ====================== RETRIEVAL PRACTICE ====================== -->
+  <h2>Compruébalo (sin mirar arriba)</h2>
+  <p>De memoria. Mezclo una pregunta de lecciones anteriores: recordar lo viejo mientras
+  fijas lo nuevo es lo que construye memoria duradera.</p>
+
+  <div class="quiz" data-correct="3">
+    <p class="q">1. ¿Cuál es el orden correcto de los cinco líderes?</p>
+    <div class="opts">
+      <button class="opt">Mao, Jiang, Deng, Hu, Xi</button>
+      <button class="opt">Deng, Mao, Hu, Jiang, Xi</button>
+      <button class="opt">Mao, Deng, Hu, Jiang, Xi</button>
+      <button class="opt">Mao, Deng, Jiang, Hu, Xi</button>
+    </div>
+    <p class="fb"
+       data-ok="Perfecto: Mao → Deng → Jiang → Hu → Xi. Grábatelo, es el eje del curso."
+       data-no="El orden es Mao → Deng → Jiang → Hu → Xi. Jiang va antes que Hu."></p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <p class="q">2. ¿Qué diseñó Deng para impedir otro "Mao"?</p>
+    <div class="opts">
+      <button class="opt">Mandatos limitados y relevo ordenado</button>
+      <button class="opt">Elecciones libres y varios partidos</button>
+      <button class="opt">Un monarca con poder hereditario</button>
+      <button class="opt">Un ejército separado del partido</button>
+    </div>
+    <p class="fb"
+       data-ok="Eso es: liderazgo colectivo, límite de 2 mandatos, jubilación y sucesión programada."
+       data-no="Deng creó límites de mandato, liderazgo colectivo y relevo ordenado. No elecciones libres."></p>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">3. ¿Qué hizo Xi Jinping en el año 2018?</p>
+    <div class="opts">
+      <button class="opt">Renunció a todos sus cargos</button>
+      <button class="opt">Nombró pronto a su sucesor</button>
+      <button class="opt">Abolió el límite de mandatos</button>
+      <button class="opt">Restauró elecciones abiertas</button>
+    </div>
+    <p class="fb"
+       data-ok="Correcto: abolió el límite de 2 mandatos (2.958 votos contra 2). Puede gobernar sin tope."
+       data-no="En 2018 abolió el límite de mandatos, pudiendo así gobernar indefinidamente."></p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">4. Repaso L2: la línea de Hu muestra que la gente vive...</p>
+    <div class="opts">
+      <button class="opt">Repartida de forma muy uniforme</button>
+      <button class="opt">Casi toda en el este del país</button>
+      <button class="opt">Casi toda en el oeste árido</button>
+      <button class="opt">Concentrada solo en el norte</button>
+    </div>
+    <p class="fb"
+       data-ok="¡Memoria fina! El 94% vive al este de la línea; el oeste está casi vacío."
+       data-no="Recuerda: 94% al este (lleno), 6% al oeste (vacío). Es la geografía humana de China."></p>
+  </div>
+
+  <!-- ====================== FUENTE PRIMARIA ====================== -->
+  <div class="primary-source">
+    <span class="label">Fuente primaria recomendada</span>
+    <p style="margin:0 0 .4rem"><strong>"China in Xi's 'New Era': The Return to
+    Personalistic Rule"</strong> — <em>Journal of Democracy</em>.</p>
+    <p style="margin:0; font-size:0.9rem; color:var(--ink-soft)">El mejor análisis
+    accesible de cómo Xi desmontó el sistema de Deng y por qué importa. Si quieres
+    entender la China de hoy, este es el artículo.
+    <a href="https://www.journalofdemocracy.org/articles/china-in-xis-new-era-the-return-to-personalistic-rule/">Leer →</a></p>
+  </div>
+
+  <!-- ====================== PREGUNTAR AL PROFE ====================== -->
+  <div class="ask-teacher">
+    <span class="label">Soy tu profesor — pregúntame</span>
+    ¿Por qué nadie se opuso a Xi si Deng había blindado el sistema? ¿Qué pasó con Bo
+    Xilai o la campaña anticorrupción? ¿Cómo se elige de verdad al líder? Pregúntame y
+    abrimos la caja negra del Partido en la próxima lección.
+  </div>
+
+  <!-- ====================== NOTAS / CITAS ====================== -->
+  <hr>
+  <h3>Notas y fuentes</h3>
+  <ol style="font-size:0.82rem; color:var(--ink-soft); line-height:1.5">
+    <li id="f1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Paramount_leader">"Paramount leader"</a> y <a href="https://en.wikipedia.org/wiki/Succession_of_power_in_China">"Succession of power in China"</a> — generaciones de liderazgo y dónde reside el poder real (Secretario General + Comisión Militar Central).</li>
+    <li id="f2">Journal of Democracy, <a href="https://www.journalofdemocracy.org/articles/china-in-xis-new-era-the-return-to-personalistic-rule/">"China in Xi's New Era: The Return to Personalistic Rule"</a> — liderazgo colectivo de Deng, "núcleo", Pensamiento Xi, ausencia de sucesor, vuelta al poder personalista.</li>
+    <li id="f3">NPR, <a href="https://www.npr.org/sections/thetwo-way/2018/03/11/592694991/china-removes-presidential-term-limits-enabling-xi-jinping-to-rule-indefinitely">"China Removes Presidential Term Limits"</a> — límite de dos mandatos fijado en 1982 bajo Deng; abolido en marzo de 2018 por 2.958 votos contra 2.</li>
+  </ol>
+
+  <nav class="lesson-nav">
+    <span><a href="0002-geografia-y-escala.html">← Lección 2: Geografía</a></span>
+    <span><a href="../reference/glosario.html">Glosario del curso →</a></span>
+  </nav>
+
+</main>
+
+<script>
+/* === Incrustado desde assets/quiz.js === */
+(function () {
+  function initQuiz(quiz) {
+    var correct = parseInt(quiz.getAttribute("data-correct"), 10);
+    var opts = Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    var fb = quiz.querySelector(".fb");
+    var answered = false;
+    opts.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (answered) return;
+        answered = true;
+        opts.forEach(function (b, j) { b.disabled = true; if (j === correct) b.classList.add("correct"); });
+        if (i !== correct) btn.classList.add("wrong");
+        if (fb) {
+          var msg = i === correct ? (fb.getAttribute("data-ok") || "Correcto.")
+                                  : (fb.getAttribute("data-no") || "Repasa la respuesta correcta marcada arriba.");
+          fb.textContent = msg; fb.classList.add("show");
+        }
+      });
+    });
+  }
+  function ready(fn){ if (document.readyState !== "loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
+  ready(function(){ Array.prototype.slice.call(document.querySelectorAll(".quiz")).forEach(initQuiz); });
+})();
+</script>
+</body>
+</html>

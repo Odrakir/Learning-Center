@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 8 · El hukou: el muro invisible que parte China en dos</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+:root {
+  --ink:#2b2722; --ink-soft:#5c554c; --paper:#fdfbf6; --rule:#e3ddd2;
+  --accent:#a4232b; --accent-2:#c8961e; --good:#2f7d55; --bad:#b23b3b;
+  --note-bg:#f3eee3; --maxw:42rem;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  line-height:1.62; -webkit-font-smoothing:antialiased; }
+main,.wrap { max-width:var(--maxw); margin:0 auto; padding:3.5rem 1.4rem 6rem; }
+h1,h2,h3 { line-height:1.18; font-weight:600; letter-spacing:-0.01em; }
+h1 { font-size:2.25rem; margin:0 0 0.3rem; }
+h2 { font-size:1.45rem; margin:2.8rem 0 0.6rem; }
+h3 { font-size:1.12rem; margin:1.8rem 0 0.4rem; color:var(--ink-soft); }
+.eyebrow { font-family:ui-sans-serif,system-ui,sans-serif; text-transform:uppercase;
+  letter-spacing:0.16em; font-size:0.72rem; font-weight:700; color:var(--accent); margin:0 0 0.6rem; }
+.subtitle { color:var(--ink-soft); font-style:italic; font-size:1.1rem; margin:0.2rem 0 0; }
+p { margin:0 0 1.1rem; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); }
+a:hover { border-bottom-color:var(--accent); }
+strong { font-weight:700; }
+em.zh { font-style:normal; font-weight:600; color:var(--accent); }
+hr { border:none; border-top:1px solid var(--rule); margin:2.6rem 0; }
+.cite { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; vertical-align:super;
+  color:var(--accent); text-decoration:none; border:none; padding:0 0.1em; }
+blockquote { margin:1.4rem 0; padding:0.2rem 0 0.2rem 1.2rem; border-left:3px solid var(--accent-2);
+  color:var(--ink-soft); font-style:italic; }
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule);
+  border-radius:8px; overflow:hidden; margin:1.6rem 0; font-size:0.95rem; }
+.compare > div { padding:1rem 1.1rem; }
+.compare > div:first-child { background:var(--note-bg); border-right:1px solid var(--rule); }
+.compare h4 { margin:0 0 0.5rem; font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase;
+  font-family:ui-sans-serif,system-ui,sans-serif; }
+.compare ul { margin:0; padding-left:1.1rem; }
+.compare li { margin:0.25rem 0; }
+.note,.keyfact { background:var(--note-bg); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; font-size:0.96rem; }
+.keyfact { border-left:4px solid var(--accent); }
+.keyfact .label,.note .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--accent); display:block; margin-bottom:0.3rem; }
+.quiz { margin:2rem 0; padding:1.4rem 1.4rem 1.1rem; border:1px solid var(--rule); border-radius:10px; background:#fff; }
+.quiz .q { font-weight:600; margin:0 0 0.9rem; }
+.quiz .opts { display:flex; flex-direction:column; gap:0.5rem; }
+.quiz button.opt { text-align:left; font:inherit; font-size:0.95rem; background:var(--paper);
+  border:1px solid var(--rule); border-radius:7px; padding:0.6rem 0.85rem; cursor:pointer; color:var(--ink);
+  transition:border-color .12s, background .12s; }
+.quiz button.opt:hover { border-color:var(--accent-2); }
+.quiz button.opt:disabled { cursor:default; opacity:0.95; }
+.quiz button.opt.correct { background:#e9f4ee; border-color:var(--good); color:var(--good); font-weight:600; }
+.quiz button.opt.wrong { background:#f8ebeb; border-color:var(--bad); color:var(--bad); }
+.quiz .fb { margin:0.9rem 0 0; font-size:0.92rem; color:var(--ink-soft); min-height:1.2rem; }
+.quiz .fb.show { animation:fade .25s ease; }
+@keyframes fade { from { opacity:0; transform:translateY(3px); } to { opacity:1; } }
+.lesson-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:3rem; padding-top:1.4rem;
+  border-top:1px solid var(--rule); font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; }
+.ask-teacher { margin-top:2.4rem; padding:1rem 1.2rem; border:1px dashed var(--accent-2); border-radius:8px;
+  background:var(--note-bg); font-size:0.92rem; }
+.ask-teacher .label { color:var(--accent-2); }
+.primary-source { margin:2rem 0; padding:1.1rem 1.3rem; border-radius:8px; background:#fff;
+  border:1px solid var(--rule); border-top:4px solid var(--accent-2); }
+.primary-source .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; text-transform:uppercase;
+  letter-spacing:0.12em; font-weight:700; color:var(--accent-2); display:block; margin-bottom:0.3rem; }
+table { border-collapse:collapse; width:100%; margin:1.4rem 0; font-size:0.93rem; }
+th,td { text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid var(--rule); vertical-align:top; }
+th { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.72rem; text-transform:uppercase;
+  letter-spacing:0.08em; color:var(--ink-soft); }
+@media print { :root { --paper:#fff; } body { font-size:11pt; } .quiz button.opt { border-color:#ccc; }
+  .ask-teacher,.lesson-nav { display:none; } a { color:var(--ink); border:none; } .cite { color:var(--ink-soft); } }
+@media (max-width:540px) { html { font-size:17px; } .compare { grid-template-columns:1fr; }
+  .compare > div:first-child { border-right:none; border-bottom:1px solid var(--rule); } }
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Lección 8 · Entender China · Sociedad</p>
+  <h1>El <em>hukou</em>: el muro invisible que parte China en dos</h1>
+  <p class="subtitle">Empezamos un eje nuevo —la sociedad— por su institución más
+  decisiva y menos conocida fuera de China: un registro que decide, casi al nacer, si
+  eres ciudadano de primera o de segunda.</p>
+
+  <div class="keyfact">
+    <span class="label">La victoria de hoy</span>
+    Entenderás el <strong>hukou</strong> y por qué hay <strong>"dos Chinas"</strong>: una
+    urbana con derechos y otra rural sin ellos. Y conocerás a sus ~<strong>300 millones</strong>
+    de víctimas, los trabajadores migrantes que construyeron el milagro de la
+    <a href="0005-el-milagro-economico-por-dentro.html">Lección 5</a> pero no pueden
+    disfrutarlo.
+  </div>
+
+  <h2>Antes de empezar: rescata esto de memoria</h2>
+  <p>Sin mirar atrás (<a href="0002-geografia-y-escala.html">Lección 2</a>):
+  <strong>¿en qué mitad de China —este u oeste— vive casi toda la población?</strong>
+  Piénsalo… el <strong>este</strong> (94%, la línea de Hu). Hoy verás que dentro de esa
+  China llena hay <em>otra</em> frontera, esta vez invisible.</p>
+
+  <h2>Qué es el hukou</h2>
+  <p>El <strong><a href="../reference/glosario.html#hukou">hukou</a></strong> (户口) es el
+  <strong>registro de hogar</strong> que China implantó en los <strong>años 50</strong>.
+  Al nacer te asignan un hukou ligado a un lugar y a una categoría: <strong>rural</strong>
+  o <strong>urbano</strong>.<a class="cite" href="#f1">1</a> Y aquí está la clave: tus
+  derechos —escuela pública, sanidad, pensión, vivienda social— <strong>no van contigo</strong>,
+  se quedan atados a ese lugar de registro.</p>
+
+  <p>Piénsalo como un <strong>pasaporte interno</strong>: puedes viajar y trabajar por
+  toda China, pero solo eres "ciudadano de pleno derecho" en el sitio donde tienes el
+  hukou. Cambiarlo —de rural a urbano, o de una ciudad a otra— es difícil y, en las
+  grandes ciudades, casi imposible.<a class="cite" href="#f1">1</a></p>
+
+  <h2>La paradoja del trabajador migrante</h2>
+  <p>De ahí nace la mayor injusticia social de China. Unos <strong>300 millones de
+  personas</strong> —más de un tercio de la mano de obra— son
+  <strong><a href="../reference/glosario.html#mingong">trabajadores migrantes</a></strong>:
+  campesinos con hukou rural que emigran a las ciudades del este a construir, fabricar y
+  limpiar.<a class="cite" href="#f2">2</a> Son los que levantaron la "fábrica del mundo".</p>
+
+  <p>Pero como su hukou sigue siendo rural, en la ciudad donde llevan <em>décadas</em>
+  trabajando <strong>no tienen pleno acceso</strong> a la escuela pública, el hospital o
+  la pensión.<a class="cite" href="#f2">2</a> Sus hijos a menudo deben criarse en el
+  pueblo con los abuelos (los llamados "niños dejados atrás"). Son ciudadanos de segunda
+  en su propio país.</p>
+
+  <blockquote>Imagina construir Madrid durante veinte años y que tus hijos no puedan ir
+  al colegio de Madrid porque naciste en un pueblo. Eso es el hukou.</blockquote>
+
+  <h2>¿Por qué existe? ¿Y por qué se mantiene?</h2>
+  <p>Nació para <strong>controlar</strong>: fijar a los campesinos en el campo y evitar
+  que las ciudades se desbordaran. Hoy se mantiene por <strong>dinero</strong>: dar
+  servicios urbanos a 300 millones de migrantes costaría una fortuna que las ciudades no
+  quieren pagar.</p>
+
+  <div class="keyfact">
+    <span class="label">El enlace con la economía (L5)</span>
+    El hukou frena el gran reto de la <a href="0005-el-milagro-economico-por-dentro.html">Lección
+    5</a>: pasar de fábrica a <strong>economía de consumo</strong>. Un migrante que no
+    sabe si podrá quedarse <strong>ahorra por miedo en vez de gastar</strong>. Por eso
+    China reforma poco a poco el hukou (urbanización del 67% hacia el 70%): no solo por
+    justicia, sino para que la gente consuma.<a class="cite" href="#f3">3</a>
+  </div>
+
+  <h2>Tu ancla: ciudadanía móvil vs. ciudadanía anclada</h2>
+  <div class="compare">
+    <div>
+      <h4>EEUU / España · derechos que viajan</h4>
+      <ul>
+        <li>Te mudas de ciudad y eres vecino de pleno derecho.</li>
+        <li>Tus hijos van al colegio público local.</li>
+        <li>Votas y usas sanidad donde resides.</li>
+        <li>El lugar de nacimiento no te marca de por vida.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>China · derechos anclados al hukou</h4>
+      <ul>
+        <li>Te mudas, pero sigues "registrado" en tu origen.</li>
+        <li>Tus hijos pueden no entrar en la escuela urbana.</li>
+        <li>Sanidad y pensión, atadas al lugar de registro.</li>
+        <li>Naces rural o urbano, y eso pesa toda la vida.</li>
+      </ul>
+    </div>
+  </div>
+  <p>La idea de fondo: en Occidente la ciudadanía se mueve contigo; en China, una parte
+  de tus derechos se queda clavada en el mapa. El hukou es la prueba de que el "milagro"
+  (L5) se construyó sobre una <strong>desigualdad de diseño</strong> entre campo y ciudad.</p>
+
+  <!-- ====================== RETRIEVAL PRACTICE ====================== -->
+  <h2>Compruébalo (sin mirar arriba)</h2>
+  <p>De memoria. Como siempre, cuelo una pregunta de lecciones anteriores: recordar lo
+  viejo mientras fijas lo nuevo es lo que construye memoria duradera.</p>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">1. ¿Qué es, en esencia, el hukou?</p>
+    <div class="opts">
+      <button class="opt">Un impuesto especial sobre las fábricas</button>
+      <button class="opt">El carné de militante del Partido</button>
+      <button class="opt">Un registro que ata tus derechos al lugar</button>
+      <button class="opt">Un visado para salir al extranjero</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: el registro de hogar (años 50) que liga escuela, sanidad y pensión a tu lugar de origen."
+       data-no="Es el registro de hogar: ata tus derechos sociales al lugar y categoría (rural/urbano)."></p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <p class="q">2. ¿Por qué los migrantes son "ciudadanos de segunda"?</p>
+    <div class="opts">
+      <button class="opt">Su hukou rural les niega servicios en la ciudad</button>
+      <button class="opt">El Partido les prohíbe del todo trabajar</button>
+      <button class="opt">Deben pagar el doble de impuestos urbanos</button>
+      <button class="opt">No se les permite jamás salir del campo</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: trabajan décadas en la ciudad pero, con hukou rural, sin plena escuela, sanidad ni pensión."
+       data-no="Porque su hukou sigue siendo rural: en la ciudad no acceden de pleno a servicios públicos."></p>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <p class="q">3. ¿Cuántos trabajadores migrantes hay, aproximadamente?</p>
+    <div class="opts">
+      <button class="opt">Cerca de tres millones de personas</button>
+      <button class="opt">Cerca de treinta millones de personas</button>
+      <button class="opt">Cerca de noventa millones de personas</button>
+      <button class="opt">Cerca de trescientos millones de personas</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: ~300 millones, más de un tercio de la mano de obra china. Levantaron la 'fábrica del mundo'."
+       data-no="Son ~300 millones (299,7 en 2024): más de un tercio de toda la mano de obra del país."></p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">4. Repaso L5: el gran reto pendiente de la economía china es...</p>
+    <div class="opts">
+      <button class="opt">Volver a la planificación central total</button>
+      <button class="opt">Pasar de fábrica a economía de consumo</button>
+      <button class="opt">Dejar de exportar absolutamente nada</button>
+      <button class="opt">Prohibir toda la inversión extranjera</button>
+    </div>
+    <p class="fb"
+       data-ok="¡Memoria fina! Y el hukou lo frena: el migrante inseguro ahorra por miedo en vez de gastar."
+       data-no="Es pasar de 'fábrica del mundo' a economía de consumo; el hukou, al dar inseguridad, lo dificulta."></p>
+  </div>
+
+  <!-- ====================== FUENTE PRIMARIA ====================== -->
+  <div class="primary-source">
+    <span class="label">Fuente primaria recomendada</span>
+    <p style="margin:0 0 .4rem"><strong>"Invisible China"</strong> — Scott Rozelle &amp; Natalie Hell.</p>
+    <p style="margin:0; font-size:0.9rem; color:var(--ink-soft)">El contrapeso a la
+    narrativa del milagro: la brecha rural-urbana, los "niños dejados atrás" y los riesgos
+    sociales que el crecimiento dejó atrás. El mejor libro para entender la China que no
+    sale en las cifras.
+    <a href="https://www.sup.org/books/title/?id=29701">Ver →</a></p>
+  </div>
+
+  <!-- ====================== PREGUNTAR AL PROFE ====================== -->
+  <div class="ask-teacher">
+    <span class="label">Soy tu profesor — pregúntame</span>
+    ¿Quiénes son los "niños dejados atrás"? ¿Se puede comprar o conseguir un hukou urbano?
+    ¿Cómo encaja esto con la clase media china que sí prospera? Pregúntame, o seguimos el
+    eje de sociedad con la próxima lección: <strong>censura y vigilancia</strong> (la Gran
+    Muralla Digital) o <strong>la clase media y el consumo</strong>.
+  </div>
+
+  <!-- ====================== NOTAS / CITAS ====================== -->
+  <hr>
+  <h3>Notas y fuentes</h3>
+  <ol style="font-size:0.82rem; color:var(--ink-soft); line-height:1.5">
+    <li id="f1">The Regulatory Review, <a href="https://www.theregreview.org/2021/08/18/masuda-farkas-china-hukou-system-urban-rural-divide/">"China's Hukou System and the Urban-Rural Divide"</a> — registro de hogar de los años 50; ata el acceso a servicios al domicilio registrado; categorías rural/urbano.</li>
+    <li id="f2">IOM China / National Bureau of Statistics, <a href="https://china.iom.int/en/news/chinas-domestic-migrant-worker-population-reached-300-million">"China's Domestic Migrant Worker Population Reached 300 Million"</a> — 299,7 millones de trabajadores migrantes en 2024; más de un tercio de la mano de obra; acceso limitado a servicios urbanos.</li>
+    <li id="f3">Wikipedia, <a href="https://en.wikipedia.org/wiki/Urbanization_in_China">"Urbanization in China"</a> y gov.cn, <a href="https://english.www.gov.cn/news/202408/03/content_WS66ad8b4fc6d0868f4e8e9b67.html">"Reform makes it easier for migrants to gain city hukou"</a> — urbanización ~67% (2024) con meta del 70%; reformas para extender servicios y estimular el consumo.</li>
+  </ol>
+
+  <nav class="lesson-nav">
+    <span><a href="0007-examen-mixto-l1-l6.html">← Examen mixto L1-L6</a></span>
+    <span><a href="../reference/glosario.html">Glosario del curso →</a></span>
+  </nav>
+
+</main>
+
+<script>
+/* === Incrustado desde assets/quiz.js === */
+(function () {
+  function initQuiz(quiz) {
+    var correct = parseInt(quiz.getAttribute("data-correct"), 10);
+    var opts = Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    var fb = quiz.querySelector(".fb");
+    var answered = false;
+    opts.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (answered) return;
+        answered = true;
+        opts.forEach(function (b, j) { b.disabled = true; if (j === correct) b.classList.add("correct"); });
+        if (i !== correct) btn.classList.add("wrong");
+        if (fb) {
+          var msg = i === correct ? (fb.getAttribute("data-ok") || "Correcto.")
+                                  : (fb.getAttribute("data-no") || "Repasa la respuesta correcta marcada arriba.");
+          fb.textContent = msg; fb.classList.add("show");
+        }
+      });
+    });
+  }
+  function ready(fn){ if (document.readyState !== "loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
+  ready(function(){ Array.prototype.slice.call(document.querySelectorAll(".quiz")).forEach(initQuiz); });
+})();
+</script>
+</body>
+</html>

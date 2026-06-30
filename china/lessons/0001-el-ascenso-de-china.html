@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 1 · El ascenso de China en una vida</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+/* =========================================================================
+   Curso: Entender China — hoja de estilo compartida
+   Inspiración: Tufte. Tipografía legible, márgenes generosos, imprimible.
+   Cargada por todas las lecciones y documentos de referencia.
+   ========================================================================= */
+
+:root {
+  --ink:        #2b2722;   /* texto principal, casi negro cálido */
+  --ink-soft:   #5c554c;   /* texto secundario */
+  --paper:      #fdfbf6;   /* fondo crema (papel) */
+  --rule:       #e3ddd2;   /* líneas y bordes */
+  --accent:     #a4232b;   /* rojo chino, para acentos */
+  --accent-2:   #c8961e;   /* dorado, secundario */
+  --good:       #2f7d55;   /* feedback correcto */
+  --bad:        #b23b3b;   /* feedback incorrecto */
+  --note-bg:    #f3eee3;   /* fondo de cajas / notas */
+  --maxw:       42rem;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 19px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+main, .wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 3.5rem 1.4rem 6rem;
+}
+
+/* ---- Encabezados ---- */
+h1, h2, h3 { line-height: 1.18; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: 2.25rem; margin: 0 0 0.3rem; }
+h2 { font-size: 1.45rem; margin: 2.8rem 0 0.6rem; }
+h3 { font-size: 1.12rem; margin: 1.8rem 0 0.4rem; color: var(--ink-soft); }
+
+.eyebrow {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+.subtitle { color: var(--ink-soft); font-style: italic; font-size: 1.1rem; margin: 0.2rem 0 0; }
+
+/* ---- Texto ---- */
+p { margin: 0 0 1.1rem; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-bottom-color: var(--accent); }
+strong { font-weight: 700; }
+em.zh { font-style: normal; font-weight: 600; color: var(--accent); }  /* chino / pinyin */
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.6rem 0; }
+
+/* ---- Citas y notas al margen ---- */
+.cite {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.7rem;
+  vertical-align: super;
+  color: var(--accent);
+  text-decoration: none;
+  border: none;
+  padding: 0 0.1em;
+}
+blockquote {
+  margin: 1.4rem 0;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  border-left: 3px solid var(--accent-2);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---- Caja de comparación EEUU vs China (firma del curso) ---- */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.6rem 0;
+  font-size: 0.95rem;
+}
+.compare > div { padding: 1rem 1.1rem; }
+.compare > div:first-child { background: var(--note-bg); border-right: 1px solid var(--rule); }
+.compare h4 {
+  margin: 0 0 0.5rem; font-size: 0.74rem; letter-spacing: 0.12em;
+  text-transform: uppercase; font-family: ui-sans-serif, system-ui, sans-serif;
+}
+.compare ul { margin: 0; padding-left: 1.1rem; }
+.compare li { margin: 0.25rem 0; }
+
+/* ---- Caja de nota / dato clave ---- */
+.note, .keyfact {
+  background: var(--note-bg);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.keyfact { border-left: 4px solid var(--accent); }
+.keyfact .label, .note .label {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+  font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.3rem;
+}
+
+/* ---- Línea temporal ---- */
+.timeline { list-style: none; padding: 0; margin: 1.6rem 0; border-left: 2px solid var(--rule); }
+.timeline li { position: relative; padding: 0 0 1.3rem 1.5rem; }
+.timeline li::before {
+  content: ""; position: absolute; left: -7px; top: 0.45rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--paper); border: 3px solid var(--accent);
+}
+.timeline .year { font-weight: 700; font-family: ui-sans-serif, system-ui, sans-serif; color: var(--accent); }
+
+/* ---- Quiz (componente interactivo) ---- */
+/* Estilos consumidos por assets/quiz.js */
+.quiz { margin: 2rem 0; padding: 1.4rem 1.4rem 1.1rem; border: 1px solid var(--rule); border-radius: 10px; background: #fff; }
+.quiz .q { font-weight: 600; margin: 0 0 0.9rem; }
+.quiz .opts { display: flex; flex-direction: column; gap: 0.5rem; }
+.quiz button.opt {
+  text-align: left; font: inherit; font-size: 0.95rem;
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 7px;
+  padding: 0.6rem 0.85rem; cursor: pointer; color: var(--ink); transition: border-color .12s, background .12s;
+}
+.quiz button.opt:hover { border-color: var(--accent-2); }
+.quiz button.opt:disabled { cursor: default; opacity: 0.95; }
+.quiz button.opt.correct { background: #e9f4ee; border-color: var(--good); color: var(--good); font-weight: 600; }
+.quiz button.opt.wrong   { background: #f8ebeb; border-color: var(--bad);  color: var(--bad); }
+.quiz .fb { margin: 0.9rem 0 0; font-size: 0.92rem; color: var(--ink-soft); min-height: 1.2rem; }
+.quiz .fb.show { animation: fade .25s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; } }
+
+/* ---- Navegación entre lecciones ---- */
+.lesson-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);
+  font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.85rem;
+}
+
+/* ---- Pie / recordatorio de preguntar al profesor ---- */
+.ask-teacher {
+  margin-top: 2.4rem; padding: 1rem 1.2rem; border: 1px dashed var(--accent-2);
+  border-radius: 8px; background: var(--note-bg); font-size: 0.92rem;
+}
+.ask-teacher .label { color: var(--accent-2); }
+
+/* ---- Fuente primaria recomendada ---- */
+.primary-source {
+  margin: 2rem 0; padding: 1.1rem 1.3rem; border-radius: 8px;
+  background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--accent-2);
+}
+.primary-source .label {
+  font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
+  color: var(--accent-2); display: block; margin-bottom: 0.3rem;
+}
+
+/* ---- Tabla simple ---- */
+table { border-collapse: collapse; width: 100%; margin: 1.4rem 0; font-size: 0.93rem; }
+th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--rule); }
+th { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+
+/* ---- Impresión ---- */
+@media print {
+  :root { --paper: #fff; }
+  body { font-size: 11pt; }
+  .quiz button.opt { border-color: #ccc; }
+  .ask-teacher, .lesson-nav { display: none; }
+  a { color: var(--ink); border: none; }
+  .cite { color: var(--ink-soft); }
+}
+
+@media (max-width: 540px) {
+  html { font-size: 17px; }
+  .compare { grid-template-columns: 1fr; }
+  .compare > div:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+
+</style>
+<script>
+/* === Incrustado desde assets/quiz.js === */
+/* =========================================================================
+   Componente de quiz reutilizable — Curso "Entender China"
+   Retrieval practice con feedback inmediato y automático.
+
+   Uso en una lección:
+   <div class="quiz" data-correct="1">
+     <p class="q">¿Pregunta?</p>
+     <div class="opts">
+       <button class="opt">Opción A</button>
+       <button class="opt">Opción B</button>   <!-- índice 1 = correcta -->
+       <button class="opt">Opción C</button>
+     </div>
+     <p class="fb" data-ok="¡Bien! Explicación..." data-no="No exactamente. Explicación..."></p>
+   </div>
+
+   Nota de diseño: mantén las opciones de longitud similar (mismo nº de palabras)
+   para no dar pistas por el formato.
+   ========================================================================= */
+(function () {
+  function initQuiz(quiz) {
+    var correct = parseInt(quiz.getAttribute("data-correct"), 10);
+    var opts = Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    var fb = quiz.querySelector(".fb");
+    var answered = false;
+
+    opts.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (answered) return;
+        answered = true;
+        opts.forEach(function (b, j) {
+          b.disabled = true;
+          if (j === correct) b.classList.add("correct");
+        });
+        if (i !== correct) btn.classList.add("wrong");
+        if (fb) {
+          var msg = i === correct
+            ? (fb.getAttribute("data-ok") || "Correcto.")
+            : (fb.getAttribute("data-no") || "Repasa la respuesta correcta marcada arriba.");
+          fb.textContent = msg;
+          fb.classList.add("show");
+        }
+      });
+    });
+  }
+
+  function ready(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+
+  ready(function () {
+    Array.prototype.slice.call(document.querySelectorAll(".quiz")).forEach(initQuiz);
+  });
+})();
+
+</script>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Lección 1 · Entender China</p>
+  <h1>El ascenso en una sola vida</h1>
+  <p class="subtitle">Cómo China pasó de ser uno de los países más pobres del mundo a
+  segunda potencia económica en ~45 años — y por qué ese dato es la llave de todo lo
+  demás.</p>
+
+  <div class="keyfact">
+    <span class="label">La victoria de hoy</span>
+    Al terminar, podrás explicar en una frase <strong>por qué China ascendió</strong> y
+    señalar el <strong>año y la persona</strong> que marcaron el punto de inflexión.
+    Eso es el ancla sobre la que colgaremos todo el curso.
+  </div>
+
+  <h2>El punto de partida: tu mapa de EEUU</h2>
+  <p>Tú ya tienes un mapa mental de por qué EEUU dominó el siglo XX: salió indemne de
+  dos guerras mundiales, tenía el mayor mercado interno, exportó su cultura. Es una
+  historia de <em>continuidad</em>: una potencia que ya era rica en 1900 y siguió
+  siéndolo.</p>
+  <p>La historia de China es lo contrario: una de <strong>discontinuidad brutal</strong>.
+  No es la historia de una potencia que se mantuvo arriba, sino de una civilización
+  milenaria que tocó fondo y resurgió en cuestión de décadas. Entender China empieza
+  por interiorizar lo reciente y lo rápido que fue ese resurgir.</p>
+
+  <h2>Tres actos en 75 años</h2>
+  <p>Todo el período de la China moderna —la <a href="../reference/glosario.html#rpc">República
+  Popular</a>, fundada en 1949— cabe en tres actos:</p>
+
+  <ul class="timeline">
+    <li>
+      <span class="year">1949 – 1976 · Mao</span> — <a href="../reference/glosario.html#mao">Mao
+      Zedong</a> unifica el país pero lo mantiene pobre y aislado. Sus campañas —el
+      <a href="../reference/glosario.html#gran-salto">Gran Salto Adelante</a> y la
+      <a href="../reference/glosario.html#revolucion-cultural">Revolución Cultural</a>—
+      causan decenas de millones de muertes.<a class="cite" href="#f1">1</a> En 1978
+      China es un "remanso empobrecido".<a class="cite" href="#f2">2</a>
+    </li>
+    <li>
+      <span class="year">1978 · El giro</span> — <a href="../reference/glosario.html#deng">Deng
+      Xiaoping</a> lanza la <a href="../reference/glosario.html#gaige">Reforma y
+      Apertura</a> (<em class="zh">Gǎigé Kāifàng</em>). <strong>Este es el punto de
+      inflexión.</strong>
+    </li>
+    <li>
+      <span class="year">1978 – hoy · El ascenso</span> — Crecimiento del ~9,5% anual
+      durante más de tres décadas.<a class="cite" href="#f3">3</a> La pobreza absoluta
+      cae del 41% al 5% de la población.<a class="cite" href="#f3">3</a> China se
+      convierte en la 2ª economía mundial.
+    </li>
+  </ul>
+
+  <h2>Qué fue la "Reforma y Apertura"</h2>
+  <p>En diciembre de 1978, Deng y sus aliados decidieron algo radical para un Estado
+  comunista: dejar entrar el mercado, sin abandonar el control del Partido. En la
+  práctica, cuatro movimientos:</p>
+  <ol>
+    <li><strong>Liberar el campo:</strong> se desmontan las comunas; los campesinos
+    pueden cultivar y vender por su cuenta.</li>
+    <li><strong>Abrir al exterior:</strong> se invita a la inversión extranjera, antes
+    impensable.</li>
+    <li><strong>Crear laboratorios:</strong> las <a href="../reference/glosario.html#sez">Zonas
+    Económicas Especiales</a> (Shenzhen, 1980) prueban reglas de mercado en zonas
+    acotadas.<a class="cite" href="#f4">4</a></li>
+    <li><strong>Experimentar, no copiar:</strong> Deng lo llamó un "experimento a gran
+    escala", aprendiendo sobre la marcha en vez de seguir un manual.<a class="cite" href="#f1">1</a></li>
+  </ol>
+
+  <div class="keyfact">
+    <span class="label">La frase llave</span>
+    China ascendió porque en <strong>1978</strong>, bajo <strong>Deng Xiaoping</strong>,
+    abrió su economía al mercado y al mundo —la <em class="zh">Reforma y Apertura</em>—
+    manteniendo el poder político en un único Partido.
+  </div>
+
+  <h2>La escala, en cifras que comparan</h2>
+  <p>Para que el salto no sea abstracto, ánclalo con EEUU:</p>
+
+  <div class="compare">
+    <div>
+      <h4>EEUU · continuidad</h4>
+      <ul>
+        <li>Ya era la mayor economía en 1900.</li>
+        <li>Sigue 1ª por PIB nominal hoy.</li>
+        <li>Riqueza heredada y mantenida.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>China · discontinuidad</h4>
+      <ul>
+        <li>PIB de ~150.000 M$ (1978) → ~18,7 billones $ (2024).<a class="cite" href="#f5">5</a></li>
+        <li>De la pobreza a la 2ª economía mundial.</li>
+        <li>Riqueza construida en una generación.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>Dicho de otro modo: una persona nacida en China en 1978 ha visto a su país pasar
+  de la pobreza rural a tener trenes de alta velocidad, megaciudades y campeones
+  tecnológicos globales — <em>en su propia vida adulta</em>. Ese vértigo histórico
+  explica buena parte de cómo China se ve a sí misma y al mundo. Lo retomaremos.</p>
+
+  <!-- ====================== RETRIEVAL PRACTICE ====================== -->
+  <h2>Compruébalo (sin mirar arriba)</h2>
+  <p>Recordar cuesta más que releer — y por eso fija mejor el conocimiento. Responde de
+  memoria; tendrás feedback al instante.</p>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">1. ¿Qué año marca el punto de inflexión del ascenso de China?</p>
+    <div class="opts">
+      <button class="opt">El año 1949</button>
+      <button class="opt">El año 1966</button>
+      <button class="opt">El año 1978</button>
+      <button class="opt">El año 2001</button>
+    </div>
+    <p class="fb"
+       data-ok="Exacto: 1978, el Tercer Pleno donde se lanzó la Reforma y Apertura."
+       data-no="Es 1978. 1949 fue la fundación de la RPC; el giro económico llegó después."></p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">2. ¿Qué líder impulsó la Reforma y Apertura?</p>
+    <div class="opts">
+      <button class="opt">Mao Zedong, líder</button>
+      <button class="opt">Deng Xiaoping, líder</button>
+      <button class="opt">Xi Jinping, líder</button>
+      <button class="opt">Hua Guofeng, líder</button>
+    </div>
+    <p class="fb"
+       data-ok="Correcto: Deng Xiaoping, el pragmático que abrió la economía."
+       data-no="Fue Deng Xiaoping. Mao fue su predecesor; mantuvo la economía cerrada."></p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <p class="q">3. ¿Qué hizo, en esencia, la Reforma y Apertura?</p>
+    <div class="opts">
+      <button class="opt">Abrió el mercado, mantuvo un Partido</button>
+      <button class="opt">Implantó el voto, abrió partidos</button>
+      <button class="opt">Cerró el comercio, colectivizó tierra</button>
+      <button class="opt">Privatizó el Estado, quitó aranceles</button>
+    </div>
+    <p class="fb"
+       data-ok="Eso es: economía de mercado SIN apertura política. La clave de China."
+       data-no="La clave: abrió la ECONOMÍA al mercado, pero el poder siguió en un único Partido."></p>
+  </div>
+
+  <!-- ====================== FUENTE PRIMARIA ====================== -->
+  <div class="primary-source">
+    <span class="label">Fuente primaria recomendada</span>
+    <p style="margin:0 0 .4rem"><strong>Arthur R. Kroeber — <em>China's Economy: What
+    Everyone Needs to Know</em></strong> (Oxford University Press).</p>
+    <p style="margin:0; font-size:0.9rem; color:var(--ink-soft)">La introducción
+    accesible de referencia al ascenso económico chino: descriptiva, basada en datos y
+    sin agenda. Si solo lees una cosa para profundizar en esta lección, que sea su
+    primer capítulo. <a href="https://global.oup.com/academic/product/chinas-economy-9780190946470">Ficha del libro →</a></p>
+  </div>
+
+  <!-- ====================== PREGUNTAR AL PROFE ====================== -->
+  <div class="ask-teacher">
+    <span class="label">Soy tu profesor — pregúntame</span>
+    ¿Algo no encaja? ¿Quieres saber por qué Deng pudo hacer esto y no Mao, o cómo se
+    compara este salto con el de Japón o Corea? Pregúntame lo que sea en el chat:
+    para eso estoy. También puedo ajustar el ritmo o el enfoque.
+  </div>
+
+  <!-- ====================== NOTAS / CITAS ====================== -->
+  <hr>
+  <h3>Notas y fuentes</h3>
+  <ol style="font-size:0.82rem; color:var(--ink-soft); line-height:1.5">
+    <li id="f1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Reform_and_opening_up">"Reform and opening up"</a> — contexto del giro de 1978 y el "experimento a gran escala" de Deng.</li>
+    <li id="f2">Arthur Kroeber, <a href="https://global.oup.com/academic/product/chinas-economy-9780190946470"><em>China's Economy</em></a> — China en los 80 como "remanso empobrecido".</li>
+    <li id="f3">Congressional Research Service, <a href="https://sgp.fas.org/crs/row/RL33534.pdf">"China's Economic Rise"</a> — crecimiento ~9,5% anual; caída de la pobreza absoluta del 41% al 5%.</li>
+    <li id="f4">Cato Institute, <a href="https://www.cato.org/publications/chinas-post-1978-economic-development-entry-global-trading-system">"China's Post-1978 Economic Development"</a> — Zonas Económicas Especiales del sureste costero.</li>
+    <li id="f5">Cifras de PIB 1978 vs 2024 recogidas en <a href="https://en.wikipedia.org/wiki/Reform_and_opening_up">Wikipedia "Reform and opening up"</a> a partir de fuentes del Banco Mundial.</li>
+  </ol>
+
+  <nav class="lesson-nav">
+    <span>Lección 1 de la serie</span>
+    <span><a href="../reference/glosario.html">Glosario del curso →</a></span>
+  </nav>
+
+</main>
+</body>
+</html>

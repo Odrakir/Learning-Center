@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Examen mixto · Lecciones 1-6 · Entender China</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+:root {
+  --ink:#2b2722; --ink-soft:#5c554c; --paper:#fdfbf6; --rule:#e3ddd2;
+  --accent:#a4232b; --accent-2:#c8961e; --good:#2f7d55; --bad:#b23b3b;
+  --note-bg:#f3eee3; --maxw:42rem;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  line-height:1.62; -webkit-font-smoothing:antialiased; }
+main,.wrap { max-width:var(--maxw); margin:0 auto; padding:3.5rem 1.4rem 6rem; }
+h1,h2,h3 { line-height:1.18; font-weight:600; letter-spacing:-0.01em; }
+h1 { font-size:2.25rem; margin:0 0 0.3rem; }
+h2 { font-size:1.45rem; margin:2.8rem 0 0.6rem; }
+h3 { font-size:1.12rem; margin:1.8rem 0 0.4rem; color:var(--ink-soft); }
+.eyebrow { font-family:ui-sans-serif,system-ui,sans-serif; text-transform:uppercase;
+  letter-spacing:0.16em; font-size:0.72rem; font-weight:700; color:var(--accent); margin:0 0 0.6rem; }
+.subtitle { color:var(--ink-soft); font-style:italic; font-size:1.1rem; margin:0.2rem 0 0; }
+p { margin:0 0 1.1rem; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); }
+a:hover { border-bottom-color:var(--accent); }
+strong { font-weight:700; }
+hr { border:none; border-top:1px solid var(--rule); margin:2.6rem 0; }
+.note,.keyfact { background:var(--note-bg); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; font-size:0.96rem; }
+.keyfact { border-left:4px solid var(--accent); }
+.keyfact .label,.note .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--accent); display:block; margin-bottom:0.3rem; }
+.quiz { margin:1.6rem 0; padding:1.4rem 1.4rem 1.1rem; border:1px solid var(--rule); border-radius:10px; background:#fff; }
+.quiz .tag { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.62rem; text-transform:uppercase;
+  letter-spacing:0.12em; font-weight:700; color:var(--ink-soft); display:block; margin-bottom:0.35rem; }
+.quiz .q { font-weight:600; margin:0 0 0.9rem; }
+.quiz .opts { display:flex; flex-direction:column; gap:0.5rem; }
+.quiz button.opt { text-align:left; font:inherit; font-size:0.95rem; background:var(--paper);
+  border:1px solid var(--rule); border-radius:7px; padding:0.6rem 0.85rem; cursor:pointer; color:var(--ink);
+  transition:border-color .12s, background .12s; }
+.quiz button.opt:hover { border-color:var(--accent-2); }
+.quiz button.opt:disabled { cursor:default; opacity:0.95; }
+.quiz button.opt.correct { background:#e9f4ee; border-color:var(--good); color:var(--good); font-weight:600; }
+.quiz button.opt.wrong { background:#f8ebeb; border-color:var(--bad); color:var(--bad); }
+.quiz .fb { margin:0.9rem 0 0; font-size:0.92rem; color:var(--ink-soft); min-height:1.2rem; }
+.quiz .fb.show { animation:fade .25s ease; }
+@keyframes fade { from { opacity:0; transform:translateY(3px); } to { opacity:1; } }
+/* --- marcador fijo del examen --- */
+.scoreboard { position:sticky; top:0; z-index:10; margin:0 0 1.4rem; padding:0.7rem 1rem;
+  background:var(--ink); color:#fff; border-radius:0 0 10px 10px;
+  font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.82rem; display:flex;
+  justify-content:space-between; align-items:center; gap:1rem; }
+.scoreboard .bar { flex:1; height:7px; background:rgba(255,255,255,.18); border-radius:4px; overflow:hidden; }
+.scoreboard .bar > i { display:block; height:100%; width:0; background:var(--accent-2); transition:width .3s; }
+.scoreboard b { color:#fff; }
+.verdict { margin:2rem 0; padding:1.3rem 1.4rem; border-radius:10px; background:#fff;
+  border:1px solid var(--rule); border-top:5px solid var(--accent); display:none; }
+.verdict.show { display:block; animation:fade .3s ease; }
+.verdict h3 { margin:0 0 0.4rem; color:var(--ink); }
+.verdict .big { font-size:2rem; font-weight:700; color:var(--accent); font-family:ui-sans-serif,system-ui,sans-serif; }
+.lesson-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:3rem; padding-top:1.4rem;
+  border-top:1px solid var(--rule); font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; }
+.ask-teacher { margin-top:2.4rem; padding:1rem 1.2rem; border:1px dashed var(--accent-2); border-radius:8px;
+  background:var(--note-bg); font-size:0.92rem; }
+.ask-teacher .label { color:var(--accent-2); font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.12em; font-weight:700; display:block; margin-bottom:0.3rem; }
+@media print { .scoreboard,.ask-teacher,.lesson-nav { display:none; } a { color:var(--ink); border:none; } }
+@media (max-width:540px) { html { font-size:17px; } }
+</style>
+</head>
+<body>
+
+<div class="scoreboard">
+  <span>Aciertos: <b id="sc-correct">0</b> / <b id="sc-total">15</b></span>
+  <span class="bar"><i id="sc-bar"></i></span>
+  <span id="sc-done">0 respondidas</span>
+</div>
+
+<main>
+
+  <p class="eyebrow">Examen mixto · Entender China</p>
+  <h1>Examen: todo lo aprendido (L1-L6)</h1>
+  <p class="subtitle">15 preguntas barajadas de las seis lecciones. No es para nota: es
+  para que el esfuerzo de recordar fije el conocimiento a largo plazo. Responde de
+  memoria, sin mirar las lecciones.</p>
+
+  <div class="keyfact">
+    <span class="label">Cómo funciona</span>
+    Cada pregunta te dice de qué lección sale, por si quieres repasarla después. El
+    marcador de arriba cuenta tus aciertos en vivo. Al terminar las 15 verás tu veredicto.
+    <strong>Recordar con esfuerzo —aunque falles— es lo que construye memoria.</strong>
+  </div>
+
+  <!-- 1 · L6 -->
+  <div class="quiz" data-correct="2">
+    <span class="tag">Lección 6 · Geopolítica</span>
+    <p class="q">1. ¿Qué idea ordena toda la política exterior china?</p>
+    <div class="opts">
+      <button class="opt">Exportar por fin la revolución comunista</button>
+      <button class="opt">Aislarse del comercio con todo Occidente</button>
+      <button class="opt">El rejuvenecimiento: volver a ser el centro</button>
+      <button class="opt">Copiar el modelo político de Europa occidental</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: borrar el 'siglo de la humillación' y recuperar su centralidad. Meta simbólica, 2049."
+       data-no="Es el rejuvenecimiento nacional: cerrar el 'siglo de la humillación' y volver al centro."></p>
+  </div>
+
+  <!-- 2 · L1 -->
+  <div class="quiz" data-correct="1">
+    <span class="tag">Lección 1 · El ascenso</span>
+    <p class="q">2. ¿En qué año arrancó el despegue económico de China?</p>
+    <div class="opts">
+      <button class="opt">En mil novecientos cuarenta y nueve</button>
+      <button class="opt">En mil novecientos setenta y ocho</button>
+      <button class="opt">En mil novecientos ochenta y nueve</button>
+      <button class="opt">En dos mil uno, al entrar en la OMC</button>
+    </div>
+    <p class="fb"
+       data-ok="Correcto: 1978, la Reforma y Apertura de Deng. 1949 fue la fundación de la RPC."
+       data-no="Fue 1978 (Reforma y Apertura). 1949 = fundación; 1989 = Tiananmen; 2001 = OMC."></p>
+  </div>
+
+  <!-- 3 · L4 -->
+  <div class="quiz" data-correct="3">
+    <span class="tag">Lección 4 · El Partido</span>
+    <p class="q">3. ¿Cuántos miembros tiene el órgano que de verdad gobierna?</p>
+    <div class="opts">
+      <button class="opt">Doscientos cinco miembros en total</button>
+      <button class="opt">Veinticuatro miembros en total</button>
+      <button class="opt">Dos mil trescientos en total</button>
+      <button class="opt">Siete miembros en total</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: el Comité Permanente lo forman 7, presididos por el Secretario General."
+       data-no="Son 7 (Comité Permanente). El Politburó tiene 24; el Comité Central, 205."></p>
+  </div>
+
+  <!-- 4 · L2 -->
+  <div class="quiz" data-correct="0">
+    <span class="tag">Lección 2 · Geografía</span>
+    <p class="q">4. La línea de Hu muestra que la población china vive...</p>
+    <div class="opts">
+      <button class="opt">Casi toda en la mitad este del país</button>
+      <button class="opt">Repartida muy por igual en el país</button>
+      <button class="opt">Casi toda en el oeste árido del país</button>
+      <button class="opt">Concentrada solo en el norte del país</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: ~94% al este de la línea; el oeste está casi vacío. La geografía humana de China."
+       data-no="El 94% vive al este de la línea de Hu; el oeste (Tíbet, Xinjiang) está casi vacío."></p>
+  </div>
+
+  <!-- 5 · L3 -->
+  <div class="quiz" data-correct="3">
+    <span class="tag">Lección 3 · De Mao a Xi</span>
+    <p class="q">5. ¿Cuál es el orden correcto de los cinco líderes?</p>
+    <div class="opts">
+      <button class="opt">Mao, Jiang, Deng, Hu y luego Xi</button>
+      <button class="opt">Deng, Mao, Hu, Jiang y luego Xi</button>
+      <button class="opt">Mao, Deng, Hu, Jiang y luego Xi</button>
+      <button class="opt">Mao, Deng, Jiang, Hu y luego Xi</button>
+    </div>
+    <p class="fb"
+       data-ok="Perfecto: Mao → Deng → Jiang → Hu → Xi. El eje temporal del curso."
+       data-no="El orden es Mao → Deng → Jiang → Hu → Xi. Jiang va antes que Hu."></p>
+  </div>
+
+  <!-- 6 · L5 -->
+  <div class="quiz" data-correct="1">
+    <span class="tag">Lección 5 · La economía</span>
+    <p class="q">6. ¿Qué cuota de la manufactura mundial produce China hoy?</p>
+    <div class="opts">
+      <button class="opt">Alrededor del cinco por ciento</button>
+      <button class="opt">Alrededor del treinta por ciento</button>
+      <button class="opt">Alrededor del sesenta por ciento</button>
+      <button class="opt">Alrededor del ochenta por ciento</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: ~30%, más que EEUU, Japón y Alemania juntos. 'La fábrica del mundo'."
+       data-no="Es ~30% (era ~5% en 1980). De ahí el apodo 'la fábrica del mundo'."></p>
+  </div>
+
+  <!-- 7 · L3 -->
+  <div class="quiz" data-correct="2">
+    <span class="tag">Lección 3 · De Mao a Xi</span>
+    <p class="q">7. ¿Qué hizo Xi Jinping en el año 2018?</p>
+    <div class="opts">
+      <button class="opt">Renunció a todos sus altos cargos</button>
+      <button class="opt">Nombró pronto a su futuro sucesor</button>
+      <button class="opt">Abolió el límite de dos mandatos</button>
+      <button class="opt">Restauró las elecciones abiertas</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: abolió el límite de mandatos (2.958 votos contra 2). Puede gobernar sin tope."
+       data-no="En 2018 abolió el límite de mandatos: desmontó la pieza clave del sistema de Deng."></p>
+  </div>
+
+  <!-- 8 · L5 -->
+  <div class="quiz" data-correct="0">
+    <span class="tag">Lección 5 · La economía</span>
+    <p class="q">8. ¿Qué fueron las Zonas Económicas Especiales (SEZ)?</p>
+    <div class="opts">
+      <button class="opt">Recintos abiertos al mercado y la inversión</button>
+      <button class="opt">Granjas colectivas de inspiración maoísta</button>
+      <button class="opt">Bases militares cerradas al extranjero</button>
+      <button class="opt">Barrios reservados a los altos cargos</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: probetas de capitalismo (Shenzhen, 1980) mientras el resto seguía socialista."
+       data-no="Eran recintos con reglas de mercado e inversión extranjera; la estrella fue Shenzhen."></p>
+  </div>
+
+  <!-- 9 · L6 -->
+  <div class="quiz" data-correct="2">
+    <span class="tag">Lección 6 · Geopolítica</span>
+    <p class="q">9. ¿Qué exige la política de "Una sola China"?</p>
+    <div class="opts">
+      <button class="opt">Unificar las monedas de toda Asia oriental</button>
+      <button class="opt">Permitir varios partidos dentro de China</button>
+      <button class="opt">Aceptar que Taiwán es parte de China</button>
+      <button class="opt">Reconocer a Taiwán como Estado aparte</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: para tener relaciones con Pekín hay que aceptarlo. Por eso Taiwán está casi aislado."
+       data-no="Exige aceptar que Taiwán forma parte de China; es la condición diplomática de Pekín."></p>
+  </div>
+
+  <!-- 10 · L4 -->
+  <div class="quiz" data-correct="0">
+    <span class="tag">Lección 4 · El Partido</span>
+    <p class="q">10. El "centralismo democrático" significa, en la práctica, que...</p>
+    <div class="opts">
+      <button class="opt">La cúspide decide y la base obedece</button>
+      <button class="opt">La base decide y la cúspide obedece</button>
+      <button class="opt">Varios partidos compiten por el voto</button>
+      <button class="opt">Los jueces revisan cada gran decisión</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: se debate antes, pero una vez decidido arriba, todos obedecen abajo sin fisuras."
+       data-no="Es de arriba abajo: la cúspide decide y la base ratifica. La pirámide concentra poder."></p>
+  </div>
+
+  <!-- 11 · L1 -->
+  <div class="quiz" data-correct="1">
+    <span class="tag">Lección 1 · El ascenso</span>
+    <p class="q">11. ¿Qué ocurrió en China en el año 1949?</p>
+    <div class="opts">
+      <button class="opt">Deng lanzó la Reforma y Apertura</button>
+      <button class="opt">Mao fundó la República Popular China</button>
+      <button class="opt">China entró en la OMC mundial</button>
+      <button class="opt">Xi abolió el límite de mandatos</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: 1949, Mao proclama la RPC tras ganar la guerra civil. El bando perdedor huyó a Taiwán."
+       data-no="En 1949 Mao fundó la RPC. La Reforma fue 1978; la OMC, 2001; el límite, 2018."></p>
+  </div>
+
+  <!-- 12 · L5 -->
+  <div class="quiz" data-correct="3">
+    <span class="tag">Lección 5 · La economía</span>
+    <p class="q">12. ¿Qué representa Evergrande en la economía china?</p>
+    <div class="opts">
+      <button class="opt">El mayor banco estatal de todo el país</button>
+      <button class="opt">La empresa líder de coches eléctricos</button>
+      <button class="opt">La gran bolsa de valores de Shanghái</button>
+      <button class="opt">El símbolo de la burbuja inmobiliaria</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: promotora con ~300.000 M$ de deuda, liquidada en 2024. La resaca del ladrillo."
+       data-no="Es la promotora símbolo de la burbuja: ~300.000 M$ de deuda y liquidación en 2024."></p>
+  </div>
+
+  <!-- 13 · L3 -->
+  <div class="quiz" data-correct="2">
+    <span class="tag">Lección 3 · De Mao a Xi</span>
+    <p class="q">13. ¿Cuál es el cargo que de verdad otorga el poder máximo?</p>
+    <div class="opts">
+      <button class="opt">El de presidente ceremonial del país</button>
+      <button class="opt">El de jefe del Parlamento nacional</button>
+      <button class="opt">El de Secretario General del Partido</button>
+      <button class="opt">El de primer ministro del gobierno</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: Secretario General del PCCh (+ Comisión Militar Central). La presidencia es decorativa."
+       data-no="Es el Secretario General del Partido; el cargo de 'presidente' es casi ceremonial."></p>
+  </div>
+
+  <!-- 14 · L6 -->
+  <div class="quiz" data-correct="1">
+    <span class="tag">Lección 6 · Geopolítica</span>
+    <p class="q">14. ¿Qué vulnerabilidad ataca el plan "Made in China 2025"?</p>
+    <div class="opts">
+      <button class="opt">La falta absoluta de mano de obra</button>
+      <button class="opt">La dependencia de chips extranjeros</button>
+      <button class="opt">La ausencia de salida hacia el mar</button>
+      <button class="opt">El exceso de energía que debe importar</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: depende de semiconductores avanzados de Occidente; busca fabricarlos en casa."
+       data-no="Su talón de Aquiles son los chips avanzados; el plan persigue autosuficiencia tecnológica."></p>
+  </div>
+
+  <!-- 15 · L2 -->
+  <div class="quiz" data-correct="0">
+    <span class="tag">Lección 2 · Geografía</span>
+    <p class="q">15. Comparada con EEUU, China tiene una superficie...</p>
+    <div class="opts">
+      <button class="opt">Parecida, pero con más del cuádruple de gente</button>
+      <button class="opt">Diez veces mayor y con menos gente</button>
+      <button class="opt">Mucho menor, como la de España</button>
+      <button class="opt">Idéntica y con la misma población</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: tamaño similar al de EEUU, pero ~1.400 millones de personas frente a ~340."
+       data-no="Superficie parecida a la de EEUU, pero con más del cuádruple de población (~1.400 M)."></p>
+  </div>
+
+  <!-- ====================== VEREDICTO ====================== -->
+  <div class="verdict" id="verdict">
+    <h3>Tu resultado</h3>
+    <p class="big"><span id="v-score">0</span> / 15</p>
+    <p id="v-msg"></p>
+  </div>
+
+  <!-- ====================== PREGUNTAR AL PROFE ====================== -->
+  <div class="ask-teacher">
+    <span class="label">Soy tu profesor</span>
+    Dime qué número(s) fallaste y repasamos juntos solo eso — o, si quieres, abrimos un
+    eje nuevo del curso: la sociedad china por dentro, el ejército, o la rivalidad
+    EEUU-China en detalle.
+  </div>
+
+  <nav class="lesson-nav">
+    <span><a href="0006-que-quiere-china.html">← Lección 6: Qué quiere China</a></span>
+    <span><a href="../reference/glosario.html">Glosario del curso →</a></span>
+  </nav>
+
+</main>
+
+<script>
+/* === Examen: lógica de quiz + marcador (basado en assets/quiz.js) === */
+(function () {
+  var total = 0, answered = 0, correctCount = 0;
+  var scCorrect, scDone, scBar, scTotal, verdict;
+
+  function refresh() {
+    if (scCorrect) scCorrect.textContent = correctCount;
+    if (scDone) scDone.textContent = answered + " respondidas";
+    if (scBar) scBar.style.width = (total ? (answered / total * 100) : 0) + "%";
+    if (answered === total && total > 0) showVerdict();
+  }
+
+  function showVerdict() {
+    if (!verdict) return;
+    document.getElementById("v-score").textContent = correctCount;
+    var pct = correctCount / total;
+    var msg;
+    if (pct === 1) msg = "Pleno. Tienes el mapa de China firmemente fijado: de dónde viene, cómo funciona, cómo se hizo rico y qué quiere. Misión cumplida.";
+    else if (pct >= 0.8) msg = "Muy sólido. Dominas la estructura; solo se te escaparon detalles. Dime cuáles fallaste y los cerramos en cinco minutos.";
+    else if (pct >= 0.6) msg = "Buen mapa base, con algún hueco. Repasemos juntos las preguntas que fallaste antes de avanzar.";
+    else msg = "Es normal: recordar con esfuerzo es lo que enseña. Repasemos las lecciones flojas y repite el examen en unos días (el espaciado es tu aliado).";
+    document.getElementById("v-msg").textContent = msg;
+    verdict.classList.add("show");
+    verdict.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function initQuiz(quiz) {
+    total++;
+    var correct = parseInt(quiz.getAttribute("data-correct"), 10);
+    var opts = Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    var fb = quiz.querySelector(".fb");
+    var done = false;
+    opts.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (done) return;
+        done = true; answered++;
+        opts.forEach(function (b, j) { b.disabled = true; if (j === correct) b.classList.add("correct"); });
+        if (i === correct) { correctCount++; } else { btn.classList.add("wrong"); }
+        if (fb) {
+          fb.textContent = i === correct ? (fb.getAttribute("data-ok") || "Correcto.")
+                                         : (fb.getAttribute("data-no") || "Mira la respuesta correcta marcada.");
+          fb.classList.add("show");
+        }
+        refresh();
+      });
+    });
+  }
+
+  function ready(fn){ if (document.readyState !== "loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
+  ready(function(){
+    scCorrect = document.getElementById("sc-correct");
+    scDone = document.getElementById("sc-done");
+    scBar = document.getElementById("sc-bar");
+    scTotal = document.getElementById("sc-total");
+    verdict = document.getElementById("verdict");
+    Array.prototype.slice.call(document.querySelectorAll(".quiz")).forEach(initQuiz);
+    if (scTotal) scTotal.textContent = total;
+    refresh();
+  });
+})();
+</script>
+</body>
+</html>

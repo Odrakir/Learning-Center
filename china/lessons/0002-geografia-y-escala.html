@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 2 · Geografía y escala: la China llena y la China vacía</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+/* =========================================================================
+   Curso: Entender China — hoja de estilo compartida
+   Inspiración: Tufte. Tipografía legible, márgenes generosos, imprimible.
+   Cargada por todas las lecciones y documentos de referencia.
+   ========================================================================= */
+
+:root {
+  --ink:        #2b2722;   /* texto principal, casi negro cálido */
+  --ink-soft:   #5c554c;   /* texto secundario */
+  --paper:      #fdfbf6;   /* fondo crema (papel) */
+  --rule:       #e3ddd2;   /* líneas y bordes */
+  --accent:     #a4232b;   /* rojo chino, para acentos */
+  --accent-2:   #c8961e;   /* dorado, secundario */
+  --good:       #2f7d55;   /* feedback correcto */
+  --bad:        #b23b3b;   /* feedback incorrecto */
+  --note-bg:    #f3eee3;   /* fondo de cajas / notas */
+  --maxw:       42rem;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 19px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+main, .wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 3.5rem 1.4rem 6rem;
+}
+
+/* ---- Encabezados ---- */
+h1, h2, h3 { line-height: 1.18; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: 2.25rem; margin: 0 0 0.3rem; }
+h2 { font-size: 1.45rem; margin: 2.8rem 0 0.6rem; }
+h3 { font-size: 1.12rem; margin: 1.8rem 0 0.4rem; color: var(--ink-soft); }
+
+.eyebrow {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+.subtitle { color: var(--ink-soft); font-style: italic; font-size: 1.1rem; margin: 0.2rem 0 0; }
+
+/* ---- Texto ---- */
+p { margin: 0 0 1.1rem; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-bottom-color: var(--accent); }
+strong { font-weight: 700; }
+em.zh { font-style: normal; font-weight: 600; color: var(--accent); }  /* chino / pinyin */
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.6rem 0; }
+
+/* ---- Citas y notas al margen ---- */
+.cite {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.7rem;
+  vertical-align: super;
+  color: var(--accent);
+  text-decoration: none;
+  border: none;
+  padding: 0 0.1em;
+}
+blockquote {
+  margin: 1.4rem 0;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  border-left: 3px solid var(--accent-2);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---- Caja de comparación EEUU vs China (firma del curso) ---- */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.6rem 0;
+  font-size: 0.95rem;
+}
+.compare > div { padding: 1rem 1.1rem; }
+.compare > div:first-child { background: var(--note-bg); border-right: 1px solid var(--rule); }
+.compare h4 {
+  margin: 0 0 0.5rem; font-size: 0.74rem; letter-spacing: 0.12em;
+  text-transform: uppercase; font-family: ui-sans-serif, system-ui, sans-serif;
+}
+.compare ul { margin: 0; padding-left: 1.1rem; }
+.compare li { margin: 0.25rem 0; }
+
+/* ---- Caja de nota / dato clave ---- */
+.note, .keyfact {
+  background: var(--note-bg);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.keyfact { border-left: 4px solid var(--accent); }
+.keyfact .label, .note .label {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+  font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.3rem;
+}
+
+/* ---- Línea temporal ---- */
+.timeline { list-style: none; padding: 0; margin: 1.6rem 0; border-left: 2px solid var(--rule); }
+.timeline li { position: relative; padding: 0 0 1.3rem 1.5rem; }
+.timeline li::before {
+  content: ""; position: absolute; left: -7px; top: 0.45rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--paper); border: 3px solid var(--accent);
+}
+.timeline .year { font-weight: 700; font-family: ui-sans-serif, system-ui, sans-serif; color: var(--accent); }
+
+/* ---- Quiz (componente interactivo) ---- */
+/* Estilos consumidos por assets/quiz.js */
+.quiz { margin: 2rem 0; padding: 1.4rem 1.4rem 1.1rem; border: 1px solid var(--rule); border-radius: 10px; background: #fff; }
+.quiz .q { font-weight: 600; margin: 0 0 0.9rem; }
+.quiz .opts { display: flex; flex-direction: column; gap: 0.5rem; }
+.quiz button.opt {
+  text-align: left; font: inherit; font-size: 0.95rem;
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 7px;
+  padding: 0.6rem 0.85rem; cursor: pointer; color: var(--ink); transition: border-color .12s, background .12s;
+}
+.quiz button.opt:hover { border-color: var(--accent-2); }
+.quiz button.opt:disabled { cursor: default; opacity: 0.95; }
+.quiz button.opt.correct { background: #e9f4ee; border-color: var(--good); color: var(--good); font-weight: 600; }
+.quiz button.opt.wrong   { background: #f8ebeb; border-color: var(--bad);  color: var(--bad); }
+.quiz .fb { margin: 0.9rem 0 0; font-size: 0.92rem; color: var(--ink-soft); min-height: 1.2rem; }
+.quiz .fb.show { animation: fade .25s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; } }
+
+/* ---- Navegación entre lecciones ---- */
+.lesson-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);
+  font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.85rem;
+}
+
+/* ---- Pie / recordatorio de preguntar al profesor ---- */
+.ask-teacher {
+  margin-top: 2.4rem; padding: 1rem 1.2rem; border: 1px dashed var(--accent-2);
+  border-radius: 8px; background: var(--note-bg); font-size: 0.92rem;
+}
+.ask-teacher .label { color: var(--accent-2); }
+
+/* ---- Fuente primaria recomendada ---- */
+.primary-source {
+  margin: 2rem 0; padding: 1.1rem 1.3rem; border-radius: 8px;
+  background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--accent-2);
+}
+.primary-source .label {
+  font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
+  color: var(--accent-2); display: block; margin-bottom: 0.3rem;
+}
+
+/* ---- Tabla simple ---- */
+table { border-collapse: collapse; width: 100%; margin: 1.4rem 0; font-size: 0.93rem; }
+th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--rule); }
+th { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+
+/* ---- Impresión ---- */
+@media print {
+  :root { --paper: #fff; }
+  body { font-size: 11pt; }
+  .quiz button.opt { border-color: #ccc; }
+  .ask-teacher, .lesson-nav { display: none; }
+  a { color: var(--ink); border: none; }
+  .cite { color: var(--ink-soft); }
+}
+
+@media (max-width: 540px) {
+  html { font-size: 17px; }
+  .compare { grid-template-columns: 1fr; }
+  .compare > div:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+
+</style>
+<script>
+/* === Incrustado desde assets/quiz.js === */
+/* =========================================================================
+   Componente de quiz reutilizable — Curso "Entender China"
+   Retrieval practice con feedback inmediato y automático.
+
+   Uso en una lección:
+   <div class="quiz" data-correct="1">
+     <p class="q">¿Pregunta?</p>
+     <div class="opts">
+       <button class="opt">Opción A</button>
+       <button class="opt">Opción B</button>   <!-- índice 1 = correcta -->
+       <button class="opt">Opción C</button>
+     </div>
+     <p class="fb" data-ok="¡Bien! Explicación..." data-no="No exactamente. Explicación..."></p>
+   </div>
+
+   Nota de diseño: mantén las opciones de longitud similar (mismo nº de palabras)
+   para no dar pistas por el formato.
+   ========================================================================= */
+(function () {
+  function initQuiz(quiz) {
+    var correct = parseInt(quiz.getAttribute("data-correct"), 10);
+    var opts = Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    var fb = quiz.querySelector(".fb");
+    var answered = false;
+
+    opts.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (answered) return;
+        answered = true;
+        opts.forEach(function (b, j) {
+          b.disabled = true;
+          if (j === correct) b.classList.add("correct");
+        });
+        if (i !== correct) btn.classList.add("wrong");
+        if (fb) {
+          var msg = i === correct
+            ? (fb.getAttribute("data-ok") || "Correcto.")
+            : (fb.getAttribute("data-no") || "Repasa la respuesta correcta marcada arriba.");
+          fb.textContent = msg;
+          fb.classList.add("show");
+        }
+      });
+    });
+  }
+
+  function ready(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+
+  ready(function () {
+    Array.prototype.slice.call(document.querySelectorAll(".quiz")).forEach(initQuiz);
+  });
+})();
+
+</script>
+<style>
+  /* Diagrama de la línea de Hu — específico de esta lección */
+  .hu { margin: 1.8rem 0; }
+  .hu svg { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+  .hu-caption { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; margin-top: 0.5rem; text-align: center; }
+  .hu .region-label { font-family: ui-sans-serif, system-ui, sans-serif; font-weight: 700; }
+  .stat-big { font-size: 1.8rem; font-weight: 700; font-family: ui-sans-serif, system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Lección 2 · Entender China</p>
+  <h1>La China llena y la China vacía</h1>
+  <p class="subtitle">China es casi del tamaño de EEUU, pero su gente no está repartida:
+  una línea imaginaria divide el país en dos mundos. Entender esa línea es entender
+  dónde late realmente China.</p>
+
+  <div class="keyfact">
+    <span class="label">La victoria de hoy</span>
+    Al terminar podrás dibujar mentalmente China: su <strong>tamaño</strong> (≈ EEUU),
+    y la <strong>línea de Hu</strong> que separa la mitad poblada de la mitad vacía.
+    Es el mapa físico sobre el que ocurre todo lo demás del curso.
+  </div>
+
+  <h2>Primero, la escala: piensa en EEUU</h2>
+  <p>Tu ancla de siempre funciona casi perfecta aquí: <strong>China y EEUU son casi
+  del mismo tamaño</strong>. China tiene ~9,6 millones de km²; EEUU ~9,8 millones.<a class="cite" href="#f1">1</a>
+  Por superficie de tierra, China es incluso un pelín mayor. Es también, grosso modo,
+  el tamaño de toda Europa.</p>
+  <p>Pero ahí acaba el parecido. En esa superficie similar, China mete <strong>~1.410
+  millones de personas</strong>; EEUU, ~340 millones. <em>Cuatro veces más gente en
+  el mismo espacio.</em> Y —esto es lo importante— no están repartidas.</p>
+
+  <h2>La línea más importante de China es imaginaria</h2>
+  <p>En 1935, el geógrafo <strong>Hu Huanyong</strong> trazó una línea diagonal desde
+  <em class="zh">Heihe</em> (noreste) hasta <em class="zh">Tengchong</em> (suroeste).<a class="cite" href="#f2">2</a>
+  Lo que descubrió sigue siendo cierto casi un siglo después:</p>
+
+  <div class="hu">
+    <svg viewBox="0 0 600 380" role="img" aria-label="Diagrama de la línea de Hu dividiendo China">
+      <!-- contorno estilizado de China -->
+      <rect x="10" y="10" width="580" height="360" rx="14" fill="#f3eee3" stroke="#e3ddd2"/>
+      <!-- mitad oeste (vacía) -->
+      <polygon points="10,10 380,10 150,370 10,370" fill="#efe7d6"/>
+      <!-- mitad este (llena) - puntos densos -->
+      <polygon points="380,10 590,10 590,370 150,370" fill="#f6dfe0"/>
+      <!-- la línea de Hu -->
+      <line x1="380" y1="10" x2="150" y2="370" stroke="#a4232b" stroke-width="3" stroke-dasharray="9 6"/>
+      <!-- etiquetas ciudades -->
+      <circle cx="380" cy="12" r="5" fill="#a4232b"/>
+      <text x="372" y="30" font-size="13" fill="#5c554c" font-family="sans-serif">Heihe (NE)</text>
+      <circle cx="150" cy="368" r="5" fill="#a4232b"/>
+      <text x="160" y="360" font-size="13" fill="#5c554c" font-family="sans-serif">Tengchong (SO)</text>
+      <!-- etiqueta oeste -->
+      <text x="60" y="160" class="region-label" font-size="16" fill="#9a8a63" font-family="sans-serif">OESTE</text>
+      <text x="60" y="182" font-size="13" fill="#9a8a63" font-family="sans-serif">57% del territorio</text>
+      <text x="60" y="220" font-size="30" font-weight="700" fill="#9a8a63" font-family="sans-serif">6%</text>
+      <text x="60" y="240" font-size="12" fill="#9a8a63" font-family="sans-serif">de la población</text>
+      <!-- etiqueta este -->
+      <text x="400" y="150" class="region-label" font-size="16" fill="#a4232b" font-family="sans-serif">ESTE</text>
+      <text x="400" y="172" font-size="13" fill="#a4232b" font-family="sans-serif">43% del territorio</text>
+      <text x="400" y="218" font-size="34" font-weight="700" fill="#a4232b" font-family="sans-serif">94%</text>
+      <text x="400" y="238" font-size="12" fill="#a4232b" font-family="sans-serif">de la población</text>
+    </svg>
+    <p class="hu-caption">La línea de Hu (Heihe–Tengchong). El 43% del territorio, al
+    este, alberga al 94% de los chinos.<a class="cite" href="#f2">2</a></p>
+  </div>
+
+  <p>La proporción <strong>43% / 94%</strong> frente a <strong>57% / 6%</strong> apenas
+  se ha movido en décadas, pese a toda la urbanización.<a class="cite" href="#f2">2</a>
+  Hay provincias del este, como Jiangsu, con más de 300 hab/km²; provincias del oeste,
+  como Tíbet o Xinjiang, con menos de 5.<a class="cite" href="#f2">2</a></p>
+
+  <h2>¿Por qué? La geografía manda</h2>
+  <p>No es capricho político, es relieve y agua. Casi el <strong>70% de China es
+  montaña, meseta o colina</strong>.<a class="cite" href="#f1">1</a> El oeste es un muro
+  natural:</p>
+  <ul>
+    <li><strong>La meseta del Tíbet</strong> — "el techo del mundo", altísima y árida.</li>
+    <li><strong>Desiertos</strong> como el Gobi y las cuencas de Xinjiang.</li>
+    <li><strong>El Himalaya</strong> cerrando el suroeste.</li>
+  </ul>
+  <p>La gente se concentra en las <strong>llanuras del este y la costa</strong>, regadas
+  por los dos grandes ríos —el <em class="zh">Yangtsé</em> (el más largo, ~6.300 km) y
+  el <em class="zh">Río Amarillo</em>, la cuna de la civilización china.<a class="cite" href="#f1">1</a>
+  Ahí están las megaciudades, las fábricas y los puertos que viste nacer en la
+  <a href="0001-el-ascenso-de-china.html">Lección 1</a>.</p>
+
+  <div class="compare">
+    <div>
+      <h4>EEUU · repartido</h4>
+      <ul>
+        <li>Población en ambas costas + interior habitable.</li>
+        <li>Vacíos puntuales (desiertos del oeste).</li>
+        <li>~340 M de personas.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>China · volcado al este</h4>
+      <ul>
+        <li>94% de la gente en el 43% oriental.</li>
+        <li>Oeste casi vacío (Tíbet, Xinjiang).</li>
+        <li>~1.410 M de personas.<a class="cite" href="#f3">3</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="keyfact">
+    <span class="label">Por qué importará después</span>
+    Ese oeste enorme y vacío —Tíbet, Xinjiang— es de mayoría étnica no-han y tiene
+    enorme valor estratégico (recursos, fronteras). Por eso Pekín lo gobierna como
+    <a href="../reference/glosario.html#region-autonoma">"regiones autónomas"</a> y lo
+    vigila de cerca. La geografía de hoy explica tensiones que veremos más adelante.
+  </div>
+
+  <!-- ====================== RETRIEVAL PRACTICE ====================== -->
+  <h2>Compruébalo (sin mirar arriba)</h2>
+  <p>De memoria. Feedback al instante. Mezclo una pregunta de la Lección 1 para
+  refrescarla — recordar lo viejo mientras aprendes lo nuevo es lo que fija el
+  conocimiento.</p>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">1. La línea de Hu divide China en dos. ¿Qué describe?</p>
+    <div class="opts">
+      <button class="opt">El límite norte contra sur</button>
+      <button class="opt">La frontera rica contra pobre</button>
+      <button class="opt">El reparto vacío contra lleno</button>
+      <button class="opt">La costa contra el interior</button>
+    </div>
+    <p class="fb"
+       data-ok="Eso es: 94% de la gente al este (lleno), 6% al oeste (vacío)."
+       data-no="Separa el reparto de población: este lleno (94%) vs oeste vacío (6%)."></p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">2. Comparada con EEUU en superficie, China es...</p>
+    <div class="opts">
+      <button class="opt">Muchísimo mayor, doble</button>
+      <button class="opt">Casi igual de grande</button>
+      <button class="opt">Muchísimo menor, mitad</button>
+      <button class="opt">Apenas un tercio menor</button>
+    </div>
+    <p class="fb"
+       data-ok="Correcto: ~9,6 M km² China vs ~9,8 M EEUU. Casi idénticos."
+       data-no="Son casi iguales: ~9,6 M km² (China) vs ~9,8 M km² (EEUU)."></p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <p class="q">3. ¿Por qué el oeste de China está casi vacío?</p>
+    <div class="opts">
+      <button class="opt">Mesetas, desiertos y montañas</button>
+      <button class="opt">Prohibición política de habitar</button>
+      <button class="opt">Guerras recientes lo vaciaron</button>
+      <button class="opt">Frío extremo durante el año</button>
+    </div>
+    <p class="fb"
+       data-ok="Exacto: la meseta del Tíbet, desiertos y el Himalaya. Geografía, no política."
+       data-no="Es geografía: meseta del Tíbet, desiertos (Gobi) y el Himalaya lo hacen inhóspito."></p>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <p class="q">4. Repaso L1: ¿quién lanzó la Reforma y Apertura?</p>
+    <div class="opts">
+      <button class="opt">La fundó Mao Zedong</button>
+      <button class="opt">La lanzó Xi Jinping</button>
+      <button class="opt">La dirigió Hu Huanyong</button>
+      <button class="opt">La impulsó Deng Xiaoping</button>
+    </div>
+    <p class="fb"
+       data-ok="¡Memoria fina! Deng Xiaoping, 1978. (Hu Huanyong es el geógrafo de hoy, no lo confundas.)"
+       data-no="Deng Xiaoping (1978). Ojo: Hu Huanyong es el geógrafo de la línea de hoy, otra persona."></p>
+  </div>
+
+  <!-- ====================== FUENTE PRIMARIA ====================== -->
+  <div class="primary-source">
+    <span class="label">Fuente primaria recomendada</span>
+    <p style="margin:0 0 .4rem"><strong>Big Think — "China's most important border is
+    imaginary: the Hu Line"</strong>.</p>
+    <p style="margin:0; font-size:0.9rem; color:var(--ink-soft)">Un ensayo corto, visual
+    y muy bien escrito sobre por qué esta línea es la clave de la geografía humana de
+    China. Lectura de 10 minutos, perfecta para fijar la lección.
+    <a href="https://bigthink.com/strange-maps/hu-line/">Leer el artículo →</a></p>
+  </div>
+
+  <!-- ====================== PREGUNTAR AL PROFE ====================== -->
+  <div class="ask-teacher">
+    <span class="label">Soy tu profesor — pregúntame</span>
+    ¿Quieres ver las megaciudades concretas (Shanghái, Shenzhen, Cantón) en ese mapa?
+    ¿O por qué Tíbet y Xinjiang son tan delicados? Pregúntame y profundizamos.
+  </div>
+
+  <!-- ====================== NOTAS / CITAS ====================== -->
+  <hr>
+  <h3>Notas y fuentes</h3>
+  <ol style="font-size:0.82rem; color:var(--ink-soft); line-height:1.5">
+    <li id="f1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Geography_of_China">"Geography of China"</a> — superficie ~9,6 M km²; ~70% montaña/meseta/colina; ríos Yangtsé y Amarillo.</li>
+    <li id="f2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Heihe%E2%80%93Tengchong_Line">"Heihe–Tengchong Line"</a> y <a href="https://bigthink.com/strange-maps/hu-line/">Big Think, "The Hu Line"</a> — 43% del área al este alberga el 94% de la población; densidades por provincia.</li>
+    <li id="f3">Datos de población 2024 (~1.410 M China; ~340 M EEUU); reparto regional en <a href="https://www.statista.com/statistics/279013/population-in-china-by-region/">Statista, "China: population by region 2024"</a>.</li>
+  </ol>
+
+  <nav class="lesson-nav">
+    <span><a href="0001-el-ascenso-de-china.html">← Lección 1: El ascenso</a></span>
+    <span><a href="../reference/glosario.html">Glosario del curso →</a></span>
+  </nav>
+
+</main>
+</body>
+</html>

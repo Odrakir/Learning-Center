@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 6 · Qué quiere China: el rejuvenecimiento y sus tres ambiciones</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+:root {
+  --ink:#2b2722; --ink-soft:#5c554c; --paper:#fdfbf6; --rule:#e3ddd2;
+  --accent:#a4232b; --accent-2:#c8961e; --good:#2f7d55; --bad:#b23b3b;
+  --note-bg:#f3eee3; --maxw:42rem;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  line-height:1.62; -webkit-font-smoothing:antialiased; }
+main,.wrap { max-width:var(--maxw); margin:0 auto; padding:3.5rem 1.4rem 6rem; }
+h1,h2,h3 { line-height:1.18; font-weight:600; letter-spacing:-0.01em; }
+h1 { font-size:2.25rem; margin:0 0 0.3rem; }
+h2 { font-size:1.45rem; margin:2.8rem 0 0.6rem; }
+h3 { font-size:1.12rem; margin:1.8rem 0 0.4rem; color:var(--ink-soft); }
+.eyebrow { font-family:ui-sans-serif,system-ui,sans-serif; text-transform:uppercase;
+  letter-spacing:0.16em; font-size:0.72rem; font-weight:700; color:var(--accent); margin:0 0 0.6rem; }
+.subtitle { color:var(--ink-soft); font-style:italic; font-size:1.1rem; margin:0.2rem 0 0; }
+p { margin:0 0 1.1rem; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); }
+a:hover { border-bottom-color:var(--accent); }
+strong { font-weight:700; }
+em.zh { font-style:normal; font-weight:600; color:var(--accent); }
+hr { border:none; border-top:1px solid var(--rule); margin:2.6rem 0; }
+.cite { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; vertical-align:super;
+  color:var(--accent); text-decoration:none; border:none; padding:0 0.1em; }
+blockquote { margin:1.4rem 0; padding:0.2rem 0 0.2rem 1.2rem; border-left:3px solid var(--accent-2);
+  color:var(--ink-soft); font-style:italic; }
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule);
+  border-radius:8px; overflow:hidden; margin:1.6rem 0; font-size:0.95rem; }
+.compare > div { padding:1rem 1.1rem; }
+.compare > div:first-child { background:var(--note-bg); border-right:1px solid var(--rule); }
+.compare h4 { margin:0 0 0.5rem; font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase;
+  font-family:ui-sans-serif,system-ui,sans-serif; }
+.compare ul { margin:0; padding-left:1.1rem; }
+.compare li { margin:0.25rem 0; }
+.note,.keyfact { background:var(--note-bg); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; font-size:0.96rem; }
+.keyfact { border-left:4px solid var(--accent); }
+.keyfact .label,.note .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--accent); display:block; margin-bottom:0.3rem; }
+.timeline { list-style:none; padding:0; margin:1.6rem 0; border-left:2px solid var(--rule); }
+.timeline li { position:relative; padding:0 0 1.3rem 1.5rem; }
+.timeline li::before { content:""; position:absolute; left:-7px; top:0.45rem; width:12px; height:12px;
+  border-radius:50%; background:var(--paper); border:3px solid var(--accent); }
+.timeline .year { font-weight:700; font-family:ui-sans-serif,system-ui,sans-serif; color:var(--accent); }
+.quiz { margin:2rem 0; padding:1.4rem 1.4rem 1.1rem; border:1px solid var(--rule); border-radius:10px; background:#fff; }
+.quiz .q { font-weight:600; margin:0 0 0.9rem; }
+.quiz .opts { display:flex; flex-direction:column; gap:0.5rem; }
+.quiz button.opt { text-align:left; font:inherit; font-size:0.95rem; background:var(--paper);
+  border:1px solid var(--rule); border-radius:7px; padding:0.6rem 0.85rem; cursor:pointer; color:var(--ink);
+  transition:border-color .12s, background .12s; }
+.quiz button.opt:hover { border-color:var(--accent-2); }
+.quiz button.opt:disabled { cursor:default; opacity:0.95; }
+.quiz button.opt.correct { background:#e9f4ee; border-color:var(--good); color:var(--good); font-weight:600; }
+.quiz button.opt.wrong { background:#f8ebeb; border-color:var(--bad); color:var(--bad); }
+.quiz .fb { margin:0.9rem 0 0; font-size:0.92rem; color:var(--ink-soft); min-height:1.2rem; }
+.quiz .fb.show { animation:fade .25s ease; }
+@keyframes fade { from { opacity:0; transform:translateY(3px); } to { opacity:1; } }
+.lesson-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:3rem; padding-top:1.4rem;
+  border-top:1px solid var(--rule); font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; }
+.ask-teacher { margin-top:2.4rem; padding:1rem 1.2rem; border:1px dashed var(--accent-2); border-radius:8px;
+  background:var(--note-bg); font-size:0.92rem; }
+.ask-teacher .label { color:var(--accent-2); }
+.primary-source { margin:2rem 0; padding:1.1rem 1.3rem; border-radius:8px; background:#fff;
+  border:1px solid var(--rule); border-top:4px solid var(--accent-2); }
+.primary-source .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; text-transform:uppercase;
+  letter-spacing:0.12em; font-weight:700; color:var(--accent-2); display:block; margin-bottom:0.3rem; }
+table { border-collapse:collapse; width:100%; margin:1.4rem 0; font-size:0.93rem; }
+th,td { text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid var(--rule); vertical-align:top; }
+th { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.72rem; text-transform:uppercase;
+  letter-spacing:0.08em; color:var(--ink-soft); }
+/* --- "tres ambiciones" (específico de esta lección, reutilizable) --- */
+.acts { display:grid; grid-template-columns:repeat(3,1fr); gap:0.8rem; margin:1.6rem 0; }
+.acts > div { border:1px solid var(--rule); border-radius:8px; padding:0.9rem 0.9rem; background:#fff; }
+.acts .act-n { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.68rem; text-transform:uppercase;
+  letter-spacing:0.1em; font-weight:700; color:var(--accent); display:block; margin-bottom:0.25rem; }
+.acts h4 { margin:0 0 0.35rem; font-size:0.98rem; }
+.acts p { margin:0; font-size:0.84rem; color:var(--ink-soft); }
+@media print { :root { --paper:#fff; } body { font-size:11pt; } .quiz button.opt { border-color:#ccc; }
+  .ask-teacher,.lesson-nav { display:none; } a { color:var(--ink); border:none; } .cite { color:var(--ink-soft); } }
+@media (max-width:540px) { html { font-size:17px; } .compare { grid-template-columns:1fr; }
+  .compare > div:first-child { border-right:none; border-bottom:1px solid var(--rule); }
+  .acts { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Lección 6 · Entender China</p>
+  <h1>Qué quiere China</h1>
+  <p class="subtitle">Ya sabes de dónde viene (L1-L2), cómo se organiza el poder (L3-L4)
+  y cómo se hizo rica (L5). Falta la última pieza del mapa: <em>qué quiere</em>. Y casi
+  todo cabe bajo una sola idea.</p>
+
+  <div class="keyfact">
+    <span class="label">La victoria de hoy</span>
+    Entenderás el <strong>marco que ordena toda la política exterior china</strong> —el
+    <strong>"rejuvenecimiento nacional"</strong>— y sus <strong>tres ambiciones</strong>
+    concretas: reunificar (<strong>Taiwán</strong>), tejer influencia (<strong>la Ruta de
+    la Seda</strong>) y dominar la tecnología (<strong>los chips</strong>).
+  </div>
+
+  <h2>Antes de empezar: rescata esto de memoria</h2>
+  <p>Sin mirar atrás (<a href="0005-el-milagro-economico-por-dentro.html">Lección 5</a>):
+  <strong>¿qué cuota de la manufactura mundial produce China hoy?</strong> Piénsalo…
+  <strong>~30%</strong>, "la fábrica del mundo". Recuérdalo: ese músculo industrial es la
+  herramienta con la que China persigue lo que quiere.</p>
+
+  <h2>La idea que lo ordena todo: el rejuvenecimiento</h2>
+  <p>Para entender a China hay que conocer su relato fundacional. Tras siglos como
+  civilización líder, China vivió el <strong><a href="../reference/glosario.html#siglo-humillacion">"siglo
+  de la humillación"</a></strong> (~1839-1949): derrotada en las Guerras del Opio,
+  troceada por potencias europeas y Japón, humillada en su propio suelo.<a class="cite" href="#f1">1</a></p>
+
+  <p>El Partido (L3-L4) se presenta como quien puso fin a esa humillación y devuelve a
+  China a su lugar natural: el centro. Xi lo ha empaquetado en un eslogan,
+  <strong>el "Sueño Chino" / el <a href="../reference/glosario.html#rejuvenecimiento">rejuvenecimiento
+  nacional</a></strong>, con meta simbólica en <strong>2049</strong> (centenario de la
+  República Popular).<a class="cite" href="#f1">1</a> No es decoración: es la lente para
+  leer cada movimiento exterior chino.</p>
+
+  <blockquote>EEUU actúa para <em>preservar</em> el orden mundial que construyó tras 1945.
+  China actúa para <em>recuperar</em> un lugar que cree que le fue arrebatado. El primero
+  defiende; la segunda revisa.</blockquote>
+
+  <div class="acts">
+    <div><span class="act-n">Ambición 1</span><h4>Taiwán</h4><p>Reunificar = completar el rejuvenecimiento.</p></div>
+    <div><span class="act-n">Ambición 2</span><h4>Ruta de la Seda</h4><p>Influencia global vía infraestructura.</p></div>
+    <div><span class="act-n">Ambición 3</span><h4>Los chips</h4><p>No depender de la tecnología de EEUU.</p></div>
+  </div>
+
+  <h2>Ambición 1 — Taiwán: la línea roja</h2>
+  <p>Recuerda la <a href="../reference/glosario.html#roc">República de China (Taiwán)</a>
+  de la L1: adonde huyó el bando perdedor de la guerra civil en 1949. Pekín considera
+  Taiwán una <strong>provincia rebelde</strong> que debe reunificarse, por las buenas o
+  por las malas. Es el asunto más sensible de todos: el que podría desencadenar una
+  guerra con EEUU.</p>
+  <p>La fórmula diplomática es la <strong><a href="../reference/glosario.html#una-china">política
+  de "Una sola China"</a></strong>: para tener relaciones con Pekín, un país debe aceptar
+  que solo hay una China. Por eso Taiwán está casi aislado diplomáticamente pese a
+  funcionar como un país de facto.<a class="cite" href="#f2">2</a> Para China, reunificar
+  Taiwán <strong>es</strong> el rejuvenecimiento hecho mapa.</p>
+
+  <h2>Ambición 2 — La Ruta de la Seda: influencia con hormigón</h2>
+  <p>Lanzada por Xi en <strong>2013</strong>, la <strong><a href="../reference/glosario.html#bri">Nueva
+  Ruta de la Seda</a></strong> (Belt and Road Initiative, BRI) financia puertos,
+  ferrocarriles, carreteras y centrales por todo el mundo: <strong>más de 150 países</strong>
+  y cerca de <strong>1 billón de dólares</strong> en acuerdos en su primera década.<a class="cite" href="#f3">3</a></p>
+  <p>Es el músculo de "la fábrica del mundo" (L5) proyectado al exterior. Da a China
+  mercados, materias primas, rutas seguras y aliados que le deben favores. Sus críticos
+  hablan de <strong>"trampa de la deuda"</strong>: países pobres que quedan atados a
+  Pekín al no poder pagar.<a class="cite" href="#f3">3</a> Sea palanca o trampa, es cómo
+  China construye influencia <em>sin</em> el lenguaje militar de las viejas potencias.</p>
+
+  <h2>Ambición 3 — Los chips: la guerra tecnológica</h2>
+  <p>China aún <strong>depende de tecnología occidental</strong> en lo más avanzado,
+  sobre todo los <strong>semiconductores</strong> (los chips de móviles, IA y armas). Es
+  su gran vulnerabilidad. Por eso lanzó <strong><a href="../reference/glosario.html#mic2025">"Made
+  in China 2025"</a></strong> (2015): un plan para fabricar en casa la alta tecnología y
+  dejar de depender de nadie.<a class="cite" href="#f4">4</a></p>
+  <p>Se fijó un <strong>70% de autosuficiencia en chips para 2025</strong> — meta que no
+  ha alcanzado (ronda el ~50%), porque EEUU le ha cortado el acceso a las máquinas y
+  diseños más avanzados.<a class="cite" href="#f4">4</a> Esta "guerra de los chips" es hoy
+  el frente central de la rivalidad EEUU-China: quien domine la tecnología, domina el
+  siglo.</p>
+
+  <div class="keyfact">
+    <span class="label">La frase llave</span>
+    Todo lo que hace China fuera —presionar a Taiwán, tender la Ruta de la Seda, perseguir
+    los chips— es la misma idea con tres caras: <strong>volver a ser el centro</strong>.
+    El rejuvenecimiento es el "porqué"; Taiwán, la Ruta y los chips son el "cómo".
+  </div>
+
+  <h2>Tu ancla: dos potencias, dos posturas</h2>
+  <div class="compare">
+    <div>
+      <h4>EEUU · la potencia que defiende</h4>
+      <ul>
+        <li>Construyó el orden mundial tras 1945 y quiere conservarlo.</li>
+        <li>Red de alianzas (OTAN, Japón, Corea).</li>
+        <li>Proyecta poder con ejército y dólar.</li>
+        <li>Statu quo: ya está en la cima.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>China · la potencia que revisa</h4>
+      <ul>
+        <li>Quiere recuperar su centralidad histórica (2049).</li>
+        <li>Influencia vía comercio e infraestructura (Ruta de la Seda).</li>
+        <li>Proyecta poder con fábricas, dinero y tecnología.</li>
+        <li>Revisionista: quiere cambiar el reparto.</li>
+      </ul>
+    </div>
+  </div>
+  <p>La idea de fondo de todo el curso: no entiendes a China si la mides solo con la vara
+  de EEUU. EEUU defiende el tablero que diseñó; China juega para rediseñarlo. Ahí está la
+  tensión que definirá el siglo XXI — y ya no es para ti un punto ciego.</p>
+
+  <!-- ====================== RETRIEVAL PRACTICE ====================== -->
+  <h2>Compruébalo (sin mirar arriba)</h2>
+  <p>De memoria. Como siempre, cuelo una pregunta de lecciones anteriores: recordar lo
+  viejo mientras fijas lo nuevo es lo que construye memoria duradera.</p>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">1. ¿Qué idea ordena toda la política exterior china?</p>
+    <div class="opts">
+      <button class="opt">Exportar la revolución comunista</button>
+      <button class="opt">Aislarse del resto del planeta</button>
+      <button class="opt">El rejuvenecimiento nacional (volver al centro)</button>
+      <button class="opt">Imitar el modelo político europeo</button>
+    </div>
+    <p class="fb"
+       data-ok="Eso es: tras el 'siglo de la humillación', recuperar su lugar central. Meta simbólica: 2049."
+       data-no="Es el rejuvenecimiento nacional: borrar el 'siglo de la humillación' y volver a ser el centro."></p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <p class="q">2. ¿Qué es la "política de Una sola China"?</p>
+    <div class="opts">
+      <button class="opt">Exigir aceptar que Taiwán es parte de China</button>
+      <button class="opt">Permitir varios partidos dentro de China</button>
+      <button class="opt">Unificar las monedas de toda Asia oriental</button>
+      <button class="opt">Reconocer a Taiwán como país aparte</button>
+    </div>
+    <p class="fb"
+       data-ok="Correcto: para tener relaciones con Pekín hay que aceptar que solo hay una China. Aísla a Taiwán."
+       data-no="Es la condición de Pekín: aceptar que Taiwán es parte de China. Por eso Taiwán está casi aislado."></p>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <p class="q">3. ¿Cuál es la gran vulnerabilidad que ataca "Made in China 2025"?</p>
+    <div class="opts">
+      <button class="opt">La falta total de mano de obra</button>
+      <button class="opt">La ausencia de salida al mar</button>
+      <button class="opt">El exceso de energía importada</button>
+      <button class="opt">La dependencia de chips extranjeros</button>
+    </div>
+    <p class="fb"
+       data-ok="Eso es: depende de semiconductores avanzados de Occidente. Por eso busca fabricarlos en casa."
+       data-no="Su talón de Aquiles son los chips avanzados extranjeros; el plan busca autosuficiencia tecnológica."></p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">4. Repaso L1: ¿en qué año empezó el despegue económico de China?</p>
+    <div class="opts">
+      <button class="opt">En el año mil novecientos cuarenta y nueve</button>
+      <button class="opt">En el año mil novecientos setenta y ocho</button>
+      <button class="opt">En el año mil novecientos ochenta y nueve</button>
+      <button class="opt">En el año dos mil uno con la OMC</button>
+    </div>
+    <p class="fb"
+       data-ok="¡Memoria fina! 1978, la Reforma y Apertura de Deng. 1949 fue la fundación; 1989, Tiananmen."
+       data-no="Recuerda L1: 1978, la Reforma y Apertura. 1949 fue la fundación de la República Popular."></p>
+  </div>
+
+  <!-- ====================== FUENTE PRIMARIA ====================== -->
+  <div class="primary-source">
+    <span class="label">Fuente primaria recomendada</span>
+    <p style="margin:0 0 .4rem"><strong>"On China"</strong> — Henry Kissinger.</p>
+    <p style="margin:0; font-size:0.9rem; color:var(--ink-soft)">Cómo China entiende la
+    estrategia y su lugar en el mundo a lo largo de su historia. Perspectiva diplomática
+    estadounidense — léelo con ojo crítico, pero es la mejor puerta de entrada a la mente
+    estratégica china.
+    <a href="https://www.penguinrandomhouse.com/books/89449/on-china-by-henry-kissinger/">Ver →</a></p>
+  </div>
+
+  <!-- ====================== PREGUNTAR AL PROFE ====================== -->
+  <div class="ask-teacher">
+    <span class="label">Soy tu profesor — pregúntame</span>
+    ¿Invadirá China realmente Taiwán, y cuándo? ¿Qué es la "trampa de la deuda" de la
+    Ruta de la Seda — mito o realidad? ¿Por qué los chips importan tanto? Has completado
+    el mapa base de China (L1-L6): pregúntame para profundizar, o dime hacia dónde quieres
+    llevar el curso ahora (sociedad y vida diaria, el ejército, o la relación con EEUU).
+  </div>
+
+  <!-- ====================== NOTAS / CITAS ====================== -->
+  <hr>
+  <h3>Notas y fuentes</h3>
+  <ol style="font-size:0.82rem; color:var(--ink-soft); line-height:1.5">
+    <li id="f1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Century_of_humiliation">"Century of humiliation"</a> y <a href="https://en.wikipedia.org/wiki/Chinese_Dream">"Chinese Dream"</a> — el relato del declive (1839-1949) y el "rejuvenecimiento nacional" con meta simbólica en 2049.</li>
+    <li id="f2">CSIS, <a href="https://www.csis.org/analysis/what-us-one-china-policy-and-why-does-it-matter">"What Is the U.S. 'One China' Policy?"</a> y Wikipedia, <a href="https://en.wikipedia.org/wiki/One_China">"One China"</a> — la condición diplomática y el aislamiento de Taiwán.</li>
+    <li id="f3">Wikipedia, <a href="https://en.wikipedia.org/wiki/Belt_and_Road_Initiative">"Belt and Road Initiative"</a> y CFR, <a href="https://www.cfr.org/backgrounders/chinas-massive-belt-and-road-initiative">"China's Massive Belt and Road Initiative"</a> — lanzada en 2013, +150 países, ~1 billón $ en su primera década; debate sobre la "trampa de la deuda".</li>
+    <li id="f4">Tom's Hardware / CSET, <a href="https://www.tomshardware.com/tech-industry/semiconductors/the-state-of-chinas-decade-long-semiconductor-push-still-a-decade-behind-despite-hundreds-of-billions-spent-and-significant-progress-examining-the-original-made-in-china-2025-initiative">"The state of China's decade-long semiconductor push"</a> — "Made in China 2025" (2015), meta del 70% de autosuficiencia en chips incumplida (~50%) por los controles de exportación de EEUU.</li>
+  </ol>
+
+  <nav class="lesson-nav">
+    <span><a href="0005-el-milagro-economico-por-dentro.html">← Lección 5: El milagro económico</a></span>
+    <span><a href="../reference/glosario.html">Glosario del curso →</a></span>
+  </nav>
+
+</main>
+
+<script>
+/* === Incrustado desde assets/quiz.js === */
+(function () {
+  function initQuiz(quiz) {
+    var correct = parseInt(quiz.getAttribute("data-correct"), 10);
+    var opts = Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    var fb = quiz.querySelector(".fb");
+    var answered = false;
+    opts.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (answered) return;
+        answered = true;
+        opts.forEach(function (b, j) { b.disabled = true; if (j === correct) b.classList.add("correct"); });
+        if (i !== correct) btn.classList.add("wrong");
+        if (fb) {
+          var msg = i === correct ? (fb.getAttribute("data-ok") || "Correcto.")
+                                  : (fb.getAttribute("data-no") || "Repasa la respuesta correcta marcada arriba.");
+          fb.textContent = msg; fb.classList.add("show");
+        }
+      });
+    });
+  }
+  function ready(fn){ if (document.readyState !== "loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
+  ready(function(){ Array.prototype.slice.call(document.querySelectorAll(".quiz")).forEach(initQuiz); });
+})();
+</script>
+</body>
+</html>
