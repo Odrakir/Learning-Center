@@ -44,7 +44,10 @@
 
 - [x] 0007: Examen mixto L1-L6 — Ricardo sacó 15/15 (storage strength demostrada, ver LR-0007).
 - [x] 0008: Sociedad — el hukou y las "dos Chinas" (campo/ciudad, ~300 M migrantes). (HECHO)
+- [x] 0009: Sociedad — censura y vigilancia (Gran Muralla Digital, crédito social: mito
+  vs. realidad). (HECHO)
 
-> Eje SOCIEDAD abierto. Próximas candidatas dentro del eje: censura/vigilancia (Gran
-> Muralla Digital, crédito social); clase media y consumo; demografía (hijo único,
-> envejecimiento). Otros ejes: ejército (EPL); EEUU-China en detalle.
+> Eje SOCIEDAD en marcha (hukou + censura/vigilancia). Próximas candidatas dentro del
+> eje: clase media y consumo; demografía (hijo único, envejecimiento); educación
+> (gaokao). Xinjiang/Tíbet pendiente como eje propio (no diluido en L9). Otros ejes:
+> ejército (EPL); EEUU-China en detalle.
