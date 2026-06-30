@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 3 — Feedback That Lands</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#7a5c2e; --good:#2f6b3f; --bad:#a23b2e; --card:#f6f3ec;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.6; margin:0; padding:3rem 1.25rem 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:42rem;margin:0 auto}
+  .kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:.4rem}
+  h1{font-size:2.2rem;line-height:1.15;margin:0 0 .5rem}
+  .dek{font-style:italic;color:var(--muted);font-size:1.1rem;margin-bottom:.5rem}
+  .mission{background:var(--card);border-left:3px solid var(--accent);padding:.8rem 1.1rem;
+    font-size:.95rem;margin:1.8rem 0;border-radius:0 4px 4px 0}
+  .mission b{color:var(--accent)}
+  h2{font-size:1.35rem;margin:2.6rem 0 .6rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+  p{margin:.8rem 0}
+  ul{padding-left:1.2rem}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .pull{font-size:1.15rem;font-style:italic;color:#333;border-left:3px solid var(--rule);
+    margin:1.6rem 0;padding:.2rem 0 .2rem 1.1rem}
+  .num{font-variant-numeric:oldstyle-nums}
+  /* 2x2 quadrant */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:1.4rem 0}
+  .quad{border:1px solid var(--rule);border-radius:6px;padding:.85rem .95rem;background:#fff}
+  .quad h4{margin:0 0 .25rem;font-size:1rem}
+  .quad p{margin:0;font-size:.88rem;color:var(--muted)}
+  .quad.win{border-color:var(--good);background:#eef6ef}
+  .quad.win h4{color:var(--good)}
+  .quad.bad h4{color:var(--bad)}
+  .axis{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);text-align:center;margin:.2rem 0}
+  /* SBI */
+  .sbi{display:grid;grid-template-columns:auto 1fr;gap:.5rem .9rem;margin:1.2rem 0;font-size:.95rem}
+  .sbi .lab2{font-weight:600;color:var(--accent)}
+  table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.95rem}
+  th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+  /* interactive */
+  .lab{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:1.3rem 1.4rem;margin:1.4rem 0}
+  .scn{font-weight:600;margin:.2rem 0 .2rem}
+  .scn .tag{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+    background:#e7ded0;color:var(--accent);border-radius:3px;padding:.1rem .45rem;margin-right:.5rem;font-weight:600}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--rule);
+    border-radius:5px;padding:.6rem .9rem;margin:.4rem 0;font:inherit;font-size:.96rem;cursor:pointer;
+    transition:background .12s,border-color .12s}
+  .opt:hover{background:#fffdf7;border-color:var(--accent)}
+  .opt:disabled{cursor:default}
+  .opt.correct{border-color:var(--good);background:#eef6ef}
+  .opt.wrong{border-color:var(--bad);background:#f9eeec}
+  .fb{font-size:.9rem;margin-top:.6rem;padding:.55rem .8rem;border-radius:5px;display:none}
+  .fb.show{display:block}
+  .fb.r{background:#eef6ef;color:var(--good)}
+  .fb.w{background:#f9eeec;color:var(--bad)}
+  .qn{color:var(--accent);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.3rem}
+  .score{font-style:italic;color:var(--muted);margin-top:1rem}
+  .src{background:#1a1a1a;color:#f3efe6;border-radius:6px;padding:1.1rem 1.3rem;margin:2rem 0}
+  .src .kicker{color:#d8b878}
+  .src a{color:#e8c98a}
+  .footer{margin-top:3rem;border-top:1px solid var(--rule);padding-top:1.2rem;font-size:.9rem;color:var(--muted)}
+  .ask{background:#eef3f6;border-left:3px solid #3a6b8a;padding:.8rem 1.1rem;border-radius:0 4px 4px 0;font-size:.95rem;margin:1.6rem 0}
+  @media print{body{background:#fff;padding:0}.opt{cursor:default}.ask{background:#f3f3f3}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Lesson <span class="num">03</span> · Feedback · Engineering Management</div>
+  <h1>Feedback That Lands</h1>
+  <div class="dek">The skill that closes the loop on everything else — and the one most new managers either soften into mush or skip entirely.</div>
+
+  <div class="mission">
+    <b>Why this, now?</b> Lesson 1 gave you the <i>channel</i> (the 1:1). Lesson 2 gave you the <i>situations</i>
+    (you delegate, someone runs with it — well, or not). Feedback is the <i>skill that turns those moments into growth</i>.
+    And it's your cross-discipline unlock: you can give a Backend or QA engineer sharp, useful feedback on
+    <b>behaviour and impact</b> without ever being able to out-code them. You don't need to review the migration to
+    tell them what missing the heads-up cost the team. (See <a href="../MISSION.md">your mission</a>.)
+  </div>
+
+  <h2>The two axes: Radical Candor</h2>
+  <p>Kim Scott's whole model is two independent things you do at once. <strong>Care Personally</strong> — you
+  give a damn about the person, not just their output. <strong>Challenge Directly</strong> — you say the hard thing,
+  clearly, to their face. Most people are good at one and drop the other under pressure. Plot them and you get four
+  quadrants:</p>
+
+  <div class="axis">↑ Care Personally</div>
+  <div class="grid">
+    <div class="quad bad">
+      <h4>Ruinous Empathy</h4>
+      <p>Care, but won't challenge. "It was fine, don't worry." The most common failure for nice, new managers — it feels kind and quietly stalls the person.</p>
+    </div>
+    <div class="quad win">
+      <h4>Radical Candor ✓</h4>
+      <p>Care <em>and</em> challenge. You say the hard thing <em>because</em> you're invested in them. The target.</p>
+    </div>
+    <div class="quad">
+      <h4>Manipulative Insincerity</h4>
+      <p>Neither. Backstabbing, faint praise, political silence. The worst quadrant.</p>
+    </div>
+    <div class="quad bad">
+      <h4>Obnoxious Aggression</h4>
+      <p>Challenge, but no care. Brutal honesty that lands as an attack. Better than silence, worse than candour.</p>
+    </div>
+  </div>
+  <div class="axis">Challenge Directly →</div>
+
+  <p class="pull">"Radical Candor is what happens when you put 'Care Personally' and 'Challenge Directly' together."</p>
+
+  <p>The trap to name for yourself: coming from IC, and new to the team, the gravitational pull is toward
+  <strong>Ruinous Empathy</strong> — you want to be liked, you're still building trust, so you soften the criticism
+  until it carries no information. That's not kindness. <em>Withholding the thing that would help someone grow is a
+  failure of care, not an expression of it.</em></p>
+
+  <h2>The structure: SBI</h2>
+  <p>Radical Candor is the <em>stance</em>. SBI is the <em>sentence</em> — a three-part structure (from the Center
+  for Creative Leadership) that keeps feedback specific and non-defensive. It works identically for praise and criticism.</p>
+
+  <div class="sbi">
+    <div class="lab2">Situation</div><div>Anchor it to a specific time and place. "In yesterday's release sign-off…"</div>
+    <div class="lab2">Behaviour</div><div>What they actually did — observable, not interpreted. "…you shipped without flagging the failing smoke test in the channel."</div>
+    <div class="lab2">Impact</div><div>The concrete effect — on the work, the team, you. "…so QA found it in prod and we lost two hours rolling back, and I was caught off guard in standup."</div>
+  </div>
+
+  <p>Why SBI defuses defensiveness: it sticks to <strong>facts and consequences</strong>, not character. Compare
+  "you're careless" (a verdict on who they are — instantly defensive) with "the smoke test was failing and it wasn't
+  flagged" (a fact they can't argue with, and can fix). <strong>This is the cross-discipline key:</strong> you don't
+  need backend expertise to observe a behaviour and name its impact. Behaviour and impact are discipline-agnostic.</p>
+
+  <p>Three rules that make feedback land regardless of the words:</p>
+  <ul>
+    <li><strong>Timely beats polished.</strong> Feedback decays fast. A rough, kind sentence within a day beats a perfect one in three weeks. Don't stockpile it for the review.</li>
+    <li><strong>Criticism in private, praise in public.</strong> Criticism is for the 1:1. Praise — also SBI, also specific — is often best said where others hear it. "Good job" is forgettable; "the way you reproduced that flaky test with a minimal repro saved the team a day" is fuel.</li>
+    <li><strong>Solicit it before you dish it.</strong> Ask for feedback on yourself first ("what could I be doing better?") and sit with the discomfort. It builds the trust that makes your criticism land — and models that feedback is safe here.</li>
+  </ul>
+
+  <h2>Practice · Spot the quadrant, fix the feedback</h2>
+  <p>For each case, pick the response that's actually Radical Candor in SBI form. Immediate feedback below each.</p>
+  <div class="lab" id="lab"></div>
+
+  <h2>Check yourself</h2>
+  <p>From memory — no scrolling up. (A couple of these reach back to Lessons 1 and 2.)</p>
+  <div class="lab" id="quiz"></div>
+
+  <div class="src">
+    <div class="kicker">Read this next — primary source</div>
+    <p style="margin:.4rem 0 0"><strong>Kim Scott, <em>Radical Candor</em> — the "Care Personally / Challenge Directly"
+    framework and the chapter on guidance.</strong> The model in this lesson, with the stories behind why each quadrant fails.</p>
+    <p style="margin:.6rem 0 0;font-size:.9rem">Free companion reads:
+    <a href="https://www.radicalcandor.com/blog/what-is-radical-candor/">radicalcandor.com — What is Radical Candor?</a>
+    · <a href="https://www.ccl.org/articles/leading-effectively-articles/closing-the-gap-between-intent-impact/">CCL — the SBI model</a>.</p>
+  </div>
+
+  <div class="ask">
+    <strong>I'm your teacher — use me.</strong> Bring me one piece of feedback you've been sitting on (the one you keep
+    not giving is usually the important one). We'll draft it together in SBI, check it's not Ruinous Empathy, and rehearse
+    how you'll open it in the 1:1. Or — name something a report did <em>well</em> this week and let's make the praise land too.
+  </div>
+
+  <div class="footer">
+    <strong>Reference:</strong> <a href="../reference/glossary.html">Glossary</a> — Radical Candor, Ruinous Empathy, SBI, praise/criticism.<br>
+    <strong>Previous:</strong> <a href="0002-delegation-and-leverage.html">Lesson 2 — Delegation &amp; Leverage</a> · <a href="0001-the-one-on-one.html">Lesson 1 — The 1:1</a>.<br>
+    <strong>Coming next:</strong> <em>Leading a discipline you've never done</em> — evaluating &amp; growing QA/Backend without out-coding.<br>
+    <strong>Community:</strong> <a href="https://randsinrepose.com/welcome-to-rands-leadership-slack/">Rands Leadership Slack</a> (#feedback) ·
+    <a href="https://www.reddit.com/r/engineeringmanagement/">r/engineeringmanagement</a>.
+  </div>
+
+</div>
+
+<script>
+/* ---- Practice: pick the Radically Candid, SBI-shaped response ---- */
+const CASES = [
+  {
+    tag: "QA",
+    text: "A QA engineer shipped a release sign-off without flagging a failing smoke test; it broke in prod. You want to address it.",
+    opts: [
+      "\"Don't stress, these things happen — we'll be more careful next time.\"",   // ruinous empathy
+      "\"In today's sign-off you shipped without flagging the failing smoke test, so we lost two hours rolling back. What happened?\"", // correct: SBI + radical candor
+      "\"You're careless with releases and it's becoming a pattern.\""              // obnoxious aggression / character verdict
+    ],
+    correct: 1,
+    why: "SBI: Situation (today's sign-off), Behaviour (shipped without flagging), Impact (two-hour rollback). Specific, factual, ends with a question — and you needed zero QA expertise to give it."
+  },
+  {
+    tag: "Backend",
+    text: "A backend engineer wrote a clean migration with a thoughtful rollback plan and posted it for the team to learn from.",
+    opts: [
+      "Say nothing — good work is the baseline, no need to comment",
+      "\"Nice one 👍\" in a DM",
+      "\"In the team channel: the rollback plan you wrote into that migration meant we'd have recovered in minutes if it went wrong — that's exactly the bar.\"" // correct: praise, SBI, public
+    ],
+    correct: 2,
+    why: "Praise is feedback too — and it earns the most when it's specific, SBI-shaped, and said publicly. 'Nice one' is forgettable; naming the behaviour and its impact teaches the whole team the standard."
+  },
+  {
+    tag: "iOS",
+    text: "Your strongest iOS engineer dominated the design review and talked over a quieter teammate. You noticed in the moment.",
+    opts: [
+      "Raise it specifically in their next 1:1, soon, while it's fresh",   // correct: timely + private
+      "Call it out right there in the design review",
+      "Save it for the half-year performance review with everything else"
+    ],
+    correct: 0,
+    why: "Criticism goes in private (not in front of the team — that's the obnoxious-aggression risk), and timely beats polished. The 1:1 days from now beats the perfect write-up months from now. Don't stockpile it for the review."
+  }
+];
+
+/* ---- Retrieval quiz (with interleaved callbacks to Lessons 1 & 2) ---- */
+const QUESTIONS = [
+  {
+    q: "The two axes of Radical Candor are…",
+    opts: [
+      "Care Personally and Challenge Directly",   // correct
+      "Be Kind and Be Honest",
+      "Praise Publicly and Criticise Privately",
+      "Skill and Will"
+    ],
+    correct: 0,
+    why: "Radical Candor = Care Personally + Challenge Directly, held at the same time. Drop either and you fall into one of the three failure quadrants."
+  },
+  {
+    q: "A nice, new manager softens criticism until it carries no information. Which quadrant is that?",
+    opts: [
+      "Obnoxious Aggression",
+      "Manipulative Insincerity",
+      "Ruinous Empathy",                          // correct
+      "Radical Candor"
+    ],
+    correct: 2,
+    why: "Ruinous Empathy — care without challenge. It's the default trap for new EMs building trust, and it quietly stalls the person's growth."
+  },
+  {
+    q: "In SBI, the 'B' should be…",
+    opts: [
+      "Your interpretation of their character",
+      "An observable behaviour, stated as fact",  // correct
+      "The blame for what went wrong",
+      "A backstory explaining why it happened"
+    ],
+    correct: 1,
+    why: "Behaviour = what they observably did, not a verdict on who they are. 'You shipped without flagging it' (fact) vs 'you're careless' (character) — the first they can fix, the second they'll defend against."
+  },
+  {
+    q: "Why can you give a Backend engineer useful critical feedback without backend expertise?",
+    opts: [
+      "Because feedback doesn't need to be accurate",
+      "Because behaviour and impact are discipline-agnostic",  // correct
+      "Because you should defer all technical feedback anyway",
+      "Because praise doesn't require knowledge"
+    ],
+    correct: 1,
+    why: "SBI sticks to observable behaviour and concrete impact — neither requires you to be the domain expert. This is your cross-discipline unlock (callback to Lesson 2: you own the outcome, not the steps)."
+  },
+  {
+    q: "Where and when should a piece of critical feedback usually be delivered?",
+    opts: [
+      "In the team standup, immediately",
+      "In the private 1:1, soon while it's fresh",  // correct — interleaves Lesson 1
+      "In the PR review thread, eventually",
+      "In the next performance review"
+    ],
+    correct: 1,
+    why: "Callback to Lesson 1: criticism is private (the 1:1), and timely beats polished. Stockpiling it for the review is the classic mistake — by then it's stale and feels like an ambush."
+  }
+];
+
+function renderChoices(root, items, isQuiz){
+  let answered = 0, score = 0;
+  items.forEach((item, i) => {
+    const block = document.createElement('div');
+    block.style.marginBottom = '1.5rem';
+    if (isQuiz){
+      block.innerHTML = `<span class="qn">Question ${i+1} of ${items.length}</span><p class="scn">${item.q}</p>`;
+    } else {
+      block.innerHTML = `<p class="scn"><span class="tag">${item.tag}</span>${item.text}</p>`;
+    }
+    const fb = document.createElement('div'); fb.className = 'fb';
+    item.opts.forEach((opt, oi) => {
+      const b = document.createElement('button');
+      b.className = 'opt'; b.textContent = opt;
+      b.onclick = () => {
+        if (b.disabled) return;
+        const buttons = block.querySelectorAll('.opt');
+        buttons.forEach(x => x.disabled = true);
+        const right = oi === item.correct;
+        if (right){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); buttons[item.correct].classList.add('correct'); }
+        fb.className = 'fb show ' + (right ? 'r' : 'w');
+        fb.textContent = (right ? '✓ ' : '✗ ') + item.why;
+        answered++;
+        if (answered === items.length && isQuiz){
+          const s = document.createElement('div'); s.className = 'score';
+          s.textContent = `You scored ${score} / ${items.length}. ` +
+            (score === items.length ? 'You have the model — now give one real piece of feedback this week, in SBI, in a 1:1.'
+                                     : 'Re-read the quadrant grid and the SBI rows, then bring me one real piece of feedback to draft.');
+          root.appendChild(s);
+        }
+      };
+      block.appendChild(b);
+    });
+    block.appendChild(fb);
+    root.appendChild(block);
+  });
+}
+renderChoices(document.getElementById('lab'), CASES, false);
+renderChoices(document.getElementById('quiz'), QUESTIONS, true);
+</script>
+</body>
+</html>

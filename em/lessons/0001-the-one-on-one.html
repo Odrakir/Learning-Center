@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1 — The 1:1</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#7a5c2e; --good:#2f6b3f; --bad:#a23b2e; --card:#f6f3ec;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.6; margin:0; padding:3rem 1.25rem 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:42rem;margin:0 auto}
+  .kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:.4rem}
+  h1{font-size:2.2rem;line-height:1.15;margin:0 0 .5rem}
+  .dek{font-style:italic;color:var(--muted);font-size:1.1rem;margin-bottom:.5rem}
+  .mission{background:var(--card);border-left:3px solid var(--accent);padding:.8rem 1.1rem;
+    font-size:.95rem;margin:1.8rem 0;border-radius:0 4px 4px 0}
+  .mission b{color:var(--accent)}
+  h2{font-size:1.35rem;margin:2.6rem 0 .6rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+  p{margin:.8rem 0}
+  ul{padding-left:1.2rem}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .pull{font-size:1.15rem;font-style:italic;color:#333;border-left:3px solid var(--rule);
+    margin:1.6rem 0;padding:.2rem 0 .2rem 1.1rem}
+  .num{font-variant-numeric:oldstyle-nums}
+  /* quiz */
+  .quiz{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:1.3rem 1.4rem;margin:1.4rem 0}
+  .q{font-weight:600;margin:0 0 .9rem}
+  .qn{color:var(--accent);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.3rem}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--rule);
+    border-radius:5px;padding:.65rem .9rem;margin:.45rem 0;font:inherit;font-size:.98rem;cursor:pointer;
+    transition:background .12s,border-color .12s}
+  .opt:hover{background:#fffdf7;border-color:var(--accent)}
+  .opt:disabled{cursor:default}
+  .opt.correct{border-color:var(--good);background:#eef6ef}
+  .opt.wrong{border-color:var(--bad);background:#f9eeec}
+  .fb{font-size:.92rem;margin-top:.7rem;padding:.6rem .8rem;border-radius:5px;display:none}
+  .fb.show{display:block}
+  .fb.r{background:#eef6ef;color:var(--good)}
+  .fb.w{background:#f9eeec;color:var(--bad)}
+  .score{font-style:italic;color:var(--muted);margin-top:1rem}
+  .src{background:#1a1a1a;color:#f3efe6;border-radius:6px;padding:1.1rem 1.3rem;margin:2rem 0}
+  .src .kicker{color:#d8b878}
+  .src a{color:#e8c98a}
+  .footer{margin-top:3rem;border-top:1px solid var(--rule);padding-top:1.2rem;font-size:.9rem;color:var(--muted)}
+  .ask{background:#eef3f6;border-left:3px solid #3a6b8a;padding:.8rem 1.1rem;border-radius:0 4px 4px 0;font-size:.95rem;margin:1.6rem 0}
+  @media print{body{background:#fff;padding:0}.opt{cursor:default}.ask{background:#f3f3f3}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Lesson <span class="num">01</span> · People · Engineering Management</div>
+  <h1>The 1:1</h1>
+  <div class="dek">The single highest-leverage habit you can build as a new manager — and your best tool for leading people whose work you can't read.</div>
+
+  <div class="mission">
+    <b>Why this, first?</b> You came from iOS and now lead Backend and QA engineers too —
+    crafts you've never practised. You can't lead them by reviewing their code. The 1:1 is how great
+    managers stay connected, build trust, and grow people <i>regardless of discipline</i>. Master this
+    one ritual and you have a foundation that works across your whole team. (See <a href="../MISSION.md">your mission</a>.)
+  </div>
+
+  <h2>The idea, in 90 seconds</h2>
+  <p>A <strong>1:1</strong> is a recurring, private meeting between you and one direct report. Andy Grove,
+  who popularised it at Intel, framed it as a high-leverage act: a small time investment that raises the
+  quality of a person's work for weeks.</p>
+
+  <p>The trap almost every new manager falls into: turning the 1:1 into a <em>status update</em>. Status
+  belongs in standups, tickets, and chat. The 1:1 is for the things that don't surface anywhere else —
+  blockers, growth, frustrations, ambitions, how they're really doing.</p>
+
+  <p class="pull">"It's their meeting, not yours. Aim for the report to do ~70% of the talking."</p>
+
+  <p>Four principles do most of the work:</p>
+  <ul>
+    <li><strong>Consistency &amp; care.</strong> Same time, same place, weekly. Don't cancel — moving it tells them they don't matter.</li>
+    <li><strong>They own the agenda.</strong> Come prepared with your topics, but lead with theirs. A shared doc both edit keeps history.</li>
+    <li><strong>Coach, don't solve.</strong> When you want to jump in with the answer, ask another question instead. "Keep the thought bubble over their head."</li>
+    <li><strong>Privacy &amp; presence.</strong> A real private space, no laptops to distract, genuine listening. Use silence — the important stuff surfaces when the conversation wanders.</li>
+  </ul>
+  <p>This is also your <em>cross-discipline superpower</em>: you don't need to out-code a backend engineer
+  to ask "what's slowing you down?", "what would make this project great?", or "where do you want to grow?".
+  Those questions work everywhere.</p>
+
+  <h2>Check yourself</h2>
+  <p>No looking back. Retrieving from memory is what makes it stick.</p>
+
+  <div class="quiz" id="quiz"></div>
+
+  <div class="src">
+    <div class="kicker">Read this next — primary source</div>
+    <p style="margin:.4rem 0 0"><strong>Andy Grove, <em>High Output Management</em> — the chapter on the 1:1.</strong>
+    The origin of the practice and the clearest argument for <i>why</i> it's worth your time, from the CEO
+    who built Intel. Short, dense, foundational.</p>
+    <p style="margin:.6rem 0 0;font-size:.9rem">Free companion read:
+    <a href="https://www.theengineeringmanager.com/management-101/121s/">The Engineering Manager — 1:1s</a>.</p>
+  </div>
+
+  <div class="ask">
+    <strong>I'm your teacher — use me.</strong> Stuck on how to start 1:1s with someone who only gives you status?
+    Want me to role-play a tricky 1:1, or draft a shared-doc template for your team? Just ask in the chat.
+  </div>
+
+  <div class="footer">
+    <strong>Reference:</strong> <a href="../reference/glossary.html">Glossary</a> (1:1, coaching, psychological safety, leverage).<br>
+    <strong>Coming next:</strong> <em>Feedback that lands</em> — Radical Candor &amp; the SBI model. The skill 1:1s create the space for.<br>
+    <strong>Community (when you want live peers):</strong>
+    <a href="https://randsinrepose.com/welcome-to-rands-leadership-slack/">Rands Leadership Slack</a> ·
+    <a href="https://www.reddit.com/r/engineeringmanagement/">r/engineeringmanagement</a>.
+  </div>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "What is the primary purpose of a 1:1?",
+    opts: [
+      "To collect a detailed status update",      // distractor
+      "To serve the report and their growth",     // correct
+      "To assign the next sprint of tasks",
+      "To review the latest pull requests"
+    ],
+    correct: 1,
+    why: "It's the report's meeting — for blockers, growth, and how they're really doing. Status lives elsewhere."
+  },
+  {
+    q: "Roughly how much of a 1:1 should the report be talking?",
+    opts: [
+      "About ten percent of the time",
+      "About thirty percent of the time",
+      "About seventy percent of the time",         // correct
+      "About one hundred percent of time"
+    ],
+    correct: 2,
+    why: "Aim for ~70%. You listen and ask leading questions; they do the thinking out loud."
+  },
+  {
+    q: "Your report brings a problem. What's the strongest first move?",
+    opts: [
+      "Give them your best solution now",
+      "Ask a question and keep listening",         // correct
+      "Take the task onto your own plate",
+      "Defer it to the next standup call"
+    ],
+    correct: 1,
+    why: "Coach, don't solve. A question keeps the thought bubble over their head and grows their judgment."
+  },
+  {
+    q: "You're slammed this week. What do you do with the 1:1?",
+    opts: [
+      "Cancel it to reclaim the hour",
+      "Keep it; protect the standing slot",        // correct
+      "Move it to a noisy open desk",
+      "Turn it into a group standup"
+    ],
+    correct: 1,
+    why: "Consistency signals care. Cancelling tells them they don't matter — exactly the wrong message when busy."
+  }
+];
+
+const root = document.getElementById('quiz');
+let answered = 0, score = 0;
+
+QUESTIONS.forEach((item, qi) => {
+  const block = document.createElement('div');
+  block.style.marginBottom = '1.6rem';
+  block.innerHTML = `<span class="qn">Question ${qi+1} of ${QUESTIONS.length}</span><p class="q">${item.q}</p>`;
+  const fb = document.createElement('div');
+  fb.className = 'fb';
+
+  item.opts.forEach((opt, oi) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.textContent = opt;
+    b.onclick = () => {
+      if (b.disabled) return;
+      const buttons = block.querySelectorAll('.opt');
+      buttons.forEach(x => x.disabled = true);
+      const right = oi === item.correct;
+      if (right) { b.classList.add('correct'); score++; }
+      else { b.classList.add('wrong'); buttons[item.correct].classList.add('correct'); }
+      fb.className = 'fb show ' + (right ? 'r' : 'w');
+      fb.textContent = (right ? '✓ ' : '✗ ') + item.why;
+      answered++;
+      if (answered === QUESTIONS.length) showScore();
+    };
+    block.appendChild(b);
+  });
+  block.appendChild(fb);
+  root.appendChild(block);
+});
+
+function showScore(){
+  const s = document.createElement('div');
+  s.className = 'score';
+  s.textContent = `You scored ${score} / ${QUESTIONS.length}. ` +
+    (score === QUESTIONS.length
+      ? 'Solid — you have the model. Now go run one this week.'
+      : 'Revisit the four principles above, then try a real 1:1 with these in mind.');
+  root.appendChild(s);
+}
+</script>
+</body>
+</html>
