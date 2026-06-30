@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 9 · La Gran Muralla Digital: censura y vigilancia en China</title>
+<style>
+/* === Incrustado desde assets/styles.css (fuente de verdad del curso) === */
+:root {
+  --ink:#2b2722; --ink-soft:#5c554c; --paper:#fdfbf6; --rule:#e3ddd2;
+  --accent:#a4232b; --accent-2:#c8961e; --good:#2f7d55; --bad:#b23b3b;
+  --note-bg:#f3eee3; --maxw:42rem;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  line-height:1.62; -webkit-font-smoothing:antialiased; }
+main,.wrap { max-width:var(--maxw); margin:0 auto; padding:3.5rem 1.4rem 6rem; }
+h1,h2,h3 { line-height:1.18; font-weight:600; letter-spacing:-0.01em; }
+h1 { font-size:2.25rem; margin:0 0 0.3rem; }
+h2 { font-size:1.45rem; margin:2.8rem 0 0.6rem; }
+h3 { font-size:1.12rem; margin:1.8rem 0 0.4rem; color:var(--ink-soft); }
+.eyebrow { font-family:ui-sans-serif,system-ui,sans-serif; text-transform:uppercase;
+  letter-spacing:0.16em; font-size:0.72rem; font-weight:700; color:var(--accent); margin:0 0 0.6rem; }
+.subtitle { color:var(--ink-soft); font-style:italic; font-size:1.1rem; margin:0.2rem 0 0; }
+p { margin:0 0 1.1rem; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); }
+a:hover { border-bottom-color:var(--accent); }
+strong { font-weight:700; }
+em.zh { font-style:normal; font-weight:600; color:var(--accent); }
+hr { border:none; border-top:1px solid var(--rule); margin:2.6rem 0; }
+.cite { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; vertical-align:super;
+  color:var(--accent); text-decoration:none; border:none; padding:0 0.1em; }
+blockquote { margin:1.4rem 0; padding:0.2rem 0 0.2rem 1.2rem; border-left:3px solid var(--accent-2);
+  color:var(--ink-soft); font-style:italic; }
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule);
+  border-radius:8px; overflow:hidden; margin:1.6rem 0; font-size:0.95rem; }
+.compare > div { padding:1rem 1.1rem; }
+.compare > div:first-child { background:var(--note-bg); border-right:1px solid var(--rule); }
+.compare h4 { margin:0 0 0.5rem; font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase;
+  font-family:ui-sans-serif,system-ui,sans-serif; }
+.compare ul { margin:0; padding-left:1.1rem; }
+.compare li { margin:0.25rem 0; }
+.note,.keyfact { background:var(--note-bg); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; font-size:0.96rem; }
+.keyfact { border-left:4px solid var(--accent); }
+.keyfact .label,.note .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--accent); display:block; margin-bottom:0.3rem; }
+.quiz { margin:2rem 0; padding:1.4rem 1.4rem 1.1rem; border:1px solid var(--rule); border-radius:10px; background:#fff; }
+.quiz .q { font-weight:600; margin:0 0 0.9rem; }
+.quiz .opts { display:flex; flex-direction:column; gap:0.5rem; }
+.quiz button.opt { text-align:left; font:inherit; font-size:0.95rem; background:var(--paper);
+  border:1px solid var(--rule); border-radius:7px; padding:0.6rem 0.85rem; cursor:pointer; color:var(--ink);
+  transition:border-color .12s, background .12s; }
+.quiz button.opt:hover { border-color:var(--accent-2); }
+.quiz button.opt:disabled { cursor:default; opacity:0.95; }
+.quiz button.opt.correct { background:#e9f4ee; border-color:var(--good); color:var(--good); font-weight:600; }
+.quiz button.opt.wrong { background:#f8ebeb; border-color:var(--bad); color:var(--bad); }
+.quiz .fb { margin:0.9rem 0 0; font-size:0.92rem; color:var(--ink-soft); min-height:1.2rem; }
+.quiz .fb.show { animation:fade .25s ease; }
+@keyframes fade { from { opacity:0; transform:translateY(3px); } to { opacity:1; } }
+.lesson-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:3rem; padding-top:1.4rem;
+  border-top:1px solid var(--rule); font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; }
+.ask-teacher { margin-top:2.4rem; padding:1rem 1.2rem; border:1px dashed var(--accent-2); border-radius:8px;
+  background:var(--note-bg); font-size:0.92rem; }
+.ask-teacher .label { color:var(--accent-2); }
+.primary-source { margin:2rem 0; padding:1.1rem 1.3rem; border-radius:8px; background:#fff;
+  border:1px solid var(--rule); border-top:4px solid var(--accent-2); }
+.primary-source .label { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.7rem; text-transform:uppercase;
+  letter-spacing:0.12em; font-weight:700; color:var(--accent-2); display:block; margin-bottom:0.3rem; }
+table { border-collapse:collapse; width:100%; margin:1.4rem 0; font-size:0.93rem; }
+th,td { text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid var(--rule); vertical-align:top; }
+th { font-family:ui-sans-serif,system-ui,sans-serif; font-size:0.72rem; text-transform:uppercase;
+  letter-spacing:0.08em; color:var(--ink-soft); }
+@media print { :root { --paper:#fff; } body { font-size:11pt; } .quiz button.opt { border-color:#ccc; }
+  .ask-teacher,.lesson-nav { display:none; } a { color:var(--ink); border:none; } .cite { color:var(--ink-soft); } }
+@media (max-width:540px) { html { font-size:17px; } .compare { grid-template-columns:1fr; }
+  .compare > div:first-child { border-right:none; border-bottom:1px solid var(--rule); } }
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Lección 9 · Entender China · Sociedad</p>
+  <h1>La Gran Muralla Digital: censura y vigilancia</h1>
+  <p class="subtitle">Seguimos en el eje de la sociedad. Si el hukou es el muro que
+  divide a los chinos por lugar de nacimiento, hoy verás el muro que divide su internet
+  del resto del mundo —y por qué la vigilancia digital es mucho más que cámaras.</p>
+
+  <div class="keyfact">
+    <span class="label">La victoria de hoy</span>
+    Entenderás el <strong>Gran Cortafuegos</strong>, el sistema que bloquea Google,
+    Facebook o YouTube y los sustituye por un ecosistema propio (Baidu, WeChat, Weibo).
+    Y desmontarás un mito occidental muy extendido: el "crédito social" no es un único
+    marcador estilo <em>Black Mirror</em> que puntúa a cada ciudadano, sino algo más
+    fragmentado y, en parte, menos cinematográfico.
+  </div>
+
+  <h2>Antes de empezar: rescata esto de memoria</h2>
+  <p>Sin mirar atrás (<a href="0008-el-hukou-las-dos-chinas.html">Lección 8</a>):
+  <strong>¿qué es el hukou y qué hace?</strong> Piénsalo… es el registro de hogar que ata
+  tus derechos (escuela, sanidad, pensión) al lugar donde naciste, creando "dos Chinas".
+  Hoy verás otra herramienta de control del Estado chino, pero esta vez no sobre dónde
+  vives: sobre lo que ves, dices y compartes.</p>
+
+  <h2>El Gran Cortafuegos: una internet aparte</h2>
+  <p>Desde finales de los 90, China construyó lo que en Occidente llamamos el
+  <strong>Gran Cortafuegos</strong> (<em class="zh">防火长城</em>, juego de palabras con
+  la Gran Muralla): un sistema estatal de filtrado que bloquea miles de sitios y
+  servicios extranjeros —Google, Facebook, Instagram, X/Twitter, YouTube, WhatsApp,
+  buena parte de Wikipedia— en la frontera digital del país.<a class="cite" href="#f1">1</a></p>
+
+  <p>Pero no es solo un muro: detrás de él, China construyó su <strong>propio
+  ecosistema</strong> de sustitutos, todos sujetos a licencia y supervisión estatal:
+  <strong>Baidu</strong> en vez de Google, <strong>WeChat</strong> en vez de WhatsApp
+  (y de casi todo lo demás: pagos, citas médicas, trámites), <strong>Weibo</strong> en
+  vez de Twitter/X. El resultado no es "sin internet": es <strong>otra internet</strong>,
+  paralela y vigilada.</p>
+
+  <div class="note">
+    <span class="label">¿Y las VPN?</span>
+    Existen herramientas para saltar el muro (VPN), y millones las usan —sobre todo en
+    empresas y universidades—, pero operar una VPN sin licencia es ilegal y hay
+    campañas periódicas de cierre. No es un agujero permanente: es tolerancia
+    intermitente.
+  </div>
+
+  <h2>Cómo se censura: máquinas, personas y autocensura</h2>
+  <p>La censura china combina tres capas. Primero, <strong>filtros automáticos</strong>
+  que bloquean palabras clave en tiempo real. Segundo, <strong>censores humanos</strong>:
+  las plataformas chinas contratan a su propia gente para revisar contenido, bajo
+  amenaza de perder la licencia si dejan pasar algo "sensible".<a class="cite" href="#f2">2</a>
+  Tercero —la más eficaz—, la <strong>autocensura</strong>: como la responsabilidad legal
+  recae sobre la plataforma, esta prefiere borrar de más antes que arriesgarse.</p>
+
+  <p>Desde 2012, además, rige el <strong>registro con nombre real</strong>: para tener un
+  móvil o una cuenta de internet en China hace falta tu identidad verificada. El
+  anonimato online, posible en Occidente, es la excepción y no la norma.</p>
+
+  <h2>El crédito social: mito vs. realidad</h2>
+  <p>En Occidente circula la imagen de un único "marcador" nacional que puntúa a cada
+  ciudadano por su comportamiento —como el episodio "Nosedive" de <em>Black Mirror</em>—
+  y que decide si puedes coger un tren o conseguir trabajo. La realidad del
+  <strong>Sistema de Crédito Social</strong> (lanzado como plan en 2014) es más
+  fragmentada y menos centralizada de lo que sugiere ese mito.<a class="cite" href="#f3">3</a></p>
+
+  <div class="compare">
+    <div>
+      <h4>El mito</h4>
+      <ul>
+        <li>Un único número por ciudadano, calculado por el Estado.</li>
+        <li>Sube o baja por casi cualquier comportamiento diario.</li>
+        <li>Aplicado de forma uniforme en todo el país.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>La realidad (más documentada)</h4>
+      <ul>
+        <li>Sistemas distintos y solapados: crédito financiero, listas negras
+        judiciales, pilotos municipales con puntos.</li>
+        <li>El mecanismo mejor probado: la lista de <strong>"deudores no fiables"</strong>
+        (<em>laolai</em>) que incumplen sentencias judiciales —pueden quedar vetados de
+        vuelos o trenes de alta velocidad.</li>
+        <li><strong>Sesame Credit</strong> (de Alipay) es una puntuación
+        <em>privada</em> de Alibaba, no un marcador estatal único, aunque a menudo se
+        confunden.</li>
+      </ul>
+    </div>
+  </div>
+  <p>La distinción importa: el control estatal sobre la vida digital china es real y
+  profundo —el Gran Cortafuegos y la censura lo demuestran—, pero conviene separar lo
+  bien documentado (bloqueo, censura, listas judiciales) de la narrativa más
+  exagerada que a veces consume Occidente.</p>
+
+  <div class="keyfact">
+    <span class="label">La vigilancia física, en una frase</span>
+    A la vigilancia digital se suma una red de cámaras con reconocimiento facial que
+    crece sin parar: estimaciones sitúan a China con cientos de millones de cámaras de
+    videovigilancia, varias de las ciudades más vigiladas del planeta.<a class="cite" href="#f4">4</a>
+    El caso más extremo —Xinjiang— merece su propia lección más adelante.
+  </div>
+
+  <h2>Tu ancla: internet de plataformas vs. internet de Estado</h2>
+  <div class="compare">
+    <div>
+      <h4>EEUU / España · ecosistema abierto</h4>
+      <ul>
+        <li>Empresas privadas compitiendo (Google, Meta, X...), sin bloqueo estatal
+        general de servicios extranjeros.</li>
+        <li>Debate sobre moderación de contenido, pero no censura centralizada por
+        el Estado.</li>
+        <li>El anonimato online es posible y común.</li>
+        <li>Acceso a "la misma" internet que el resto del mundo.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>China · capa estatal + ecosistema licenciado</h4>
+      <ul>
+        <li>El Estado bloquea servicios extranjeros enteros en la frontera digital.</li>
+        <li>Plataformas nacionales (WeChat, Weibo, Baidu) censuran bajo licencia
+        y responsabilidad legal.</li>
+        <li>Registro con nombre real obligatorio desde 2012.</li>
+        <li>Una internet paralela, no "la misma" que el resto del mundo.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="keyfact">
+    <span class="label">El enlace con el Partido (L4)</span>
+    Esto no es un capítulo aparte: es la extensión digital de lo que viste en la
+    <a href="0004-la-caja-negra-del-partido.html">Lección 4</a>. El mismo Estado que
+    organiza el poder de arriba abajo por <a
+    href="../reference/glosario.html#centralismo-democratico">centralismo democrático</a>
+    aplica esa misma lógica a internet: controlar la información es, para el Partido,
+    una condición de estabilidad, no un añadido opcional.
+  </div>
+
+  <!-- ====================== RETRIEVAL PRACTICE ====================== -->
+  <h2>Compruébalo (sin mirar arriba)</h2>
+  <p>De memoria. Como siempre, cuelo una pregunta de lecciones anteriores: recordar lo
+  viejo mientras fijas lo nuevo es lo que construye memoria duradera.</p>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">1. ¿Qué es, en esencia, el Gran Cortafuegos?</p>
+    <div class="opts">
+      <button class="opt">Una ley que prohíbe los teléfonos móviles</button>
+      <button class="opt">El nombre del firewall personal de Xi Jinping</button>
+      <button class="opt">El sistema estatal que bloquea internet extranjero</button>
+      <button class="opt">Un impuesto especial sobre las telecomunicaciones</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: el sistema de filtrado estatal que bloquea Google, Facebook, X, YouTube y otros servicios extranjeros."
+       data-no="Es el sistema estatal de filtrado que bloquea servicios extranjeros como Google, Facebook o YouTube."></p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">2. ¿Qué sustituye, dentro de China, a Google y WhatsApp/Twitter?</p>
+    <div class="opts">
+      <button class="opt">Nada: en China simplemente no hay esos servicios</button>
+      <button class="opt">Baidu y WeChat/Weibo, ecosistema nacional licenciado</button>
+      <button class="opt">Versiones pirateadas de las mismas apps occidentales</button>
+      <button class="opt">Solo se puede usar internet en cibercafés estatales</button>
+    </div>
+    <p class="fb"
+       data-ok="Sí: Baidu (búsqueda), WeChat (mensajería/pagos/casi todo) y Weibo (microblog), bajo licencia estatal."
+       data-no="Existe un ecosistema propio: Baidu, WeChat y Weibo, todos licenciados y supervisados por el Estado."></p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <p class="q">3. Sobre el "crédito social", ¿cuál es la afirmación más precisa?</p>
+    <div class="opts">
+      <button class="opt">Es más fragmentado de lo que sugiere el mito de un único marcador nacional</button>
+      <button class="opt">Es exactamente como en el episodio "Nosedive" de Black Mirror</button>
+      <button class="opt">No existe ningún mecanismo real de listas negras</button>
+      <button class="opt">Sesame Credit es un sistema estatal, no privado</button>
+    </div>
+    <p class="fb"
+       data-ok="Correcto: sistemas solapados (crédito financiero, listas judiciales, pilotos locales), no un único marcador."
+       data-no="La realidad mejor documentada son sistemas fragmentados y solapados, no un único marcador tipo Black Mirror."></p>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <p class="q">4. Repaso L8: el hukou ata tus derechos sociales principalmente a...</p>
+    <div class="opts">
+      <button class="opt">Tu afiliación al Partido Comunista</button>
+      <button class="opt">Tu nivel de estudios</button>
+      <button class="opt">Tu uso de WeChat y Weibo</button>
+      <button class="opt">El lugar donde estás registrado al nacer</button>
+    </div>
+    <p class="fb"
+       data-ok="¡Memoria fina! El hukou ata escuela, sanidad y pensión al lugar de registro, no a donde vives realmente."
+       data-no="Es el lugar de registro (rural/urbano): de ahí nacen las 'dos Chinas' que viste en la Lección 8."></p>
+  </div>
+
+  <!-- ====================== FUENTE PRIMARIA ====================== -->
+  <div class="primary-source">
+    <span class="label">Fuente primaria recomendada</span>
+    <p style="margin:0 0 .4rem"><strong>Freedom House — "Freedom on the Net: China"</strong>.</p>
+    <p style="margin:0; font-size:0.9rem; color:var(--ink-soft)">El informe anual más
+    citado sobre censura y vigilancia digital china: metodología clara, actualizado cada
+    año, y honesto sobre lo que se sabe con certeza y lo que es estimación.
+    <a href="https://freedomhouse.org/country/china/freedom-net">Ver →</a></p>
+  </div>
+
+  <!-- ====================== PREGUNTAR AL PROFE ====================== -->
+  <div class="ask-teacher">
+    <span class="label">Soy tu profesor — pregúntame</span>
+    ¿Cómo es la vida diaria sin Google ni WhatsApp? ¿Por qué el Estado tolera las VPN en
+    empresas extranjeras? ¿Cómo encaja Xinjiang en todo esto? Pregúntame, o seguimos el
+    eje de sociedad con la próxima lección: <strong>la clase media y el consumo</strong>
+    (la otra cara: quiénes sí prosperan) o <strong>demografía</strong> (el envejecimiento
+    tras el hijo único).
+  </div>
+
+  <!-- ====================== NOTAS / CITAS ====================== -->
+  <hr>
+  <h3>Notas y fuentes</h3>
+  <ol style="font-size:0.82rem; color:var(--ink-soft); line-height:1.5">
+    <li id="f1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Great_Firewall">"Great Firewall"</a> — origen a finales de los 90 (Proyecto Escudo Dorado), servicios bloqueados (Google, Facebook, X, YouTube, WhatsApp, Wikipedia parcial) y mecanismos de filtrado.</li>
+    <li id="f2">Freedom House, <a href="https://freedomhouse.org/country/china/freedom-net">"Freedom on the Net: China"</a> — responsabilidad legal de las plataformas, censores humanos, autocensura y registro con nombre real desde 2012.</li>
+    <li id="f3">Wikipedia, <a href="https://en.wikipedia.org/wiki/Social_Credit_System">"Social Credit System"</a> — plan lanzado en 2014, naturaleza fragmentada (crédito financiero, listas judiciales, pilotos municipales), distinción con Sesame Credit (privado, Alipay).</li>
+    <li id="f4">Comparitech, <a href="https://www.comparitech.com/vpn-privacy/the-worlds-most-surveilled-cities/">"The world's most-surveilled cities"</a> — estimaciones de densidad de cámaras de videovigilancia con reconocimiento facial en ciudades chinas.</li>
+  </ol>
+
+  <nav class="lesson-nav">
+    <span><a href="0008-el-hukou-las-dos-chinas.html">← Lección 8: El hukou</a></span>
+    <span><a href="../reference/glosario.html">Glosario del curso →</a></span>
+  </nav>
+
+</main>
+
+<script>
+/* === Incrustado desde assets/quiz.js === */
+(function () {
+  function initQuiz(quiz) {
+    var correct = parseInt(quiz.getAttribute("data-correct"), 10);
+    var opts = Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    var fb = quiz.querySelector(".fb");
+    var answered = false;
+    opts.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (answered) return;
+        answered = true;
+        opts.forEach(function (b, j) { b.disabled = true; if (j === correct) b.classList.add("correct"); });
+        if (i !== correct) btn.classList.add("wrong");
+        if (fb) {
+          var msg = i === correct ? (fb.getAttribute("data-ok") || "Correcto.")
+                                  : (fb.getAttribute("data-no") || "Repasa la respuesta correcta marcada arriba.");
+          fb.textContent = msg; fb.classList.add("show");
+        }
+      });
+    });
+  }
+  function ready(fn){ if (document.readyState !== "loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
+  ready(function(){ Array.prototype.slice.call(document.querySelectorAll(".quiz")).forEach(initQuiz); });
+})();
+</script>
+</body>
+</html>
