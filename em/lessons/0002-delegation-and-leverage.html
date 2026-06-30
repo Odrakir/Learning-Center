@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 2 — Delegation &amp; Leverage</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#7a5c2e; --good:#2f6b3f; --bad:#a23b2e; --card:#f6f3ec;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.6; margin:0; padding:3rem 1.25rem 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:42rem;margin:0 auto}
+  .kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:.4rem}
+  h1{font-size:2.2rem;line-height:1.15;margin:0 0 .5rem}
+  .dek{font-style:italic;color:var(--muted);font-size:1.1rem;margin-bottom:.5rem}
+  .mission{background:var(--card);border-left:3px solid var(--accent);padding:.8rem 1.1rem;
+    font-size:.95rem;margin:1.8rem 0;border-radius:0 4px 4px 0}
+  .mission b{color:var(--accent)}
+  h2{font-size:1.35rem;margin:2.6rem 0 .6rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+  p{margin:.8rem 0}
+  ul{padding-left:1.2rem}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .pull{font-size:1.15rem;font-style:italic;color:#333;border-left:3px solid var(--rule);
+    margin:1.6rem 0;padding:.2rem 0 .2rem 1.1rem}
+  .num{font-variant-numeric:oldstyle-nums}
+  .eq{text-align:center;font-size:1.15rem;margin:1.4rem 0;color:#2a2a2a}
+  .eq b{color:var(--accent)}
+  /* TRM table */
+  table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.95rem}
+  th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+  /* interactive */
+  .lab{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:1.3rem 1.4rem;margin:1.4rem 0}
+  .scn{font-weight:600;margin:.2rem 0 .2rem}
+  .scn .tag{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+    background:#e7ded0;color:var(--accent);border-radius:3px;padding:.1rem .45rem;margin-right:.5rem;font-weight:600}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--rule);
+    border-radius:5px;padding:.6rem .9rem;margin:.4rem 0;font:inherit;font-size:.96rem;cursor:pointer;
+    transition:background .12s,border-color .12s}
+  .opt:hover{background:#fffdf7;border-color:var(--accent)}
+  .opt:disabled{cursor:default}
+  .opt.correct{border-color:var(--good);background:#eef6ef}
+  .opt.wrong{border-color:var(--bad);background:#f9eeec}
+  .fb{font-size:.9rem;margin-top:.6rem;padding:.55rem .8rem;border-radius:5px;display:none}
+  .fb.show{display:block}
+  .fb.r{background:#eef6ef;color:var(--good)}
+  .fb.w{background:#f9eeec;color:var(--bad)}
+  .qn{color:var(--accent);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.3rem}
+  .score{font-style:italic;color:var(--muted);margin-top:1rem}
+  .src{background:#1a1a1a;color:#f3efe6;border-radius:6px;padding:1.1rem 1.3rem;margin:2rem 0}
+  .src .kicker{color:#d8b878}
+  .src a{color:#e8c98a}
+  .footer{margin-top:3rem;border-top:1px solid var(--rule);padding-top:1.2rem;font-size:.9rem;color:var(--muted)}
+  .ask{background:#eef3f6;border-left:3px solid #3a6b8a;padding:.8rem 1.1rem;border-radius:0 4px 4px 0;font-size:.95rem;margin:1.6rem 0}
+  @media print{body{background:#fff;padding:0}.opt{cursor:default}.ask{background:#f3f3f3}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Lesson <span class="num">02</span> · Leverage · Engineering Management</div>
+  <h1>Delegation &amp; Leverage</h1>
+  <div class="dek">The hardest instinct to unlearn after being an IC — and the one that decides whether your team scales past you.</div>
+
+  <div class="mission">
+    <b>Why this, now?</b> Coming from iOS, your reflex is to <i>do the work</i>. That reflex splits two ways
+    on your team: you'll <b>cling to the iOS work</b> you're best at, and you may <b>over-hand-off Backend/QA</b>
+    because you're less sure there. Both are delegation failures. This lesson gives you one dial — <i>Task-Relevant
+    Maturity</i> — that tells you exactly how much to let go, in any discipline, even ones you've never practised.
+    (See <a href="../MISSION.md">your mission</a>.)
+  </div>
+
+  <h2>Leverage: the whole job in one line</h2>
+  <p class="eq"><b>Your output</b> = the output of your team + the output of teams you influence.</p>
+  <p>That's Andy Grove's definition of <strong>managerial leverage</strong>. The work you do with your own hands
+  no longer counts much. A single hour spent making five engineers better is worth more than an hour spent shipping
+  one feature yourself. Delegation isn't offloading the work you dislike — it's <em>the mechanism by which you create
+  output at all</em>, and the main way your people grow.</p>
+
+  <p class="pull">"If you're the smartest person in the room on every task, your team's ceiling is you."</p>
+
+  <h2>The dial: Task-Relevant Maturity</h2>
+  <p>The mistake is treating delegation as a switch — either you hand it over completely or you hover. Grove's fix is a
+  dial. Every person has a <strong>Task-Relevant Maturity (TRM)</strong> for a <em>specific</em> task: their skill +
+  experience + readiness to own it. <strong>Your monitoring depth should scale <em>inversely</em> with their TRM.</strong></p>
+
+  <table>
+    <tr><th>Their TRM for the task</th><th>What you give</th><th>How you check in</th></tr>
+    <tr><td>Low — new to it</td><td>Clear outcome + the <em>how</em>, structured support</td><td>Frequently; review the work closely</td></tr>
+    <tr><td>Medium — done similar</td><td>Outcome + guardrails, let them choose the how</td><td>Agreed checkpoints / milestones</td></tr>
+    <tr><td>High — proven here</td><td>The outcome and the why; full authority</td><td>Lightly; they pull you in as needed</td></tr>
+  </table>
+
+  <p>Three things make TRM click:</p>
+  <ul>
+    <li><strong>It's per-task, not per-person.</strong> A senior iOS engineer is high-TRM on a refactor, maybe low-TRM running their first incident. Re-read the dial for each task.</li>
+    <li><strong>Delegate the <em>outcome</em>, not the steps.</strong> "The release needs to be reliable by Thursday" beats "run these five commands." Outcomes leave room for ownership; steps create dependence. <em>(This is your cross-discipline unlock — you can own a backend outcome without knowing the backend steps.)</em></li>
+    <li><strong>Transfer authority with the responsibility.</strong> If they have to ask you before every decision, you haven't delegated — you've created a queue at your desk.</li>
+  </ul>
+  <p>And the cross-discipline reassurance: <strong>delegation calibrates to <em>their</em> TRM, not yours.</strong>
+  You don't need to be able to write the Postgres migration to delegate it well — you need to know <em>how proven they
+  are at it</em> and own the outcome and the checkpoints.</p>
+
+  <h2>Practice · Calibrate the support</h2>
+  <p>For each case, pick the right level of support. Immediate feedback below each.</p>
+  <div class="lab" id="lab"></div>
+
+  <h2>Check yourself</h2>
+  <p>From memory — no scrolling up.</p>
+  <div class="lab" id="quiz"></div>
+
+  <div class="src">
+    <div class="kicker">Read this next — primary source</div>
+    <p style="margin:.4rem 0 0"><strong>Andy Grove, <em>High Output Management</em> — "Task-Relevant Maturity" &amp;
+    the managerial-leverage chapters.</strong> The original, and still the sharpest, treatment of both ideas in this lesson.</p>
+    <p style="margin:.6rem 0 0;font-size:.9rem">Free companion read:
+    <a href="https://www.theengineeringmanager.com/management-101/delegation/">The Engineering Manager — Delegation</a>.</p>
+  </div>
+
+  <div class="ask">
+    <strong>I'm your teacher — use me.</strong> Want to map your actual team onto the TRM dial, name one thing you're
+    over-clinging to (iOS?) and one you're under-supporting (Backend/QA?), and plan the hand-off? Bring me a real task and we'll calibrate it together.
+  </div>
+
+  <div class="footer">
+    <strong>Reference:</strong> <a href="../reference/glossary.html">Glossary</a> — TRM, delegation, micromanagement, leverage.<br>
+    <strong>Previous:</strong> <a href="0001-the-one-on-one.html">Lesson 1 — The 1:1</a> (where you'll actually run these calibration conversations).<br>
+    <strong>Coming next:</strong> <em>Feedback that lands</em> — Radical Candor &amp; SBI.<br>
+    <strong>Community:</strong> <a href="https://randsinrepose.com/welcome-to-rands-leadership-slack/">Rands Leadership Slack</a> ·
+    <a href="https://www.reddit.com/r/engineeringmanagement/">r/engineeringmanagement</a>.
+  </div>
+
+</div>
+
+<script>
+/* ---- Practice: calibrate support to TRM ---- */
+const CASES = [
+  {
+    tag: "Backend",
+    text: "A backend engineer who has shipped many migrations is asked to do another routine one. You can't write it yourself.",
+    opts: [
+      "Give the outcome; let them run it",      // correct (high TRM)
+      "Write out each step for them first",
+      "Sit with them through the whole job"
+    ],
+    correct: 0,
+    why: "High TRM on this task. Give the outcome and authority, check in lightly. Your own unfamiliarity is irrelevant — calibrate to THEIR proven track record."
+  },
+  {
+    tag: "QA",
+    text: "A QA engineer is owning their first end-to-end release sign-off. They've assisted before but never led it.",
+    opts: [
+      "Hand it over and step away",
+      "Agree clear checkpoints and milestones",  // correct (medium TRM)
+      "Approve every single decision they make"
+    ],
+    correct: 1,
+    why: "Medium TRM. Set the outcome and guardrails, agree checkpoints, let them choose the how. Not hands-off, not hovering."
+  },
+  {
+    tag: "iOS",
+    text: "Your strongest iOS engineer keeps bringing you a refactor you'd happily do yourself — and could do faster.",
+    opts: [
+      "Take it back; you're quicker at it",
+      "Give it fully; coach, don't reclaim"      // correct (high TRM + leverage)
+    ],
+    correct: 1,
+    why: "Faster-yourself is the IC trap. They're high-TRM here; reclaiming it caps the team at your throughput and stalls their growth. Let go."
+  }
+];
+
+/* ---- Retrieval quiz (incl. one interleaved callback to Lesson 1) ---- */
+const QUESTIONS = [
+  {
+    q: "Andy Grove says a manager's output equals what?",
+    opts: [
+      "The features the manager personally ships",
+      "The output of the manager's whole team",   // correct
+      "The hours the manager spends each week",
+      "The tickets the manager closes per sprint"
+    ],
+    correct: 1,
+    why: "Leverage: your output is your team's output (plus teams you influence). Your own hands barely count."
+  },
+  {
+    q: "Task-Relevant Maturity is best described as…",
+    opts: [
+      "A fixed rating of a person overall",
+      "How senior the person's job title is",
+      "Readiness for one particular task now",     // correct
+      "How long the person has been employed"
+    ],
+    correct: 2,
+    why: "TRM is per-task and dynamic — the same person is high on one task, low on another. Re-judge it each time."
+  },
+  {
+    q: "A report has LOW task-relevant maturity. You should…",
+    opts: [
+      "Step back and check in rarely",
+      "Give support and check in often",           // correct
+      "Hand over total decision authority",
+      "Cancel your next few check-ins"
+    ],
+    correct: 1,
+    why: "Monitoring scales inversely with TRM: low TRM → more support and more frequent check-ins, fading as they grow."
+  },
+  {
+    q: "Where is the best place to actually calibrate a hand-off with someone?",
+    opts: [
+      "In a public team status standup",
+      "In their recurring private 1:1",            // correct (interleaving Lesson 1)
+      "In a broadcast channel message",
+      "In the pull request review thread"
+    ],
+    correct: 1,
+    why: "Callback to Lesson 1: the 1:1 is the private space for exactly this — growth, ownership, and how much support they want."
+  }
+];
+
+function renderChoices(root, items, isQuiz){
+  let answered = 0, score = 0;
+  items.forEach((item, i) => {
+    const block = document.createElement('div');
+    block.style.marginBottom = '1.5rem';
+    if (isQuiz){
+      block.innerHTML = `<span class="qn">Question ${i+1} of ${items.length}</span><p class="scn">${item.q}</p>`;
+    } else {
+      block.innerHTML = `<p class="scn"><span class="tag">${item.tag}</span>${item.text}</p>`;
+    }
+    const fb = document.createElement('div'); fb.className = 'fb';
+    item.opts.forEach((opt, oi) => {
+      const b = document.createElement('button');
+      b.className = 'opt'; b.textContent = opt;
+      b.onclick = () => {
+        if (b.disabled) return;
+        const buttons = block.querySelectorAll('.opt');
+        buttons.forEach(x => x.disabled = true);
+        const right = oi === item.correct;
+        if (right){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); buttons[item.correct].classList.add('correct'); }
+        fb.className = 'fb show ' + (right ? 'r' : 'w');
+        fb.textContent = (right ? '✓ ' : '✗ ') + item.why;
+        answered++;
+        if (answered === items.length && isQuiz){
+          const s = document.createElement('div'); s.className = 'score';
+          s.textContent = `You scored ${score} / ${items.length}. ` +
+            (score === items.length ? 'You own the dial — now point it at a real task this week.'
+                                     : 'Re-read the TRM table, then bring me one real hand-off to calibrate.');
+          root.appendChild(s);
+        }
+      };
+      block.appendChild(b);
+    });
+    block.appendChild(fb);
+    root.appendChild(block);
+  });
+}
+renderChoices(document.getElementById('lab'), CASES, false);
+renderChoices(document.getElementById('quiz'), QUESTIONS, true);
+</script>
+</body>
+</html>
