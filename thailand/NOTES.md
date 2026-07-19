@@ -41,8 +41,8 @@
 
 > Eje FUNDAMENTOS en marcha.
 
-- [ ] 0002: Geografía y las tres Tailandias — norte/centro/sur, línea climática, 
-  Bangkok vs Chiang Mai en detalle.
+- [x] 0002: Geografía y las tres Tailandias — norte/centro/sur (+ Isan), clima en tres
+  estaciones, Bangkok vs Chiang Mai, noviembre y Loi Krathong/Yi Peng. (HECHO)
 - [ ] 0003: Historia en línea — de Sukhothai a hoy (los reinos, Siam, Rama V,
   monarquía constitucional, golpes de Estado).
 - [ ] 0004: El budismo theravada en la vida cotidiana — templos, monjes, *merit
