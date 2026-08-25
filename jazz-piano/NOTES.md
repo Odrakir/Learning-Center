@@ -17,6 +17,7 @@
 - Lesson 2 added a reusable "Chord Builder" widget: root highlighted, user toggles the other chord tones by clicking, "Check" validates against a target interval pattern and reveals correct spelling, plays the full voicing as a chord (staggered-start oscillators). Lesson 3 generalized it to take a `type` per round (min7 offsets [3,7,10] vs dom7 [4,7,10]) so rounds can interleave both chord colors instead of drilling one at a time.
 - Lesson 3's core framing: root and 5th (+7 half steps) never move between maj7/dom7/min7 — only the 3rd and 7th shift. Flat the 7th → dom7; flat the 3rd too → min7. This "family tree" (branch off maj7 rather than three independent formulas) tested much cleaner than presenting three separate interval patterns side by side, and reference/chord-shapes.html now shows all three chords built on C stacked for direct visual comparison. Reuse this branching framing in Lesson 4 if useful.
 - Also introduced lead-sheet chord symbol shorthand in Lesson 3 (Cmaj7 / Cm7 / C7) since it's needed for the lead-sheet-reading lesson later — worth checking he retained it before that lesson.
+- Lesson 4 taught ii-V-I root-finding as a formula (ii = tonic +2 half steps, V = tonic +7) rather than teaching full major-scale degrees, to stay in scope with "keep theory minimal." Quiz drills a full C ii-V-I (review) then transfers the same formula to F (new key, mostly natural notes) — worked-example-then-transfer structure, worth reusing when introducing a new key-dependent formula again. Both keys' note ranges were hand-checked to stay within the widget's 2-octave (C3–B4) keyboard.
 - Sequence: keyboard geography (pattern-based note-finding) → intervals (half/whole steps) → first jazz chords (maj7/min7/dom7 shapes) → ii-V-I → simple lead-sheet reading → first full standard.
 - Follow the Hal Leonard Jazz Piano Method structure loosely as the backbone; Mark Levine's Jazz Piano Book is a later reference, not a starting point (confirmed via research — it assumes existing piano fluency).
 
@@ -24,8 +25,8 @@
 1. ✅ 0001 — Finding your way around the keyboard (black-key groupings, note names, middle C, octaves). *Delivered.*
 2. ✅ 0002 — Half steps & whole steps + your first jazz chord: the major 7th shape (4-3-4 half-step pattern, drilled across F/G/D/A roots). *Delivered 2026-08-25.*
 3. ✅ 0003 — Minor 7th and dominant 7th: framed as "flat the 7th, then flat the 3rd too" branching off maj7, drilled interleaved across D/G/E/C/A/F roots. *Delivered 2026-08-25.*
-4. The ii–V–I: jazz's core progression (min7 → dom7 → maj7), played in one key. Natural next step — Lesson 3 already previewed Dm7/G7 as pieces of ii-V-I in C.
-5. Reading a simple lead sheet (chord symbols + melody, first few bars of an easy standard). Lesson 3 already introduced Cmaj7/Cm7/C7 chord-symbol shorthand — build on that rather than reintroducing it.
+4. ✅ 0004 — The ii–V–I: taught as tonic +2 (ii) / +7 (V) half-step formula, drilled as a full progression in C (review) then transferred to F (new key). *Delivered 2026-08-25.*
+5. Reading a simple lead sheet (chord symbols + melody, first few bars of an easy standard). Lessons 3-4 already introduced Cmaj7/Cm7/C7 chord-symbol shorthand and the ii-V-I — build on both rather than reintroducing them.
 6. First full standard, played through solo (candidate: "Autumn Leaves" or "Fly Me to the Moon" — pick based on which fits chords learned so far).
 
 ## Open questions to revisit
