@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1 — Finding Your Way Around the Keyboard</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#7a5c2e; --good:#2f6b3f; --bad:#a23b2e; --card:#f6f3ec;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.6; margin:0; padding:3rem 1.25rem 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:42rem;margin:0 auto}
+  .kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:.4rem}
+  h1{font-size:2.2rem;line-height:1.15;margin:0 0 .5rem}
+  .dek{font-style:italic;color:var(--muted);font-size:1.1rem;margin-bottom:.5rem}
+  .mission{background:var(--card);border-left:3px solid var(--accent);padding:.8rem 1.1rem;
+    font-size:.95rem;margin:1.8rem 0;border-radius:0 4px 4px 0}
+  .mission b{color:var(--accent)}
+  h2{font-size:1.35rem;margin:2.6rem 0 .6rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+  p{margin:.8rem 0}
+  ul{padding-left:1.2rem}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .pull{font-size:1.15rem;font-style:italic;color:#333;border-left:3px solid var(--rule);
+    margin:1.6rem 0;padding:.2rem 0 .2rem 1.1rem}
+  .num{font-variant-numeric:oldstyle-nums}
+  .src{background:#1a1a1a;color:#f3efe6;border-radius:6px;padding:1.1rem 1.3rem;margin:2rem 0}
+  .src .kicker{color:#d8b878}
+  .src a{color:#e8c98a}
+  .footer{margin-top:3rem;border-top:1px solid var(--rule);padding-top:1.2rem;font-size:.9rem;color:var(--muted)}
+  .ask{background:#eef3f6;border-left:3px solid #3a6b8a;padding:.8rem 1.1rem;border-radius:0 4px 4px 0;font-size:.95rem;margin:1.6rem 0}
+
+  /* keyboard widget */
+  .widget{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:1.2rem 1rem 1.4rem;margin:1.4rem 0}
+  .widget-head{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin-bottom:.7rem}
+  .widget-status{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.9rem;color:var(--muted)}
+  .kbd-scroll{overflow-x:auto;padding-bottom:.4rem}
+  .kbd{position:relative;width:644px;height:172px;margin:0 auto;touch-action:manipulation}
+  .white{
+    position:absolute;top:0;width:44px;height:170px;background:#fffdf8;
+    border:1px solid #c9c2b3;border-radius:0 0 4px 4px;cursor:pointer;user-select:none;
+    transition:background .08s;
+  }
+  .white:hover{background:#fff7ea}
+  .white:active,.white.pressed{background:#f1dfb8}
+  .white .lbl{position:absolute;bottom:8px;left:0;right:0;text-align:center;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;color:var(--muted);pointer-events:none}
+  .white.hide-labels .lbl{visibility:hidden}
+  .white.is-target{outline:2px solid var(--accent);outline-offset:-2px}
+  .white.correct{background:#d9ecdd}
+  .white.wrong{background:#f3d6d1}
+  .black{
+    position:absolute;top:0;width:28px;height:100px;background:#1c1a17;
+    border-radius:0 0 3px 3px;z-index:2;cursor:pointer;user-select:none;
+    transition:background .08s;
+  }
+  .black:hover{background:#3a3630}
+  .black:active,.black.pressed{background:#5c5648}
+  .btnrow{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+  button.action{
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.85rem;font-weight:600;
+    background:#fff;border:1px solid var(--accent);color:var(--accent);
+    border-radius:5px;padding:.5rem .9rem;cursor:pointer;
+  }
+  button.action:hover{background:#fdf3e2}
+  button.action:disabled{opacity:.4;cursor:default}
+  .quiz-prompt{font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700;font-size:1.05rem;margin:.2rem 0 .8rem}
+  .quiz-fb{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.88rem;min-height:1.3em;margin-top:.5rem}
+  .quiz-fb.r{color:var(--good)}
+  .quiz-fb.w{color:var(--bad)}
+  .score{font-style:italic;color:var(--muted);margin-top:.6rem}
+  @media print{body{background:#fff;padding:0}.ask{background:#f3f3f3}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Lesson <span class="num">01</span> · Fundamentals · Jazz Piano</div>
+  <h1>Finding Your Way Around the Keyboard</h1>
+  <div class="dek">One pattern that lets you name any note on the piano — without an instrument, without counting from the edge, and without reading a note of music.</div>
+
+  <div class="mission">
+    <b>Why this, first?</b> You're starting from zero, and the goal is to eventually sit down and
+    play jazz standards for yourself. Every chord, every voicing, every shape you'll ever learn on
+    this keyboard is found by <i>pattern</i>, not by counting letters from the far left of the piano.
+    Today's win is small but load-bearing: you'll be able to point to any natural note by sight,
+    instantly. That's the map everything else gets drawn on. (See <a href="../MISSION.md">your mission</a>.)
+  </div>
+
+  <h2>The idea, in 90 seconds</h2>
+  <p>Look at the black keys on a piano and you'll notice they don't repeat evenly — they come in
+  a repeating pattern of a group of <strong>two</strong>, then a group of <strong>three</strong>, all
+  the way up and down the keyboard.</p>
+
+  <p class="pull">"Find a group of two black keys. The white key just to their left is always C. Every time."</p>
+
+  <p>That's the entire trick for this lesson. The seven white keys are the "natural" notes —
+  <strong>C, D, E, F, G, A, B</strong> — and then the alphabet just resets back to C. Once you can
+  spot C by its neighboring black-key group, you can name any white key just by counting forward
+  from C: D is next, then E, then F, and so on.</p>
+
+  <p>The one wrinkle worth knowing: two white-key pairs have <em>no</em> black key between them —
+  <strong>E→F</strong> and <strong>B→C</strong>. That gap is exactly what creates the 2-then-3
+  grouping in the first place. There's a full breakdown in the <a href="../reference/keyboard-map.html">Keyboard Map</a> reference.</p>
+
+  <p>One of those C's, near the middle of a full-size piano, gets a special name: <strong>middle C</strong>.
+  It's just a shared reference point musicians use — you'll find it below by the same trick, no
+  different from any other C.</p>
+
+  <h2>Try it — explore the keyboard</h2>
+  <p>Click any key below to hear it and see its name. Tap around until the 2-then-3 black-key
+  pattern feels obvious at a glance.</p>
+
+  <div class="widget">
+    <div class="widget-head">
+      <strong id="modeLabel">Explore mode</strong>
+      <span class="widget-status" id="status">Click a key to begin.</span>
+    </div>
+    <div class="kbd-scroll">
+      <div class="kbd" id="kbd"></div>
+    </div>
+    <div id="quizPanel" style="display:none">
+      <p class="quiz-prompt" id="quizPrompt"></p>
+      <p class="quiz-fb" id="quizFb"></p>
+      <p class="score" id="quizScore"></p>
+    </div>
+    <div class="btnrow">
+      <button class="action" id="startQuiz">Start the quiz (8 questions)</button>
+      <button class="action" id="resetExplore" style="display:none">Back to exploring</button>
+    </div>
+  </div>
+
+  <h2>Check yourself</h2>
+  <p>The quiz above hides the labels and asks you to find specific natural notes by pattern —
+  including middle C. No looking at a diagram; retrieving it from memory is what makes it stick.
+  Aim to get through all 8 without a miss before moving on. Come back and redo it tomorrow if you
+  want it to really stay with you.</p>
+
+  <div class="src">
+    <div class="kicker">Read / watch this next — primary source</div>
+    <p style="margin:.4rem 0 0"><strong>Hoffman Academy — beginner fundamentals (keyboard geography &amp; hand position).</strong>
+    Even though it isn't jazz-specific, this is the clearest free series for the very first physical
+    steps at a keyboard — finding notes, hand position, posture — before jazz-specific material makes sense.</p>
+    <p style="margin:.6rem 0 0;font-size:.9rem">
+    <a href="https://www.youtube.com/@HoffmanAcademy">Hoffman Academy on YouTube</a>.
+    Once you have a keyboard in hand, this is where to start.</p>
+    <p style="margin:.6rem 0 0;font-size:.9rem">The backbone method this course will lean on going forward is the
+    <a href="https://www.halleonard.com/">Hal Leonard Jazz Piano Method, Book 1</a> — worth picking up once you're
+    comfortable with today's material.</p>
+  </div>
+
+  <div class="ask">
+    <strong>I'm your teacher — use me.</strong> Don't have a keyboard yet? Ask me for a quick,
+    no-nonsense buying recommendation. Confused about why E→F has no black key, or want more practice
+    reps before the next lesson? Just ask in the chat.
+  </div>
+
+  <div class="footer">
+    <strong>Reference:</strong> <a href="../reference/keyboard-map.html">Keyboard Map</a> ·
+    <a href="../reference/glossary.html">Glossary</a> (octave, middle C, half step, whole step).<br>
+    <strong>Coming next:</strong> <em>Half steps, whole steps, and your first jazz chord</em> — the major 7th shape.<br>
+    <strong>Community (optional, low-pressure):</strong>
+    <a href="https://www.reddit.com/r/piano/">r/piano</a> ·
+    <a href="https://www.reddit.com/r/Jazzpiano/">r/Jazzpiano</a>.
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var W = 46, BW = 28;
+  var whiteNames = ['C','D','E','F','G','A','B'];
+  var blackAfter = {0:'C♯',1:'D♯',3:'F♯',4:'G♯',5:'A♯'};
+  var kbd = document.getElementById('kbd');
+  var keys = []; // {el, letter, octave, midi, isWhite}
+
+  function midiFor(letter, octave, sharp) {
+    var base = {C:0,D:2,E:4,F:5,G:7,A:9,B:11}[letter];
+    var semitone = base + (sharp ? 1 : 0);
+    return (octave + 1) * 12 + semitone;
+  }
+
+  var html = '';
+  for (var oct = 0; oct < 2; oct++) {
+    var octNum = 3 + oct;
+    for (var i = 0; i < 7; i++) {
+      var left = (oct*7 + i) * W;
+      var letter = whiteNames[i];
+      var midi = midiFor(letter, octNum, false);
+      var id = 'k_' + letter + octNum;
+      html += '<div class="white" id="' + id + '" data-letter="' + letter + '" data-octave="' + octNum +
+        '" data-midi="' + midi + '" style="left:' + left + 'px">' +
+        '<span class="lbl">' + letter + octNum + '</span></div>';
+    }
+    for (var key in blackAfter) {
+      var idx = parseInt(key, 10);
+      var left2 = (oct*7 + idx + 1) * W - BW/2;
+      var letter2 = whiteNames[idx];
+      var midi2 = midiFor(letter2, octNum, true);
+      html += '<div class="black" data-midi="' + midi2 + '" style="left:' + left2 + 'px"></div>';
+    }
+  }
+  kbd.innerHTML = html;
+
+  var audioCtx = null;
+  function ensureAudio() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+  function playMidi(midi) {
+    var ctx = ensureAudio();
+    var freq = 440 * Math.pow(2, (midi - 69) / 12);
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.22, ctx.currentTime + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.55);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.6);
+  }
+
+  var status = document.getElementById('status');
+  var modeLabel = document.getElementById('modeLabel');
+  var quizPanel = document.getElementById('quizPanel');
+  var quizPrompt = document.getElementById('quizPrompt');
+  var quizFb = document.getElementById('quizFb');
+  var quizScore = document.getElementById('quizScore');
+  var startBtn = document.getElementById('startQuiz');
+  var resetBtn = document.getElementById('resetExplore');
+
+  var quizMode = false;
+  var current = null; // {letter, octave}
+  var qIndex = 0, score = 0, TOTAL = 8;
+  var sequence = [];
+
+  var allEls = Array.prototype.slice.call(kbd.querySelectorAll('.white'));
+
+  function flash(el, cls) {
+    el.classList.add(cls);
+    setTimeout(function(){ el.classList.remove(cls); }, 500);
+  }
+
+  function handleClick(el) {
+    var midi = parseInt(el.getAttribute('data-midi'), 10);
+    playMidi(midi);
+    flash(el, 'pressed');
+
+    if (!quizMode) {
+      if (el.classList.contains('white')) {
+        status.textContent = el.getAttribute('data-letter') + el.getAttribute('data-octave') +
+          (el.getAttribute('data-letter') === 'C' && el.getAttribute('data-octave') === '4' ? ' — this one is middle C' : '');
+      } else {
+        status.textContent = '(a black key — sharps/flats are covered in a later lesson)';
+      }
+      return;
+    }
+
+    if (!el.classList.contains('white')) return; // quiz only targets white/natural notes
+    var letter = el.getAttribute('data-letter');
+    var octave = el.getAttribute('data-octave');
+    var right = (letter === current.letter && octave === current.octave);
+    if (right) {
+      score++;
+      flash(el, 'correct');
+      quizFb.className = 'quiz-fb r';
+      quizFb.textContent = '✓ Correct — that\'s ' + letter + octave + '.';
+    } else {
+      flash(el, 'wrong');
+      quizFb.className = 'quiz-fb w';
+      quizFb.textContent = '✗ That was ' + letter + octave + '. Target was ' + current.letter + current.octave + '.';
+    }
+    qIndex++;
+    if (qIndex >= TOTAL) {
+      setTimeout(finishQuiz, 550);
+    } else {
+      setTimeout(nextQuestion, 550);
+    }
+  }
+
+  allEls.concat(Array.prototype.slice.call(kbd.querySelectorAll('.black'))).forEach(function(el){
+    el.addEventListener('click', function(){ handleClick(el); });
+  });
+
+  function buildSequence() {
+    var pool = allEls.map(function(el){
+      return { letter: el.getAttribute('data-letter'), octave: el.getAttribute('data-octave') };
+    }).filter(function(n){ return !(n.letter === 'C' && n.octave === '4'); }); // middle C is added separately
+    // shuffle
+    for (var i = pool.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = pool[i]; pool[i] = pool[j]; pool[j] = t;
+    }
+    var seq = pool.slice(0, TOTAL - 1);
+    // guarantee middle C appears exactly once
+    seq.splice(Math.floor(Math.random() * (seq.length + 1)), 0, { letter: 'C', octave: '4', label: 'middle C' });
+    return seq;
+  }
+
+  function nextQuestion() {
+    current = sequence[qIndex];
+    var label = current.label ? current.label : (current.letter + current.octave);
+    quizPrompt.textContent = 'Question ' + (qIndex + 1) + ' of ' + TOTAL + ' — click: ' + label;
+    quizFb.textContent = '';
+    quizFb.className = 'quiz-fb';
+  }
+
+  function finishQuiz() {
+    quizPrompt.textContent = 'Quiz complete.';
+    quizFb.textContent = '';
+    quizScore.textContent = 'You scored ' + score + ' / ' + TOTAL + '. ' +
+      (score === TOTAL
+        ? 'Perfect — the pattern has clicked. Move on to Lesson 2 whenever you\'re ready.'
+        : 'Reread the pattern above, then hit "Back to exploring" and try the quiz again.');
+    startBtn.textContent = 'Retake the quiz';
+    startBtn.disabled = false;
+  }
+
+  startBtn.addEventListener('click', function(){
+    quizMode = true;
+    modeLabel.textContent = 'Quiz mode';
+    status.textContent = 'Labels hidden — find each note by pattern.';
+    quizPanel.style.display = 'block';
+    resetBtn.style.display = 'inline-block';
+    startBtn.disabled = true;
+    allEls.forEach(function(el){ el.classList.add('hide-labels'); });
+    qIndex = 0; score = 0;
+    quizScore.textContent = '';
+    sequence = buildSequence();
+    nextQuestion();
+  });
+
+  resetBtn.addEventListener('click', function(){
+    quizMode = false;
+    modeLabel.textContent = 'Explore mode';
+    status.textContent = 'Click a key to begin.';
+    quizPanel.style.display = 'none';
+    resetBtn.style.display = 'none';
+    startBtn.disabled = false;
+    startBtn.textContent = 'Start the quiz (8 questions)';
+    allEls.forEach(function(el){ el.classList.remove('hide-labels'); });
+  });
+})();
+</script>
+</body>
+</html>

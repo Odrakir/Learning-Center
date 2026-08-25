@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyboard Map — Reference</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#7a5c2e; --white-key:#fffdf8; --white-edge:#c9c2b3;
+    --black-key:#1c1a17; --c-mark:#a23b2e;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.55; margin:0; padding:3rem 1.25rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:46rem;margin:0 auto}
+  header{border-bottom:2px solid var(--ink);padding-bottom:.6rem;margin-bottom:2rem}
+  h1{font-size:1.9rem;margin:0;letter-spacing:.01em}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem;margin-top:.3rem}
+  h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);
+     margin:2.4rem 0 .6rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+  p{margin:.7rem 0}
+
+  .kbd-scroll{overflow-x:auto;margin:1.6rem 0;padding-bottom:.5rem}
+  .kbd{position:relative;width:644px;height:172px;margin:0 auto}
+  .white{
+    position:absolute;top:0;width:44px;height:170px;background:var(--white-key);
+    border:1px solid var(--white-edge);border-radius:0 0 4px 4px;
+  }
+  .white .lbl{position:absolute;bottom:8px;left:0;right:0;text-align:center;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;color:var(--muted)}
+  .white.is-c{background:#f7ece1}
+  .white.is-c .lbl{color:var(--c-mark);font-weight:700}
+  .black{
+    position:absolute;top:0;width:28px;height:100px;background:var(--black-key);
+    border-radius:0 0 3px 3px;z-index:2;
+  }
+  .black .lbl{position:absolute;bottom:6px;left:0;right:0;text-align:center;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.6rem;color:#e8e4da}
+  .midc-tag{position:absolute;top:-2.1rem;font-family:ui-sans-serif,system-ui,sans-serif;
+    font-size:.72rem;font-weight:700;color:var(--c-mark);text-align:center;width:44px}
+  .midc-tag::after{content:"↓";display:block;font-size:.9rem}
+
+  .pattern-note{background:#f3eee3;border-radius:8px;padding:1rem 1.2rem;font-size:.92rem;color:#3a352c;margin:1.4rem 0}
+  .nav{font-size:.85rem;color:var(--muted);margin-top:2.5rem;border-top:1px solid var(--rule);padding-top:1rem}
+  a{color:var(--accent)}
+  @media print{body{background:#fff;padding:0}.nav{display:none}.kbd-scroll{overflow:visible}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Keyboard Map</h1>
+  <div class="sub">The pattern that lets you find any note without counting from the edge of the piano.</div>
+</header>
+
+<h2>Two octaves, C3–B4</h2>
+<div class="kbd-scroll">
+  <div class="kbd" id="kbd"></div>
+</div>
+
+<div class="pattern-note">
+  <strong>The pattern:</strong> black keys come in groups of <strong>2, then 3</strong>, repeating all the way up
+  and down the piano. Find any group of 2 black keys — the white key just to their left is always
+  <strong>C</strong>. That's it; that's the whole trick. No counting from the end of the keyboard, ever.
+</div>
+
+<h2>Reading it</h2>
+<p><strong>White keys</strong> are the seven natural letter names, A through G, repeating. <strong>Black keys</strong>
+sit between certain white keys and are named relative to their neighbors (sharps/flats) — see the
+<a href="./glossary.html">glossary</a>.</p>
+<p>Notice two white-key pairs with <em>no</em> black key between them: <strong>E–F</strong> and <strong>B–C</strong>.
+Those are the two places the black-key pattern "breaks" — and it's exactly what creates the 2-then-3 grouping.</p>
+<p><strong>Middle C</strong> (marked above) is the C nearest the center of a full 88-key piano — the shared
+reference point musicians use when talking about pitch.</p>
+
+<div class="nav">
+  Reference · part of the <a href="../lessons/0001-finding-your-way-around-the-keyboard.html">Jazz Piano</a> workspace.
+  See also: <a href="./glossary.html">Glossary</a>.
+</div>
+</div>
+
+<script>
+(function(){
+  var W = 46, BW = 28;
+  var whiteNames = ['C','D','E','F','G','A','B'];
+  var blackAfter = {0:'C♯/D♭',1:'D♯/E♭',3:'F♯/G♭',4:'G♯/A♭',5:'A♯/B♭'}; // index of white key the black key follows
+  var kbd = document.getElementById('kbd');
+  var html = '';
+  for (var oct = 0; oct < 2; oct++) {
+    var octNum = 3 + oct;
+    for (var i = 0; i < 7; i++) {
+      var left = (oct*7 + i) * W;
+      var isC = whiteNames[i] === 'C';
+      html += '<div class="white' + (isC ? ' is-c' : '') + '" style="left:' + left + 'px">' +
+        '<span class="lbl">' + whiteNames[i] + octNum + '</span></div>';
+      if (isC && octNum === 4) {
+        html += '<div class="midc-tag" style="left:' + left + 'px">middle C</div>';
+      }
+    }
+    for (var key in blackAfter) {
+      var idx = parseInt(key, 10);
+      var left = (oct*7 + idx + 1) * W - BW/2;
+      html += '<div class="black" style="left:' + left + 'px"><span class="lbl">' + blackAfter[key] + '</span></div>';
+    }
+  }
+  kbd.innerHTML = html;
+})();
+</script>
+</body>
+</html>
