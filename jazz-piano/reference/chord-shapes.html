@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7th Chord Shapes — Reference</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#7a5c2e; --white-key:#fffdf8; --white-edge:#c9c2b3;
+    --black-key:#1c1a17; --mark:#2f6b3f;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.55; margin:0; padding:3rem 1.25rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:46rem;margin:0 auto}
+  header{border-bottom:2px solid var(--ink);padding-bottom:.6rem;margin-bottom:2rem}
+  h1{font-size:1.9rem;margin:0;letter-spacing:.01em}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem;margin-top:.3rem}
+  h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);
+     margin:2.4rem 0 .6rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+  p{margin:.7rem 0}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.94rem}
+  th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rule)}
+  th{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.75rem;text-transform:uppercase;
+     letter-spacing:.06em;color:var(--muted);font-weight:600}
+  td.formula{font-family:ui-sans-serif,system-ui,sans-serif;font-variant-numeric:tabular-nums}
+  tr.pending td{color:var(--muted);font-style:italic}
+  tr.done td strong{color:var(--mark)}
+
+  .kbd-scroll{overflow-x:auto;margin:1.6rem 0;padding-bottom:.5rem}
+  .kbd{position:relative;width:322px;height:172px;margin:0 auto}
+  .white{
+    position:absolute;top:0;width:44px;height:170px;background:var(--white-key);
+    border:1px solid var(--white-edge);border-radius:0 0 4px 4px;
+  }
+  .white .lbl{position:absolute;bottom:8px;left:0;right:0;text-align:center;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;color:var(--muted)}
+  .white.tone{background:#d9ecdd}
+  .white.tone .lbl{color:var(--mark);font-weight:700}
+  .black{
+    position:absolute;top:0;width:28px;height:100px;background:var(--black-key);
+    border-radius:0 0 3px 3px;z-index:2;
+  }
+  .degree-tag{position:absolute;top:-2.1rem;font-family:ui-sans-serif,system-ui,sans-serif;
+    font-size:.72rem;font-weight:700;color:var(--mark);text-align:center;width:44px}
+  .degree-tag::after{content:"↓";display:block;font-size:.9rem}
+  .degree-tag.black-tag{width:28px}
+  .black.tone{background:var(--mark)}
+
+  .pattern-note{background:#f3eee3;border-radius:8px;padding:1rem 1.2rem;font-size:.92rem;color:#3a352c;margin:1.4rem 0}
+  .nav{font-size:.85rem;color:var(--muted);margin-top:2.5rem;border-top:1px solid var(--rule);padding-top:1rem}
+  a{color:var(--accent)}
+  @media print{body{background:#fff;padding:0}.nav{display:none}.kbd-scroll{overflow:visible}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>7th Chord Shapes</h1>
+  <div class="sub">Interval patterns for jazz's core chord colors. Learn the shape once — it transposes to every root unchanged.</div>
+</header>
+
+<h2>Read it as half-steps from the root</h2>
+<p>Every 7th chord is a root plus three notes stacked above it, each a fixed number of
+<a href="./glossary.html">half steps</a> up. The formula never changes — only where you plant the root does.</p>
+
+<table>
+  <tr><th>Chord</th><th>Formula (half steps from root)</th><th>Character</th></tr>
+  <tr class="done"><td><strong>Major 7 (maj7)</strong></td><td class="formula">0 · +4 · +3 · +4</td><td>bright, lush — "home"</td></tr>
+  <tr class="done"><td><strong>Dominant 7 (dom7 / "7")</strong></td><td class="formula">0 · +4 · +3 · +3</td><td>bluesy, wants to resolve</td></tr>
+  <tr class="done"><td><strong>Minor 7 (min7)</strong></td><td class="formula">0 · +3 · +4 · +3</td><td>mellow, dark</td></tr>
+</table>
+
+<div class="pattern-note">
+  <strong>The move:</strong> the root and 5th (+7 half steps) never change. Only the 3rd and 7th shift:
+  maj7 keeps both "major" (+4 / +11 from root); dom7 flattens just the 7th (+4 / +10); min7 flattens both
+  the 3rd and 7th (+3 / +10). Flat the 7th, then decide whether the 3rd is flat too — that's the whole
+  family tree. See <a href="../lessons/0003-minor-and-dominant-seventh-chords.html">Lesson 3</a> for the
+  full walkthrough.
+</div>
+
+<h2>Major 7 — worked examples</h2>
+<table>
+  <tr><th>Root</th><th>maj7 spelling</th></tr>
+  <tr><td>C</td><td>C E G B</td></tr>
+  <tr><td>D</td><td>D F♯ A C♯</td></tr>
+  <tr><td>F</td><td>F A C E</td></tr>
+  <tr><td>G</td><td>G B D F♯</td></tr>
+  <tr><td>A</td><td>A C♯ E G♯</td></tr>
+</table>
+
+<h2>Dominant 7 — worked examples</h2>
+<table>
+  <tr><th>Root</th><th>dom7 spelling</th></tr>
+  <tr><td>C (C7)</td><td>C E G B♭</td></tr>
+  <tr><td>D (D7)</td><td>D F♯ A C</td></tr>
+  <tr><td>F (F7)</td><td>F A C E♭</td></tr>
+  <tr><td>G (G7)</td><td>G B D F</td></tr>
+  <tr><td>A (A7)</td><td>A C♯ E G</td></tr>
+</table>
+
+<h2>Minor 7 — worked examples</h2>
+<table>
+  <tr><th>Root</th><th>min7 spelling</th></tr>
+  <tr><td>C (Cm7)</td><td>C E♭ G B♭</td></tr>
+  <tr><td>D (Dm7)</td><td>D F A C</td></tr>
+  <tr><td>F (Fm7)</td><td>F A♭ C E♭</td></tr>
+  <tr><td>G (Gm7)</td><td>G B♭ D F</td></tr>
+  <tr><td>A (Am7)</td><td>A C E G</td></tr>
+</table>
+
+<h2>Same root, three colors — on the keyboard</h2>
+<p>C4 as the root each time. Watch how little actually moves: the root and 5th (green outline) are identical
+in all three; only the 3rd and 7th (filled green) shift between them.</p>
+<div class="kbd-scroll">
+  <div class="kbd" id="kbd"></div>
+</div>
+<p style="text-align:center;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.82rem;color:var(--muted);margin-top:-.6rem">Cmaj7 — C E G B</p>
+<div class="kbd-scroll">
+  <div class="kbd" id="kbdDom"></div>
+</div>
+<p style="text-align:center;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.82rem;color:var(--muted);margin-top:-.6rem">C7 — C E G B♭</p>
+<div class="kbd-scroll">
+  <div class="kbd" id="kbdMin"></div>
+</div>
+<p style="text-align:center;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.82rem;color:var(--muted);margin-top:-.6rem">Cm7 — C E♭ G B♭</p>
+
+<div class="nav">
+  Reference · part of the <a href="../lessons/0003-minor-and-dominant-seventh-chords.html">Jazz Piano</a> workspace.
+  See also: <a href="./glossary.html">Glossary</a> · <a href="./keyboard-map.html">Keyboard Map</a>.
+</div>
+</div>
+
+<script>
+(function(){
+  var W = 46, BW = 28;
+  var whiteNames = ['C','D','E','F','G','A','B'];
+  var whiteSemis = [0, 2, 4, 5, 7, 9, 11];
+  var blackAfter = {0:'C♯',1:'D♯',3:'F♯',4:'G♯',5:'A♯'};
+  var blackSemis = {0:1, 1:3, 3:6, 4:8, 5:10};
+  var octNum = 4;
+
+  function renderChordKbd(containerId, offsets, degreeLabels) {
+    var kbd = document.getElementById(containerId);
+    var html = '';
+    for (var i = 0; i < 7; i++) {
+      var left = i * W;
+      var semi = whiteSemis[i];
+      var toneAt = offsets.indexOf(semi);
+      var isTone = toneAt !== -1;
+      html += '<div class="white' + (isTone ? ' tone' : '') + '" style="left:' + left + 'px">' +
+        '<span class="lbl">' + whiteNames[i] + octNum + '</span></div>';
+      if (isTone) {
+        html += '<div class="degree-tag" style="left:' + left + 'px">' + degreeLabels[toneAt] + '</div>';
+      }
+    }
+    for (var key in blackAfter) {
+      var idx = parseInt(key, 10);
+      var left2 = (idx + 1) * W - BW/2;
+      var semi2 = blackSemis[idx];
+      var toneAt2 = offsets.indexOf(semi2);
+      var isTone2 = toneAt2 !== -1;
+      html += '<div class="black' + (isTone2 ? ' tone' : '') + '" style="left:' + left2 + 'px"></div>';
+      if (isTone2) {
+        html += '<div class="degree-tag black-tag" style="left:' + left2 + 'px">' + degreeLabels[toneAt2] + '</div>';
+      }
+    }
+    kbd.innerHTML = html;
+  }
+
+  var DEGREES = ['R', '3', '5', '7'];
+  renderChordKbd('kbd', [0, 4, 7, 11], DEGREES);
+  renderChordKbd('kbdDom', [0, 4, 7, 10], DEGREES);
+  renderChordKbd('kbdMin', [0, 3, 7, 10], DEGREES);
+})();
+</script>
+</body>
+</html>

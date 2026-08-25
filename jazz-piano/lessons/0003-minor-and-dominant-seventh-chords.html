@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 3 — Minor 7th and Dominant 7th Chords</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#7a5c2e; --good:#2f6b3f; --bad:#a23b2e; --card:#f6f3ec;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.6; margin:0; padding:3rem 1.25rem 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:42rem;margin:0 auto}
+  .kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:.4rem}
+  h1{font-size:2.2rem;line-height:1.15;margin:0 0 .5rem}
+  .dek{font-style:italic;color:var(--muted);font-size:1.1rem;margin-bottom:.5rem}
+  .mission{background:var(--card);border-left:3px solid var(--accent);padding:.8rem 1.1rem;
+    font-size:.95rem;margin:1.8rem 0;border-radius:0 4px 4px 0}
+  .mission b{color:var(--accent)}
+  h2{font-size:1.35rem;margin:2.6rem 0 .6rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+  p{margin:.8rem 0}
+  ul{padding-left:1.2rem}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .pull{font-size:1.15rem;font-style:italic;color:#333;border-left:3px solid var(--rule);
+    margin:1.6rem 0;padding:.2rem 0 .2rem 1.1rem}
+  .num{font-variant-numeric:oldstyle-nums}
+  .src{background:#1a1a1a;color:#f3efe6;border-radius:6px;padding:1.1rem 1.3rem;margin:2rem 0}
+  .src .kicker{color:#d8b878}
+  .src a{color:#e8c98a}
+  .footer{margin-top:3rem;border-top:1px solid var(--rule);padding-top:1.2rem;font-size:.9rem;color:var(--muted)}
+  .ask{background:#eef3f6;border-left:3px solid #3a6b8a;padding:.8rem 1.1rem;border-radius:0 4px 4px 0;font-size:.95rem;margin:1.6rem 0}
+
+  .family{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.92rem;background:var(--card);
+    border-radius:8px;padding:1rem 1.2rem;margin:1.4rem 0}
+  .family .row{display:flex;align-items:baseline;gap:.6rem;margin:.35rem 0;flex-wrap:wrap}
+  .family .tag{font-weight:700;min-width:6.5rem}
+  .family .formula{font-variant-numeric:tabular-nums;color:var(--muted)}
+  .family .row.maj .tag{color:#3a352c}
+  .family .row.dom .tag{color:var(--accent)}
+  .family .row.min .tag{color:#5c3a8a}
+  .family .arrow{color:var(--muted);font-size:.85rem;padding-left:1.6rem}
+
+  /* keyboard widget (shared pattern, from Lesson 2) */
+  .widget{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:1.2rem 1rem 1.4rem;margin:1.4rem 0}
+  .widget-head{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin-bottom:.7rem}
+  .widget-status{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.9rem;color:var(--muted)}
+  .kbd-scroll{overflow-x:auto;padding-bottom:.4rem}
+  .kbd{position:relative;width:644px;height:172px;margin:0 auto;touch-action:manipulation}
+  .white{
+    position:absolute;top:0;width:44px;height:170px;background:#fffdf8;
+    border:1px solid #c9c2b3;border-radius:0 0 4px 4px;cursor:pointer;user-select:none;
+    transition:background .08s;
+  }
+  .white:hover{background:#fff7ea}
+  .white:active,.white.pressed{background:#f1dfb8}
+  .white .lbl{position:absolute;bottom:8px;left:0;right:0;text-align:center;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;color:var(--muted);pointer-events:none}
+  .white.is-root{outline:3px solid var(--accent);outline-offset:-3px;background:#f1dfb8}
+  .white.selected{background:#e9dcb8}
+  .white.correct{background:#d9ecdd}
+  .white.wrong{background:#f3d6d1}
+  .white.missed{outline:3px solid #d8b878;outline-offset:-3px}
+  .black{
+    position:absolute;top:0;width:28px;height:100px;background:#1c1a17;
+    border-radius:0 0 3px 3px;z-index:2;cursor:pointer;user-select:none;
+    transition:background .08s;
+  }
+  .black:hover{background:#3a3630}
+  .black:active,.black.pressed{background:#5c5648}
+  .black .lbl{position:absolute;bottom:6px;left:0;right:0;text-align:center;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.62rem;color:#e8c98a;pointer-events:none;visibility:hidden}
+  .black.show-label .lbl{visibility:visible}
+  .black.is-root{outline:3px solid #d8b878;outline-offset:-3px;background:#5c5648}
+  .black.selected{background:#4a4638}
+  .black.correct{background:#2f6b3f}
+  .black.wrong{background:#a23b2e}
+  .black.missed{outline:3px solid #d8b878;outline-offset:-3px}
+  .btnrow{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+  button.action{
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.85rem;font-weight:600;
+    background:#fff;border:1px solid var(--accent);color:var(--accent);
+    border-radius:5px;padding:.5rem .9rem;cursor:pointer;
+  }
+  button.action:hover{background:#fdf3e2}
+  button.action:disabled{opacity:.4;cursor:default}
+  .quiz-prompt{font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700;font-size:1.05rem;margin:.2rem 0 .8rem}
+  .quiz-fb{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.88rem;min-height:1.3em;margin-top:.5rem}
+  .quiz-fb.r{color:var(--good)}
+  .quiz-fb.w{color:var(--bad)}
+  .score{font-style:italic;color:var(--muted);margin-top:.6rem}
+  @media print{body{background:#fff;padding:0}.ask{background:#f3f3f3}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Lesson <span class="num">03</span> · Fundamentals · Jazz Piano</div>
+  <h1>Minor 7th and Dominant 7th Chords</h1>
+  <div class="dek">Same root, same fixed 5th — only two notes ever move. Learn what moves, and you know all three jazz 7th chords.</div>
+
+  <div class="mission">
+    <b>Why this, now?</b> You already have one jazz 7th chord — maj7 (<a href="0002-half-steps-and-your-first-jazz-chord.html">Lesson 2</a>).
+    Today you get the other two: minor 7th (min7) and dominant 7th (dom7). Together, these three colors are
+    almost everything you'll see on a lead sheet. They're also exactly the three chords in jazz's most common
+    progression — the ii–V–I — which is next. (See <a href="../MISSION.md">your mission</a>.)
+  </div>
+
+  <h2>The idea, in 90 seconds</h2>
+  <p>Every 7th chord has a root and a <a href="../reference/glossary.html">5th</a> that never move — the 5th is
+  always 7 half steps above the root, no matter the chord's color. What changes the <em>flavor</em> is just two
+  notes: the 3rd and the 7th. Each can be "major" (higher) or "flatted" (one half step lower).</p>
+
+  <div class="family">
+    <div class="row maj"><span class="tag">maj7</span><span class="formula">root · +4 · +3 · +4</span></div>
+    <div class="arrow">↓ flat the 7th (last step: 4 → 3)</div>
+    <div class="row dom"><span class="tag">dom7 ("7")</span><span class="formula">root · +4 · +3 · +3</span></div>
+    <div class="arrow">↓ also flat the 3rd (first step: 4 → 3)</div>
+    <div class="row min"><span class="tag">min7</span><span class="formula">root · +3 · +4 · +3</span></div>
+  </div>
+
+  <p class="pull">"Only two notes ever move — the 3rd and the 7th. Flatten the 7th and bright maj7 turns bluesy
+  dom7. Flatten the 3rd too, and it turns dark, mellow min7."</p>
+
+  <p>That's genuinely the whole lesson. Dominant 7 keeps maj7's bright major 3rd but flattens the 7th —
+  it sounds unstable, like it wants to resolve somewhere (you'll feel exactly why in the ii–V–I lesson).
+  Minor 7 flattens both the 3rd and the 7th — mellower, darker, more "at rest" than dominant.</p>
+
+  <p>On a lead sheet these get written short: <strong>maj7</strong> stays <code>Cmaj7</code>; <strong>minor
+  7th</strong> is usually just <code>Cm7</code>; and <strong>dominant 7th</strong> drops the word entirely —
+  plain <code>C7</code> always means dominant. You'll use this shorthand once you start reading real charts.</p>
+
+  <h2>Hear it — same root, three colors</h2>
+  <p>All three chords below start on the same root, C. Play each one and watch which keys move.</p>
+
+  <div class="widget">
+    <div class="widget-head">
+      <strong>Same Root, Three Colors</strong>
+      <span class="widget-status" id="status1">Press a button to hear and see the shape.</span>
+    </div>
+    <div class="kbd-scroll">
+      <div class="kbd" id="kbd1"></div>
+    </div>
+    <div class="btnrow">
+      <button class="action" id="demoMaj">Play Cmaj7 (review)</button>
+      <button class="action" id="demoMin">Play Cm7</button>
+      <button class="action" id="demoDom">Play C7</button>
+    </div>
+  </div>
+
+  <h2>Now you try</h2>
+  <p>The root is marked for you each round, along with the chord symbol to build — <code>Xm7</code> for minor,
+  <code>X7</code> for dominant. Rounds alternate between the two so you're not just running the same pattern
+  on repeat. No note names required — count the half-step pattern from the family tree above.</p>
+
+  <div class="widget">
+    <div class="widget-head">
+      <strong>Chord Builder</strong>
+      <span class="widget-status" id="status2">Press start to begin.</span>
+    </div>
+    <div class="kbd-scroll">
+      <div class="kbd" id="kbd2"></div>
+    </div>
+    <div id="quizPanel2" style="display:none">
+      <p class="quiz-prompt" id="quizPrompt2"></p>
+      <p class="quiz-fb" id="quizFb2"></p>
+      <p class="score" id="quizScore2"></p>
+    </div>
+    <div class="btnrow">
+      <button class="action" id="startQuiz2">Start practice (6 chords)</button>
+      <button class="action" id="checkBtn2" style="display:none">Check chord</button>
+      <button class="action" id="nextBtn2" style="display:none">Next chord</button>
+    </div>
+  </div>
+
+  <h2>Check yourself</h2>
+  <p>Aim to get all six right, missing a chord is fine — the widget reveals the correct spelling and you
+  study it before moving on. What you're really practicing is the branching logic: flat the 7th first,
+  then decide whether the 3rd is flat too. That decision, made fast, is what lets you read <code>Dm7</code>
+  or <code>G7</code> off a page and know instantly what to play.</p>
+
+  <div class="src">
+    <div class="kicker">Read / watch this next — primary source</div>
+    <p style="margin:.4rem 0 0"><strong>Hal Leonard Jazz Piano Method, Book 1 — the chords chapter.</strong>
+    Covers min7 and dom7 right alongside maj7, with audio play-alongs so you can hear the "wants to resolve"
+    quality of dominant 7 chords in context.</p>
+    <p style="margin:.6rem 0 0;font-size:.9rem">
+    <a href="https://www.halleonard.com/">Hal Leonard Jazz Piano Method, Book 1</a>.</p>
+    <p style="margin:.6rem 0 0;font-size:.9rem">For hearing these three colors used in real comping patterns,
+    <a href="https://www.youtube.com/@PianoWithJonny">Piano With Jonny</a> is a good applied companion.</p>
+  </div>
+
+  <div class="ask">
+    <strong>I'm your teacher — use me.</strong> Want to hear why dominant 7 feels "unstable" in a way maj7 and
+    min7 don't? Curious how these three chords line up to make a ii–V–I? Or ready to talk about a real keyboard
+    now that you know three real chord shapes? Just ask in the chat.
+  </div>
+
+  <div class="footer">
+    <strong>Reference:</strong> <a href="../reference/chord-shapes.html">7th Chord Shapes</a> ·
+    <a href="../reference/glossary.html">Glossary</a> (minor 7th chord, dominant 7th chord) ·
+    <a href="../reference/keyboard-map.html">Keyboard Map</a>.<br>
+    <strong>Coming next:</strong> <em>The ii–V–I</em> — stringing min7, dom7, and maj7 together into jazz's
+    core progression.<br>
+    <strong>Community (optional, low-pressure):</strong>
+    <a href="https://www.reddit.com/r/piano/">r/piano</a> ·
+    <a href="https://www.reddit.com/r/Jazzpiano/">r/Jazzpiano</a>.
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var W = 46, BW = 28;
+  var whiteNames = ['C','D','E','F','G','A','B'];
+  var blackAfter = {0:'C♯',1:'D♯',3:'F♯',4:'G♯',5:'A♯'};
+  var baseSemitone = {C:0,D:2,E:4,F:5,G:7,A:9,B:11};
+
+  function midiFor(letter, octave, sharp) {
+    return (octave + 1) * 12 + baseSemitone[letter] + (sharp ? 1 : 0);
+  }
+
+  function buildKeyboard(containerEl) {
+    var html = '';
+    for (var oct = 0; oct < 2; oct++) {
+      var octNum = 3 + oct;
+      for (var i = 0; i < 7; i++) {
+        var left = (oct*7 + i) * W;
+        var letter = whiteNames[i];
+        var midi = midiFor(letter, octNum, false);
+        html += '<div class="white" data-midi="' + midi + '" data-name="' + letter + octNum + '" style="left:' + left + 'px">' +
+          '<span class="lbl">' + letter + octNum + '</span></div>';
+      }
+      for (var key in blackAfter) {
+        var idx = parseInt(key, 10);
+        var left2 = (oct*7 + idx + 1) * W - BW/2;
+        var name2 = blackAfter[idx] + octNum;
+        var midi2 = midiFor(whiteNames[idx], octNum, true);
+        html += '<div class="black" data-midi="' + midi2 + '" data-name="' + name2 + '" style="left:' + left2 + 'px">' +
+          '<span class="lbl">' + name2 + '</span></div>';
+      }
+    }
+    containerEl.innerHTML = html;
+    return Array.prototype.slice.call(containerEl.querySelectorAll('.white,.black'));
+  }
+
+  var audioCtx = null;
+  function ensureAudio() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+  function playMidi(midi) {
+    var ctx = ensureAudio();
+    var freq = 440 * Math.pow(2, (midi - 69) / 12);
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.22, ctx.currentTime + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.55);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.6);
+  }
+  function playChord(midiArr) {
+    var ctx = ensureAudio();
+    midiArr.forEach(function(midi, idx){
+      var freq = 440 * Math.pow(2, (midi - 69) / 12);
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.value = freq;
+      var start = ctx.currentTime + idx * 0.02;
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.linearRampToValueAtTime(0.17, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + 1.1);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(start);
+      osc.stop(start + 1.15);
+    });
+  }
+  function flash(el, cls, dur) {
+    el.classList.add(cls);
+    setTimeout(function(){ el.classList.remove(cls); }, dur || 500);
+  }
+
+  /* ---- Widget 1: Same Root, Three Colors ---- */
+  var kbd1 = document.getElementById('kbd1');
+  var keys1 = buildKeyboard(kbd1);
+  var keyByMidi1 = {};
+  keys1.forEach(function(el){ keyByMidi1[el.getAttribute('data-midi')] = el; });
+  var status1 = document.getElementById('status1');
+  var demoMaj = document.getElementById('demoMaj');
+  var demoMin = document.getElementById('demoMin');
+  var demoDom = document.getElementById('demoDom');
+  var demoBtns = [demoMaj, demoMin, demoDom];
+
+  function resetKeys1() {
+    keys1.forEach(function(el){ el.classList.remove('pressed', 'is-root'); });
+  }
+
+  function runDemo(seq, labels, finalMsg) {
+    demoBtns.forEach(function(b){ b.disabled = true; });
+    resetKeys1();
+    keyByMidi1[seq[0]].classList.add('is-root');
+    var i = 0;
+    function step() {
+      if (i >= seq.length) {
+        setTimeout(function(){
+          playChord(seq);
+          status1.textContent = finalMsg;
+          demoBtns.forEach(function(b){ b.disabled = false; });
+        }, 300);
+        return;
+      }
+      var el = keyByMidi1[seq[i]];
+      playMidi(seq[i]);
+      flash(el, 'pressed', 600);
+      status1.textContent = labels[i];
+      i++;
+      setTimeout(step, 700);
+    }
+    step();
+  }
+
+  demoMaj.addEventListener('click', function(){
+    runDemo([60, 64, 67, 71], [
+      'C4 — root.',
+      'E4 — major 3rd (+4).',
+      'G4 — 5th (+3 more) — fixed, every color.',
+      'B4 — major 7th (+4 more).'
+    ], 'Cmaj7 — C E G B. Bright, "home." Root and 5th (C, G) will stay put the whole lesson.');
+  });
+
+  demoMin.addEventListener('click', function(){
+    runDemo([60, 63, 67, 70], [
+      'C4 — root, same as before.',
+      'E♭4 — 3rd flattened (+3 instead of +4).',
+      'G4 — 5th (+4 more) — same key as in maj7.',
+      'B♭4 — 7th flattened too (+3 instead of +4).'
+    ], 'Cm7 — C E♭ G B♭. Dark, mellow. Both the 3rd and 7th dropped a half step from maj7.');
+  });
+
+  demoDom.addEventListener('click', function(){
+    runDemo([60, 64, 67, 70], [
+      'C4 — root, same as before.',
+      'E4 — 3rd stays major (+4), same key as in maj7.',
+      'G4 — 5th (+3 more) — same key as always.',
+      'B♭4 — only the 7th flattened (+3 instead of +4).'
+    ], 'C7 — C E G B♭. Bluesy, unstable — wants to resolve. Only the 7th moved from maj7; the 3rd stayed bright.');
+  });
+
+  /* ---- Widget 2: Chord Builder quiz ---- */
+  var kbd2 = document.getElementById('kbd2');
+  var keys2 = buildKeyboard(kbd2);
+  var keyByMidi2 = {};
+  keys2.forEach(function(el){ keyByMidi2[el.getAttribute('data-midi')] = el; });
+
+  var status2 = document.getElementById('status2');
+  var quizPanel2 = document.getElementById('quizPanel2');
+  var quizPrompt2 = document.getElementById('quizPrompt2');
+  var quizFb2 = document.getElementById('quizFb2');
+  var quizScore2 = document.getElementById('quizScore2');
+  var startBtn2 = document.getElementById('startQuiz2');
+  var checkBtn2 = document.getElementById('checkBtn2');
+  var nextBtn2 = document.getElementById('nextBtn2');
+
+  var FORMULAS = { min7: [3, 7, 10], dom7: [4, 7, 10] };
+  var SYMBOL = { min7: function(l){ return l + 'm7'; }, dom7: function(l){ return l + '7'; } };
+
+  var rounds2 = [
+    { letter: 'D', oct: 3, type: 'min7' },
+    { letter: 'G', oct: 3, type: 'dom7' },
+    { letter: 'E', oct: 3, type: 'min7' },
+    { letter: 'C', oct: 4, type: 'dom7' },
+    { letter: 'A', oct: 3, type: 'min7' },
+    { letter: 'F', oct: 3, type: 'dom7' }
+  ];
+  var TOTAL2 = rounds2.length;
+  var roundIdx2 = 0, score2 = 0, currentRound2 = null, roundLocked2 = false;
+  var quizActive2 = false;
+
+  function resetKeys2() {
+    keys2.forEach(function(el){
+      el.classList.remove('selected', 'correct', 'wrong', 'missed', 'is-root', 'show-label');
+    });
+  }
+
+  function spellChord2(rootMidi, targetMidis) {
+    return [rootMidi].concat(targetMidis).map(function(m){
+      return keyByMidi2[m].getAttribute('data-name');
+    }).join(' ');
+  }
+
+  function loadRound2(idx) {
+    resetKeys2();
+    var r = rounds2[idx];
+    var rootMidi = midiFor(r.letter, r.oct, false);
+    var targetMidis = FORMULAS[r.type].map(function(o){ return rootMidi + o; });
+    currentRound2 = { rootMidi: rootMidi, targetMidis: targetMidis, letter: r.letter, oct: r.oct, type: r.type };
+    keyByMidi2[rootMidi].classList.add('is-root');
+    roundLocked2 = false;
+    quizPrompt2.textContent = 'Chord ' + (idx + 1) + ' of ' + TOTAL2 + ' — build ' + SYMBOL[r.type](r.letter) + '.';
+    quizFb2.textContent = '';
+    quizFb2.className = 'quiz-fb';
+    checkBtn2.style.display = 'inline-block';
+    checkBtn2.disabled = false;
+    nextBtn2.style.display = 'none';
+  }
+
+  keys2.forEach(function(el){
+    el.addEventListener('click', function(){
+      var midi = parseInt(el.getAttribute('data-midi'), 10);
+      playMidi(midi);
+      if (!quizActive2) { flash(el, 'pressed'); return; }
+      if (el.classList.contains('is-root')) return;
+      if (roundLocked2) return;
+      el.classList.toggle('selected');
+    });
+  });
+
+  function checkChord2() {
+    var selectedEls = keys2.filter(function(el){ return el.classList.contains('selected'); });
+    var selectedMidis = selectedEls.map(function(el){ return parseInt(el.getAttribute('data-midi'), 10); });
+    var allCorrect = selectedMidis.length === 3;
+
+    selectedEls.forEach(function(el){
+      var midi = parseInt(el.getAttribute('data-midi'), 10);
+      if (currentRound2.targetMidis.indexOf(midi) !== -1) {
+        el.classList.add('correct');
+      } else {
+        el.classList.add('wrong');
+        allCorrect = false;
+      }
+    });
+    currentRound2.targetMidis.forEach(function(midi){
+      if (selectedMidis.indexOf(midi) === -1) {
+        allCorrect = false;
+        var el = keyByMidi2[midi];
+        el.classList.add('missed', 'show-label');
+      }
+    });
+
+    roundLocked2 = true;
+    if (allCorrect) score2++;
+    var spelling = spellChord2(currentRound2.rootMidi, currentRound2.targetMidis);
+    var symbol = SYMBOL[currentRound2.type](currentRound2.letter);
+    quizFb2.className = 'quiz-fb ' + (allCorrect ? 'r' : 'w');
+    quizFb2.textContent = (allCorrect ? '✓ Correct — ' : '✗ Not quite — ') + symbol + ' = ' + spelling + '.';
+    playChord([currentRound2.rootMidi].concat(currentRound2.targetMidis));
+
+    checkBtn2.disabled = true;
+    nextBtn2.style.display = 'inline-block';
+    nextBtn2.textContent = (roundIdx2 === TOTAL2 - 1) ? 'See results' : 'Next chord';
+  }
+
+  function finishPractice2() {
+    quizPrompt2.textContent = 'Practice complete.';
+    quizFb2.textContent = '';
+    checkBtn2.style.display = 'none';
+    nextBtn2.style.display = 'none';
+    quizScore2.textContent = 'You scored ' + score2 + ' / ' + TOTAL2 + '. ' +
+      (score2 === TOTAL2
+        ? 'Perfect — you\'re flattening the right notes on demand. Move on to the ii–V–I whenever you\'re ready.'
+        : 'Reread the family tree above, then start practice again for another round.');
+    startBtn2.textContent = 'Practice again';
+    startBtn2.disabled = false;
+  }
+
+  startBtn2.addEventListener('click', function(){
+    quizActive2 = true;
+    quizPanel2.style.display = 'block';
+    startBtn2.disabled = true;
+    status2.textContent = '';
+    roundIdx2 = 0; score2 = 0;
+    quizScore2.textContent = '';
+    loadRound2(0);
+  });
+
+  checkBtn2.addEventListener('click', checkChord2);
+
+  nextBtn2.addEventListener('click', function(){
+    roundIdx2++;
+    if (roundIdx2 < TOTAL2) {
+      loadRound2(roundIdx2);
+    } else {
+      resetKeys2();
+      finishPractice2();
+    }
+  });
+})();
+</script>
+</body>
+</html>
