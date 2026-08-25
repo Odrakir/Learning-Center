@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 2 · El mapa mental de las regiones</title>
+<style>
+  :root{
+    --tinto:#6b1f2a; --ink:#2b2622; --soft:#6f675f; --line:#e4ddd3;
+    --paper:#fbf8f3; --gold:#9a7b3f; --ok:#2f6b46; --okbg:#e7f1ea; --no:#9a3329; --nobg:#f6e7e4;
+  }
+  *{box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--ink); background:var(--paper); margin:0; line-height:1.6}
+  .wrap{max-width:720px; margin:0 auto; padding:60px 26px 110px}
+  .kicker{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 6px}
+  h1{font-size:2.25rem; line-height:1.1; margin:0 0 10px; font-weight:600}
+  .sub{color:var(--soft); font-style:italic; margin:0 0 14px; font-size:1.08rem}
+  .mission{font-size:.92rem; color:var(--soft); border-left:3px solid var(--gold); padding:4px 14px; margin:0 0 38px}
+  h2{font-size:1.4rem; margin:44px 0 12px; font-weight:600; color:var(--tinto)}
+  p{margin:0 0 16px}
+  sup a{color:var(--gold); text-decoration:none; font-size:.7em; padding:0 1px}
+  .recall{background:#f3ecdf; border-radius:8px; padding:14px 18px; margin:0 0 10px; font-size:.95rem}
+  .recall b{color:var(--tinto)}
+  table.map{width:100%; border-collapse:collapse; margin:14px 0; font-size:1rem}
+  table.map th,table.map td{text-align:left; padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+  table.map thead th{font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--soft); border-bottom:2px solid var(--ink)}
+  table.map td:first-child{font-weight:600; color:var(--tinto); white-space:nowrap}
+  .dot{display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; vertical-align:middle}
+  .dot.red{background:#8a2330} .dot.white{background:#cdb96a}
+  .contrast{border:1px dashed var(--gold); border-radius:10px; padding:16px 20px; margin:24px 0; background:#fff; font-size:.98rem}
+  .quiz{background:#fff; border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin:18px 0}
+  .quiz .q{font-weight:600; margin:0 0 14px}
+  .quiz .qnum{color:var(--gold); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; display:block; margin-bottom:4px}
+  .opts{display:grid; gap:10px}
+  button.opt{font:inherit; text-align:left; background:var(--paper); border:1px solid var(--line); border-radius:7px;
+    padding:11px 16px; cursor:pointer; color:var(--ink); transition:border-color .15s, background .15s}
+  button.opt:hover{border-color:var(--gold)}
+  button.opt:disabled{cursor:default}
+  button.opt.correct{background:var(--okbg); border-color:var(--ok); color:var(--ok); font-weight:600}
+  button.opt.wrong{background:var(--nobg); border-color:var(--no); color:var(--no)}
+  .fb{margin-top:12px; font-size:.95rem}
+  .fb.show{padding:10px 14px; border-radius:7px}
+  .fb.good{background:var(--okbg); color:var(--ok)}
+  .fb.bad{background:var(--nobg); color:var(--no)}
+  .task{background:#f3ecdf; border-radius:10px; padding:22px 24px; margin:26px 0}
+  .task h2{margin-top:0}
+  .task ol{margin:0; padding-left:22px} .task li{margin:8px 0}
+  .primary{border:1px dashed var(--gold); border-radius:10px; padding:18px 22px; margin:30px 0; background:#fff}
+  .primary .tag{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  .ask{font-size:.95rem; background:var(--okbg); border-radius:10px; padding:16px 20px; margin:30px 0; color:#27432f}
+  .links{margin:30px 0 0; font-size:.95rem}
+  footer{margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--soft); font-size:.82rem}
+  a{color:var(--tinto)}
+  .refs{font-size:.82rem; color:var(--soft); margin-top:10px} .refs li{margin:4px 0}
+  @media print{ body{background:#fff} button.opt{display:none} .quiz .fb{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Lección 2 · Vinos de España</p>
+  <h1>El mapa mental de las regiones</h1>
+  <p class="sub">Cinco nombres que predicen el sabor de la botella antes de abrirla.</p>
+  <p class="mission">Tu misión: <strong>comprar y pedir con confianza</strong>. Si la categoría (Lección 1) te dice <em>cuánto ha reposado</em> el vino, la región te dice <em>a qué va a saber</em>. Con las dos cosas, eliges casi cualquier estantería.</p>
+
+  <div class="recall">
+    <b>Repaso de la Lección 1</b> — antes de seguir, recuerda de memoria: ¿qué cuatro datos buscabas en una etiqueta? ¿Y en qué orden iba la escalera de la crianza? (Comprueba en el <a href="../reference/clasificacion-envejecimiento.html">recordatorio</a> si dudas.)
+  </div>
+
+  <h2>La idea en una frase</h2>
+  <p>En España, el <strong>nombre de la región</strong> es casi una etiqueta de estilo. No hace falta conocer la bodega: si sabes la región, ya sabes a qué atenerte. Aquí están las cinco que cubren la mayor parte de lo que verás.</p>
+
+  <table class="map">
+    <thead><tr><th>Región</th><th>Uva estrella</th><th>A qué sabe</th></tr></thead>
+    <tbody>
+      <tr><td><span class="dot red"></span>Rioja</td><td>Tempranillo</td><td>Tinto elegante y suave, con roble (vainilla, especia). El clásico.<sup><a href="#r1">1</a></sup></td></tr>
+      <tr><td><span class="dot red"></span>Ribera del Duero</td><td>Tempranillo</td><td>Tinto más potente y estructurado. Color profundo, fruta densa.<sup><a href="#r2">2</a></sup></td></tr>
+      <tr><td><span class="dot white"></span>Rías Baixas</td><td>Albariño</td><td>Blanco fresco y salino, cítrico. El del marisco.<sup><a href="#r1">1</a></sup></td></tr>
+      <tr><td><span class="dot white"></span>Rueda</td><td>Verdejo</td><td>Blanco aromático, tropical y herbáceo. Económico y rico.<sup><a href="#r2">2</a></sup></td></tr>
+      <tr><td><span class="dot red"></span>Priorat</td><td>Garnacha</td><td>Tinto intenso y mineral, de guarda. Especial (y más caro).<sup><a href="#r2">2</a></sup></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--soft)">¿Quieres la versión con «cómpralo si…» para cada región? → <a href="../reference/mapa-regiones.html">Mapa mental de las regiones (referencia)</a>.</p>
+
+  <div class="contrast">
+    <strong>El truco que más te va a servir.</strong> Rioja y Ribera del Duero usan la <em>misma</em> uva (Tempranillo) pero tienen dos almas: <strong>Rioja = elegancia + roble</strong>; <strong>Ribera = potencia + fruta</strong>. Tu Muga es Rioja: si algún día lo quieres «igual pero más fuerte», pide una Ribera.
+  </div>
+
+  <h2>Pruébate</h2>
+  <p>Estás en la tienda. Para cada situación, elige la región. Recordar de memoria es lo que fija el mapa.</p>
+  <div class="quiz" id="quiz"></div>
+
+  <div class="task">
+    <h2>Tu victoria de esta semana</h2>
+    <ol>
+      <li>Piensa en una <strong>comida que vayas a tener</strong> pronto (marisco, carne, una cena especial…).</li>
+      <li>Usando el mapa, decide <strong>qué región</strong> elegirías y por qué.</li>
+      <li>Bonus: en la tienda o web, busca una botella de esa región y mira también su <strong>categoría de crianza</strong> (Lección 1). Junta las dos piezas.</li>
+      <li>Cuéntamelo y lo afinamos juntos.</li>
+    </ol>
+  </div>
+
+  <div class="primary">
+    <span class="tag">Fuente principal recomendada</span>
+    <p style="margin:8px 0 0">Para ver el país de un vistazo, explora el <a href="https://winefolly.com/deep-dive/map-of-spain-wine-regions/">mapa de regiones de España de Wine Folly</a>. Es la mejor pieza visual que he encontrado para fijar dónde está cada zona.</p>
+  </div>
+
+  <div class="ask">
+    <strong>Soy tu profesor.</strong> ¿Dudas entre dos regiones para una comida concreta? ¿Quieres una recomendación de botella por debajo de cierto precio? Pregúntame en el chat — para eso estoy.
+  </div>
+
+  <div class="links">
+    <strong>Sigue explorando:</strong>
+    <a href="../reference/mapa-regiones.html">Mapa de regiones</a> ·
+    <a href="../reference/glosario.html">Glosario</a> ·
+    <a href="../reference/clasificacion-envejecimiento.html">La escalera de la crianza</a> ·
+    <a href="./0001-descifrar-la-etiqueta.html">Lección 1</a>
+  </div>
+
+  <footer>
+    <strong>Referencias</strong>
+    <ol class="refs">
+      <li id="r1">Estilos de regiones españolas (Rioja, Rías Baixas) — <a href="https://winefolly.com/deep-dive/map-of-spain-wine-regions/">Wine Folly</a>.</li>
+      <li id="r2">Rioja vs Ribera, Rueda y Priorat — <a href="https://www.gourmets.net/revista-club-de-gourmets/diferencia-vino-ribera-duero-rioja">Club de Gourmets</a>.</li>
+    </ol>
+    Lección 2 · Vinos de España · creada para tu misión de comprar con confianza.
+  </footer>
+</div>
+
+<script>
+const OPTS = ["Rioja","Ribera del Duero","Rías Baixas","Rueda","Priorat"];
+const QUESTIONS = [
+  { q:"Vas a comer marisco y quieres un blanco fresco y salino que despierte el paladar.",
+    a:"Rías Baixas",
+    why:"Rías Baixas (Albariño): blanco atlántico, salino y cítrico. El compañero clásico del marisco." },
+  { q:"Te encantó tu Muga de Rioja, pero esta vez quieres ese tinto con más potencia y cuerpo.",
+    a:"Ribera del Duero",
+    why:"Ribera del Duero: mismo Tempranillo, clima más extremo → más músculo, color y fruta densa." },
+  { q:"Buscas un blanco aromático, rico y económico para una cena cualquiera entre semana.",
+    a:"Rueda",
+    why:"Rueda (Verdejo): aromático y tropical, con una relación calidad-precio difícil de batir." },
+  { q:"Una ocasión especial: quieres algo intenso y mineral, y no te importa pagar más.",
+    a:"Priorat",
+    why:"Priorat (Garnacha): concentrado, mineral y de guarda, sobre suelo de pizarra. Vino de ocasión." },
+  { q:"Una comida importante: quieres un tinto del norte clásico y elegante, en versión Reserva.",
+    a:"Rioja",
+    why:"Rioja: el tinto elegante con roble por excelencia; un Reserva (Lección 1) lo lleva a comida importante." },
+];
+
+const quiz = document.getElementById("quiz");
+QUESTIONS.forEach((item, i) => {
+  const block = document.createElement("div");
+  if(i>0){ block.style.borderTop="1px solid var(--line)"; block.style.marginTop="18px"; block.style.paddingTop="18px"; }
+  const qn = document.createElement("span"); qn.className="qnum"; qn.textContent="Pregunta " + (i+1) + " de " + QUESTIONS.length;
+  const q = document.createElement("p"); q.className="q"; q.appendChild(qn); q.appendChild(document.createTextNode(item.q));
+  const opts = document.createElement("div"); opts.className="opts";
+  const fb = document.createElement("div"); fb.className="fb";
+  OPTS.forEach(label => {
+    const b = document.createElement("button"); b.className="opt"; b.textContent=label;
+    b.onclick = () => {
+      [...opts.children].forEach(c => c.disabled = true);
+      if(label === item.a){ b.classList.add("correct"); fb.className="fb show good"; fb.textContent="Correcto. " + item.why; }
+      else { b.classList.add("wrong");
+        [...opts.children].forEach(c => { if(c.textContent === item.a) c.classList.add("correct"); });
+        fb.className="fb show bad"; fb.textContent="Casi. Es " + item.a + ". " + item.why; }
+    };
+    opts.appendChild(b);
+  });
+  block.appendChild(q); block.appendChild(opts); block.appendChild(fb);
+  quiz.appendChild(block);
+});
+</script>
+</body>
+</html>

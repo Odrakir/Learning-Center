@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Las cuatro uvas — Referencia</title>
+<style>
+  :root{
+    --tinto:#6b1f2a; --ink:#2b2622; --soft:#6f675f; --line:#e4ddd3;
+    --paper:#fbf8f3; --gold:#9a7b3f;
+  }
+  *{box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--ink); background:var(--paper); margin:0; line-height:1.5}
+  .wrap{max-width:840px; margin:0 auto; padding:64px 28px 96px}
+  .kicker{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 6px}
+  h1{font-size:2.2rem; line-height:1.1; margin:0 0 8px; font-weight:600}
+  .sub{color:var(--soft); font-style:italic; margin:0 0 32px; font-size:1.05rem}
+  h2{font-size:1.15rem; color:var(--tinto); margin:30px 0 10px}
+  table{width:100%; border-collapse:collapse; margin:8px 0; font-size:1rem}
+  th,td{text-align:left; padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+  thead th{font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--soft); border-bottom:2px solid var(--ink)}
+  td:first-child{font-weight:600; color:var(--tinto); white-space:nowrap}
+  .color{font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; background:#efe7da; color:#7a6a4d; border-radius:3px; padding:2px 7px}
+  .principles{display:grid; gap:10px; margin:0; padding:0}
+  .principles li{list-style:none; background:#fff; border:1px solid var(--line); border-radius:8px; padding:12px 16px}
+  .principles b{color:var(--tinto)}
+  .note{font-size:.85rem; color:var(--soft)}
+  footer{margin-top:36px; padding-top:18px; border-top:1px solid var(--line); color:var(--soft); font-size:.85rem}
+  a{color:var(--tinto)}
+  @media print{ body{background:#fff} .wrap{padding:22px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Referencia · tarjeta de bolsillo</p>
+  <h1>Las cuatro uvas</h1>
+  <p class="sub">Aprende estas cuatro y entenderás la mayoría del vino español. La región casi siempre te dice cuál es.</p>
+
+  <h2>De un vistazo</h2>
+  <table>
+    <thead><tr><th>Uva</th><th>Color</th><th>Casa</th><th>A qué sabe</th></tr></thead>
+    <tbody>
+      <tr><td>Tempranillo</td><td><span class="color">tinta</span></td><td>Rioja · Ribera del Duero</td><td>Fruta roja, cuerpo medio, ama el roble. Elegante en Rioja, potente en Ribera.</td></tr>
+      <tr><td>Garnacha</td><td><span class="color">tinta</span></td><td>Priorat · Aragón · todo el país</td><td>Fruta madura y generosa, cálida y suave. Intensa y mineral en Priorat.</td></tr>
+      <tr><td>Albariño</td><td><span class="color">blanca</span></td><td>Rías Baixas (Galicia)</td><td>Fresco, salino, cítrico, casi marino. El rey del marisco.</td></tr>
+      <tr><td>Verdejo</td><td><span class="color">blanca</span></td><td>Rueda (Castilla y León)</td><td>Aromático y herbáceo, fruta tropical, final algo amargo. Gran calidad-precio.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Si te gusta… prueba</h2>
+  <ul class="principles">
+    <li><b>Si te gusta un tinto suave y con fruta</b> → Tempranillo de Rioja (Crianza). Si lo quieres más potente → Ribera del Duero.</li>
+    <li><b>Si te gusta un tinto cálido y maduro</b> → Garnacha; para subir de nivel, un Priorat.</li>
+    <li><b>Si te gusta un blanco fresco para marisco</b> → Albariño de Rías Baixas.</li>
+    <li><b>Si te gusta un blanco aromático y barato-bueno</b> → Verdejo de Rueda.</li>
+  </ul>
+
+  <h2>Dos palabras de etiqueta</h2>
+  <ul class="principles">
+    <li><b>Monovarietal</b> — hecho con una sola uva (ej. Albariño 100 %).</li>
+    <li><b>Coupage / ensamblaje</b> — mezcla de varias uvas (muchos Riojas: Tempranillo + Garnacha).</li>
+  </ul>
+  <p class="note">La frase de tienda: «plato + uva + presupuesto». Ej.: «Un Tempranillo con crianza, sobre 10 €.»</p>
+
+  <footer>
+    Tarjeta de las uvas · Vinos de España. Vuelve aquí cuando dudes qué hay dentro de la botella.<br>
+    Relacionado: <a href="./mapa-regiones.html">Mapa de regiones</a> · <a href="./maridaje.html">Maridaje</a> · <a href="./glosario.html">Glosario</a>.
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 5 · Catar: ver, oler, probar</title>
+<style>
+  :root{
+    --tinto:#6b1f2a; --ink:#2b2622; --soft:#6f675f; --line:#e4ddd3;
+    --paper:#fbf8f3; --gold:#9a7b3f; --ok:#2f6b46; --okbg:#e7f1ea; --no:#9a3329; --nobg:#f6e7e4;
+  }
+  *{box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--ink); background:var(--paper); margin:0; line-height:1.6}
+  .wrap{max-width:720px; margin:0 auto; padding:60px 26px 110px}
+  .kicker{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 6px}
+  h1{font-size:2.25rem; line-height:1.1; margin:0 0 10px; font-weight:600}
+  .sub{color:var(--soft); font-style:italic; margin:0 0 14px; font-size:1.08rem}
+  .mission{font-size:.92rem; color:var(--soft); border-left:3px solid var(--gold); padding:4px 14px; margin:0 0 38px}
+  h2{font-size:1.4rem; margin:44px 0 12px; font-weight:600; color:var(--tinto)}
+  p{margin:0 0 16px}
+  sup a{color:var(--gold); text-decoration:none; font-size:.7em; padding:0 1px}
+  .recall{background:#f3ecdf; border-radius:8px; padding:14px 18px; margin:0 0 10px; font-size:.95rem}
+  .recall b{color:var(--tinto)}
+  .steps{display:grid; gap:12px; margin:14px 0; padding:0}
+  .steps li{list-style:none; display:grid; grid-template-columns:42px 1fr; gap:14px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:15px 18px}
+  .steps .n{font-size:1.7rem; line-height:1}
+  .steps b{color:var(--tinto)}
+  .steps .sm{font-size:.9rem; color:var(--soft); margin-top:4px}
+  .principle{border:1px dashed var(--gold); border-radius:10px; padding:16px 20px; margin:22px 0; background:#fff; font-size:.98rem}
+  .principle b{color:var(--tinto)}
+  .quiz{background:#fff; border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin:18px 0}
+  .quiz .qnum{color:var(--gold); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; display:block; margin-bottom:4px}
+  .quiz .q{font-weight:600; margin:0 0 14px}
+  .opts{display:grid; gap:10px}
+  button.opt{font:inherit; text-align:left; background:var(--paper); border:1px solid var(--line); border-radius:7px;
+    padding:11px 16px; cursor:pointer; color:var(--ink); transition:border-color .15s, background .15s}
+  button.opt:hover{border-color:var(--gold)}
+  button.opt:disabled{cursor:default}
+  button.opt.correct{background:var(--okbg); border-color:var(--ok); color:var(--ok); font-weight:600}
+  button.opt.wrong{background:var(--nobg); border-color:var(--no); color:var(--no)}
+  .fb{margin-top:12px; font-size:.95rem}
+  .fb.show{padding:10px 14px; border-radius:7px}
+  .fb.good{background:var(--okbg); color:var(--ok)}
+  .fb.bad{background:var(--nobg); color:var(--no)}
+  .task{background:#f3ecdf; border-radius:10px; padding:22px 24px; margin:26px 0}
+  .task h2{margin-top:0}
+  .task ol{margin:0; padding-left:22px} .task li{margin:8px 0}
+  .primary{border:1px dashed var(--gold); border-radius:10px; padding:18px 22px; margin:30px 0; background:#fff}
+  .primary .tag{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  .ask{font-size:.95rem; background:var(--okbg); border-radius:10px; padding:16px 20px; margin:30px 0; color:#27432f}
+  .links{margin:30px 0 0; font-size:.95rem}
+  footer{margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--soft); font-size:.82rem}
+  a{color:var(--tinto)}
+  .refs{font-size:.82rem; color:var(--soft); margin-top:10px} .refs li{margin:4px 0}
+  @media print{ body{background:#fff} button.opt{display:none} .quiz .fb{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Lección 5 · Vinos de España</p>
+  <h1>Catar: ver, oler, probar</h1>
+  <p class="sub">No es esnobismo. Es prestar atención en orden — y poner nombre a lo que sientes.</p>
+  <p class="mission">Tu misión: <strong>elegir con confianza</strong>. Ya conoces las uvas (Lección 4); ahora aprendes a <em>percibir</em> lo que dan y a describirlo. Saber decir «me gusta con fruta y poco tanino» es lo que convierte una compra en una buena compra.</p>
+
+  <div class="recall">
+    <b>Repaso rápido</b> — sin mirar: nombra las <b>dos uvas tintas</b> y las <b>dos blancas</b> que aprendiste, y a qué sabe cada una. (Si dudas, la <a href="../reference/uvas.html">tarjeta de las uvas</a> lo refresca.)
+  </div>
+
+  <h2>Tres miradas, siempre en este orden</h2>
+  <p>Catar es solo esto: mirar, oler y probar con atención.<sup><a href="#r1">1</a></sup> El orden importa, porque cada paso prepara al siguiente.</p>
+  <ul class="steps">
+    <li><span class="n">👁️</span><div><b>Ver.</b> Inclina la copa sobre algo blanco. El <b>color</b> da pistas: un tinto <em>violáceo</em> es joven; <em>teja o granate</em> es con años. Un blanco pálido suele ser fresco y ligero.<sup><a href="#r1">1</a></sup>
+      <div class="sm">Solo una ojeada. Es la pista más pequeña de las tres.</div></div></li>
+    <li><span class="n">👃</span><div><b>Oler.</b> Gira la copa para <b>airear</b> el vino y acerca la nariz. Aquí está el 80&nbsp;% del placer. Busca dos familias: <b>la fruta</b> (roja, negra, cítrica, tropical) y <b>lo que no es fruta</b> (vainilla, coco y tostado vienen del <em>roble</em>; también hierba o especias).<sup><a href="#r1">1</a></sup>
+      <div class="sm">Truco: no busques «aromas raros». Di lo primero que te recuerde — «a cereza», «a hierba».</div></div></li>
+    <li><span class="n">👄</span><div><b>Probar.</b> Un sorbo, paséalo por la boca. Fíjate en tres cosas que ya puedes nombrar (abajo) y en cuánto <b>dura el sabor</b> al tragar.<sup><a href="#r2">2</a></sup></div></li>
+  </ul>
+
+  <h2>Las tres sensaciones en boca</h2>
+  <div class="principle">
+    <b>Acidez</b> → te hace <strong>salivar</strong>, deja la boca fresca y con ganas de otro sorbo. Alta en blancos como el Albariño.<br>
+    <b>Tanino</b> (solo tintos) → <strong>seca y aspera las encías</strong>, como un té muy cargado. Da estructura; se suaviza con la grasa de la comida.<sup><a href="#r2">2</a></sup><br>
+    <b>Cuerpo</b> → el <strong>peso</strong> del vino en la boca: ligero, medio o con cuerpo. Piénsalo como leche desnatada → entera. El cuerpo es lo que maridas (Lección 3).
+  </div>
+  <p>Y un último apunte que regala calidad: el <strong>final</strong> (o retrogusto) — cuánto persiste el sabor tras tragar. Cuanto más largo y agradable, mejor suele ser el vino.<sup><a href="#r2">2</a></sup></p>
+
+  <h2>Únelo con lo que ya sabes</h2>
+  <p>La cata confirma la uva: un <strong>Albariño</strong> será pálido, muy aromático a cítrico, <em>ácido</em> y ligero. Un <strong>Tempranillo Crianza</strong> dará fruta roja con <em>vainilla</em> del roble, <em>tanino</em> medio y cuerpo medio. Catar es comprobar con tu propia boca lo que la etiqueta prometía.</p>
+
+  <h2>Pruébate</h2>
+  <p>Ponle nombre a cada sensación. Recordar de memoria es lo que fija el vocabulario.</p>
+  <div class="quiz" id="quiz"></div>
+
+  <div class="task">
+    <h2>Tu victoria de esta semana</h2>
+    <ol>
+      <li>Abre una botella (idealmente una de las uvas de la Lección 4) y haz la cata <strong>en orden: ver → oler → probar</strong>. Ten al lado la <a href="../reference/cata.html">ficha de cata</a>.</li>
+      <li>Escribe <strong>una palabra por paso</strong>: un color, un aroma, y si en boca domina acidez, tanino o cuerpo.</li>
+      <li>Bonus: cata <strong>dos vinos a la vez</strong> (un blanco y un tinto, o dos tintos distintos). Comparar es la forma más rápida de educar el paladar.</li>
+      <li>Mándame tus notas y las comentamos — te ayudo a afinar el vocabulario.</li>
+    </ol>
+  </div>
+
+  <div class="primary">
+    <span class="tag">Fuente principal recomendada</span>
+    <p style="margin:8px 0 0">Para una guía visual y clara de cómo catar paso a paso, lee <a href="https://winefolly.com/tips/how-to-taste-wine-develop-your-palate/">«How to Taste Wine» de Wine Folly</a>. Para vocabulario en español, la <a href="https://www.vinissimus.com/es/content/guia-para-no-iniciados-en-el-vino-espanol/">guía de Vinissimus</a>.</p>
+  </div>
+
+  <div class="ask">
+    <strong>Soy tu profesor.</strong> ¿Catas algo y no sabes si lo que notas es acidez o tanino? Descríbemelo en el chat tal cual lo sientes y te ayudo a nombrarlo. Y para catar de verdad, en compañía: <a href="https://www.verema.com/">Verema</a> organiza catas por toda España — es donde se afina el paladar.
+  </div>
+
+  <div class="links">
+    <strong>Sigue explorando:</strong>
+    <a href="../reference/cata.html">Ficha de cata</a> ·
+    <a href="../reference/uvas.html">Las cuatro uvas</a> ·
+    <a href="../reference/maridaje.html">Guía de maridaje</a> ·
+    <a href="../reference/glosario.html">Glosario</a> ·
+    <a href="./0004-las-uvas-el-alma-del-vino.html">Lección 4</a>
+  </div>
+
+  <footer>
+    <strong>Referencias</strong>
+    <ol class="refs">
+      <li id="r1">Pasos de cata (vista, olfato) y aromas — <a href="https://winefolly.com/tips/how-to-taste-wine-develop-your-palate/">Wine Folly</a>.</li>
+      <li id="r2">Acidez, tanino, cuerpo y final en boca — <a href="https://winefolly.com/tips/how-to-taste-wine-develop-your-palate/">Wine Folly</a>.</li>
+    </ol>
+    Lección 5 · Vinos de España · creada para tu misión de comprar y pedir con confianza.
+  </footer>
+</div>
+
+<script>
+const QUESTIONS = [
+  { q:"Das un sorbo y la boca se te llena de saliva, fresca y con ganas de otro trago. ¿Qué notas?",
+    opts:["La acidez del vino","El tanino del vino","El cuerpo del vino","El color del vino"],
+    a:"La acidez del vino",
+    why:"La acidez hace salivar y deja sensación fresca. Es alta en blancos como el Albariño." },
+  { q:"Un tinto te seca y aspera las encías, como un té muy cargado. Eso es…",
+    opts:["El tanino del tinto","La acidez del vino","El final del vino","El aroma del vino"],
+    a:"El tanino del tinto",
+    why:"El tanino (solo en tintos) seca la boca y da estructura. Se suaviza con la grasa de la comida." },
+  { q:"Hueles vainilla, coco y un toque tostado. ¿De dónde viene casi siempre eso?",
+    opts:["De la crianza en roble","De la uva Albariño","De la mucha acidez","Del color violáceo"],
+    a:"De la crianza en roble",
+    why:"Vainilla, coco y tostado son la firma de la barrica de roble — la marca de un Crianza o Reserva." },
+  { q:"Tras tragar, el sabor persiste largo rato en la boca. ¿Qué suele indicar?",
+    opts:["Mayor calidad del vino","Que está defectuoso","Que es muy joven","Que tiene poco cuerpo"],
+    a:"Mayor calidad del vino",
+    why:"Un final (retrogusto) largo y agradable es una buena señal de calidad." },
+  { q:"Catas un vino pálido, muy cítrico y salino, ligero y bien ácido. ¿Qué uva esperas?",
+    opts:["Albariño de Rías Baixas","Tempranillo de Ribera","Garnacha de Priorat","Tempranillo de Rioja"],
+    a:"Albariño de Rías Baixas",
+    why:"Pálido, cítrico-salino, ligero y ácido es el retrato del Albariño. Los otros son tintos." },
+];
+
+const quiz = document.getElementById("quiz");
+QUESTIONS.forEach((item, i) => {
+  const block = document.createElement("div");
+  if(i>0){ block.style.borderTop="1px solid var(--line)"; block.style.marginTop="18px"; block.style.paddingTop="18px"; }
+  const qn = document.createElement("span"); qn.className="qnum"; qn.textContent="Pregunta " + (i+1) + " de " + QUESTIONS.length;
+  const q = document.createElement("p"); q.className="q"; q.appendChild(qn); q.appendChild(document.createTextNode(item.q));
+  const opts = document.createElement("div"); opts.className="opts";
+  const fb = document.createElement("div"); fb.className="fb";
+  item.opts.forEach(label => {
+    const b = document.createElement("button"); b.className="opt"; b.textContent=label;
+    b.onclick = () => {
+      [...opts.children].forEach(c => c.disabled = true);
+      if(label === item.a){ b.classList.add("correct"); fb.className="fb show good"; fb.textContent="Correcto. " + item.why; }
+      else { b.classList.add("wrong");
+        [...opts.children].forEach(c => { if(c.textContent === item.a) c.classList.add("correct"); });
+        fb.className="fb show bad"; fb.textContent="Casi. " + item.why; }
+    };
+    opts.appendChild(b);
+  });
+  block.appendChild(q); block.appendChild(opts); block.appendChild(fb);
+  quiz.appendChild(block);
+});
+</script>
+</body>
+</html>

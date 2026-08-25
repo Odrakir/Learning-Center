@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficha de cata — Referencia</title>
+<style>
+  :root{
+    --tinto:#6b1f2a; --ink:#2b2622; --soft:#6f675f; --line:#e4ddd3;
+    --paper:#fbf8f3; --gold:#9a7b3f;
+  }
+  *{box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--ink); background:var(--paper); margin:0; line-height:1.5}
+  .wrap{max-width:840px; margin:0 auto; padding:64px 28px 96px}
+  .kicker{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 6px}
+  h1{font-size:2.2rem; line-height:1.1; margin:0 0 8px; font-weight:600}
+  .sub{color:var(--soft); font-style:italic; margin:0 0 32px; font-size:1.05rem}
+  h2{font-size:1.15rem; color:var(--tinto); margin:30px 0 10px}
+  .principles{display:grid; gap:10px; margin:0; padding:0}
+  .principles li{list-style:none; background:#fff; border:1px solid var(--line); border-radius:8px; padding:12px 16px}
+  .principles b{color:var(--tinto)}
+  table{width:100%; border-collapse:collapse; margin:8px 0; font-size:1rem}
+  th,td{text-align:left; padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+  thead th{font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--soft); border-bottom:2px solid var(--ink)}
+  td:first-child{font-weight:600; color:var(--tinto); white-space:nowrap}
+  .sheet{background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px 20px 16px; margin:8px 0}
+  .sheet .row{display:grid; grid-template-columns:120px 1fr; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); align-items:end}
+  .sheet .row:last-child{border-bottom:none}
+  .sheet .lab{font-weight:600; color:var(--tinto)}
+  .sheet .lab small{display:block; font-weight:400; color:var(--soft); font-size:.8rem; font-style:italic}
+  .sheet .blank{border-bottom:1px dotted var(--soft); min-height:1.3em}
+  .note{font-size:.85rem; color:var(--soft)}
+  footer{margin-top:36px; padding-top:18px; border-top:1px solid var(--line); color:var(--soft); font-size:.85rem}
+  a{color:var(--tinto)}
+  @media print{ body{background:#fff} .wrap{padding:22px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Referencia · tarjeta de bolsillo</p>
+  <h1>Ficha de cata</h1>
+  <p class="sub">Catar es prestar atención en orden: ver → oler → probar. Una palabra por paso ya es catar bien.</p>
+
+  <h2>El método, de un vistazo</h2>
+  <table>
+    <thead><tr><th>Paso</th><th>Qué haces</th><th>Qué buscas</th></tr></thead>
+    <tbody>
+      <tr><td>👁️ Ver</td><td>Inclina la copa sobre algo blanco</td><td>Color: violáceo = joven; teja/granate = con años. Blanco pálido = ligero.</td></tr>
+      <tr><td>👃 Oler</td><td>Gira para airear, acerca la nariz</td><td>Fruta (roja/negra/cítrica/tropical) y lo que no es fruta (vainilla y tostado = roble; hierba, especias).</td></tr>
+      <tr><td>👄 Probar</td><td>Un sorbo, paséalo por la boca</td><td>Acidez, tanino, cuerpo y cuánto dura el final.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Las sensaciones en boca</h2>
+  <ul class="principles">
+    <li><b>Acidez</b> — te hace salivar, fresca. Alta en blancos (Albariño, Verdejo).</li>
+    <li><b>Tanino</b> — seca y aspera las encías (solo tintos). Da estructura; se suaviza con la grasa.</li>
+    <li><b>Cuerpo</b> — el peso en boca: ligero → medio → con cuerpo (como leche desnatada → entera).</li>
+    <li><b>Final / retrogusto</b> — cuánto dura el sabor al tragar. Largo y agradable = buena señal.</li>
+  </ul>
+
+  <h2>Plantilla — rellénala con cada vino</h2>
+  <div class="sheet">
+    <div class="row"><div class="lab">Vino / añada</div><div class="blank"></div></div>
+    <div class="row"><div class="lab">Uva / región</div><div class="blank"></div></div>
+    <div class="row"><div class="lab">👁️ Color</div><div class="blank"></div></div>
+    <div class="row"><div class="lab">👃 Aromas <small>fruta + roble/hierba</small></div><div class="blank"></div></div>
+    <div class="row"><div class="lab">👄 Acidez <small>poca / media / mucha</small></div><div class="blank"></div></div>
+    <div class="row"><div class="lab">👄 Tanino <small>poco / medio / mucho</small></div><div class="blank"></div></div>
+    <div class="row"><div class="lab">👄 Cuerpo <small>ligero / medio / con cuerpo</small></div><div class="blank"></div></div>
+    <div class="row"><div class="lab">Final <small>corto / medio / largo</small></div><div class="blank"></div></div>
+    <div class="row"><div class="lab">¿Me gusta? <small>y por qué</small></div><div class="blank"></div></div>
+  </div>
+  <p class="note">No hay respuestas «correctas»: la cata es tuya. La meta es ponerle palabras a lo que te gusta, para pedirlo mejor la próxima vez.</p>
+
+  <footer>
+    Ficha de cata · Vinos de España. Imprímela y catá con ella al lado.<br>
+    Relacionado: <a href="./uvas.html">Las cuatro uvas</a> · <a href="./maridaje.html">Maridaje</a> · <a href="./glosario.html">Glosario</a>.
+  </footer>
+</div>
+</body>
+</html>

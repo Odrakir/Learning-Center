@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 3 · Pedir vino en un restaurante</title>
+<style>
+  :root{
+    --tinto:#6b1f2a; --ink:#2b2622; --soft:#6f675f; --line:#e4ddd3;
+    --paper:#fbf8f3; --gold:#9a7b3f; --ok:#2f6b46; --okbg:#e7f1ea; --no:#9a3329; --nobg:#f6e7e4;
+  }
+  *{box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--ink); background:var(--paper); margin:0; line-height:1.6}
+  .wrap{max-width:720px; margin:0 auto; padding:60px 26px 110px}
+  .kicker{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 6px}
+  h1{font-size:2.25rem; line-height:1.1; margin:0 0 10px; font-weight:600}
+  .sub{color:var(--soft); font-style:italic; margin:0 0 14px; font-size:1.08rem}
+  .mission{font-size:.92rem; color:var(--soft); border-left:3px solid var(--gold); padding:4px 14px; margin:0 0 38px}
+  h2{font-size:1.4rem; margin:44px 0 12px; font-weight:600; color:var(--tinto)}
+  p{margin:0 0 16px}
+  sup a{color:var(--gold); text-decoration:none; font-size:.7em; padding:0 1px}
+  .recall{background:#f3ecdf; border-radius:8px; padding:14px 18px; margin:0 0 10px; font-size:.95rem}
+  .recall b{color:var(--tinto)}
+  .steps{display:grid; gap:10px; margin:14px 0; padding:0}
+  .steps li{list-style:none; display:grid; grid-template-columns:30px 1fr; gap:12px; background:#fff; border:1px solid var(--line); border-radius:8px; padding:13px 16px}
+  .steps .n{font-weight:700; color:var(--gold); font-size:1.1rem}
+  .steps b{color:var(--tinto)}
+  .principle{border:1px dashed var(--gold); border-radius:10px; padding:16px 20px; margin:22px 0; background:#fff; font-size:.98rem}
+  .quiz{background:#fff; border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin:18px 0}
+  .quiz .q{font-weight:600; margin:0 0 14px}
+  .quiz .qnum{color:var(--gold); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; display:block; margin-bottom:4px}
+  .opts{display:grid; gap:10px}
+  button.opt{font:inherit; text-align:left; background:var(--paper); border:1px solid var(--line); border-radius:7px;
+    padding:11px 16px; cursor:pointer; color:var(--ink); transition:border-color .15s, background .15s}
+  button.opt:hover{border-color:var(--gold)}
+  button.opt:disabled{cursor:default}
+  button.opt.correct{background:var(--okbg); border-color:var(--ok); color:var(--ok); font-weight:600}
+  button.opt.wrong{background:var(--nobg); border-color:var(--no); color:var(--no)}
+  .fb{margin-top:12px; font-size:.95rem}
+  .fb.show{padding:10px 14px; border-radius:7px}
+  .fb.good{background:var(--okbg); color:var(--ok)}
+  .fb.bad{background:var(--nobg); color:var(--no)}
+  .task{background:#f3ecdf; border-radius:10px; padding:22px 24px; margin:26px 0}
+  .task h2{margin-top:0}
+  .task ol{margin:0; padding-left:22px} .task li{margin:8px 0}
+  .primary{border:1px dashed var(--gold); border-radius:10px; padding:18px 22px; margin:30px 0; background:#fff}
+  .primary .tag{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  .ask{font-size:.95rem; background:var(--okbg); border-radius:10px; padding:16px 20px; margin:30px 0; color:#27432f}
+  .links{margin:30px 0 0; font-size:.95rem}
+  footer{margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--soft); font-size:.82rem}
+  a{color:var(--tinto)}
+  .refs{font-size:.82rem; color:var(--soft); margin-top:10px} .refs li{margin:4px 0}
+  @media print{ body{background:#fff} button.opt{display:none} .quiz .fb{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Lección 3 · Vinos de España</p>
+  <h1>Pedir vino en un restaurante</h1>
+  <p class="sub">El momento de la verdad: la carta en la mano y el camarero esperando.</p>
+  <p class="mission">Tu misión: <strong>pedir con confianza</strong>. Ya sabes leer una etiqueta (Lección 1) y predecir el estilo por la región (Lección 2). Ahora juntamos todo para elegir bien en una mesa — por el plato y por tu bolsillo.</p>
+
+  <div class="recall">
+    <b>Repaso rápido</b> — sin mirar: ¿qué estilo esperas de un <b>Rías Baixas</b>? ¿Y la diferencia de alma entre <b>Rioja</b> y <b>Ribera del Duero</b>? (Si dudas, el <a href="../reference/mapa-regiones.html">mapa de regiones</a> lo refresca.)
+  </div>
+
+  <h2>El único principio que necesitas: el peso</h2>
+  <p>Olvida las reglas complicadas. El maridaje se reduce casi siempre a <strong>equilibrar el peso del plato con el cuerpo del vino</strong>.<sup><a href="#r1">1</a></sup> Un plato delicado pide un vino ligero; un plato contundente, un vino con cuerpo. Y un atajo que rara vez falla: <strong>marida con la salsa, no solo con la proteína</strong>.</p>
+
+  <div class="principle">
+    <strong>Los clásicos seguros, con vinos que ya conoces:</strong><br>
+    🐟 Pescado y marisco → <strong>Albariño</strong> (Rías Baixas) o <strong>Verdejo</strong> (Rueda). La acidez realza, como el limón.<br>
+    🥩 Carne roja → <strong>Ribera del Duero</strong> o <strong>Rioja Reserva</strong>. El tanino se suaviza con la grasa.<br>
+    🍗 Aves y cerdo → <strong>Rioja Crianza</strong>. Peso medio que acompaña sin tapar.<br>
+    🧀 Jamón y quesos curados → <strong>Rioja</strong>. El maridaje regional de toda la vida.
+  </div>
+  <p style="font-size:.9rem;color:var(--soft)">¿Quieres la tabla completa para llevar? → <a href="../reference/maridaje.html">Guía de maridaje (referencia)</a>.</p>
+
+  <h2>Cómo moverte con la carta</h2>
+  <ul class="steps">
+    <li><span class="n">1</span><div><b>Lee cómo está ordenada.</b> Casi siempre por tipo (tinto/blanco), por región (DO) o por crianza<sup><a href="#r2">2</a></sup> — justo lo que ya sabes leer.</div></li>
+    <li><span class="n">2</span><div><b>Apunta al rango medio de precio.</b> Suele dar la mejor relación calidad-precio; el más caro no es necesario.<sup><a href="#r2">2</a></sup></div></li>
+    <li><span class="n">3</span><div><b>¿Copa o botella?</b> Una botella ≈ 5–6 copas. Si entre dos vais a más de dos copas cada uno, la botella sale a cuenta.</div></li>
+    <li><span class="n">4</span><div><b>Pide consejo como un experto:</b> dile el plato, tus gustos y tu rango. «Algo sobre 20–25&nbsp;€ que vaya con el cordero, por favor.»</div></li>
+  </ul>
+
+  <h2>El ritual de la cata, sin nervios</h2>
+  <p>Cuando te sirven un dedito para probar, <strong>no es para decidir si te gusta</strong>: es para comprobar que el vino no está defectuoso (a corcho, avinagrado). Huele, da un sorbo, y si está bien, asiente. Solo lo rechazas si huele claramente mal — y eso es rarísimo.</p>
+
+  <h2>Pruébate</h2>
+  <p>Estás en la mesa. Para cada situación, elige la mejor jugada. Recordar de memoria es lo que fija el hábito.</p>
+  <div class="quiz" id="quiz"></div>
+
+  <div class="task">
+    <h2>Tu victoria de esta semana</h2>
+    <ol>
+      <li>La próxima vez que comas fuera (o pidas a domicilio), <strong>elige tú el vino</strong> usando el principio del peso.</li>
+      <li>Si hay carta, fíjate en cómo está <strong>ordenada</strong> y apunta a un vino del <strong>rango medio</strong>.</li>
+      <li>Bonus de valentía: <strong>pídele consejo al camarero</strong> con la fórmula «plato + gustos + precio».</li>
+      <li>Cuéntame qué pediste, con qué plato y cómo fue. Lo comentamos.</li>
+    </ol>
+  </div>
+
+  <div class="primary">
+    <span class="tag">Fuente principal recomendada</span>
+    <p style="margin:8px 0 0">Para afianzar el maridaje desde cero, lee <a href="https://winefolly.com/wine-pairing/getting-started-with-food-and-wine-pairing/">«Food and Wine Pairing Basics» de Wine Folly</a>. Es la introducción más clara y visual que he encontrado.</p>
+  </div>
+
+  <div class="ask">
+    <strong>Soy tu profesor.</strong> ¿Tienes una cena concreta a la vista y no sabes qué pedir? Dime el sitio o el menú y te preparo dos o tres opciones con rango de precio. Pregúntame en el chat.
+  </div>
+
+  <div class="links">
+    <strong>Sigue explorando:</strong>
+    <a href="../reference/maridaje.html">Guía de maridaje</a> ·
+    <a href="../reference/mapa-regiones.html">Mapa de regiones</a> ·
+    <a href="../reference/clasificacion-envejecimiento.html">La escalera de la crianza</a> ·
+    <a href="../reference/glosario.html">Glosario</a> ·
+    <a href="./0002-el-mapa-mental-de-las-regiones.html">Lección 2</a>
+  </div>
+
+  <footer>
+    <strong>Referencias</strong>
+    <ol class="refs">
+      <li id="r1">Principio del peso y maridajes base — <a href="https://winefolly.com/wine-pairing/getting-started-with-food-and-wine-pairing/">Wine Folly</a>.</li>
+      <li id="r2">Cómo leer la carta y elegir precio — <a href="https://www.vinetur.com/201204207119/que-vino-escoger-en-el-restaurante.html">Vinetur</a>.</li>
+    </ol>
+    Lección 3 · Vinos de España · creada para tu misión de comprar y pedir con confianza.
+  </footer>
+</div>
+
+<script>
+const QUESTIONS = [
+  { q:"Pides una mariscada para compartir. ¿Qué eliges de la carta?",
+    opts:["Un Albariño de Rías Baixas","Un Priorat de Garnacha","Un Ribera del Duero","Un Gran Reserva de Rioja"],
+    a:"Un Albariño de Rías Baixas",
+    why:"Pescado y marisco piden un blanco fresco y ácido. El Albariño realza el marisco como un toque de limón." },
+  { q:"Vais dos a un chuletón. Quieres un tinto con cuerpo que aguante la grasa.",
+    opts:["Un Ribera del Duero","Un Verdejo de Rueda","Un Albariño joven","Un blanco de Rías Baixas"],
+    a:"Un Ribera del Duero",
+    why:"La carne roja grasa pide tanino y potencia: el tanino se suaviza con la grasa. Ribera (o Rioja Reserva) encaja." },
+  { q:"El camarero te sirve un poco de vino para probar. ¿Qué haces?",
+    opts:["Compruebo que no esté defectuoso","Lo rechazo si no me encanta","Pido cambiarlo por otro","Espero a que me guste"],
+    a:"Compruebo que no esté defectuoso",
+    why:"Ese sorbo es para detectar un vino en mal estado (a corcho, avinagrado), no para juzgar el gusto. Si está bien, asientes." },
+  { q:"Cena de seis personas, todos beberéis tinto con la carne. ¿Copa o botella?",
+    opts:["Botella, sale más a cuenta","Una copa para cada uno","El vino más caro","Lo mismo da una cosa"],
+    a:"Botella, sale más a cuenta",
+    why:"Una botella son ~5–6 copas y el recargo por copa es mayor: a partir de unas pocas copas, la botella gana." },
+  { q:"No te decides. ¿Cómo pides ayuda al camarero como alguien que sabe?",
+    opts:["Le doy plato, gustos y precio","Le pido el vino más barato","Le digo «el que usted quiera»","Elijo por el nombre bonito"],
+    a:"Le doy plato, gustos y precio",
+    why:"«Algo sobre 20–25 € que vaya con el cordero» le da todo lo que necesita para acertar. Es la jugada experta." },
+];
+
+const quiz = document.getElementById("quiz");
+QUESTIONS.forEach((item, i) => {
+  const block = document.createElement("div");
+  if(i>0){ block.style.borderTop="1px solid var(--line)"; block.style.marginTop="18px"; block.style.paddingTop="18px"; }
+  const qn = document.createElement("span"); qn.className="qnum"; qn.textContent="Pregunta " + (i+1) + " de " + QUESTIONS.length;
+  const q = document.createElement("p"); q.className="q"; q.appendChild(qn); q.appendChild(document.createTextNode(item.q));
+  const opts = document.createElement("div"); opts.className="opts";
+  const fb = document.createElement("div"); fb.className="fb";
+  item.opts.forEach(label => {
+    const b = document.createElement("button"); b.className="opt"; b.textContent=label;
+    b.onclick = () => {
+      [...opts.children].forEach(c => c.disabled = true);
+      if(label === item.a){ b.classList.add("correct"); fb.className="fb show good"; fb.textContent="Correcto. " + item.why; }
+      else { b.classList.add("wrong");
+        [...opts.children].forEach(c => { if(c.textContent === item.a) c.classList.add("correct"); });
+        fb.className="fb show bad"; fb.textContent="Casi. " + item.why; }
+    };
+    opts.appendChild(b);
+  });
+  block.appendChild(q); block.appendChild(opts); block.appendChild(fb);
+  quiz.appendChild(block);
+});
+</script>
+</body>
+</html>

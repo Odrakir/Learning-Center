@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa mental de las regiones — Referencia</title>
+<style>
+  :root{
+    --tinto:#6b1f2a; --ink:#2b2622; --soft:#6f675f; --line:#e4ddd3;
+    --paper:#fbf8f3; --gold:#9a7b3f; --blanco:#7a6a2f;
+  }
+  *{box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--ink); background:var(--paper); margin:0; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:64px 28px 96px}
+  .kicker{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 6px}
+  h1{font-size:2.2rem; line-height:1.1; margin:0 0 8px; font-weight:600}
+  .sub{color:var(--soft); font-style:italic; margin:0 0 32px; font-size:1.05rem}
+  .grid{display:grid; gap:16px}
+  .card{background:#fff; border:1px solid var(--line); border-radius:10px; padding:18px 22px}
+  .card .top{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap}
+  .card h2{margin:0; font-size:1.3rem; color:var(--tinto)}
+  .card .color{font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; border-radius:3px; padding:3px 9px}
+  .color.red{background:#f1e3e1; color:var(--tinto)}
+  .color.white{background:#eef0df; color:var(--blanco)}
+  .card .meta{color:var(--soft); font-size:.9rem; margin:4px 0 12px}
+  .card .meta b{color:var(--ink); font-weight:600}
+  .card dl{display:grid; grid-template-columns:auto 1fr; gap:4px 14px; margin:0; font-size:.97rem}
+  .card dt{color:var(--gold); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; padding-top:3px}
+  .card dd{margin:0}
+  .legend{font-size:.85rem; color:var(--soft); margin:24px 0 0}
+  footer{margin-top:36px; padding-top:18px; border-top:1px solid var(--line); color:var(--soft); font-size:.85rem}
+  a{color:var(--tinto)}
+  @media print{ body{background:#fff} .wrap{padding:22px} .card{break-inside:avoid} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Referencia · tarjeta de bolsillo</p>
+  <h1>Mapa mental de las regiones</h1>
+  <p class="sub">Cinco nombres que cubren la mayoría de las estanterías españolas. Cada uno predice un estilo — eso es lo que te deja elegir sin conocer la bodega.</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="top"><h2>Rioja</h2><span class="color red">Tinto (y blanco)</span></div>
+      <div class="meta">Norte · <b>DOCa</b> (categoría superior) · uva: <b>Tempranillo</b></div>
+      <dl>
+        <dt>Estilo</dt><dd>Elegante, suave, equilibrado. La gran tradición de crianza en roble: fruta roja con vainilla y especia.</dd>
+        <dt>Cómpralo si</dt><dd>Quieres un tinto clásico, versátil y fácil de querer. Tu punto de partida seguro.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="top"><h2>Ribera del Duero</h2><span class="color red">Tinto</span></div>
+      <div class="meta">Castilla y León, río Duero · uva: <b>Tempranillo</b> (aquí «Tinto Fino»)</div>
+      <dl>
+        <dt>Estilo</dt><dd>Más potente y estructurado que Rioja. Clima extremo (día caluroso, noche fría) → color profundo, fruta densa.</dd>
+        <dt>Cómpralo si</dt><dd>Quieres un tinto con músculo y cuerpo, para carnes contundentes.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="top"><h2>Rías Baixas</h2><span class="color white">Blanco</span></div>
+      <div class="meta">Galicia, costa atlántica · uva: <b>Albariño</b></div>
+      <dl>
+        <dt>Estilo</dt><dd>Fresco y salino, con acidez vibrante. Aromas cítricos, florales y de fruta de hueso.</dd>
+        <dt>Cómpralo si</dt><dd>Vas a comer marisco o pescado, o quieres un blanco de aperitivo que despierte el paladar.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="top"><h2>Rueda</h2><span class="color white">Blanco</span></div>
+      <div class="meta">Castilla y León · uva: <b>Verdejo</b></div>
+      <dl>
+        <dt>Estilo</dt><dd>Fresco y aromático, herbáceo con fruta tropical y cítrica. A menudo comparado con el Sauvignon Blanc.</dd>
+        <dt>Cómpralo si</dt><dd>Quieres un blanco rico y económico para el día a día. Gran relación calidad-precio.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="top"><h2>Priorat</h2><span class="color red">Tinto</span></div>
+      <div class="meta">Cataluña · <b>DOQ</b> (categoría superior) · uvas: <b>Garnacha</b> y Cariñena</div>
+      <dl>
+        <dt>Estilo</dt><dd>Intenso, concentrado y mineral (suelo de pizarra, «llicorella»). De guarda. Sube de precio.</dd>
+        <dt>Cómpralo si</dt><dd>Buscas algo especial e impactante para una ocasión, y no te asusta gastar más.</dd>
+      </dl>
+    </div>
+
+  </div>
+
+  <p class="legend"><b>El contraste que más te sirve:</b> misma uva (Tempranillo), dos almas. <b>Rioja</b> = elegancia y roble; <b>Ribera del Duero</b> = potencia y fruta. Si te gustó tu Muga (Rioja) y quieres lo mismo pero más fuerte, prueba una Ribera.</p>
+
+  <footer>
+    Vinos de España · mapa de regiones. Solo DOCa/DOQ: Rioja y Priorat.<br>
+    Fuentes: <a href="https://winefolly.com/deep-dive/map-of-spain-wine-regions/">Wine Folly (mapa)</a>,
+    <a href="https://www.gourmets.net/revista-club-de-gourmets/diferencia-vino-ribera-duero-rioja">Club de Gourmets (Rioja vs Ribera)</a>.
+    Ver también el <a href="./glosario.html">glosario</a> y la <a href="./clasificacion-envejecimiento.html">escalera de la crianza</a>.
+  </footer>
+</div>
+</body>
+</html>

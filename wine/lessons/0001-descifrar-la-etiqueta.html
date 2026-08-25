@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 1 · Descifrar la etiqueta</title>
+<style>
+  :root{
+    --tinto:#6b1f2a; --ink:#2b2622; --soft:#6f675f; --line:#e4ddd3;
+    --paper:#fbf8f3; --gold:#9a7b3f; --ok:#2f6b46; --okbg:#e7f1ea; --no:#9a3329; --nobg:#f6e7e4;
+  }
+  *{box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--ink); background:var(--paper); margin:0; line-height:1.6}
+  .wrap{max-width:720px; margin:0 auto; padding:60px 26px 110px}
+  .kicker{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 6px}
+  h1{font-size:2.25rem; line-height:1.1; margin:0 0 10px; font-weight:600}
+  .sub{color:var(--soft); font-style:italic; margin:0 0 14px; font-size:1.08rem}
+  .mission{font-size:.92rem; color:var(--soft); border-left:3px solid var(--gold); padding:4px 14px; margin:0 0 38px}
+  h2{font-size:1.4rem; margin:44px 0 12px; font-weight:600; color:var(--tinto)}
+  p{margin:0 0 16px}
+  cite,.citation{font-style:normal}
+  sup a{color:var(--gold); text-decoration:none; font-size:.7em; padding:0 1px}
+  .ladder{margin:22px 0}
+  .rung{display:grid; grid-template-columns:140px 1fr; gap:16px; padding:14px 0; border-top:1px solid var(--line); align-items:baseline}
+  .rung .name{font-weight:600; color:var(--tinto); font-size:1.12rem}
+  .rung .name small{display:block; color:var(--soft); font-weight:400; font-size:.82rem; font-style:italic}
+  .label-art{background:#fff; border:1px solid var(--line); border-radius:6px; padding:22px 26px; margin:22px 0; text-align:center;
+    box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  .label-art .bodega{font-size:1.5rem; letter-spacing:.04em; color:var(--ink)}
+  .label-art .region{font-size:.82rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin:6px 0}
+  .label-art .cat{font-size:1.05rem; font-style:italic; color:var(--tinto)}
+  .label-art .yr{font-size:.95rem; color:var(--soft); margin-top:6px}
+  .quiz{background:#fff; border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin:18px 0}
+  .quiz .q{font-weight:600; margin:0 0 14px}
+  .quiz .qnum{color:var(--gold); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; display:block; margin-bottom:4px}
+  .opts{display:grid; gap:10px}
+  button.opt{font:inherit; text-align:left; background:var(--paper); border:1px solid var(--line); border-radius:7px;
+    padding:11px 16px; cursor:pointer; color:var(--ink); transition:border-color .15s, background .15s}
+  button.opt:hover{border-color:var(--gold)}
+  button.opt:disabled{cursor:default; opacity:1}
+  button.opt.correct{background:var(--okbg); border-color:var(--ok); color:var(--ok); font-weight:600}
+  button.opt.wrong{background:var(--nobg); border-color:var(--no); color:var(--no)}
+  .fb{margin-top:12px; font-size:.95rem; min-height:1px}
+  .fb.show{padding:10px 14px; border-radius:7px}
+  .fb.good{background:var(--okbg); color:var(--ok)}
+  .fb.bad{background:var(--nobg); color:var(--no)}
+  .task{background:#f3ecdf; border-radius:10px; padding:22px 24px; margin:26px 0}
+  .task h2{margin-top:0}
+  .task ol{margin:0; padding-left:22px}
+  .task li{margin:8px 0}
+  .primary{border:1px dashed var(--gold); border-radius:10px; padding:18px 22px; margin:30px 0; background:#fff}
+  .primary .tag{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  .ask{font-size:.95rem; background:var(--okbg); border-radius:10px; padding:16px 20px; margin:30px 0; color:#27432f}
+  .links{margin:30px 0 0; font-size:.95rem}
+  footer{margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--soft); font-size:.82rem}
+  a{color:var(--tinto)}
+  .refs{font-size:.82rem; color:var(--soft); margin-top:10px}
+  .refs li{margin:4px 0}
+  @media print{ body{background:#fff} button.opt{display:none} .quiz .fb{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Lección 1 · Vinos de España</p>
+  <h1>Descifrar la etiqueta</h1>
+  <p class="sub">La palabra que decide casi todo: Joven, Crianza, Reserva o Gran Reserva.</p>
+  <p class="mission">Tu misión: <strong>comprar y pedir vino español con confianza</strong>. Esta lección te da la llave que abre el 80&nbsp;% de las etiquetas españolas — sin saber nada más, ya podrás elegir.</p>
+
+  <h2>La idea en una frase</h2>
+  <p>En España, una sola palabra en la etiqueta te dice <strong>cuánto tiempo ha reposado el vino</strong> antes de salir a la venta. Ese tiempo está regulado por ley<sup><a href="#r1">1</a></sup>, así que la palabra es una promesa fiable, no marketing. Más reposo suele significar más complejidad, más precio y más «ocasión».</p>
+
+  <div class="label-art" aria-label="Etiqueta de ejemplo">
+    <div class="bodega">BODEGA EJEMPLO</div>
+    <div class="region">Rioja · DOCa</div>
+    <div class="cat">Reserva</div>
+    <div class="yr">Añada 2018 · Tempranillo</div>
+  </div>
+  <p style="font-size:.9rem;color:var(--soft);text-align:center;margin-top:-6px">↑ La <strong>bodega</strong> (marca), la <strong>región</strong>, la <strong>categoría de crianza</strong> y la <strong>añada</strong>. Hoy nos centramos en la categoría.</p>
+
+  <h2>La escalera de la crianza</h2>
+  <div class="ladder">
+    <div class="rung"><div class="name">Joven <small>sin crianza</small></div><div>Sin barrica obligatoria. Fresco y afrutado, para beber ya. Tu vino de diario más fácil.</div></div>
+    <div class="rung"><div class="name">Crianza <small>24 meses</small></div><div>Algo de roble (6 meses; 12 en Rioja<sup><a href="#r2">2</a></sup>). Fruta con un toque de madera. La mejor relación calidad-precio del día a día.</div></div>
+    <div class="rung"><div class="name">Reserva <small>36 meses</small></div><div>12 meses de barrica. Más serio y complejo: cuero, especias, vainilla. Para una comida importante.</div></div>
+    <div class="rung"><div class="name">Gran Reserva <small>60 meses</small></div><div>Largo reposo, solo en añadas excepcionales<sup><a href="#r1">1</a></sup>. Profundo y evolucionado. Vino de celebración.</div></div>
+  </div>
+  <p style="font-size:.9rem;color:var(--soft)">Cifras para tinto. ¿Necesitas la tabla completa con blancos y rosados? → <a href="../reference/clasificacion-envejecimiento.html">La escalera de la crianza (referencia)</a>.</p>
+
+  <h2>Pruébate</h2>
+  <p>Recordar de memoria es lo que fija el conocimiento. No mires hacia arriba: elige y verás la respuesta al instante.</p>
+
+  <div class="quiz" id="quiz"></div>
+
+  <div class="task">
+    <h2>Tu primera victoria real</h2>
+    <p>Lleva esto al mundo. Hoy o esta semana:</p>
+    <ol>
+      <li>Busca una <strong>botella española</strong> — en tu casa, en el súper o en una tienda online.</li>
+      <li>Localiza en la etiqueta las <strong>cuatro cosas</strong>: bodega, región, categoría de crianza y añada.</li>
+      <li>Di en voz alta qué <strong>esperarías en la copa</strong> según su peldaño en la escalera.</li>
+      <li>Cuéntame qué encontraste y lo verificamos juntos.</li>
+    </ol>
+  </div>
+
+  <div class="primary">
+    <span class="tag">Fuente principal recomendada</span>
+    <p style="margin:8px 0 0">Para ampliar con calma y en español, lee la <a href="https://www.vinissimus.com/es/content/guia-para-no-iniciados-en-el-vino-espanol/">Guía básica de introducción al vino español (Vinissimus)</a>. Es la mejor puerta de entrada que he encontrado para alguien que empieza.</p>
+  </div>
+
+  <div class="ask">
+    <strong>Soy tu profesor.</strong> Si algo no encaja —una palabra de la etiqueta, por qué Rioja exige más barrica, qué comprar para una ocasión concreta— pregúntame en el chat. Las dudas resueltas en el momento son las que mejor se quedan.
+  </div>
+
+  <div class="links">
+    <strong>Sigue explorando:</strong>
+    <a href="../reference/glosario.html">Glosario</a> ·
+    <a href="../reference/clasificacion-envejecimiento.html">La escalera de la crianza</a>
+  </div>
+
+  <footer>
+    <strong>Referencias</strong>
+    <ol class="refs">
+      <li id="r1">Sistema español de envejecimiento y mínimos legales — <a href="https://www.winetraveler.com/wine-resources/crianza-reserva-gran-reserva-difference-spanish-wine/">Winetraveler</a>.</li>
+      <li id="r2">Significado de Crianza, Reserva y Gran Reserva en español — <a href="https://www.elespanol.com/cocinillas/vinos/20210517/significa-crianza-reserva-gran-vinos-espanoles/581192908_0.html">El Español (Cocinillas)</a>.</li>
+    </ol>
+    Lección 1 · Vinos de España · creada para tu misión de comprar con confianza.
+  </footer>
+</div>
+
+<script>
+const OPTS = ["Joven","Crianza","Reserva","Gran Reserva"];
+const QUESTIONS = [
+  { q:"Una cena de martes con tapas, sin gastar mucho y con fruta fresca en la copa. ¿Qué categoría buscas?",
+    a:"Joven",
+    why:"Joven: sin barrica obligatoria, fresco y afrutado, pensado para beber ya y a buen precio." },
+  { q:"Quieres la mejor relación calidad-precio para el día a día, con fruta y un toque de roble.",
+    a:"Crianza",
+    why:"Crianza: 24 meses (6 de barrica; 12 en Rioja). El equilibrio fruta-madera ideal del diario." },
+  { q:"Una comida importante: buscas algo serio, con 36 meses y 12 de barrica.",
+    a:"Reserva",
+    why:"Reserva: 36 meses totales, 12 en barrica. Más complejo —cuero, especias— sin arruinarte." },
+  { q:"Una gran celebración. Quieres lo más reposado, solo de añadas excepcionales (60 meses).",
+    a:"Gran Reserva",
+    why:"Gran Reserva: 60 meses mínimos y solo en grandes añadas. Vino de acontecimiento." },
+];
+
+const quiz = document.getElementById("quiz");
+QUESTIONS.forEach((item, i) => {
+  const block = document.createElement("div");
+  if(i>0) block.style.borderTop = "1px solid var(--line)", block.style.marginTop="18px", block.style.paddingTop="18px";
+  const qn = document.createElement("span"); qn.className="qnum"; qn.textContent = "Pregunta " + (i+1) + " de " + QUESTIONS.length;
+  const q = document.createElement("p"); q.className="q"; q.appendChild(qn); q.appendChild(document.createTextNode(item.q));
+  const opts = document.createElement("div"); opts.className="opts";
+  const fb = document.createElement("div"); fb.className="fb";
+  OPTS.forEach(label => {
+    const b = document.createElement("button"); b.className="opt"; b.textContent=label;
+    b.onclick = () => {
+      [...opts.children].forEach(c => c.disabled = true);
+      if(label === item.a){
+        b.classList.add("correct");
+        fb.className = "fb show good"; fb.textContent = "Correcto. " + item.why;
+      } else {
+        b.classList.add("wrong");
+        [...opts.children].forEach(c => { if(c.textContent === item.a) c.classList.add("correct"); });
+        fb.className = "fb show bad"; fb.textContent = "Casi. La respuesta es " + item.a + ". " + item.why;
+      }
+    };
+    opts.appendChild(b);
+  });
+  block.appendChild(q); block.appendChild(opts); block.appendChild(fb);
+  quiz.appendChild(block);
+});
+</script>
+</body>
+</html>
