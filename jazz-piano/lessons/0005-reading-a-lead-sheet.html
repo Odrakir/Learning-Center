@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 5 — Reading a Lead Sheet</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#7a5c2e; --good:#2f6b3f; --bad:#a23b2e; --card:#f6f3ec;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.6; margin:0; padding:3rem 1.25rem 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:42rem;margin:0 auto}
+  .kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:.4rem}
+  h1{font-size:2.2rem;line-height:1.15;margin:0 0 .5rem}
+  .dek{font-style:italic;color:var(--muted);font-size:1.1rem;margin-bottom:.5rem}
+  .mission{background:var(--card);border-left:3px solid var(--accent);padding:.8rem 1.1rem;
+    font-size:.95rem;margin:1.8rem 0;border-radius:0 4px 4px 0}
+  .mission b{color:var(--accent)}
+  h2{font-size:1.35rem;margin:2.6rem 0 .6rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+  p{margin:.8rem 0}
+  ul{padding-left:1.2rem}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.9em;
+    background:#efe9dc;padding:.05rem .3rem;border-radius:3px}
+  .pull{font-size:1.15rem;font-style:italic;color:#333;border-left:3px solid var(--rule);
+    margin:1.6rem 0;padding:.2rem 0 .2rem 1.1rem}
+  .num{font-variant-numeric:oldstyle-nums}
+  .src{background:#1a1a1a;color:#f3efe6;border-radius:6px;padding:1.1rem 1.3rem;margin:2rem 0}
+  .src .kicker{color:#d8b878}
+  .src a{color:#e8c98a}
+  .footer{margin-top:3rem;border-top:1px solid var(--rule);padding-top:1.2rem;font-size:.9rem;color:var(--muted)}
+  .ask{background:#eef3f6;border-left:3px solid #3a6b8a;padding:.8rem 1.1rem;border-radius:0 4px 4px 0;font-size:.95rem;margin:1.6rem 0}
+
+  /* anatomy diagram */
+  .diagram{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:1rem;margin:1.4rem 0;overflow-x:auto}
+  .diagram svg{display:block;margin:0 auto;max-width:100%;height:auto}
+  .legend{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.82rem;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;margin:.7rem .2rem 0}
+  .legend b{color:var(--accent)}
+
+  /* widgets (shared pattern, from Lessons 2–4) */
+  .widget{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:1.2rem 1rem 1.4rem;margin:1.4rem 0}
+  .widget-head{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin-bottom:.7rem}
+  .widget-head strong{font-family:ui-sans-serif,system-ui,sans-serif}
+  .widget-status{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.9rem;color:var(--muted)}
+
+  /* lead-sheet strip */
+  .sheet-scroll{overflow-x:auto;padding-bottom:.4rem}
+  .sheet{background:#fff;border-radius:6px;border:1px solid var(--rule);padding:.6rem .4rem .3rem;min-width:560px}
+  .sheet svg{display:block;margin:0 auto}
+  .bar-hit{cursor:pointer}
+  .bar-hit rect.hit{fill:transparent;transition:fill .1s}
+  .bar-hit:hover rect.hit{fill:#f6f3ec}
+  .bar-hit.active rect.hit{fill:#f1e6cf}
+
+  /* keyboard widget */
+  .kbd-scroll{overflow-x:auto;padding-bottom:.4rem;margin-top:.8rem}
+  .kbd{position:relative;width:644px;height:172px;margin:0 auto;touch-action:manipulation}
+  .white{
+    position:absolute;top:0;width:44px;height:170px;background:#fffdf8;
+    border:1px solid #c9c2b3;border-radius:0 0 4px 4px;cursor:pointer;user-select:none;
+    transition:background .08s;
+  }
+  .white:hover{background:#fff7ea}
+  .white:active,.white.pressed{background:#f1dfb8}
+  .white .lbl{position:absolute;bottom:8px;left:0;right:0;text-align:center;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;color:var(--muted);pointer-events:none}
+  .white.is-root{outline:3px solid var(--accent);outline-offset:-3px;background:#f1dfb8}
+  .white.lit{background:#e9dcb8}
+  .white.correct{background:#d9ecdd}
+  .white.wrong{background:#f3d6d1}
+  .black{
+    position:absolute;top:0;width:28px;height:100px;background:#1c1a17;
+    border-radius:0 0 3px 3px;z-index:2;cursor:pointer;user-select:none;
+    transition:background .08s;
+  }
+  .black:hover{background:#3a3630}
+  .black:active,.black.pressed{background:#5c5648}
+  .black .lbl{position:absolute;bottom:6px;left:0;right:0;text-align:center;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.62rem;color:#e8c98a;pointer-events:none;visibility:hidden}
+  .black.lit{background:#4a4638}
+
+  .btnrow{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;align-items:center}
+  button.action{
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.85rem;font-weight:600;
+    background:#fff;border:1px solid var(--accent);color:var(--accent);
+    border-radius:5px;padding:.5rem .9rem;cursor:pointer;
+  }
+  button.action:hover{background:#fdf3e2}
+  button.action:disabled{opacity:.4;cursor:default}
+  .readout{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.9rem;color:#333;min-height:1.3em;margin-top:.7rem}
+  .readout .fn{font-weight:700;color:var(--accent)}
+  .quiz-fb{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.88rem;min-height:1.3em;margin-top:.5rem}
+  .quiz-fb.r{color:var(--good)}
+  .quiz-fb.w{color:var(--bad)}
+  .score{font-style:italic;color:var(--muted);margin-top:.6rem}
+  .staff-prompt{display:flex;justify-content:center;margin:.4rem 0 .2rem}
+  @media print{body{background:#fff;padding:0}.ask{background:#f3f3f3}.widget,.diagram{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Lesson <span class="num">05</span> · Fundamentals · Jazz Piano</div>
+  <h1>Reading a Lead Sheet</h1>
+  <div class="dek">The one page a jazz musician actually plays from — melody on top, chord symbols above. Today you read a real one.</div>
+
+  <div class="mission">
+    <b>Why this, now?</b> You can build all three 7th-chord colors and string them into a
+    <a href="0004-the-ii-v-i-progression.html">ii–V–I</a>. But jazz isn't played from note-for-note sheet
+    music — it's played from a <strong>lead sheet</strong>: just the tune and the chord symbols, leaving the
+    rest to you. Learning to read one is the bridge between "I know some chords" and "I can sit down and play a
+    standard." Today you'll read the opening of a real one — <em>Fly Me to the Moon</em> — and find out you can
+    already play most of it. (See <a href="../MISSION.md">your mission</a>.)
+  </div>
+
+  <h2>What a lead sheet is</h2>
+  <p>A lead sheet strips a song down to the two things a jazz player needs and no more:
+  the <strong>melody</strong> (written on the staff) and the <strong>chord symbols</strong> (the letters
+  above it). It does <em>not</em> tell you exactly which notes to play in your left hand, or the rhythm to
+  play them in — that's your job, and it's why ten pianists play the same lead sheet ten different ways.</p>
+
+  <p>Here's the anatomy. Each label points to one thing you need to recognize on sight:</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 620 250" role="img" aria-label="Anatomy of a lead sheet">
+      <!-- staff lines -->
+      <g stroke="#1a1a1a" stroke-width="1">
+        <line x1="70" y1="120" x2="560" y2="120"/>
+        <line x1="70" y1="134" x2="560" y2="134"/>
+        <line x1="70" y1="148" x2="560" y2="148"/>
+        <line x1="70" y1="162" x2="560" y2="162"/>
+        <line x1="70" y1="176" x2="560" y2="176"/>
+      </g>
+      <!-- treble clef -->
+      <text x="74" y="172" font-size="62" font-family="Georgia,serif" fill="#1a1a1a">&#x1D11E;</text>
+      <!-- time signature -->
+      <text x="120" y="150" font-size="24" font-weight="700" font-family="Georgia,serif" fill="#1a1a1a" text-anchor="middle">4</text>
+      <text x="120" y="174" font-size="24" font-weight="700" font-family="Georgia,serif" fill="#1a1a1a" text-anchor="middle">4</text>
+      <!-- bar lines -->
+      <g stroke="#1a1a1a" stroke-width="1.4">
+        <line x1="150" y1="120" x2="150" y2="176"/>
+        <line x1="300" y1="120" x2="300" y2="176"/>
+        <line x1="450" y1="120" x2="450" y2="176"/>
+      </g>
+      <line x1="558" y1="120" x2="558" y2="176" stroke="#1a1a1a" stroke-width="3.2"/>
+      <!-- chord symbols -->
+      <text x="165" y="104" font-size="18" font-weight="700" font-family="Georgia,serif" fill="#7a5c2e">Am7</text>
+      <text x="315" y="104" font-size="18" font-weight="700" font-family="Georgia,serif" fill="#7a5c2e">Dm7</text>
+      <text x="465" y="104" font-size="18" font-weight="700" font-family="Georgia,serif" fill="#7a5c2e">G7</text>
+      <!-- a couple of notes -->
+      <g fill="#1a1a1a">
+        <ellipse cx="200" cy="155" rx="6.5" ry="5"/>
+        <line x1="206" y1="153" x2="206" y2="123" stroke="#1a1a1a" stroke-width="1.4"/>
+        <ellipse cx="360" cy="169" rx="6.5" ry="5"/>
+        <line x1="366" y1="167" x2="366" y2="137" stroke="#1a1a1a" stroke-width="1.4"/>
+      </g>
+      <!-- callouts -->
+      <g font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" fill="#6b6b6b">
+        <!-- treble clef -->
+        <line x1="88" y1="200" x2="90" y2="182" stroke="#c9c2b3"/>
+        <text x="30" y="216">Treble clef</text>
+        <!-- time signature -->
+        <line x1="120" y1="196" x2="120" y2="180" stroke="#c9c2b3"/>
+        <text x="120" y="212" text-anchor="middle">Time signature</text>
+        <text x="120" y="227" text-anchor="middle" font-size="11">(4 beats / bar)</text>
+        <!-- chord symbol -->
+        <line x1="180" y1="82" x2="180" y2="92" stroke="#c9c2b3"/>
+        <text x="230" y="60" text-anchor="middle">Chord symbol — what your</text>
+        <text x="230" y="75" text-anchor="middle">hands play under this bar</text>
+        <!-- bar line -->
+        <line x1="300" y1="196" x2="300" y2="178" stroke="#c9c2b3"/>
+        <text x="300" y="212" text-anchor="middle">Bar line</text>
+        <!-- measure -->
+        <text x="375" y="212" text-anchor="middle">One measure (bar)</text>
+        <path d="M305 200 H445" stroke="#c9c2b3" fill="none"/>
+        <!-- melody note -->
+        <line x1="360" y1="185" x2="360" y2="176" stroke="#c9c2b3"/>
+        <text x="470" y="60" text-anchor="middle">Melody notes</text>
+        <text x="470" y="75" text-anchor="middle">(the tune you'd sing)</text>
+        <line x1="470" y1="82" x2="362" y2="166" stroke="#c9c2b3"/>
+        <!-- final barline -->
+        <text x="540" y="205" text-anchor="middle" font-size="11">Final</text>
+        <text x="540" y="219" text-anchor="middle" font-size="11">barline</text>
+      </g>
+    </svg>
+    <div class="legend">
+      <span><b>Staff</b> — the 5 lines the melody sits on</span>
+      <span><b>Measure</b> — one "bar," here holding one chord</span>
+      <span><b>Chord symbol</b> — a shape you already know</span>
+    </div>
+  </div>
+
+  <p class="pull">"Melody on the staff, chords above it, bars in between. That's the whole document —
+  everything else you supply yourself."</p>
+
+  <h2>Reading the chords — a real tune</h2>
+  <p>Here are the first four bars of <strong>Fly Me to the Moon</strong>, in the key of C. One chord per bar.
+  <strong>Click any bar</strong> to hear its chord and see it light up on the keyboard. Then press
+  <em>Play the phrase</em> to hear all four in time.</p>
+
+  <div class="widget">
+    <div class="widget-head">
+      <strong>Fly Me to the Moon — bars 1–4</strong>
+      <span class="widget-status" id="statusA">Click a bar, or play the phrase.</span>
+    </div>
+    <div class="sheet-scroll">
+      <div class="sheet">
+        <svg id="sheetSvg" viewBox="0 0 560 150" role="img" aria-label="Fly Me to the Moon, first four bars"></svg>
+      </div>
+    </div>
+    <div class="kbd-scroll">
+      <div class="kbd" id="kbdA"></div>
+    </div>
+    <div class="readout" id="readoutA">Each bar names a chord you already know how to build.</div>
+    <div class="btnrow">
+      <button class="action" id="playPhraseBtn">Play the phrase</button>
+    </div>
+  </div>
+
+  <p>Look at what you're reading: <strong>Am7 · Dm7 · G7 · Cmaj7</strong>. Bars 2&#8211;4 are
+  <strong>Dm7 &#8594; G7 &#8594; Cmaj7</strong> — the exact <a href="0004-the-ii-v-i-progression.html">ii&#8211;V&#8211;I
+  in C</a> you drilled last lesson. The Am7 in front of it is the <strong>vi</strong> chord (root a whole step
+  <em>below</em> the tonic C — or, the same note as the 6th degree). You already know every chord in the
+  opening of a jazz standard. That's the whole point of learning the shapes first.</p>
+
+  <h2>Reading the melody line</h2>
+  <p>The chord letters are easy — you've been reading those since Lesson 3. The genuinely new skill is reading
+  a <strong>note on the staff</strong> and finding it on the keyboard. You don't need full sight-reading for
+  this mission; you need to recognize a handful of landmark notes and count from them.</p>
+
+  <p>Start from <strong>middle C</strong> — it hangs one short "ledger" line just below the staff. From there,
+  every step up the alphabet moves up one position: onto the bottom line (E), the space above it (F), and so
+  on, alternating line, space, line, space:</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 560 150" role="img" aria-label="The notes from middle C up to B, on the staff">
+      <g stroke="#1a1a1a" stroke-width="1">
+        <line x1="40" y1="50" x2="540" y2="50"/>
+        <line x1="40" y1="64" x2="540" y2="64"/>
+        <line x1="40" y1="78" x2="540" y2="78"/>
+        <line x1="40" y1="92" x2="540" y2="92"/>
+        <line x1="40" y1="106" x2="540" y2="106"/>
+      </g>
+      <text x="44" y="100" font-size="52" font-family="Georgia,serif" fill="#1a1a1a">&#x1D11E;</text>
+      <!-- notes C4..B4 at x steps, y per pitch -->
+      <g fill="#1a1a1a" font-family="ui-sans-serif,system-ui,sans-serif">
+        <!-- C4 y120 ledger -->
+        <line x1="150" y1="120" x2="176" y2="120" stroke="#1a1a1a" stroke-width="1"/>
+        <ellipse cx="163" cy="120" rx="6.5" ry="5"/>
+        <line x1="169" y1="118" x2="169" y2="88" stroke="#1a1a1a" stroke-width="1.3"/>
+        <text x="163" y="145" font-size="12.5" fill="#6b6b6b" text-anchor="middle">C</text>
+        <!-- D4 y113 -->
+        <ellipse cx="213" cy="113" rx="6.5" ry="5"/>
+        <line x1="219" y1="111" x2="219" y2="81" stroke="#1a1a1a" stroke-width="1.3"/>
+        <text x="213" y="145" font-size="12.5" fill="#6b6b6b" text-anchor="middle">D</text>
+        <!-- E4 y106 bottom line -->
+        <ellipse cx="263" cy="106" rx="6.5" ry="5"/>
+        <line x1="269" y1="104" x2="269" y2="74" stroke="#1a1a1a" stroke-width="1.3"/>
+        <text x="263" y="145" font-size="12.5" fill="#6b6b6b" text-anchor="middle">E</text>
+        <!-- F4 y99 -->
+        <ellipse cx="313" cy="99" rx="6.5" ry="5"/>
+        <line x1="319" y1="97" x2="319" y2="67" stroke="#1a1a1a" stroke-width="1.3"/>
+        <text x="313" y="145" font-size="12.5" fill="#6b6b6b" text-anchor="middle">F</text>
+        <!-- G4 y92 -->
+        <ellipse cx="363" cy="92" rx="6.5" ry="5"/>
+        <line x1="369" y1="90" x2="369" y2="60" stroke="#1a1a1a" stroke-width="1.3"/>
+        <text x="363" y="145" font-size="12.5" fill="#6b6b6b" text-anchor="middle">G</text>
+        <!-- A4 y85 -->
+        <ellipse cx="413" cy="85" rx="6.5" ry="5"/>
+        <line x1="419" y1="83" x2="419" y2="53" stroke="#1a1a1a" stroke-width="1.3"/>
+        <text x="413" y="145" font-size="12.5" fill="#6b6b6b" text-anchor="middle">A</text>
+        <!-- B4 y78 middle line -->
+        <ellipse cx="463" cy="78" rx="6.5" ry="5"/>
+        <line x1="469" y1="76" x2="469" y2="46" stroke="#1a1a1a" stroke-width="1.3"/>
+        <text x="463" y="145" font-size="12.5" fill="#6b6b6b" text-anchor="middle">B</text>
+      </g>
+      <text x="163" y="30" font-size="12.5" font-family="ui-sans-serif,system-ui,sans-serif" fill="#7a5c2e" text-anchor="middle">middle C</text>
+      <line x1="163" y1="34" x2="163" y2="112" stroke="#d8b878" stroke-dasharray="2 3"/>
+    </svg>
+    <div class="legend"><span><b>Ledger line</b> — a stubby extra line for notes that fall below (or above) the staff, like middle C.</span></div>
+  </div>
+
+  <p>Now drill it. A note appears on the staff — <strong>click the matching white key</strong>. Immediate
+  feedback, then the next note. Eight in a row.</p>
+
+  <div class="widget">
+    <div class="widget-head">
+      <strong>Note-reading drill</strong>
+      <span class="widget-status" id="statusB">Press start to begin.</span>
+    </div>
+    <div class="staff-prompt">
+      <svg id="drillSvg" viewBox="0 0 220 150" width="220" height="150" role="img" aria-label="Note to identify"></svg>
+    </div>
+    <div class="kbd-scroll">
+      <div class="kbd" id="kbdB"></div>
+    </div>
+    <div class="quiz-fb" id="fbB"></div>
+    <p class="score" id="scoreB"></p>
+    <div class="btnrow">
+      <button class="action" id="startB">Start drill (8 notes)</button>
+    </div>
+  </div>
+
+  <h2>Put it together</h2>
+  <p>You now have both halves of a lead sheet: the chord letters tell your hands the harmony, the staff tells
+  you the tune. Below is the same four bars with a <strong>simplified melody</strong> written in (one note per
+  half-bar, built from each chord's own tones). Press play to hear the melody and chords together — a real,
+  if bare-bones, pass through the top of <em>Fly Me to the Moon</em>.</p>
+
+  <div class="widget">
+    <div class="widget-head">
+      <strong>Melody + chords together</strong>
+      <span class="widget-status" id="statusC">Press play.</span>
+    </div>
+    <div class="sheet-scroll">
+      <div class="sheet">
+        <svg id="sheetC" viewBox="0 0 560 165" role="img" aria-label="Four bars with melody and chords"></svg>
+      </div>
+    </div>
+    <div class="btnrow">
+      <button class="action" id="playTuneBtn">Play melody + chords</button>
+    </div>
+  </div>
+
+  <h2>Check yourself</h2>
+  <p>Reading a lead sheet is really two habits stacked: glance at the <strong>chord symbol</strong> and know
+  the shape (that's review), and glance at a <strong>staff note</strong> and know the key (that's today). When
+  both feel automatic on this four-bar phrase, you're reading — and you're one step from playing a whole tune.
+  A full standard is just more of these bars in a row, most of them chords you already own.</p>
+
+  <div class="src">
+    <div class="kicker">Read / watch this next — primary source</div>
+    <p style="margin:.4rem 0 0"><strong>Hal Leonard Jazz Piano Method, Book 1</strong> — its lead-sheet chapter
+    walks through exactly this: reading chord symbols in time and comping under a melody, with audio
+    play-alongs so you can hear a real rhythm section behind the changes you just read.</p>
+    <p style="margin:.6rem 0 0;font-size:.9rem">
+    <a href="https://www.halleonard.com/">halleonard.com</a> · and for a "play this today" video walk-through of
+    reading changes, <a href="https://www.youtube.com/@PianoWithJonny">Piano With Jonny</a> on YouTube.</p>
+  </div>
+
+  <div class="ask">
+    <strong>I'm your teacher — use me.</strong> Want the rest of <em>Fly Me to the Moon</em>'s chords
+    (bars 5&#8211;8 add one new chord type)? Confused by a note that sits above the staff, or by sharps/flats
+    in the melody? Wondering how to actually <em>comp</em> a rhythm rather than just holding the chord? Ask in
+    the chat and we'll dig in.
+  </div>
+
+  <div class="footer">
+    <strong>Reference:</strong> <a href="../reference/reading-lead-sheets.html">Reading Lead Sheets</a> (staff landmarks + anatomy) ·
+    <a href="../reference/chord-shapes.html">7th Chord Shapes</a> ·
+    <a href="../reference/glossary.html">Glossary</a> (lead sheet, staff, measure, time signature) ·
+    <a href="../reference/keyboard-map.html">Keyboard Map</a>.<br>
+    <strong>Coming next:</strong> <em>Your first standard, played through</em> — the full form of one easy tune,
+    solo, chords and melody together.<br>
+    <strong>Community (optional, low-pressure):</strong>
+    <a href="https://www.reddit.com/r/piano/">r/piano</a> ·
+    <a href="https://www.reddit.com/r/Jazzpiano/">r/Jazzpiano</a>.
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var W = 46, BW = 28;
+  var whiteNames = ['C','D','E','F','G','A','B'];
+  var blackAfter = {0:'C♯',1:'D♯',3:'F♯',4:'G♯',5:'A♯'};
+  var baseSemitone = {C:0,D:2,E:4,F:5,G:7,A:9,B:11};
+
+  function midiFor(letter, octave, sharp){
+    return (octave + 1) * 12 + baseSemitone[letter] + (sharp ? 1 : 0);
+  }
+
+  function buildKeyboard(containerEl){
+    var html = '';
+    for (var oct = 0; oct < 2; oct++){
+      var octNum = 3 + oct;
+      for (var i = 0; i < 7; i++){
+        var left = (oct*7 + i) * W;
+        var letter = whiteNames[i];
+        var midi = midiFor(letter, octNum, false);
+        html += '<div class="white" data-midi="' + midi + '" data-name="' + letter + octNum + '" style="left:' + left + 'px">' +
+          '<span class="lbl">' + letter + octNum + '</span></div>';
+      }
+      for (var key in blackAfter){
+        var idx = parseInt(key, 10);
+        var left2 = (oct*7 + idx + 1) * W - BW/2;
+        var name2 = blackAfter[idx] + octNum;
+        var midi2 = midiFor(whiteNames[idx], octNum, true);
+        html += '<div class="black" data-midi="' + midi2 + '" data-name="' + name2 + '" style="left:' + left2 + 'px">' +
+          '<span class="lbl">' + name2 + '</span></div>';
+      }
+    }
+    containerEl.innerHTML = html;
+    return Array.prototype.slice.call(containerEl.querySelectorAll('.white,.black'));
+  }
+
+  var audioCtx = null;
+  function ensureAudio(){
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+  function playMidi(midi, dur){
+    var ctx = ensureAudio();
+    var freq = 440 * Math.pow(2, (midi - 69) / 12);
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.value = freq;
+    var d = dur || 0.6;
+    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.22, ctx.currentTime + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + d - 0.05);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + d);
+  }
+  function playChord(midiArr, at, level){
+    var ctx = ensureAudio();
+    var base = at || ctx.currentTime;
+    var lv = level || 0.16;
+    midiArr.forEach(function(midi, idx){
+      var freq = 440 * Math.pow(2, (midi - 69) / 12);
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.value = freq;
+      var start = base + idx * 0.02;
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.linearRampToValueAtTime(lv, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + 1.15);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(start);
+      osc.stop(start + 1.2);
+    });
+  }
+  function noteAt(midi, at, dur, level){
+    var ctx = ensureAudio();
+    var freq = 440 * Math.pow(2, (midi - 69) / 12);
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.value = freq;
+    var lv = level || 0.2;
+    gain.gain.setValueAtTime(0.0001, at);
+    gain.gain.linearRampToValueAtTime(lv, at + 0.015);
+    gain.gain.exponentialRampToValueAtTime(0.0001, at + dur - 0.03);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(at);
+    osc.stop(at + dur);
+  }
+  function flash(el, cls, dur){
+    if(!el) return;
+    el.classList.add(cls);
+    setTimeout(function(){ el.classList.remove(cls); }, dur || 500);
+  }
+
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  function svgEl(name, attrs){
+    var el = document.createElementNS(SVGNS, name);
+    for (var k in attrs) el.setAttribute(k, attrs[k]);
+    return el;
+  }
+
+  // ---- The four bars: chords (accurate) ----
+  var BARS = [
+    { sym:'Am7',   fn:'vi',  notes:[57,60,64,67] },  // A C E G
+    { sym:'Dm7',   fn:'ii',  notes:[50,53,57,60] },  // D F A C
+    { sym:'G7',    fn:'V',   notes:[55,59,62,65] },  // G B D F
+    { sym:'Cmaj7', fn:'I',   notes:[48,52,55,59] }   // C E G B
+  ];
+  var FN_DESC = {
+    'vi':'the vi chord — leads in',
+    'ii':'ii — the ii–V–I begins here',
+    'V':'V — tension',
+    'I':'I — home'
+  };
+
+  /* =========================================================
+     Widget A: read the changes on a lead-sheet strip
+     ========================================================= */
+  var sheetSvg = document.getElementById('sheetSvg');
+  var kbdA = document.getElementById('kbdA');
+  var keysA = buildKeyboard(kbdA);
+  var keyByMidiA = {};
+  keysA.forEach(function(el){ keyByMidiA[el.getAttribute('data-midi')] = el; });
+  var statusA = document.getElementById('statusA');
+  var readoutA = document.getElementById('readoutA');
+
+  // draw 4-bar staff with clef, time sig, chord symbols, clickable bars
+  (function drawSheetA(){
+    var x0 = 20, barW = 130, y = [40,54,68,82,96]; // staff lines
+    for (var i=0;i<5;i++) sheetSvg.appendChild(svgEl('line',{x1:x0,y1:y[i],x2:x0+4*barW+20,y2:y[i],stroke:'#1a1a1a','stroke-width':1}));
+    var clef = svgEl('text',{x:x0+2,y:92,'font-size':52,'font-family':'Georgia,serif',fill:'#1a1a1a'});
+    clef.textContent='𝄞'; sheetSvg.appendChild(clef);
+    // time signature
+    var t1=svgEl('text',{x:x0+42,y:70,'font-size':22,'font-weight':700,'font-family':'Georgia,serif',fill:'#1a1a1a','text-anchor':'middle'});t1.textContent='4';
+    var t2=svgEl('text',{x:x0+42,y:92,'font-size':22,'font-weight':700,'font-family':'Georgia,serif',fill:'#1a1a1a','text-anchor':'middle'});t2.textContent='4';
+    sheetSvg.appendChild(t1);sheetSvg.appendChild(t2);
+    var startX = x0+60;
+    BARS.forEach(function(b, i){
+      var bx = startX + i*barW;
+      // bar line at end of each bar
+      sheetSvg.appendChild(svgEl('line',{x1:bx,y1:y[0],x2:bx,y2:y[4],stroke:'#1a1a1a','stroke-width':1.4}));
+      // chord symbol
+      var cs = svgEl('text',{x:bx+barW/2,y:26,'font-size':17,'font-weight':700,'font-family':'Georgia,serif',fill:'#7a5c2e','text-anchor':'middle'});
+      cs.textContent=b.sym; sheetSvg.appendChild(cs);
+      // clickable group
+      var g = svgEl('g',{class:'bar-hit'}); g.setAttribute('data-i', i);
+      g.appendChild(svgEl('rect',{class:'hit',x:bx+2,y:y[0]-14,width:barW-4,height:(y[4]-y[0])+28,rx:4}));
+      sheetSvg.appendChild(g);
+    });
+    // final barline
+    var fx = startX + 4*barW;
+    sheetSvg.appendChild(svgEl('line',{x1:fx,y1:y[0],x2:fx,y2:y[4],stroke:'#1a1a1a','stroke-width':3}));
+  })();
+
+  function litClear(){ keysA.forEach(function(el){ el.classList.remove('lit','is-root'); }); }
+  function litChord(b){
+    litClear();
+    b.notes.forEach(function(m,idx){
+      var el = keyByMidiA[m];
+      if(el){ el.classList.add(idx===0?'is-root':'lit'); }
+    });
+  }
+  function selectBarA(i){
+    var b = BARS[i];
+    Array.prototype.forEach.call(sheetSvg.querySelectorAll('.bar-hit'), function(g){
+      g.classList.toggle('active', parseInt(g.getAttribute('data-i'),10)===i);
+    });
+    litChord(b);
+    playChord(b.notes);
+    statusA.textContent = 'Bar ' + (i+1) + ' — ' + b.sym;
+    readoutA.innerHTML = '<span class="fn">' + b.sym + '</span> &nbsp;·&nbsp; ' + FN_DESC[b.fn];
+  }
+  Array.prototype.forEach.call(sheetSvg.querySelectorAll('.bar-hit'), function(g){
+    g.addEventListener('click', function(){ selectBarA(parseInt(g.getAttribute('data-i'),10)); });
+  });
+  keysA.forEach(function(el){
+    el.addEventListener('click', function(){
+      playMidi(parseInt(el.getAttribute('data-midi'),10));
+      flash(el,'pressed');
+    });
+  });
+
+  var playPhraseBtn = document.getElementById('playPhraseBtn');
+  playPhraseBtn.addEventListener('click', function(){
+    playPhraseBtn.disabled = true;
+    var i = 0;
+    function step(){
+      if (i >= BARS.length){
+        setTimeout(function(){
+          litClear();
+          Array.prototype.forEach.call(sheetSvg.querySelectorAll('.bar-hit'), function(g){ g.classList.remove('active'); });
+          statusA.textContent = 'That’s the changes. Bars 2–4 are the ii–V–I in C.';
+          playPhraseBtn.disabled = false;
+        }, 950);
+        return;
+      }
+      selectBarA(i);
+      i++;
+      setTimeout(step, 1050);
+    }
+    step();
+  });
+
+  /* =========================================================
+     Widget B: note-reading drill (staff note -> click key)
+     ========================================================= */
+  // pitch -> y position on the drill staff (lines at 50,64,78,92,106)
+  var PITCH_Y = { 60:120, 62:113, 64:106, 65:99, 67:92, 69:85, 71:78 };
+  var PITCH_LETTER = { 60:'C',62:'D',64:'E',65:'F',67:'G',69:'A',71:'B' };
+  var DRILL_MIDIS = [60,62,64,65,67,69,71];
+
+  var drillSvg = document.getElementById('drillSvg');
+  function drawDrillNote(midi){
+    while (drillSvg.firstChild) drillSvg.removeChild(drillSvg.firstChild);
+    var ys = [50,64,78,92,106];
+    for (var i=0;i<5;i++) drillSvg.appendChild(svgEl('line',{x1:20,y1:ys[i],x2:200,y2:ys[i],stroke:'#1a1a1a','stroke-width':1}));
+    var clef = svgEl('text',{x:22,y:100,'font-size':50,'font-family':'Georgia,serif',fill:'#1a1a1a'});
+    clef.textContent='𝄞'; drillSvg.appendChild(clef);
+    var y = PITCH_Y[midi];
+    var cx = 130;
+    if (midi === 60){ // middle C ledger line
+      drillSvg.appendChild(svgEl('line',{x1:cx-13,y1:120,x2:cx+13,y2:120,stroke:'#1a1a1a','stroke-width':1}));
+    }
+    drillSvg.appendChild(svgEl('ellipse',{cx:cx,cy:y,rx:7,ry:5.2,fill:'#1a1a1a'}));
+    drillSvg.appendChild(svgEl('line',{x1:cx+6.5,y1:y-2,x2:cx+6.5,y2:y-33,stroke:'#1a1a1a','stroke-width':1.4}));
+  }
+
+  var kbdB = document.getElementById('kbdB');
+  var keysB = buildKeyboard(kbdB);
+  var keyByMidiB = {};
+  keysB.forEach(function(el){ keyByMidiB[el.getAttribute('data-midi')] = el; });
+  var statusB = document.getElementById('statusB');
+  var fbB = document.getElementById('fbB');
+  var scoreB = document.getElementById('scoreB');
+  var startB = document.getElementById('startB');
+
+  var TOTAL_B = 8;
+  var seqB = [], idxB = 0, scoreVal = 0, targetB = null, lockedB = false, activeB = false;
+
+  function buildSeq(){
+    // shuffle-ish: random draw, avoid immediate repeat
+    var s = [], last = null;
+    for (var i=0;i<TOTAL_B;i++){
+      var pick;
+      do { pick = DRILL_MIDIS[Math.floor(Math.random()*DRILL_MIDIS.length)]; }
+      while (pick === last && DRILL_MIDIS.length > 1);
+      s.push(pick); last = pick;
+    }
+    return s;
+  }
+
+  function clearKeysB(){ keysB.forEach(function(el){ el.classList.remove('correct','wrong','lit'); }); }
+
+  function loadNoteB(){
+    clearKeysB();
+    lockedB = false;
+    targetB = seqB[idxB];
+    drawDrillNote(targetB);
+    statusB.textContent = 'Note ' + (idxB+1) + ' of ' + TOTAL_B + ' — click its key.';
+    fbB.textContent = '';
+    fbB.className = 'quiz-fb';
+  }
+
+  keysB.forEach(function(el){
+    el.addEventListener('click', function(){
+      var midi = parseInt(el.getAttribute('data-midi'),10);
+      if (!activeB){ playMidi(midi); flash(el,'pressed'); return; }
+      if (lockedB) return;
+      playMidi(midi);
+      lockedB = true;
+      if (midi === targetB){
+        scoreVal++;
+        el.classList.add('correct');
+        fbB.className = 'quiz-fb r';
+        fbB.textContent = '✓ Yes — that’s ' + PITCH_LETTER[targetB] + '.';
+      } else {
+        el.classList.add('wrong');
+        var right = keyByMidiB[targetB];
+        if (right) right.classList.add('lit');
+        fbB.className = 'quiz-fb w';
+        fbB.textContent = '✗ That was ' + PITCH_LETTER[midi] + '. The note is ' + PITCH_LETTER[targetB] + ' (highlighted).';
+      }
+      setTimeout(function(){
+        idxB++;
+        if (idxB < TOTAL_B){ loadNoteB(); }
+        else finishB();
+      }, 1150);
+    });
+  });
+
+  function finishB(){
+    activeB = false;
+    clearKeysB();
+    while (drillSvg.firstChild) drillSvg.removeChild(drillSvg.firstChild);
+    statusB.textContent = '';
+    fbB.textContent = '';
+    scoreB.textContent = 'You read ' + scoreVal + ' / ' + TOTAL_B + ' correctly. ' +
+      (scoreVal === TOTAL_B
+        ? 'Clean — the staff-to-key map is landing. Onto the full tune next.'
+        : (scoreVal >= 6
+          ? 'Close. Glance back at the middle-C ladder above, then run the drill again.'
+          : 'Re-read the note ladder above (line, space, line, space from middle C), then try again.'));
+    startB.textContent = 'Run the drill again';
+    startB.disabled = false;
+  }
+
+  startB.addEventListener('click', function(){
+    activeB = true;
+    startB.disabled = true;
+    scoreB.textContent = '';
+    seqB = buildSeq(); idxB = 0; scoreVal = 0;
+    loadNoteB();
+  });
+
+  /* =========================================================
+     Widget C: melody + chords play-through
+     ========================================================= */
+  // simplified melody: two chord-tone notes per bar (half notes)
+  var MELODY = [67,64, 65,62, 65,62, 64,60]; // G E | F D | F D | E C
+  var sheetC = document.getElementById('sheetC');
+  (function drawSheetC(){
+    var x0 = 20, barW = 130, ys = [50,64,78,92,106];
+    var yFor = { 60:120,62:113,64:106,65:99,67:92,69:85,71:78 };
+    for (var i=0;i<5;i++) sheetC.appendChild(svgEl('line',{x1:x0,y1:ys[i],x2:x0+4*barW+20,y2:ys[i],stroke:'#1a1a1a','stroke-width':1}));
+    var clef = svgEl('text',{x:x0+2,y:100,'font-size':50,'font-family':'Georgia,serif',fill:'#1a1a1a'});
+    clef.textContent='𝄞'; sheetC.appendChild(clef);
+    var t1=svgEl('text',{x:x0+42,y:78,'font-size':21,'font-weight':700,'font-family':'Georgia,serif',fill:'#1a1a1a','text-anchor':'middle'});t1.textContent='4';
+    var t2=svgEl('text',{x:x0+42,y:100,'font-size':21,'font-weight':700,'font-family':'Georgia,serif',fill:'#1a1a1a','text-anchor':'middle'});t2.textContent='4';
+    sheetC.appendChild(t1);sheetC.appendChild(t2);
+    var startX = x0+60;
+    BARS.forEach(function(b,i){
+      var bx = startX + i*barW;
+      sheetC.appendChild(svgEl('line',{x1:bx,y1:ys[0],x2:bx,y2:ys[4],stroke:'#1a1a1a','stroke-width':1.4}));
+      var cs = svgEl('text',{x:bx+barW/2,y:30,'font-size':16,'font-weight':700,'font-family':'Georgia,serif',fill:'#7a5c2e','text-anchor':'middle'});
+      cs.textContent=b.sym; sheetC.appendChild(cs);
+      // two melody notes
+      for (var n=0;n<2;n++){
+        var m = MELODY[i*2+n];
+        var cx = bx + barW*(n===0?0.32:0.70);
+        var y = yFor[m];
+        if (m===60) sheetC.appendChild(svgEl('line',{x1:cx-12,y1:120,x2:cx+12,y2:120,stroke:'#1a1a1a','stroke-width':1,class:'noteC'}));
+        sheetC.appendChild(svgEl('ellipse',{cx:cx,cy:y,rx:6.5,ry:5,fill:'#1a1a1a',class:'noteC','data-idx':(i*2+n)}));
+        sheetC.appendChild(svgEl('line',{x1:cx+6,y1:y-2,x2:cx+6,y2:y-30,stroke:'#1a1a1a','stroke-width':1.3,class:'noteC'}));
+      }
+    });
+    var fx = startX + 4*barW;
+    sheetC.appendChild(svgEl('line',{x1:fx,y1:ys[0],x2:fx,y2:ys[4],stroke:'#1a1a1a','stroke-width':3}));
+  })();
+
+  var statusC = document.getElementById('statusC');
+  var playTuneBtn = document.getElementById('playTuneBtn');
+  playTuneBtn.addEventListener('click', function(){
+    playTuneBtn.disabled = true;
+    var ctx = ensureAudio();
+    var t = ctx.currentTime + 0.05;
+    var beat = 0.6; // per half-note
+    BARS.forEach(function(b, i){
+      var barStart = t + i*2*beat;
+      // chord held under the bar (a touch quieter)
+      playChord(b.notes, barStart, 0.10);
+      // two melody half-notes
+      noteAt(MELODY[i*2],   barStart,        beat*0.95, 0.24);
+      noteAt(MELODY[i*2+1], barStart + beat,  beat*0.95, 0.24);
+    });
+    // highlight melody notes in time
+    var notes = Array.prototype.slice.call(sheetC.querySelectorAll('ellipse.noteC'));
+    notes.forEach(function(el, k){
+      var when = k * beat * 1000;
+      setTimeout(function(){
+        el.setAttribute('fill', '#7a5c2e');
+        setTimeout(function(){ el.setAttribute('fill', '#1a1a1a'); }, beat*900);
+      }, when + 60);
+    });
+    statusC.textContent = 'Melody on top, chords underneath — that’s a lead sheet, played.';
+    setTimeout(function(){ playTuneBtn.disabled = false; }, 8*beat*1000 + 300);
+  });
+
+})();
+</script>
+</body>
+</html>
