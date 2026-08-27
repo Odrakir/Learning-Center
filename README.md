@@ -19,6 +19,8 @@ A topic folder contains:
 
 - [`engineering-management/`](engineering-management/) — becoming a good
   engineering manager (new EM, first year).
+- [`electronics/`](electronics/) — electronics from zero, ending in a small
+  autonomous robot that collects crumbs from the dining table.
 
 ## Using the skill
 

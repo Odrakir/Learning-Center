@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference — Course Glossary</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#d8d4cb; --bg:#fdfcf9;
+    --accent:#1f6f6b; --card:#f4f1ea; --live:#c8791a;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.55;margin:0;padding:2.5rem 1.25rem 4rem;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:44rem;margin:0 auto}
+  .kicker{font-size:.74rem;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--accent);margin-bottom:.3rem}
+  h1{font-size:1.75rem;margin:0 0 .3rem;letter-spacing:-0.01em}
+  .dek{font-style:italic;color:var(--muted);margin-bottom:1.6rem;font-size:.98rem}
+  h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);
+    font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700;
+    margin:2.2rem 0 .6rem;padding-bottom:.3rem;border-bottom:1px solid var(--rule)}
+  a{color:var(--accent)}
+  dl{margin:0}
+  dt{font-weight:600;margin-top:1rem;font-size:1.02rem}
+  dt .sym{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);
+    font-weight:400;font-size:.86rem;margin-left:.4rem}
+  dt .tag{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.62rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;color:#fff;background:var(--accent);
+    border-radius:3px;padding:.12rem .4rem;margin-left:.45rem;vertical-align:.13em}
+  dt .tag.soon{background:var(--live)}
+  dd{margin:.15rem 0 0;color:var(--ink)}
+  dd .x{color:var(--muted);font-style:italic;display:block;font-size:.9rem;margin-top:.15rem}
+  .note{background:var(--card);border-radius:8px;padding:.85rem 1.1rem;font-size:.9rem;
+    color:var(--muted);margin:1.2rem 0}
+  .nav{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.9rem}
+  @media print{
+    body{background:#fff;padding:0;font-size:10pt}
+    .nav{display:none}
+    dt .tag{background:none !important;color:#6b6b6b !important;border:1px solid #d8d4cb}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="kicker">Electronics · Reference</div>
+<h1>Course Glossary</h1>
+<div class="dek">Every term this course uses, defined once and used
+consistently. Terms marked <span style="color:#c8791a;font-weight:600">soon</span>
+haven't been taught yet — they're listed so the road ahead is visible.</div>
+
+<div class="note">
+  Where a definition here disagrees with something you read elsewhere, tell me.
+  Hobby electronics writing is full of loose language, and pinning down which
+  version we're using is worth more than either version alone.
+</div>
+
+<h2>The fundamentals</h2>
+<dl>
+
+<dt>Charge<span class="sym">Q · coulomb (C)</span><span class="tag">L1</span></dt>
+<dd>The underlying stuff that moves. You will almost never compute with it
+directly, but current and voltage are both defined in terms of it.</dd>
+
+<dt>Voltage<span class="sym">V · volt (V)</span><span class="tag">L1</span></dt>
+<dd>The difference in electrical potential between two points — the “pressure”
+that pushes charge. Always measured <em>between</em> two points.
+<span class="x">Also called potential difference, or “volts across”.</span></dd>
+
+<dt>Current<span class="sym">I · ampere (A)</span><span class="tag">L1</span></dt>
+<dd>The rate at which charge flows past a point. In a single loop it is the
+same everywhere in that loop.
+<span class="x">Said as “current through”, never “current across”.</span></dd>
+
+<dt>Resistance<span class="sym">R · ohm (Ω)</span><span class="tag">L1</span></dt>
+<dd>How strongly a component opposes current. A property of the part itself,
+independent of the circuit it sits in.</dd>
+
+<dt>Ohm's law<span class="tag">L1</span></dt>
+<dd><span style="font-family:ui-monospace,Menlo,monospace">I = V / R</span>, with
+rearrangements <span style="font-family:ui-monospace,Menlo,monospace">V = I × R</span>
+and <span style="font-family:ui-monospace,Menlo,monospace">R = V / I</span>. Exact
+for resistive components; an approximation or plainly false for others.</dd>
+
+<dt>Power<span class="sym">P · watt (W)</span><span class="tag">L1</span></dt>
+<dd>Energy delivered per second: <span style="font-family:ui-monospace,Menlo,monospace">P
+= V × I</span>. In a resistor it all leaves as heat, which is why parts have
+wattage ratings.</dd>
+
+<dt>Circuit<span class="tag">L1</span></dt>
+<dd>A complete conducting loop from a source, through components, and back.
+Break the loop anywhere and current everywhere in it stops.</dd>
+
+<dt>Short circuit<span class="tag">L1</span></dt>
+<dd>A path of near-zero resistance across a source. Ohm's law then predicts
+enormous current — the failure mode behind most melted parts and fires.</dd>
+
+<dt>Load<span class="tag">L1</span></dt>
+<dd>Whatever the source is driving — the thing that consumes the power. Your
+motors are the robot's main load.</dd>
+
+<dt>Conventional current<span class="tag">L1</span></dt>
+<dd>The agreed convention that current flows from + to −. Electrons in a metal
+actually drift the other way; the convention predates that discovery and every
+schematic and datasheet uses it. Follow the convention.</dd>
+
+</dl>
+
+<h2>Components</h2>
+<dl>
+
+<dt>Resistor<span class="tag">L1</span></dt>
+<dd>A component made to have a specific, stable resistance. Used to limit
+current, divide voltage, and set the operating point of other parts.</dd>
+
+<dt>Voltage source<span class="tag">L1</span></dt>
+<dd>Something that holds a fixed voltage across its terminals and lets the
+circuit decide the current — a battery, to a good approximation.</dd>
+
+<dt>Series / parallel<span class="tag soon">soon</span></dt>
+<dd>The two ways to connect components: end-to-end sharing one current, or
+side-by-side sharing one voltage.</dd>
+
+<dt>Voltage divider<span class="tag soon">soon</span></dt>
+<dd>Two resistors in series used to produce a fraction of the input voltage.
+The circuit underneath most simple sensors.</dd>
+
+<dt>Diode / LED<span class="tag soon">soon</span></dt>
+<dd>A component that conducts in one direction only, and does <em>not</em>
+obey Ohm's law. An LED is a diode that emits light while conducting.</dd>
+
+<dt>Capacitor<span class="tag soon">soon</span></dt>
+<dd>Stores charge and resists sudden voltage change. Used to steady a supply
+when motors cause it to sag.</dd>
+
+<dt>Transistor<span class="tag soon">soon</span></dt>
+<dd>A component in which a small signal controls a large current. The reason a
+microcontroller pin can command a motor it could never power directly.</dd>
+
+<dt>H-bridge<span class="tag soon">soon</span></dt>
+<dd>Four switches arranged so a motor's current can be sent either way through
+it — how a robot reverses a wheel.</dd>
+
+<dt>Motor driver<span class="tag soon">soon</span></dt>
+<dd>A packaged H-bridge plus protection, taking logic-level inputs. The robot
+will likely use a TB6612FNG or an L298N module.</dd>
+
+</dl>
+
+<h2>Control and signals</h2>
+<dl>
+
+<dt>Microcontroller<span class="tag soon">soon</span></dt>
+<dd>A small computer on one chip, with pins it can read and drive directly.
+The robot's brain.</dd>
+
+<dt>GPIO<span class="tag soon">soon</span></dt>
+<dd>General-purpose input/output — a pin the program can either read as a
+digital input or drive HIGH/LOW as an output.</dd>
+
+<dt>PWM<span class="tag soon">soon</span></dt>
+<dd>Pulse-width modulation: switching a pin on and off rapidly, varying the
+on-fraction. How you get a range of motor speeds from a pin that can only be
+fully on or fully off.</dd>
+
+<dt>Pull-up / pull-down<span class="tag soon">soon</span></dt>
+<dd>A resistor that holds an input at a known level when nothing else is
+driving it — the fix for an input that reads noise.</dd>
+
+<dt>Ground<span class="sym">GND</span><span class="tag soon">soon</span></dt>
+<dd>The shared reference point all voltages are measured against. Two circuits
+that must talk to each other need a common ground.</dd>
+
+</dl>
+
+<h2>The robot</h2>
+<dl>
+
+<dt>Differential drive<span class="tag soon">soon</span></dt>
+<dd>Two independently driven wheels plus a caster. Steer by driving the wheels
+at different speeds; spin in place by driving them opposite ways.</dd>
+
+<dt>Cliff / edge sensor<span class="tag soon">soon</span></dt>
+<dd>A downward-facing sensor that detects the absence of a surface. Non-optional
+here: it is what stops the robot driving off the table.</dd>
+
+<dt>Stall current<span class="tag soon">soon</span></dt>
+<dd>The current a motor draws when it is powered but prevented from turning —
+its worst case, and the number that sizes the driver and battery.</dd>
+
+<dt>Power budget<span class="tag soon">soon</span></dt>
+<dd>The sum of what every part draws, against what the battery can supply and
+for how long. Decided before the build, not after.</dd>
+
+</dl>
+
+<div class="nav">
+  <a href="../index.html">← Course index</a> ·
+  <a href="ohms-law.html">Ohm's law reference</a> ·
+  <a href="../lessons/0001-voltage-current-and-resistance.html">Lesson 1</a>
+</div>
+
+</div>
+</body>
+</html>

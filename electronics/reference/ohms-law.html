@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference — Ohm's Law &amp; Units</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#d8d4cb; --bg:#fdfcf9;
+    --accent:#1f6f6b; --card:#f4f1ea; --live:#c8791a;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.55;margin:0;padding:2.5rem 1.25rem 4rem;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:44rem;margin:0 auto}
+  .kicker{font-size:.74rem;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--accent);margin-bottom:.3rem}
+  h1{font-size:1.75rem;margin:0 0 .3rem;letter-spacing:-0.01em}
+  .dek{font-style:italic;color:var(--muted);margin-bottom:2rem;font-size:.98rem}
+  h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);
+    font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700;
+    margin:2.2rem 0 .7rem;padding-bottom:.3rem;border-bottom:1px solid var(--rule)}
+  p{margin:0 0 .8rem}
+  a{color:var(--accent)}
+  table{border-collapse:collapse;width:100%;font-size:.93rem;margin:0 0 1rem}
+  th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--rule);
+    vertical-align:top}
+  th{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.68rem;
+    text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600}
+  td.n{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-variant-numeric:tabular-nums;white-space:nowrap}
+  .eqs{display:grid;gap:.7rem;grid-template-columns:1fr;margin:0 0 1rem}
+  @media(min-width:32rem){.eqs{grid-template-columns:repeat(3,1fr)}}
+  .eqbox{background:var(--card);border-radius:8px;padding:.9rem;text-align:center}
+  .eqbox .f{font-size:1.5rem;letter-spacing:.02em}
+  .eqbox .l{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.68rem;
+    text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.3rem}
+  .tri{display:block;margin:0 auto 1rem;max-width:210px;width:100%;height:auto}
+  .note{background:var(--card);border-radius:8px;padding:.85rem 1.1rem;font-size:.9rem;
+    color:var(--muted);margin:1rem 0}
+  .warnbox{border-left:3px solid var(--live);background:#fdf6ec;border-radius:0 6px 6px 0;
+    padding:.85rem 1.1rem;font-size:.92rem;margin:1rem 0}
+  .warnbox strong{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.7rem;
+    text-transform:uppercase;letter-spacing:.12em;color:var(--live);display:block;
+    margin-bottom:.25rem}
+  .nav{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.9rem}
+  ol{padding-left:1.2rem;margin:0 0 1rem}
+  ol li{margin-bottom:.3rem}
+  @media print{
+    body{background:#fff;padding:0;font-size:10.5pt}
+    .nav{display:none}
+    h2{margin-top:1.2rem}
+    .warnbox,.note,.eqbox{background:#f4f1ea !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="kicker">Electronics · Reference</div>
+<h1>Ohm's Law &amp; Units</h1>
+<div class="dek">The one equation, its three forms, the unit prefixes that
+cause every beginner arithmetic error, and the sanity-check numbers worth
+memorising.</div>
+
+<h2>The equation, three ways</h2>
+
+<div class="eqs">
+  <div class="eqbox"><div class="f"><em>I</em> = <em>V</em> / <em>R</em></div>
+    <div class="l">current from V and R</div></div>
+  <div class="eqbox"><div class="f"><em>V</em> = <em>I</em> × <em>R</em></div>
+    <div class="l">voltage from I and R</div></div>
+  <div class="eqbox"><div class="f"><em>R</em> = <em>V</em> / <em>I</em></div>
+    <div class="l">resistance from V and I</div></div>
+</div>
+
+<svg class="tri" viewBox="0 0 210 170" role="img"
+     aria-label="Ohm's law triangle: V on top, I and R below">
+  <path d="M105 12 L200 158 L10 158 Z" fill="none" stroke="#1f6f6b" stroke-width="2"
+        stroke-linejoin="round"/>
+  <line x1="47" y1="98" x2="163" y2="98" stroke="#1f6f6b" stroke-width="2"/>
+  <line x1="105" y1="98" x2="105" y2="158" stroke="#1f6f6b" stroke-width="2"/>
+  <text x="105" y="80" font-size="34" text-anchor="middle" fill="#1a1a1a"
+        font-family="Georgia,serif" font-style="italic">V</text>
+  <text x="72" y="142" font-size="30" text-anchor="middle" fill="#1a1a1a"
+        font-family="Georgia,serif" font-style="italic">I</text>
+  <text x="140" y="142" font-size="30" text-anchor="middle" fill="#1a1a1a"
+        font-family="Georgia,serif" font-style="italic">R</text>
+</svg>
+
+<p style="text-align:center;font-size:.9rem;color:#6b6b6b;font-style:italic">
+Cover the quantity you want; what's left is the formula.</p>
+
+<h2>Quantities and units</h2>
+
+<table>
+  <tr><th>Quantity</th><th>Symbol</th><th>Unit</th><th>Is</th></tr>
+  <tr><td>Voltage</td><td class="n">V</td><td>volt (V)</td>
+    <td>Pressure difference <em>between two points</em>. Never absolute.</td></tr>
+  <tr><td>Current</td><td class="n">I</td><td>ampere (A)</td>
+    <td>Rate of charge flow <em>past a point</em>. Same everywhere in one loop.</td></tr>
+  <tr><td>Resistance</td><td class="n">R</td><td>ohm (Ω)</td>
+    <td>Opposition to flow. A property of the part itself.</td></tr>
+  <tr><td>Power</td><td class="n">P</td><td>watt (W)</td>
+    <td>Energy per second. In a resistor, all of it becomes heat.</td></tr>
+</table>
+
+<p><strong>Power</strong> follows directly: <span class="n">P = V × I</span>,
+and by substitution <span class="n">P = I²R = V²/R</span>. Reach for it whenever
+the question is “will this get hot?”</p>
+
+<h2>Prefixes — where the factor-of-1000 errors live</h2>
+
+<table>
+  <tr><th>Prefix</th><th>Symbol</th><th>Multiplier</th><th>Typical use</th></tr>
+  <tr><td>milli</td><td class="n">m</td><td class="n">×0.001</td>
+    <td>mA — almost every current you'll meet</td></tr>
+  <tr><td>kilo</td><td class="n">k</td><td class="n">×1 000</td>
+    <td>kΩ — most resistors in signal circuits</td></tr>
+  <tr><td>mega</td><td class="n">M</td><td class="n">×1 000 000</td>
+    <td>MΩ — pull-ups, meter input impedance</td></tr>
+  <tr><td>micro</td><td class="n">µ</td><td class="n">×0.000 001</td>
+    <td>µF — capacitors (a later lesson)</td></tr>
+</table>
+
+<div class="warnbox">
+  <strong>The one rule</strong>
+  Convert to plain volts, amps and ohms <em>before</em> using the equation, and
+  convert back afterwards. 20 mA is 0.02 A. 4.7 kΩ is 4700 Ω. Nearly every
+  wrong answer in this course will trace back to skipping this step.
+</div>
+
+<h2>Resistor shorthand</h2>
+
+<p>Values are often written with the multiplier standing in for the decimal
+point, which survives bad photocopies and small print better:</p>
+
+<table>
+  <tr><th>Written</th><th>Means</th><th>Written</th><th>Means</th></tr>
+  <tr><td class="n">4R7</td><td class="n">4.7 Ω</td>
+      <td class="n">2k2</td><td class="n">2 200 Ω</td></tr>
+  <tr><td class="n">220R</td><td class="n">220 Ω</td>
+      <td class="n">1M0</td><td class="n">1 000 000 Ω</td></tr>
+  <tr><td class="n">1k</td><td class="n">1 000 Ω</td>
+      <td class="n">10k</td><td class="n">10 000 Ω</td></tr>
+</table>
+
+<h2>Numbers worth knowing by heart</h2>
+
+<table>
+  <tr><th>Thing</th><th>Rough figure</th><th>Why it matters</th></tr>
+  <tr><td>Indicator LED current</td><td class="n">10–20 mA</td>
+    <td>The reference point for “small current”.</td></tr>
+  <tr><td>Microcontroller pin, max</td><td class="n">~20–40 mA</td>
+    <td>Exceed it and you damage the chip. A motor is far past this — hence
+    a driver.</td></tr>
+  <tr><td>Small hobby DC motor, running</td><td class="n">100–300 mA</td>
+    <td>Already an order of magnitude beyond a pin.</td></tr>
+  <tr><td>Same motor, stalled</td><td class="n">1–2 A</td>
+    <td>Stall resistance is tiny, so current spikes. Sizes your driver
+    and your battery.</td></tr>
+  <tr><td>Standard resistor rating</td><td class="n">0.25 W</td>
+    <td>Above this it cooks. Check with P = V × I.</td></tr>
+  <tr><td>Common logic supplies</td><td class="n">3.3 V / 5 V</td>
+    <td>Mixing them without thought is a classic way to kill a part.</td></tr>
+</table>
+
+<div class="note">
+  These are order-of-magnitude anchors, not datasheet values. When a real part
+  is in front of you, the datasheet wins — always.
+</div>
+
+<h2>How to attack any DC question</h2>
+
+<ol>
+  <li>Draw the loop. Mark which two points a voltage is <em>across</em>.</li>
+  <li>Convert everything to V, A, Ω.</li>
+  <li>Ask what you know and what you want; pick the matching form.</li>
+  <li>Compute, then <em>sanity-check the magnitude</em> against the table above.
+    Milliamps or amps? If a signal circuit came out at 3 A, you slipped a
+    thousand somewhere.</li>
+  <li>Check the heat: P = V × I. Over a quarter watt, think again.</li>
+</ol>
+
+<div class="nav">
+  <a href="../index.html">← Course index</a> ·
+  <a href="glossary.html">Glossary</a> ·
+  <a href="../lessons/0001-voltage-current-and-resistance.html">Lesson 1</a> ·
+  <a href="https://learn.sparkfun.com/tutorials/voltage-current-resistance-and-ohms-law/all">SparkFun: Ohm's law ↗</a>
+</div>
+
+</div>
+</body>
+</html>

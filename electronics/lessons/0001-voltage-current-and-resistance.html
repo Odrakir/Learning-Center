@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1 — Voltage, Current, and Resistance</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#1f6f6b; --card:#f4f1ea; --live:#c8791a; --hot:#b03a2e;
+    --wire:#3b3b3b;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.62; margin:0; padding:3rem 1.25rem 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:42rem;margin:0 auto}
+  .kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--accent);margin-bottom:.4rem}
+  h1{font-size:2.1rem;line-height:1.15;margin:0 0 .5rem;letter-spacing:-0.01em}
+  .dek{font-style:italic;color:var(--muted);font-size:1.08rem;margin-bottom:2rem}
+  h2{font-size:1.28rem;margin:2.6rem 0 .7rem;letter-spacing:-0.01em}
+  h3{font-size:1rem;margin:1.6rem 0 .4rem;font-family:ui-sans-serif,system-ui,sans-serif;
+     text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600}
+  p{margin:0 0 1rem}
+  a{color:var(--accent)}
+  .lede{font-size:1.06rem}
+  em.term{font-style:normal;font-weight:600;border-bottom:1px dotted var(--accent)}
+  .card{background:var(--card);border-radius:8px;padding:1.1rem 1.3rem;margin:1.6rem 0}
+  .card h3{margin-top:0}
+  .goal{border-left:3px solid var(--accent);background:var(--card);
+    padding:1rem 1.3rem;margin:1.8rem 0;border-radius:0 6px 6px 0}
+  .goal strong{display:block;font-family:ui-sans-serif,system-ui,sans-serif;
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;
+    color:var(--accent);margin-bottom:.3rem;font-weight:700}
+  table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.95rem}
+  th,td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid var(--rule);
+    vertical-align:top}
+  th{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600}
+  code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.92em}
+  .eq{text-align:center;font-size:1.5rem;margin:1.4rem 0;letter-spacing:.02em}
+  .eq .u{color:var(--muted);font-size:.7em}
+  figure{margin:0}
+  .sim{border:1px solid var(--rule);border-radius:10px;padding:1.1rem;margin:1.8rem 0;
+    background:#fff}
+  .sim svg{display:block;width:100%;height:auto;max-width:480px;margin:0 auto}
+  .ctrls{display:grid;grid-template-columns:1fr;gap:.7rem;margin-top:.9rem}
+  @media(min-width:34rem){.ctrls{grid-template-columns:1fr 1fr}}
+  .ctrl label{display:flex;justify-content:space-between;align-items:baseline;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:.8rem;color:var(--muted);
+    margin-bottom:.15rem}
+  .ctrl label b{color:var(--ink);font-size:1rem;font-variant-numeric:tabular-nums}
+  input[type=range]{width:100%;accent-color:var(--accent);margin:0}
+  .readout{display:flex;gap:1.4rem;flex-wrap:wrap;justify-content:center;
+    margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--rule)}
+  .ro{text-align:center}
+  .ro .lab{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.68rem;
+    text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+  .ro .val{font-size:1.45rem;font-variant-numeric:tabular-nums;line-height:1.25}
+  .ro .val.live{color:var(--live)}
+  .warn{margin-top:.8rem;text-align:center;font-size:.87rem;color:var(--hot);
+    min-height:1.3em;font-style:italic}
+  /* drill */
+  .drill{border:1px solid var(--rule);border-radius:10px;padding:1.2rem 1.3rem;
+    margin:1.8rem 0;background:#fff}
+  .prog{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.11em;color:var(--muted);margin-bottom:.6rem}
+  .qtext{font-size:1.05rem;margin-bottom:.9rem}
+  .given{display:flex;gap:1.5rem;flex-wrap:wrap;margin:.9rem 0}
+  .given div{font-variant-numeric:tabular-nums}
+  .given .lab{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.68rem;
+    text-transform:uppercase;letter-spacing:.11em;color:var(--muted);display:block}
+  .given .v{font-size:1.3rem}
+  .answer{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-top:.4rem}
+  .answer input{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1rem;
+    padding:.5rem .6rem;border:1px solid var(--rule);border-radius:6px;width:7.5rem;
+    background:var(--bg);color:var(--ink)}
+  .answer .unit{color:var(--muted);font-size:.95rem}
+  button{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.88rem;font-weight:600;
+    padding:.52rem 1.1rem;border-radius:6px;border:1px solid var(--accent);
+    background:var(--accent);color:#fff;cursor:pointer}
+  button:hover{filter:brightness(1.08)}
+  button.ghost{background:transparent;color:var(--accent)}
+  button:disabled{opacity:.45;cursor:default;filter:none}
+  .fb{margin-top:.9rem;font-size:.94rem;min-height:1.4em}
+  .fb.ok{color:var(--accent)}
+  .fb.no{color:var(--hot)}
+  .fb .work{display:block;color:var(--muted);font-size:.88rem;margin-top:.25rem;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  /* quiz */
+  .quiz{border:1px solid var(--rule);border-radius:10px;padding:1.2rem 1.3rem;
+    margin:1.8rem 0;background:#fff}
+  .quiz .q{margin-bottom:1.5rem}
+  .quiz .q:last-child{margin-bottom:0}
+  .quiz .q > p{margin-bottom:.6rem}
+  .opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--ink);
+    border:1px solid var(--rule);border-radius:6px;padding:.6rem .75rem;margin-bottom:.4rem;
+    font-family:inherit;font-size:.96rem;font-weight:400;cursor:pointer}
+  .opt:hover{border-color:var(--accent)}
+  .opt.right{border-color:var(--accent);background:#eaf4f3;font-weight:600}
+  .opt.wrong{border-color:var(--hot);background:#fbeeec}
+  .opt:disabled{cursor:default}
+  .expl{font-size:.9rem;color:var(--muted);margin-top:.5rem;min-height:1.2em;font-style:italic}
+  .ask{background:var(--card);border-radius:8px;padding:1rem 1.3rem;margin:2.2rem 0;
+    font-size:.95rem}
+  .ask strong{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.74rem;
+    text-transform:uppercase;letter-spacing:.13em;color:var(--accent);display:block;
+    margin-bottom:.35rem}
+  .nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem;
+    padding-top:1.2rem;border-top:1px solid var(--rule);font-size:.92rem}
+  .src{border-left:3px solid var(--live);padding:.9rem 1.2rem;margin:1.8rem 0;
+    background:#fdf6ec;border-radius:0 6px 6px 0;font-size:.95rem}
+  .src strong{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.74rem;
+    text-transform:uppercase;letter-spacing:.13em;color:var(--live);display:block;
+    margin-bottom:.3rem}
+  .fn{font-size:.86rem;color:var(--muted)}
+  ul{padding-left:1.15rem}
+  li{margin-bottom:.35rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="kicker">Electronics · Lesson 01</div>
+<h1>Voltage, Current, and Resistance</h1>
+<div class="dek">Three quantities, one equation. Everything else in this course
+is built on top of them — including the reason your robot's motor will happily
+destroy itself if you let it.</div>
+
+<div class="goal">
+  <strong>By the end of this lesson</strong>
+  You will be able to look at a simple circuit, and <em>predict</em> how much
+  current will flow through it before you ever connect it — in your head, in
+  seconds. That single skill is what separates building circuits from
+  guessing at them.
+</div>
+
+<h2>Where this is going</h2>
+
+<p class="lede">Your robot is, electrically, a very simple thing: a battery, two
+motors, a couple of sensors, and a chip deciding what to do. Every problem
+you will hit while building it — a motor that won't turn, a sensor that reads
+nonsense, a chip that resets whenever the wheels start, a part that gets too
+hot to touch — is a problem about <em>how much current is flowing where</em>.</p>
+
+<p>So we start there. Not because it's traditional, but because you cannot
+debug what you cannot predict.</p>
+
+<h2>The three quantities</h2>
+
+<p>Electricity is charge moving through a conductor. Three numbers describe
+that, and it's worth being fussy about the difference between them, because
+beginners mix up the first two constantly.</p>
+
+<table>
+  <tr><th>Quantity</th><th>Symbol</th><th>Unit</th><th>What it actually is</th></tr>
+  <tr>
+    <td><em class="term">Voltage</em></td><td>V</td><td>volt (V)</td>
+    <td>The difference in electrical “pressure” between two points. It is
+    always <em>between</em> two points — asking “the voltage here” is
+    incomplete, like asking for an altitude with no sea level.</td>
+  </tr>
+  <tr>
+    <td><em class="term">Current</em></td><td>I</td><td>ampere (A)</td>
+    <td>The <em>rate</em> at which charge flows past a point. One amp is a
+    lot in hobby electronics; most things you'll meet are milliamps (mA).</td>
+  </tr>
+  <tr>
+    <td><em class="term">Resistance</em></td><td>R</td><td>ohm (Ω)</td>
+    <td>How much a material opposes that flow. A property of the component,
+    not of the circuit it's in.</td>
+  </tr>
+</table>
+
+<p>The standard analogy is water in a pipe, and it's a good one as long as you
+don't lean on it too hard:</p>
+
+<ul>
+  <li><strong>Voltage</strong> is the <em>pressure difference</em> pushing water along the pipe.</li>
+  <li><strong>Current</strong> is the <em>flow rate</em> — litres per second past a point.</li>
+  <li><strong>Resistance</strong> is the <em>narrowness</em> of the pipe, restricting that flow.</li>
+</ul>
+
+<p>The most useful consequence, and the one people find least intuitive: a
+battery does <em>not</em> supply a fixed current. It supplies a fixed
+<em>voltage</em>. How much current flows is decided by what you connect across
+it. A 9 V battery with nothing attached delivers zero amps. The same battery
+with a paperclip across it delivers as much as it physically can, and gets
+dangerously hot. <em>The circuit decides the current.</em></p>
+
+<div class="card">
+  <h3>An analogy from your day job</h3>
+  <p style="margin:0">Voltage is the pressure your system is under; current is
+  the actual request rate flowing through; resistance is how much the
+  bottleneck throttles it. You don't get to set throughput directly — you set
+  the pressure and the size of the pipe, and throughput falls out of both.
+  Same here, and unlike in software, the equation is exact.</p>
+</div>
+
+<h2>Ohm's law</h2>
+
+<p>Those three quantities are related by one equation, and it is not an
+approximation or a rule of thumb — for ordinary resistive components it is
+simply how the universe behaves:</p>
+
+<div class="eq"><em>I</em> = <em>V</em> / <em>R</em>
+  <span class="u">&nbsp;&nbsp;amps = volts ÷ ohms</span></div>
+
+<p>Which rearranges the two other ways you'll need constantly:</p>
+
+<div class="eq"><em>V</em> = <em>I</em> × <em>R</em>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <em>R</em> = <em>V</em> / <em>I</em></div>
+
+<p>Read the first one aloud as a sentence and it stops being algebra: <em>the
+current that flows is the pressure you apply, divided by the opposition it
+meets.</em> Push harder, more flows. Restrict it more, less flows.</p>
+
+<p class="fn">One unit trap that will bite you: currents are usually quoted in
+milliamps, but the equation wants amps. 20 mA is 0.02 A. Getting this wrong by
+a factor of 1000 is the single most common beginner arithmetic error.</p>
+
+<h2>See it move</h2>
+
+<p>Here is the entire circuit: a battery, and a resistor across it. It starts at
+6 V — the pack your robot will likely run on. Drag the sliders. The dots are
+charge flowing: watch how <em>fast</em> they move, and notice they move at the
+same speed everywhere in the loop, because current in a single loop is the same
+everywhere in it.</p>
+
+<figure class="sim">
+  <svg viewBox="0 0 480 250" role="img" aria-label="A circuit with a battery and a resistor, with animated current flow">
+    <!-- wires -->
+    <path id="wirePath" d="M 100 105 L 100 55 L 380 55 L 380 195 L 100 195 L 100 155"
+          fill="none" stroke="var(--wire)" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- battery: long plate = +, short plate = - -->
+    <line x1="76" y1="105" x2="124" y2="105" stroke="var(--wire)" stroke-width="3"/>
+    <line x1="88" y1="120" x2="112" y2="120" stroke="var(--wire)" stroke-width="5"/>
+    <line x1="76" y1="135" x2="124" y2="135" stroke="var(--wire)" stroke-width="3"/>
+    <line x1="88" y1="150" x2="112" y2="150" stroke="var(--wire)" stroke-width="5"/>
+    <text x="60" y="100" font-size="15" fill="var(--wire)"
+          font-family="ui-sans-serif,system-ui,sans-serif">+</text>
+    <text x="61" y="163" font-size="17" fill="var(--wire)"
+          font-family="ui-sans-serif,system-ui,sans-serif">–</text>
+    <text x="20" y="132" font-size="12" fill="#6b6b6b" text-anchor="start"
+          font-family="ui-sans-serif,system-ui,sans-serif">battery</text>
+    <text id="vLabel" x="20" y="147" font-size="13" fill="#1a1a1a" text-anchor="start"
+          font-family="ui-monospace,Menlo,monospace">6.0 V</text>
+    <!-- resistor: IEC rectangle, unfilled so charge stays visible through it -->
+    <rect id="resBody" x="200" y="42" width="80" height="26" rx="3"
+          fill="none" stroke="var(--wire)" stroke-width="2.5"/>
+    <text x="240" y="30" font-size="12" fill="#6b6b6b" text-anchor="middle"
+          font-family="ui-sans-serif,system-ui,sans-serif">resistor</text>
+    <text id="rLabel" x="240" y="88" font-size="13" fill="#1a1a1a" text-anchor="middle"
+          font-family="ui-monospace,Menlo,monospace">300 Ω</text>
+    <!-- charge carriers, injected by script -->
+    <g id="dots"></g>
+    <!-- current direction arrow -->
+    <text x="440" y="130" font-size="12" fill="#6b6b6b" text-anchor="middle"
+          font-family="ui-sans-serif,system-ui,sans-serif">I</text>
+    <path d="M 440 138 L 440 158 M 435 152 L 440 159 L 445 152"
+          fill="none" stroke="#6b6b6b" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+
+  <div class="ctrls">
+    <div class="ctrl">
+      <label for="vSlide">Battery voltage <b><span id="vOut">6.0</span> V</b></label>
+      <input type="range" id="vSlide" min="1" max="12" step="0.1" value="6">
+    </div>
+    <div class="ctrl">
+      <label for="rSlide">Resistance <b><span id="rOut">300</span> Ω</b></label>
+      <input type="range" id="rSlide" min="5" max="500" step="5" value="300">
+    </div>
+  </div>
+
+  <div class="readout">
+    <div class="ro"><div class="lab">Current</div>
+      <div class="val live" id="iOut">20 mA</div></div>
+    <div class="ro"><div class="lab">Heat in resistor</div>
+      <div class="val" id="pOut">0.12 W</div></div>
+  </div>
+  <div class="warn" id="warnOut"></div>
+</figure>
+
+<p>Three things to actually try, rather than just wiggling the sliders:</p>
+
+<ul>
+  <li><strong>Halve the resistance.</strong> The current exactly doubles. That
+  proportionality <em>is</em> Ohm's law — you're looking at it.</li>
+  <li><strong>Set the resistance to its minimum, voltage to maximum.</strong>
+  Over two amps, and several watts of heat in a part designed to dissipate a
+  quarter of one. This is what "short circuit" means, and it's not an abstract
+  hazard: it's the state your motor is briefly in every time it starts.</li>
+  <li><strong>Watch the dot speed, not the dot count.</strong> Current is a
+  <em>rate</em>. More current is the same charges moving faster past you.</li>
+</ul>
+
+<div class="src">
+  <strong>Read this before the next lesson</strong>
+  <a href="https://learn.sparkfun.com/tutorials/voltage-current-resistance-and-ohms-law/all">SparkFun
+  Learn — “Voltage, Current, Resistance, and Ohm's Law”</a>. It's the single
+  best short treatment of exactly this material, from a company whose entire
+  business depends on beginners succeeding. Twenty minutes, and it will make
+  the water analogy above sit more solidly.
+  <br><br>
+  Then, if you want to poke at it yourself, open the
+  <a href="https://www.falstad.com/circuit/">Falstad circuit simulator</a> and
+  build the same circuit: right-click the canvas to add a resistor and a
+  voltage source. It's the tool this lesson's widget is a miniature imitation
+  of, and it will be your lab bench until you buy hardware.
+</div>
+
+<h2>Now predict, before you check</h2>
+
+<p>Reading the equation is not the same as owning it. Six rounds, mixed
+deliberately between the three rearrangements so you have to decide
+<em>which</em> form you need rather than running the same one on autopilot.
+Work each out before typing — the value is in the retrieval, not the answer.</p>
+
+<div class="drill" id="drill">
+  <div class="prog" id="dProg">Round 1 of 6</div>
+  <div class="qtext" id="dQ">…</div>
+  <div class="given" id="dGiven"></div>
+  <div class="answer">
+    <input type="number" id="dIn" step="any" placeholder="?" aria-label="Your answer">
+    <span class="unit" id="dUnit">mA</span>
+    <button id="dCheck">Check</button>
+    <button id="dNext" class="ghost" style="display:none">Next round →</button>
+  </div>
+  <div class="fb" id="dFb"></div>
+</div>
+
+<h2>Concept check</h2>
+
+<p>Three questions. These test whether the <em>model</em> landed, not the
+arithmetic.</p>
+
+<div class="quiz" id="quiz"></div>
+
+<h2>What you now know</h2>
+
+<p>You can take any circuit consisting of a source and a resistance, and state
+the current in it without building it. That is genuinely the foundation — the
+transistor lesson, the motor-driver lesson and the battery-life lesson are all
+this same equation wearing different clothes.</p>
+
+<p>Two things were deliberately left hanging, and they're the next two lessons:</p>
+
+<ul>
+  <li><strong>Real circuits have more than one component.</strong> When several
+  parts share a loop, how do the voltage and the current divide between them?
+  That's series and parallel, and it's what lets you build a
+  <em>voltage divider</em> — the circuit almost every sensor you'll use is
+  secretly built from.</li>
+  <li><strong>Not everything obeys Ohm's law.</strong> An LED doesn't. A motor
+  doesn't, quite. A transistor emphatically doesn't — and that disobedience is
+  exactly what makes it useful. Understanding where Ohm's law <em>stops</em>
+  applying is what the semiconductor lessons are for.</li>
+</ul>
+
+<div class="ask">
+  <strong>Ask your teacher</strong>
+  I'm your teacher for this course, and no question here is too basic — that's
+  the whole point of starting at zero. Things worth asking me right now, if any
+  of them nagged at you: <em>why is conventional current drawn flowing from +
+  to − when electrons actually go the other way?</em> · <em>what does the
+  battery's own internal resistance do to all of this?</em> · <em>if the
+  circuit decides the current, what does a battery's “2000 mAh” rating
+  actually promise?</em> · or just tell me which part of the water analogy felt
+  like hand-waving, and I'll take it apart properly.
+</div>
+
+<div class="nav">
+  <span><a href="../index.html">← Course index</a></span>
+  <span><a href="../reference/ohms-law.html">Ohm's law reference card →</a></span>
+</div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Widget 1: Ohm's law bench ---------- */
+  var path   = document.getElementById('wirePath');
+  var dotsG  = document.getElementById('dots');
+  var vSlide = document.getElementById('vSlide');
+  var rSlide = document.getElementById('rSlide');
+  var vOut   = document.getElementById('vOut');
+  var rOut   = document.getElementById('rOut');
+  var iOut   = document.getElementById('iOut');
+  var pOut   = document.getElementById('pOut');
+  var warn   = document.getElementById('warnOut');
+  var vLabel = document.getElementById('vLabel');
+  var rLabel = document.getElementById('rLabel');
+  var resBody= document.getElementById('resBody');
+
+  var LEN = path.getTotalLength();
+  var SPACING = 34;
+  var N = Math.max(6, Math.round(LEN / SPACING));
+  var dots = [];
+  for (var i = 0; i < N; i++){
+    var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('r','3.6');
+    c.setAttribute('fill','var(--live)');
+    dotsG.appendChild(c);
+    dots.push(c);
+  }
+
+  var offset = 0, speed = 0, last = null, I = 0, P = 0;
+
+  function fmtI(amps){
+    if (amps >= 1) return amps.toFixed(2) + ' A';
+    return (amps * 1000).toFixed(amps * 1000 < 10 ? 1 : 0) + ' mA';
+  }
+
+  function update(){
+    var V = parseFloat(vSlide.value);
+    var R = parseFloat(rSlide.value);
+    I = V / R;
+    P = V * I;
+
+    vOut.textContent = V.toFixed(1);
+    rOut.textContent = R;
+    vLabel.textContent = V.toFixed(1) + ' V';
+    rLabel.textContent = R + ' Ω';
+    iOut.textContent = fmtI(I);
+    pOut.textContent = P < 1 ? P.toFixed(2) + ' W' : P.toFixed(1) + ' W';
+
+    // Visual speed: sqrt-compressed so a 1000:1 current range stays watchable.
+    var maxI = 12 / 5;
+    speed = 30 + 470 * Math.sqrt(Math.min(I, maxI) / maxI);
+
+    // A garden-variety through-hole resistor is rated 1/4 W.
+    if (P > 0.25){
+      resBody.setAttribute('stroke','var(--hot)');
+      resBody.setAttribute('stroke-width','3.5');
+      warn.textContent = P > 2
+        ? 'Well past a short circuit — this would char the resistor in seconds.'
+        : 'Over 0.25 W: a standard quarter-watt resistor would cook here.';
+    } else {
+      resBody.setAttribute('stroke','var(--wire)');
+      resBody.setAttribute('stroke-width','2.5');
+      warn.textContent = '';
+    }
+  }
+
+  function frame(ts){
+    if (last === null) last = ts;
+    var dt = Math.min((ts - last) / 1000, 0.05);
+    last = ts;
+    offset = (offset + speed * dt) % LEN;
+    for (var i = 0; i < N; i++){
+      var d = (offset + i * (LEN / N)) % LEN;
+      var pt = path.getPointAtLength(d);
+      dots[i].setAttribute('cx', pt.x);
+      dots[i].setAttribute('cy', pt.y);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  vSlide.addEventListener('input', update);
+  rSlide.addEventListener('input', update);
+  update();
+  requestAnimationFrame(frame);
+
+  /* ---------- Widget 2: interleaved predict-then-check drill ---------- */
+  // Each round gives two of {V, I, R} and asks for the third. Currents are
+  // always given and answered in mA, to drill the unit conversion too.
+  var rounds = [
+    { ask:'I', V:9,   R:300,  answer:30,
+      q:'A 9 V battery across a 300 Ω resistor. What current flows?',
+      work:'I = V / R = 9 / 300 = 0.03 A = 30 mA' },
+    { ask:'R', V:5,   I:20,   answer:250,
+      q:'You need to limit the current to 20 mA on a 5 V supply. What resistance does that take?',
+      work:'R = V / I = 5 / 0.02 = 250 Ω' },
+    { ask:'V', R:100, I:50,   answer:5,
+      q:'50 mA is flowing through a 100 Ω resistor. What is the voltage across it?',
+      work:'V = I × R = 0.05 × 100 = 5 V' },
+    { ask:'I', V:6,   R:3,    answer:2000,
+      q:'Your robot’s 6 V pack is connected across a motor winding measuring 3 Ω. What current flows?',
+      work:'I = V / R = 6 / 3 = 2 A = 2000 mA — a hundred times a typical LED.' },
+    { ask:'I', V:3.3, R:220,  answer:15,
+      q:'A 3.3 V microcontroller pin drives a 220 Ω resistor. What current flows?',
+      work:'I = V / R = 3.3 / 220 = 0.015 A = 15 mA' },
+    { ask:'R', V:12,  I:1500, answer:8,
+      q:'12 V produces 1500 mA through a component. What is its resistance?',
+      work:'R = V / I = 12 / 1.5 = 8 Ω' }
+  ];
+
+  var dIdx = 0, dScore = 0, answered = false;
+  var dProg = document.getElementById('dProg');
+  var dQ    = document.getElementById('dQ');
+  var dGiven= document.getElementById('dGiven');
+  var dIn   = document.getElementById('dIn');
+  var dUnit = document.getElementById('dUnit');
+  var dFb   = document.getElementById('dFb');
+  var dCheck= document.getElementById('dCheck');
+  var dNext = document.getElementById('dNext');
+
+  function cell(lab, val){
+    return '<div><span class="lab">' + lab + '</span><span class="v">' + val + '</span></div>';
+  }
+
+  function renderRound(){
+    var r = rounds[dIdx];
+    answered = false;
+    dProg.textContent = 'Round ' + (dIdx + 1) + ' of ' + rounds.length;
+    dQ.textContent = r.q;
+
+    var html = '';
+    if (r.V !== undefined) html += cell('Voltage', r.V + ' V');
+    if (r.I !== undefined) html += cell('Current', r.I + ' mA');
+    if (r.R !== undefined) html += cell('Resistance', r.R + ' Ω');
+    dGiven.innerHTML = html;
+
+    dUnit.textContent = r.ask === 'I' ? 'mA' : (r.ask === 'V' ? 'V' : 'Ω');
+    dIn.value = '';
+    dIn.disabled = false;
+    dFb.textContent = '';
+    dFb.className = 'fb';
+    dCheck.style.display = '';
+    dCheck.disabled = false;
+    dNext.style.display = 'none';
+    dNext.textContent = (dIdx === rounds.length - 1) ? 'See result →' : 'Next round →';
+    dIn.focus();
+  }
+
+  function check(){
+    if (answered) return;
+    var raw = dIn.value.trim();
+    if (raw === '') { dIn.focus(); return; }
+    var got = parseFloat(raw);
+    if (isNaN(got)) { dIn.focus(); return; }
+
+    var r = rounds[dIdx];
+    var ok = Math.abs(got - r.answer) <= Math.abs(r.answer) * 0.02;
+    answered = true;
+    dIn.disabled = true;
+    dCheck.disabled = true;
+
+    if (ok){
+      dScore++;
+      dFb.className = 'fb ok';
+      dFb.innerHTML = 'Correct.<span class="work">' + r.work + '</span>';
+    } else {
+      dFb.className = 'fb no';
+      dFb.innerHTML = 'Not quite — the answer is ' + r.answer + ' ' +
+        dUnit.textContent + '.<span class="work">' + r.work + '</span>';
+    }
+    dCheck.style.display = 'none';
+    dNext.style.display = '';
+    dNext.focus();
+  }
+
+  function next(){
+    if (dIdx === rounds.length - 1){
+      var msg;
+      if (dScore === rounds.length) {
+        msg = 'All six. You own the equation — including the milliamp conversion, which is where most people lose one.';
+      } else if (dScore >= 4) {
+        msg = 'Solid. Worth re-running the ones you missed next week rather than now — spacing them out is what makes them stick.';
+      } else {
+        msg = 'Worth another pass. Re-read the three rearrangements above, then run the drill again — deciding <em>which</em> form to use is the real skill here.';
+      }
+      document.getElementById('drill').innerHTML =
+        '<div class="prog">Drill complete</div>' +
+        '<div class="qtext">' + dScore + ' of ' + rounds.length + ' correct.</div>' +
+        '<p style="margin:0 0 1rem">' + msg + '</p>' +
+        '<button onclick="location.reload()" class="ghost">Run it again</button>';
+      return;
+    }
+    dIdx++;
+    renderRound();
+  }
+
+  dCheck.addEventListener('click', check);
+  dNext.addEventListener('click', next);
+  dIn.addEventListener('keydown', function(e){
+    if (e.key === 'Enter'){ e.preventDefault(); answered ? next() : check(); }
+  });
+  renderRound();
+
+  /* ---------- Widget 3: concept quiz ---------- */
+  // Options are held to equal word count and near-equal length so that
+  // formatting never leaks the answer.
+  var quiz = [
+    {
+      q: 'In the water analogy, which quantity does voltage correspond to?',
+      opts: [
+        'The pressure pushing the water along',
+        'The volume of water flowing past',
+        'The narrowness of the pipe itself'
+      ],
+      correct: 0,
+      why: 'Voltage is the pressure difference. Flow rate is current; pipe narrowness is resistance.'
+    },
+    {
+      q: 'You double the resistance and hold the voltage fixed. The current…',
+      opts: [
+        'falls to half its former value',
+        'rises to twice its former value',
+        'stays at exactly its former value'
+      ],
+      correct: 0,
+      why: 'I = V / R. Resistance sits in the denominator, so doubling it halves the current.'
+    },
+    {
+      q: 'Your robot’s 6 V pack sits across a 3 Ω motor winding. Roughly:',
+      opts: [
+        'two amps flow through the motor',
+        'two volts drop across the motor',
+        'two ohms remain inside the motor'
+      ],
+      correct: 0,
+      why: '6 / 3 = 2, and volts ÷ ohms gives amps. The full 6 V is across the motor, and its resistance is fixed at 3 Ω — the current is the thing the circuit decides.'
+    }
+  ];
+
+  var quizEl = document.getElementById('quiz');
+  quiz.forEach(function(item, qi){
+    var d = document.createElement('div');
+    d.className = 'q';
+    var p = document.createElement('p');
+    p.textContent = (qi + 1) + '. ' + item.q;
+    d.appendChild(p);
+
+    var expl = document.createElement('div');
+    expl.className = 'expl';
+
+    item.opts.forEach(function(text, oi){
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.textContent = text;
+      b.addEventListener('click', function(){
+        var all = d.querySelectorAll('.opt');
+        for (var k = 0; k < all.length; k++) all[k].disabled = true;
+        all[item.correct].classList.add('right');
+        if (oi !== item.correct) b.classList.add('wrong');
+        expl.textContent = (oi === item.correct ? '' : 'Not quite. ') + item.why;
+      });
+      d.appendChild(b);
+    });
+
+    d.appendChild(expl);
+    quizEl.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>

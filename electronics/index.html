@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electronics — course index</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --rule:#e0ddd6; --bg:#fdfcf9;
+    --accent:#1f6f6b; --card:#f4f1ea; --live:#c8791a;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.6; margin:0; padding:3rem 1.25rem 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:42rem;margin:0 auto}
+  .kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--accent);margin-bottom:.4rem}
+  h1{font-size:2.2rem;line-height:1.15;margin:0 0 .5rem;letter-spacing:-0.01em}
+  .dek{font-style:italic;color:var(--muted);font-size:1.1rem;margin-bottom:.5rem}
+  h2{font-size:.85rem;margin:2.4rem 0 .8rem;color:var(--muted);text-transform:uppercase;
+     letter-spacing:.08em;font-family:ui-sans-serif,system-ui,sans-serif;font-style:normal;
+     font-weight:600}
+  ol.lessons{list-style:none;margin:0;padding:0}
+  ol.lessons li{border-bottom:1px solid var(--rule)}
+  ol.lessons a{display:flex;gap:.9rem;align-items:baseline;padding:.9rem .2rem;
+    text-decoration:none;color:var(--ink)}
+  ol.lessons a:hover{background:var(--card)}
+  .num{font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700;color:var(--accent);
+    font-size:.9rem;flex:0 0 1.6rem}
+  .t{flex:1}
+  .t .dek-inline{display:block;color:var(--muted);font-style:italic;font-size:.88rem;
+    margin-top:.15rem}
+  li.soon{opacity:.62}
+  li.soon .num{color:var(--muted)}
+  li.soon span.t{display:flex;flex-direction:column;padding:.9rem .2rem}
+  li.soon > div{display:flex;gap:.9rem;align-items:baseline}
+  a.ref{color:var(--accent)}
+  .note{background:var(--card);border-radius:6px;padding:1rem 1.2rem;margin:1.6rem 0;
+    font-size:.92rem;color:var(--muted)}
+  .arc{border-left:3px solid var(--live);background:#fdf6ec;border-radius:0 6px 6px 0;
+    padding:1rem 1.2rem;margin:1.8rem 0;font-size:.95rem}
+  .arc strong{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.13em;color:var(--live);display:block;
+    margin-bottom:.3rem}
+  p{margin:0 0 1rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Course · Electronics</div>
+  <h1>Electronics, From Zero to a Crumb-Collecting Robot</h1>
+  <div class="dek">Starting at “what is voltage” and ending with a small
+  autonomous robot that sweeps the dining table — understanding every wire in
+  it along the way.</div>
+
+  <div class="arc">
+    <strong>The arc</strong>
+    Foundations first (Ohm's law → dividers → power), then the parts that
+    disobey them (diodes → transistors), then control (logic → PWM → motor
+    drivers), then sensing (including the edge sensor that keeps the robot on
+    the table), and finally the build. Everything is taught through in-browser
+    simulation until the fundamentals justify buying hardware — the course will
+    say clearly when that moment arrives.
+  </div>
+
+  <h2>Lessons</h2>
+  <ol class="lessons">
+    <li><a href="lessons/0001-voltage-current-and-resistance.html"><span class="num">01</span><span class="t">Voltage, Current, and Resistance<span class="dek-inline">Three quantities and one equation — predict the current in a circuit before you build it.</span></span></a></li>
+    <li class="soon"><div><span class="num">02</span><span class="t">Series, Parallel, and the Voltage Divider<span class="dek-inline">How voltage and current split between parts — and the two-resistor circuit hiding inside most sensors.</span></span></div></li>
+    <li class="soon"><div><span class="num">03</span><span class="t">Power, Batteries, and Heat<span class="dek-inline">Watts, amp-hours, and how long the robot actually runs before it stops.</span></span></div></li>
+  </ol>
+
+  <h2>Reference</h2>
+  <p><a class="ref" href="reference/ohms-law.html">Ohm's law &amp; units →</a><br>
+  <a class="ref" href="reference/glossary.html">Course glossary →</a></p>
+
+  <h2>The workspace</h2>
+  <p style="font-size:.93rem"><a class="ref" href="MISSION.md">MISSION.md</a> — why
+  I'm learning this &middot; <a class="ref" href="RESOURCES.md">RESOURCES.md</a> —
+  trusted sources and communities</p>
+
+  <div class="note">
+    Lessons 02 onward are the planned next steps, not yet written — ask me for
+    the next one when you're ready. Each lesson is built for a weekly rhythm:
+    self-contained, with a recap at the top, so a week of forgetting in between
+    doesn't cost you anything.
+  </div>
+</div>
+</body>
+</html>
